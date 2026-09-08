@@ -23,8 +23,9 @@ A package is one UTF-8 JSON document, at most 256,000 bytes. Required envelope f
 `design` accepts `tokens`, `radius` (0–2 rem), `font` (`nunito`, `system`, `serif`, `mono`),
 `fontScale` (0.85–1.2), `backdrop` (`solid`, `aurora`, `spotlight`, `mesh`),
 `backdropStrength` (0–0.65), `glassBlur` (0–40 pixels), and `presentation`.
-Set backdrop/strength/blur explicitly for a solid theme. Unspecified design values use the
-Theme Studio starter, while absent presentation properties use the client's default layout.
+Unspecified design values use the shipped appearance baseline: a 0.5 rem radius, solid
+backdrop, zero backdrop strength and zero glass blur, with the default palette and font.
+Absent presentation properties use the client's default layout.
 
 Color tokens use HSL triplets, e.g. `230 15% 6%`. Token names are `background`, `foreground`,
 `muted`, `mutedForeground`, `primary`, `primaryForeground`, `secondary`, `secondaryForeground`,
