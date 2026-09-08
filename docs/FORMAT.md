@@ -58,10 +58,14 @@ Stack and row use flex layout; grid accepts a column count; overlay places its c
 the same grid area. Node order also determines reading order.
 
 Text uses `text` for a literal string (at most 300 characters), or `field` for host data:
-`title`, `description`, `rank`, `rankPosition`, `score`, `format`, or `year`.
+`title`, `description`, `rank`, `rankPosition`, `score`, `format`, or `year`. Field types are
+the same in every template: `rankPosition` and `score` (0-100) are numbers; every other field
+is a string. A text node bound to `score` renders a percentage such as `78%`.
 Artwork uses `artwork: poster | backdrop | logo`. These bind to host artwork; package URLs
 and arbitrary HTML are not template fields. `when: { field: "rankPosition", atMost: 10 }`
-shows a node only for a positive numeric rank up to ten. Omitting `atMost` checks presence.
+shows a node only for a positive numeric rank up to ten, and `{ field: "score", atMost: 70 }`
+only for a score up to seventy. `atMost` is accepted only on the numeric fields; omitting it
+checks presence for any field.
 
 Hero actions use `action: play | details | favorite | previous | next`. Buttons appear only
 when the host supplies that action. Their optional `text` changes the label. Actions cannot
