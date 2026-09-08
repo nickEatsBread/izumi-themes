@@ -1,0 +1,23 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.meridian",
+    "name": "Meridian",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "A light editorial layout with a poster-led hero and custom landscape media cards.",
+    "themeApi": 1,
+    "tags": [
+      "Light",
+      "Custom hero",
+      "Landscape"
+    ],
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.meridian.png",
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.meridian/1.0.0.json",
+    "sha256": "cd7bfea2514cb5238bd141e666d8b574230185e171b3f54150e2e7975b640201",
+    "bytes": 4516
+  }
+}

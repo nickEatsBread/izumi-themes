@@ -1,0 +1,11 @@
+{
+  "name": "izumi-themes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node --experimental-strip-types scripts/catalog.mjs --write",
+    "test": "node --experimental-strip-types scripts/catalog.mjs"
+  },
+  "engines": { "node": ">=22.16.0" },
+  "license": "MIT"
+}

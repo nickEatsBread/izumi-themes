@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "app",
+    "kind",
+    "schemaVersion",
+    "themes"
+  ],
+  "properties": {
+    "app": {
+      "const": "izumi"
+    },
+    "kind": {
+      "const": "theme-catalog"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "themes": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "author",
+          "description",
+          "version",
+          "themeApi",
+          "tags",
+          "download",
+          "sha256",
+          "bytes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[a-z0-9][a-z0-9.-]{1,63}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 48
+          },
+          "author": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^\\d{1,6}\\.\\d{1,6}\\.\\d{1,6}$"
+          },
+          "themeApi": {
+            "const": 1
+          },
+          "tags": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            }
+          },
+          "download": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "preview": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "project": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 256000
+          }
+        }
+      }
+    }
+  }
+}

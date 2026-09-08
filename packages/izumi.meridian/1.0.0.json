@@ -1,0 +1,172 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 1,
+  "id": "izumi.meridian",
+  "name": "Meridian",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "A light editorial layout with a poster-led hero and custom landscape media cards.",
+  "design": {
+    "tokens": {
+      "scheme": "light",
+      "background": "40 15% 96%",
+      "foreground": "230 20% 12%",
+      "muted": "40 10% 88%",
+      "mutedForeground": "230 8% 38%",
+      "primary": "230 20% 12%",
+      "primaryForeground": "40 15% 96%",
+      "secondary": "40 10% 90%",
+      "secondaryForeground": "230 20% 12%",
+      "accent": "40 10% 84%",
+      "accentForeground": "230 20% 12%",
+      "border": "40 8% 75%",
+      "input": "40 8% 75%",
+      "ring": "172 48% 29%",
+      "card": "40 15% 99%",
+      "cardForeground": "230 20% 12%",
+      "theme": "172 48% 29%"
+    },
+    "radius": 0.5,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "presentation": {
+      "hero": {
+        "template": {
+          "type": "row",
+          "style": {
+            "gap": 24,
+            "align": "center",
+            "justify": "space-between"
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "width": 30,
+                "aspect": "2 / 3",
+                "radius": 8,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "style": {
+                "width": 60,
+                "gap": 12
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "format",
+                  "style": {
+                    "color": "theme",
+                    "fontSize": 12,
+                    "fontWeight": 800
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "style": {
+                    "fontSize": 32,
+                    "fontWeight": 900
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "year",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 14
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "score",
+                  "when": {
+                    "field": "score"
+                  },
+                  "style": {
+                    "color": "theme",
+                    "fontSize": 18,
+                    "fontWeight": 800
+                  }
+                },
+                {
+                  "type": "action",
+                  "action": "play",
+                  "text": "Watch"
+                }
+              ]
+            }
+          ]
+        },
+        "rotate": false,
+        "height": 42,
+        "mobileHeight": 42
+      },
+      "rows": {
+        "defaults": {
+          "width": 228,
+          "gap": 20,
+          "spacing": 40,
+          "card": {
+            "type": "stack",
+            "style": {
+              "gap": 8
+            },
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "aspect": "16 / 9",
+                  "radius": 4
+                }
+              },
+              {
+                "type": "text",
+                "field": "title",
+                "style": {
+                  "fontWeight": 800,
+                  "fontSize": 14
+                }
+              },
+              {
+                "type": "row",
+                "style": {
+                  "justify": "space-between",
+                  "gap": 8
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "field": "year",
+                    "style": {
+                      "color": "muted-foreground",
+                      "fontSize": 11
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "format",
+                    "style": {
+                      "color": "theme",
+                      "fontSize": 11
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
