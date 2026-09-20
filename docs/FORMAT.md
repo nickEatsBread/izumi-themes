@@ -87,8 +87,8 @@ Semantic style colors are `foreground`, `background`, `muted`, `muted-foreground
 these to CSS variables. Raw CSS, selectors, functions, scripts and event-handler strings
 are not part of this contract.
 
-See the Cinema package for a conditional rank badge, Meridian for a composed hero/card,
-and Ink for row-specific grid/carousel choices.
+See Kindling for a split series rail, Tidal for overlay chrome and a top bar,
+and Ledger for a continue-watching home layout.
 
 ## Listings and direct links
 

@@ -13,5 +13,6 @@
   "project": "https://github.com/nickEatsBread/izumi-themes",
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ledger/1.3.0.json",
   "sha256": "3e0f7f7e3ceb3e574af9bffada2df430f700eb9b75e5318c7fe899a65c52da78",
-  "bytes": 7888
+  "bytes": 7888,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ledger.png"
 }

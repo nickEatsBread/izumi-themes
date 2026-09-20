@@ -17,6 +17,7 @@
     "project": "https://github.com/nickEatsBread/izumi-themes",
     "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tidal/1.5.2.json",
     "sha256": "02632c29cb9ef02d4df2446ba1d7f0aff7876f09f2710218fe40276840d1cc75",
-    "bytes": 6739
+    "bytes": 6739,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal.png"
   }
 }

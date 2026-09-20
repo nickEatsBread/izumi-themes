@@ -13,5 +13,6 @@
   "project": "https://github.com/nickEatsBread/izumi-themes",
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.4.0.json",
   "sha256": "d6417828b2d1f95f8653ba63cd8b97d481c47291297dad180011d6b0ea6c674d",
-  "bytes": 13190
+  "bytes": 13190,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.kindling.png"
 }
