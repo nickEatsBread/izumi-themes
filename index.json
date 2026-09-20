@@ -22,6 +22,40 @@
       "bytes": 2586
     },
     {
+      "id": "izumi.ember",
+      "name": "Ember",
+      "version": "1.2.0",
+      "author": "Izumi",
+      "description": "A warm crimson living-room palette: tinted cards, a red accent, landscape resume art and the same split episode rail as Tidal.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Overlay",
+        "Landscape"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ember/1.2.0.json",
+      "sha256": "d25291b4b03f592f627d38c1d97d526637967d0ccde8adb71884050921212162",
+      "bytes": 6012
+    },
+    {
+      "id": "izumi.halo",
+      "name": "Halo",
+      "version": "1.2.0",
+      "author": "Izumi",
+      "description": "Frosted chrome: a top navigation bar, aurora glass, large landscape tiles and quiet poster titles. The seekbar uses the brand accent.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Glass",
+        "Top nav"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.halo/1.2.0.json",
+      "sha256": "a0d0358daddd1d110a2cf49c992025da5b49f7d07f2f5cd4517dad7ee1560716",
+      "bytes": 5545
+    },
+    {
       "id": "izumi.ink",
       "name": "Ink",
       "version": "1.0.0",
@@ -40,6 +74,40 @@
       "bytes": 1487
     },
     {
+      "id": "izumi.kindling",
+      "name": "Kindling",
+      "version": "1.4.0",
+      "author": "Izumi",
+      "description": "Cool gray canvas, rose accent, Nunito. Home opens on a rotating full-bleed featured banner with Watch Now and View Details, then horizontal poster rows. The series page uses icon facts, an overlapping cover, and a right-hand rail with one short episode tile per row — square still on the left, title and synopsis on the right, grow-on-hover.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Split series",
+        "Episode rail"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.4.0.json",
+      "sha256": "d6417828b2d1f95f8653ba63cd8b97d481c47291297dad180011d6b0ea6c674d",
+      "bytes": 13190
+    },
+    {
+      "id": "izumi.ledger",
+      "name": "Ledger",
+      "version": "1.3.0",
+      "author": "Izumi",
+      "description": "Near-black media-server look with a violet accent. Home uses a continue-watching banner, large 16:9 resume stills, then poster carousels beside an icon sidebar. The series page is a tall fluid banner, overlapping cover on the left, metadata, and a grid of episode stills below.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Continue banner",
+        "Landscape"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ledger/1.3.0.json",
+      "sha256": "3e0f7f7e3ceb3e574af9bffada2df430f700eb9b75e5318c7fe899a65c52da78",
+      "bytes": 7888
+    },
+    {
       "id": "izumi.meridian",
       "name": "Meridian",
       "version": "1.0.1",
@@ -56,6 +124,40 @@
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.meridian/1.0.1.json",
       "sha256": "bceef594a0f0aa610bb6b3721b9953c66c4efe9b2d43b409407022be9111c62e",
       "bytes": 4541
+    },
+    {
+      "id": "izumi.orchid",
+      "name": "Orchid",
+      "version": "1.2.0",
+      "author": "Izumi",
+      "description": "A violet living-room palette: cool-black canvas, purple accent, landscape resume cards and a split series page. Pair with true black on OLED.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Mesh",
+        "Split series"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.orchid/1.2.0.json",
+      "sha256": "bcfc6009060745f8211558adabbef543564eb27a3480e183cacc05502b8e8093",
+      "bytes": 4846
+    },
+    {
+      "id": "izumi.tidal",
+      "name": "Tidal",
+      "version": "1.5.2",
+      "author": "Izumi",
+      "description": "Living-room layout: a full-bleed featured backdrop with a large title, compact top navigation, and poster rows with titles and years. The series page paints Play, title, synopsis and chips directly on the artwork. Episodes sit below as wide stills.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Top nav",
+        "Overlay series"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tidal/1.5.2.json",
+      "sha256": "02632c29cb9ef02d4df2446ba1d7f0aff7876f09f2710218fe40276840d1cc75",
+      "bytes": 6739
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.halo",
+    "name": "Halo",
+    "version": "1.2.0",
+    "author": "Izumi",
+    "description": "Frosted chrome: a top navigation bar, aurora glass, large landscape tiles and quiet poster titles. The seekbar uses the brand accent.",
+    "themeApi": 1,
+    "tags": [
+      "Dark",
+      "Glass",
+      "Top nav"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.halo/1.2.0.json",
+    "sha256": "a0d0358daddd1d110a2cf49c992025da5b49f7d07f2f5cd4517dad7ee1560716",
+    "bytes": 5545
+  }
+}

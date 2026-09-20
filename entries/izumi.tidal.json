@@ -1,0 +1,17 @@
+{
+  "id": "izumi.tidal",
+  "name": "Tidal",
+  "version": "1.5.2",
+  "author": "Izumi",
+  "description": "Living-room layout: a full-bleed featured backdrop with a large title, compact top navigation, and poster rows with titles and years. The series page paints Play, title, synopsis and chips directly on the artwork. Episodes sit below as wide stills.",
+  "themeApi": 1,
+  "tags": [
+    "Dark",
+    "Top nav",
+    "Overlay series"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tidal/1.5.2.json",
+  "sha256": "02632c29cb9ef02d4df2446ba1d7f0aff7876f09f2710218fe40276840d1cc75",
+  "bytes": 6739
+}

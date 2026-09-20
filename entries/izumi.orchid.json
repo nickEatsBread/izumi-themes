@@ -1,0 +1,17 @@
+{
+  "id": "izumi.orchid",
+  "name": "Orchid",
+  "version": "1.2.0",
+  "author": "Izumi",
+  "description": "A violet living-room palette: cool-black canvas, purple accent, landscape resume cards and a split series page. Pair with true black on OLED.",
+  "themeApi": 1,
+  "tags": [
+    "Dark",
+    "Mesh",
+    "Split series"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.orchid/1.2.0.json",
+  "sha256": "bcfc6009060745f8211558adabbef543564eb27a3480e183cacc05502b8e8093",
+  "bytes": 4846
+}
