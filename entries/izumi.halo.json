@@ -13,5 +13,6 @@
   "project": "https://github.com/nickEatsBread/izumi-themes",
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.halo/1.2.0.json",
   "sha256": "a0d0358daddd1d110a2cf49c992025da5b49f7d07f2f5cd4517dad7ee1560716",
-  "bytes": 5545
+  "bytes": 5545,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.halo.png"
 }

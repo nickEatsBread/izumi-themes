@@ -13,5 +13,6 @@
   "project": "https://github.com/nickEatsBread/izumi-themes",
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.orchid/1.2.0.json",
   "sha256": "bcfc6009060745f8211558adabbef543564eb27a3480e183cacc05502b8e8093",
-  "bytes": 4846
+  "bytes": 4846,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.orchid.png"
 }

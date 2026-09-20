@@ -3,9 +3,9 @@
 The public theme catalog for Izumi. In the client, open **Settings → Themes** to browse,
 preview, and install a theme. **Add from link** also accepts unlisted themes.
 
-This repository contains listings and example themes, including Cinema, Ink, Meridian,
-Kindling, Ledger, Tidal, Ember, Halo and Orchid. The renderer ships with the client;
-installing a theme changes presentation without installing executable code.
+This repository contains listings and example themes: Kindling, Ledger, Tidal, Ember,
+Halo and Orchid. The renderer ships with the client; installing a theme changes
+presentation without installing executable code.
 
 ## Publishing
 

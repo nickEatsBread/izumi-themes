@@ -17,6 +17,7 @@
     "project": "https://github.com/nickEatsBread/izumi-themes",
     "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ember/1.2.0.json",
     "sha256": "d25291b4b03f592f627d38c1d97d526637967d0ccde8adb71884050921212162",
-    "bytes": 6012
+    "bytes": 6012,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ember.png"
   }
 }
