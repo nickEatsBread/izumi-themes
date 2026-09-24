@@ -125,7 +125,9 @@ default: timed bars on desktop and custom templates, dots on a phone.
 `player.layout: "docked"` keeps the browse chrome while watching and mounts the video in a
 stage instead of the whole container. `player.dock` sets `episodes` (`right`: a scrolling
 episode list beside the stage; `below`: a server switcher and an episode number grid under it),
-`width` (50–100 percent of the container) and `align` (`start`, `center`). The client measures
+`width` (50–100 percent of the container), `align` (`start`, `center`) and `comments` (`below`,
+the default: the episode discussion under the stage, or after the episode grid; `hidden`
+leaves that space plain). The client measures
 the stage and hands its edges to the native video surface on every platform, so the picture is
 rendered at the stage's real pixel size — a smaller player, never a rescaled one. Fullscreen,
 picture-in-picture, Game mode and phones keep the full container. Card templates on home rows

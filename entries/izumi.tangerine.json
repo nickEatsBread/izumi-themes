@@ -1,7 +1,7 @@
 {
   "id": "izumi.tangerine",
   "name": "Tangerine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Izumi",
   "description": "Streaming-service orange on charcoal with square corners. A compact top bar, a tall featured backdrop with a bold Start Watching button, tight poster rows, and a stacked series page whose episodes are a grid of 16:9 stills with numbered titles.",
   "themeApi": 2,
@@ -15,8 +15,8 @@
     "phone"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tangerine/1.0.0.json",
-  "sha256": "e55735b88cb5767b9360af8c4e222c05945b89b2ea866ed76f610660ed55db8e",
-  "bytes": 15538,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tangerine/1.0.1.json",
+  "sha256": "e854a3bb71a2cc14bebdc0dc4341151d1790fb5c09d35663a91b77aec83bd0ba",
+  "bytes": 15953,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tangerine.png"
 }

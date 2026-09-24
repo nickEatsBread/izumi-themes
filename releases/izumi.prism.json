@@ -5,7 +5,7 @@
   "release": {
     "id": "izumi.prism",
     "name": "Prism",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Izumi",
     "description": "Cinematic glass. A tall rotating backdrop with a frosted caption card and a cyan halo, a top navigation bar, large rounded poster rails, wide resume stills with glass captions, and a full-bleed series page with an episode carousel of rounded stills.",
     "themeApi": 2,
@@ -19,9 +19,9 @@
       "phone"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.prism/1.0.0.json",
-    "sha256": "1027fb6cbc155b10ed977da2958e6acdf474eb65ff7eb8e8406110ebc4a12f40",
-    "bytes": 18744,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.prism/1.0.1.json",
+    "sha256": "19b4bc6801786ab938f6f605c04425911989691af51a5b161e503a1f39232ed4",
+    "bytes": 19123,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.prism.png"
   }
 }

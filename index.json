@@ -51,9 +51,9 @@
     {
       "id": "izumi.booth",
       "name": "Booth",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "Izumi",
-      "description": "Modelled on the Miruro site: a near-black canvas with a violet accent and a top bar. Home opens on a wide featured banner with pill buttons and violet pill slide markers, then poster rows with a score badge and an arrow at each heading. The watch page keeps the player deliberately small, docked to the left, with a scrolling episode list beside it; the series page splits info and a thumbnail episode rail with pill tabs. Phones get a floating icon-only bottom bar.",
+      "description": "Modelled on the Miruro site: a near-black canvas with a violet accent and a top bar. Home opens on a wide featured banner with pill buttons and violet pill slide markers, then poster rows with a score badge and an arrow at each heading. The watch page keeps the player deliberately small, docked to the left, with a scrolling episode list beside it and the episode discussion under it; the series page splits info and a thumbnail episode rail with pill tabs. Phones get a floating icon-only bottom bar.",
       "themeApi": 2,
       "tags": [
         "Dark",
@@ -66,15 +66,15 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/1.0.0.json",
-      "sha256": "c6249af9a03cfaea70e027a5bde2fd1a5ba3608469a0df8bb2150e208817f0bd",
-      "bytes": 21057,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/1.0.1.json",
+      "sha256": "8f0dcac818b8a63d94aacf7353c27aa94ceca26717ebbc51d85e848f6561caf7",
+      "bytes": 21124,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.booth.png"
     },
     {
       "id": "izumi.cobalt",
       "name": "Cobalt",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "Izumi",
       "description": "A tracker-style navy canvas with a sky-blue accent and square corners. The stock featured banner keeps its rank badge, poster rows carry grey captions, and the series page stacks a muted facts panel — format, episodes, season, studio, source — beside the cover, with episodes in a still grid.",
       "themeApi": 2,
@@ -88,9 +88,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.cobalt/1.0.0.json",
-      "sha256": "254ce46fa7f09e6774ec4a995eb2bfaf14a0631501d6c3243cbcb1b1f002577d",
-      "bytes": 16193,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.cobalt/1.0.1.json",
+      "sha256": "b87625113345c26ffe975f31f539c8d97a9837e5f13ecbb0eb340fc578ee1930",
+      "bytes": 16576,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.cobalt.png"
     },
     {
@@ -140,7 +140,7 @@
     {
       "id": "izumi.ember",
       "name": "Ember",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "author": "Izumi",
       "description": "A warm crimson living-room palette: tinted cards, a red accent, landscape resume art and the same split episode rail as Tidal.",
       "themeApi": 1,
@@ -150,9 +150,9 @@
         "Landscape"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ember/1.2.0.json",
-      "sha256": "d25291b4b03f592f627d38c1d97d526637967d0ccde8adb71884050921212162",
-      "bytes": 6012,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ember/1.2.1.json",
+      "sha256": "13979860abc447f5f27d7935eed8078dd33f11dc9b31a3d72058b7134a0a2613",
+      "bytes": 10060,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ember.png"
     },
     {
@@ -181,7 +181,7 @@
     {
       "id": "izumi.halo",
       "name": "Halo",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "author": "Izumi",
       "description": "Frosted chrome: a top navigation bar, aurora glass, large landscape tiles and quiet poster titles. The seekbar uses the brand accent.",
       "themeApi": 1,
@@ -191,9 +191,9 @@
         "Top nav"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.halo/1.2.0.json",
-      "sha256": "a0d0358daddd1d110a2cf49c992025da5b49f7d07f2f5cd4517dad7ee1560716",
-      "bytes": 5545,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.halo/1.2.1.json",
+      "sha256": "6eae249d8b07c990a5101e3f894fedfd85ce4249f3f33ee3b496fd75e34a868a",
+      "bytes": 9063,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.halo.png"
     },
     {
@@ -370,7 +370,7 @@
     {
       "id": "izumi.prism",
       "name": "Prism",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "Izumi",
       "description": "Cinematic glass. A tall rotating backdrop with a frosted caption card and a cyan halo, a top navigation bar, large rounded poster rails, wide resume stills with glass captions, and a full-bleed series page with an episode carousel of rounded stills.",
       "themeApi": 2,
@@ -384,9 +384,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.prism/1.0.0.json",
-      "sha256": "1027fb6cbc155b10ed977da2958e6acdf474eb65ff7eb8e8406110ebc4a12f40",
-      "bytes": 18744,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.prism/1.0.1.json",
+      "sha256": "19b4bc6801786ab938f6f605c04425911989691af51a5b161e503a1f39232ed4",
+      "bytes": 19123,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.prism.png"
     },
     {
@@ -439,7 +439,7 @@
     {
       "id": "izumi.tangerine",
       "name": "Tangerine",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "Izumi",
       "description": "Streaming-service orange on charcoal with square corners. A compact top bar, a tall featured backdrop with a bold Start Watching button, tight poster rows, and a stacked series page whose episodes are a grid of 16:9 stills with numbered titles.",
       "themeApi": 2,
@@ -453,15 +453,15 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tangerine/1.0.0.json",
-      "sha256": "e55735b88cb5767b9360af8c4e222c05945b89b2ea866ed76f610660ed55db8e",
-      "bytes": 15538,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tangerine/1.0.1.json",
+      "sha256": "e854a3bb71a2cc14bebdc0dc4341151d1790fb5c09d35663a91b77aec83bd0ba",
+      "bytes": 15953,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tangerine.png"
     },
     {
       "id": "izumi.tidal",
       "name": "Tidal",
-      "version": "1.5.2",
+      "version": "1.5.3",
       "author": "Izumi",
       "description": "Living-room layout: a full-bleed featured backdrop with a large title, compact top navigation, and poster rows with titles and years. The series page paints Play, title, synopsis and chips directly on the artwork. Episodes sit below as wide stills.",
       "themeApi": 1,
@@ -471,9 +471,9 @@
         "Overlay series"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tidal/1.5.2.json",
-      "sha256": "02632c29cb9ef02d4df2446ba1d7f0aff7876f09f2710218fe40276840d1cc75",
-      "bytes": 6739,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tidal/1.5.3.json",
+      "sha256": "4fc43e5ff1f8d6e80de5f10d2188eba8a8afb485e7cfa5138fd8e44483501925",
+      "bytes": 11670,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal.png"
     }
   ]

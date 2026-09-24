@@ -1,7 +1,7 @@
 {
   "id": "izumi.ember",
   "name": "Ember",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Izumi",
   "description": "A warm crimson living-room palette: tinted cards, a red accent, landscape resume art and the same split episode rail as Tidal.",
   "themeApi": 1,
@@ -11,8 +11,8 @@
     "Landscape"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ember/1.2.0.json",
-  "sha256": "d25291b4b03f592f627d38c1d97d526637967d0ccde8adb71884050921212162",
-  "bytes": 6012,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ember/1.2.1.json",
+  "sha256": "13979860abc447f5f27d7935eed8078dd33f11dc9b31a3d72058b7134a0a2613",
+  "bytes": 10060,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ember.png"
 }

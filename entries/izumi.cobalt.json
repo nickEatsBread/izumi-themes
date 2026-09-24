@@ -1,7 +1,7 @@
 {
   "id": "izumi.cobalt",
   "name": "Cobalt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Izumi",
   "description": "A tracker-style navy canvas with a sky-blue accent and square corners. The stock featured banner keeps its rank badge, poster rows carry grey captions, and the series page stacks a muted facts panel — format, episodes, season, studio, source — beside the cover, with episodes in a still grid.",
   "themeApi": 2,
@@ -15,8 +15,8 @@
     "phone"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.cobalt/1.0.0.json",
-  "sha256": "254ce46fa7f09e6774ec4a995eb2bfaf14a0631501d6c3243cbcb1b1f002577d",
-  "bytes": 16193,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.cobalt/1.0.1.json",
+  "sha256": "b87625113345c26ffe975f31f539c8d97a9837e5f13ecbb0eb340fc578ee1930",
+  "bytes": 16576,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.cobalt.png"
 }
