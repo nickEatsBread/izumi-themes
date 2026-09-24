@@ -4,15 +4,19 @@
   "version": "1.0.0",
   "author": "Izumi",
   "description": "The catalog’s light theme. A warm paper canvas, serif type and a coral accent. Top navigation, a featured backdrop with a paper caption card and an ink-dark Watch button, generously rounded poster rows with titles and years, and a split series page with a right-hand episode rail.",
-  "themeApi": 1,
+  "themeApi": 2,
   "tags": [
     "Light",
     "Serif",
     "Top nav"
   ],
+  "platforms": [
+    "desktop",
+    "phone"
+  ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.daylight/1.0.0.json",
-  "sha256": "69d169bbf0ffaf4a6aa3618d8e98970598627e2999274e9d3c3604a299aa9360",
+  "sha256": "9a42aba2ea34add0a79adda2e4492614f4ef6a69d485bd7fb7fc3e04a8812f4d",
   "bytes": 12350,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight.png"
 }

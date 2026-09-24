@@ -8,16 +8,20 @@
     "version": "1.0.0",
     "author": "Izumi",
     "description": "Streaming-service orange on charcoal with square corners. A compact top bar, a tall featured backdrop with a bold Start Watching button, tight poster rows, and a stacked series page whose episodes are a grid of 16:9 stills with numbered titles.",
-    "themeApi": 1,
+    "themeApi": 2,
     "tags": [
       "Dark",
       "Square",
       "Top nav"
     ],
+    "platforms": [
+      "desktop",
+      "phone"
+    ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
     "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tangerine/1.0.0.json",
-    "sha256": "c1f428881dd3950b4ab32357ab109d35cad74661e7eda792753061fc966aed4c",
-    "bytes": 8908,
+    "sha256": "e55735b88cb5767b9360af8c4e222c05945b89b2ea866ed76f610660ed55db8e",
+    "bytes": 15538,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tangerine.png"
   }
 }

@@ -1,7 +1,14 @@
-# Theme API 1
+# Theme API 2
 
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
+
+`themeApi` is `1` or `2`. API 1 is the original key set and every API 1 package stays valid on
+every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions): the
+bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
+layout and the `mobile` block. A client that only knows API 1 refuses an API 2 package with
+"requires a different theme API"; the gallery lists it as "Needs a newer izumi" instead of a
+half-rendered layout. Declare the lowest API a package actually uses.
 
 ## Package
 
@@ -12,7 +19,7 @@ A package is one UTF-8 JSON document, at most 256,000 bytes. Required envelope f
 | `app` | `izumi` |
 | `kind` | `theme-package` |
 | `schemaVersion` | `1` |
-| `themeApi` | `1` |
+| `themeApi` | `1` or `2` (see above) |
 | `id` | Stable lowercase author/theme identity, 2–64 letters, digits, dots or hyphens |
 | `name` | Display name, 1–48 characters |
 | `author` | Attribution, 1–80 characters |
@@ -90,9 +97,43 @@ are not part of this contract.
 See Kindling for a split series rail, Tidal for overlay chrome and a top bar,
 and Ledger for a continue-watching home layout.
 
+## Theme API 2 additions
+
+These keys need `themeApi: 2`. Colours below accept a six/eight-digit hex value or a semantic
+colour name (`theme`, `foreground`, `background`, `card`, `muted`, `muted-foreground`, `primary`).
+
+`shell.bottomNav` styles the phone bottom bar (destinations stay the user's, from Settings →
+Navigation): `style` (`bar` flush with the screen edge, `floating` card above it, or a centred
+`pill`), `labels` (`always`, `active`, `none`), `indicator` (`none`, a tonal `pill` behind the
+icon, a `line` at the top, or a `dot` under the label), `height` (44–88), `iconSize` (16–30),
+`radius` (0–40, floating and pill only), `background`, `activeColor`, `inactiveColor`, `blur`,
+`border`, and `hide` (`scroll`, the default, glides the bar away while scrolling down; `never`
+keeps it). The client reserves the bar's height under the page, so the bar never covers content.
+
+`hero.indicator` replaces the featured banner's slide marker in every layout, built-in or
+templated: `style` (`bars` filled over the interval, `dots`, `pills`, an "n / N" `counter`, or
+`none`), `position` (`start`, `center`, `end`) and `color`. Without it each layout keeps its
+default: timed bars on desktop and custom templates, dots on a phone.
+
+`rows.defaults.heading` and per-row `heading` set `weight` (400–900), `transform` (`none`,
+`uppercase`), `accent` (`none`, a `bar` or `dot` before the title, or an `underline`) and
+`viewMore` (`text`, an `arrow`, or `hidden`).
+
+`detail.tabs` chooses the series page's tab row: `underline` (default), `pills`, an iOS-style
+`segmented` control, or a `bar` of equal tabs with a tinted pill behind the active one.
+
+`player.layout: "docked"` keeps the browse chrome while watching and mounts the video in a
+stage instead of the whole container. `player.dock` sets `episodes` (`right`: a scrolling
+episode list beside the stage; `below`: a server switcher and an episode number grid under it),
+`width` (50–100 percent of the container) and `align` (`start`, `center`). The client measures
+the stage and hands its edges to the native video surface on every platform, so the picture is
+rendered at the stage's real pixel size — a smaller player, never a rescaled one. Fullscreen,
+picture-in-picture, Game mode and phones keep the full container. Card templates on home rows
+also receive `rankPosition` (1-based) and `rank` (zero-padded) for numbered trending rows.
+
 ## Phone overrides
 
-`presentation.mobile` holds a phone variant of the same layout. It accepts `density`,
+`presentation.mobile` holds a phone variant of the same layout (API 2). It accepts `density`,
 `hideCardLabels`, `trueBlack`, `hero`, `rows`, `detail`, `player` and `cards`, each with the
 same shape as its top-level counterpart, and applies on phones only: the Android app and any
 window up to 640 pixels wide. Everywhere else the block is ignored.
@@ -104,14 +145,18 @@ a row in `rows.byId` and a card family in `cards` replace the shared entry as a 
 
 Use it to give a phone a shorter or poster-led featured card, narrower poster rows, a stacked
 series page with a tab-hosted episode list, or caption-free tiles, without a second package.
-Packages that include `mobile` need a client that understands it (izumi 0.1.69 or newer);
-older clients report an unsupported presentation property. See Lavender, Coral, Onyx and
-Blossom for phone-first packages whose shared layout still renders on desktop.
+`shell.bottomNav` lives at the top level because only phones render the bottom bar. Packages
+that include `mobile` declare `themeApi: 2`. See Lavender, Coral, Onyx and Blossom for
+phone-first packages whose shared layout still renders on desktop.
 
 ## Listings and direct links
 
 An entry contains package metadata plus `tags` (at most 12), `download` (HTTPS package URL),
 `sha256` (64 hex characters), and `bytes`. Optional `preview` and `project` are HTTPS URLs.
+Optional `platforms` lists the layouts the author designed, primary first: `["phone"]`,
+`["desktop"]`, `["phone", "desktop"]` (designed for phones, desktop layout included) or
+`["desktop", "phone"]`. The gallery labels and filters listings by it; an entry without it
+serves both. `scripts/listing.mjs --platforms phone,desktop` writes it.
 The catalog wraps entries as:
 
 ```json

@@ -12,11 +12,11 @@ const scalarRanges = { radius: [0, 2], fontScale: [.85, 1.2], backdropStrength: 
 function validatePackage(pkg, entry) {
   assert.equal(pkg.app, 'izumi'); assert.equal(pkg.kind, 'theme-package'); assert.equal(pkg.schemaVersion, 1)
   for (const key of ['id', 'version', 'themeApi']) assert.equal(pkg[key], entry[key], `Package ${key} does not match its listing`)
-  assert.equal(pkg.themeApi, 1)
+  assert([1, 2].includes(pkg.themeApi), 'Unsupported theme API')
   for (const key of ['name', 'author', 'description']) assert.equal(typeof pkg[key], 'string')
   assert(pkg.design && !Array.isArray(pkg.design))
   for (const key of Object.keys(pkg.design)) assert(contentKeys.includes(key), `Unsupported design key: ${key}`)
-  if (pkg.design.presentation) parsePresentation(pkg.design.presentation)
+  if (pkg.design.presentation) parsePresentation(pkg.design.presentation, pkg.themeApi)
   if (pkg.design.tokens) for (const [key, value] of Object.entries(pkg.design.tokens)) {
     if (key === 'scheme') { assert(['dark', 'light'].includes(value)); continue }
     assert(['background', 'foreground', 'muted', 'mutedForeground', 'primary', 'primaryForeground', 'secondary', 'secondaryForeground', 'accent', 'accentForeground', 'border', 'input', 'ring', 'card', 'cardForeground', 'theme'].includes(key))
@@ -44,7 +44,11 @@ const entries = []
 for (const filename of (await readdir(new URL('entries/', root))).filter(name => name.endsWith('.json')).sort()) {
   const entry = await parse(`entries/${filename}`)
   assert(/^[a-z0-9][a-z0-9.-]{1,63}$/.test(entry.id)); assert(/^[0-9]{1,6}\.[0-9]{1,6}\.[0-9]{1,6}$/.test(entry.version))
-  assert.equal(entry.themeApi, 1); assert(Array.isArray(entry.tags) && entry.tags.length <= 12)
+  assert([1, 2].includes(entry.themeApi), 'Unsupported theme API'); assert(Array.isArray(entry.tags) && entry.tags.length <= 12)
+  if (entry.platforms !== undefined) {
+    assert(Array.isArray(entry.platforms) && entry.platforms.length >= 1 && entry.platforms.length <= 2 && new Set(entry.platforms).size === entry.platforms.length, 'Invalid platforms')
+    for (const platform of entry.platforms) assert(['desktop', 'phone'].includes(platform), `Unknown platform: ${platform}`)
+  }
   assert(!entries.some(other => other.id === entry.id), 'Duplicate theme ID')
   for (const [key, max] of [['name', 48], ['author', 80], ['description', 600]]) assert(typeof entry[key] === 'string' && entry[key].trim().length > 0 && entry[key].length <= max)
   for (const tag of entry.tags) assert(typeof tag === 'string' && tag.length <= 32)

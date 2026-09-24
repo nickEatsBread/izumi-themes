@@ -1,0 +1,338 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 2,
+  "id": "izumi.mint",
+  "name": "Mint",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Modelled on the AnimeKai site: a black canvas with a lime accent and a top bar. The featured banner keeps its filled progress bars at the start; section titles carry a lime bar and an arrow; posters have a soft radius with a score badge. The watch page docks the player above the server switcher and an episode number grid; the series page stacks info over a segmented control and a snapshot grid. Phones get a centred icon pill for navigation.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 6%",
+      "foreground": "0 0% 95%",
+      "muted": "0 0% 13%",
+      "mutedForeground": "0 0% 62%",
+      "primary": "84 78% 55%",
+      "primaryForeground": "0 0% 6%",
+      "secondary": "0 0% 13%",
+      "secondaryForeground": "0 0% 95%",
+      "accent": "0 0% 13%",
+      "accentForeground": "0 0% 95%",
+      "border": "0 0% 19%",
+      "input": "0 0% 13%",
+      "ring": "84 78% 55%",
+      "card": "0 0% 10%",
+      "cardForeground": "0 0% 95%",
+      "theme": "84 78% 55%"
+    },
+    "radius": 0.6,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 8,
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "hideCardLabels": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "bottomNav": {
+          "style": "pill",
+          "labels": "none",
+          "indicator": "pill",
+          "height": 60,
+          "iconSize": 24,
+          "radius": 40,
+          "background": "#161616F2",
+          "border": true,
+          "blur": true,
+          "activeColor": "#A3E635"
+        }
+      },
+      "player": {
+        "seekbarHeight": 5,
+        "seekbarColor": "theme",
+        "layout": "docked",
+        "dock": {
+          "episodes": "below",
+          "width": 100,
+          "align": "center"
+        }
+      },
+      "hero": {
+        "height": 56,
+        "mobileHeight": 50,
+        "rotate": true,
+        "interval": 9,
+        "rankHidden": false,
+        "indicator": {
+          "style": "bars",
+          "position": "start",
+          "color": "#A3E635"
+        }
+      },
+      "rows": {
+        "defaults": {
+          "layout": "carousel",
+          "width": 150,
+          "gap": 12,
+          "spacing": 34,
+          "radius": 8,
+          "titleSize": 18,
+          "aspect": "poster",
+          "heading": {
+            "weight": 800,
+            "accent": "bar",
+            "viewMore": "arrow"
+          }
+        },
+        "byId": {
+          "continue": {
+            "layout": "carousel",
+            "width": 270,
+            "aspect": "landscape",
+            "radius": 8
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 8,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "when": {
+                    "field": "score"
+                  },
+                  "style": {
+                    "anchor": "top-end",
+                    "gap": 3,
+                    "align": "center",
+                    "padding": 5,
+                    "background": "#A3E635",
+                    "radius": 6
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "score",
+                      "style": {
+                        "fontSize": 11,
+                        "color": "#0F1A05"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "score",
+                      "style": {
+                        "color": "#0F1A05",
+                        "fontSize": 11,
+                        "fontWeight": 800
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontWeight": 700,
+                "fontSize": 13,
+                "lines": 2
+              }
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "style": {
+            "gap": 0,
+            "background": "card",
+            "radius": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "aspect": "16 / 9",
+                    "radius": 8,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "when": {
+                    "field": "progress"
+                  },
+                  "style": {
+                    "anchor": "bottom-start",
+                    "minHeight": 4,
+                    "background": "#FFFFFF33"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "style": {
+                "padding": 12,
+                "gap": 3
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "title",
+                  "style": {
+                    "fontWeight": 800,
+                    "fontSize": 14,
+                    "lines": 1
+                  }
+                },
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 8,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "episodeNumber",
+                      "style": {
+                        "color": "theme",
+                        "fontSize": 12,
+                        "fontWeight": 800
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeTitle",
+                      "when": {
+                        "field": "episodeTitle"
+                      },
+                      "style": {
+                        "color": "muted-foreground",
+                        "fontSize": 12,
+                        "lines": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "bannerHidden": false,
+        "posterWidth": 190,
+        "bannerHeight": 30,
+        "tabs": "segmented",
+        "cta": "large",
+        "episodes": {
+          "placement": "below",
+          "arrangement": "grid",
+          "hover": "scale",
+          "order": "flip",
+          "search": true,
+          "card": {
+            "type": "overlay",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "still",
+                "style": {
+                  "aspect": "16 / 9",
+                  "radius": 6,
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "text",
+                "field": "episodeNumber",
+                "style": {
+                  "color": "#FFFFFF",
+                  "fontSize": 11,
+                  "fontWeight": 800,
+                  "anchor": "bottom-start",
+                  "padding": 6,
+                  "background": "#000000B3",
+                  "radius": 4
+                }
+              },
+              {
+                "type": "meter",
+                "field": "progress",
+                "when": {
+                  "field": "progress"
+                },
+                "style": {
+                  "anchor": "bottom-start",
+                  "minHeight": 3
+                }
+              }
+            ]
+          }
+        }
+      },
+      "mobile": {
+        "rows": {
+          "defaults": {
+            "width": 112,
+            "gap": 10,
+            "spacing": 26,
+            "radius": 8,
+            "titleSize": 17
+          },
+          "byId": {
+            "continue": {
+              "layout": "carousel",
+              "width": 236,
+              "aspect": "landscape",
+              "radius": 8
+            }
+          }
+        },
+        "detail": {
+          "layout": "stack",
+          "posterWidth": 124,
+          "bannerHeight": 28,
+          "cta": "large",
+          "tabs": "segmented",
+          "episodes": {
+            "placement": "tab",
+            "arrangement": "grid"
+          }
+        }
+      }
+    }
+  }
+}

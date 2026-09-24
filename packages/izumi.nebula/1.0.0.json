@@ -2,7 +2,7 @@
   "app": "izumi",
   "kind": "theme-package",
   "schemaVersion": 1,
-  "themeApi": 1,
+  "themeApi": 2,
   "id": "izumi.nebula",
   "name": "Nebula",
   "version": "1.0.0",
@@ -38,8 +38,16 @@
       "density": "comfortable",
       "trueBlack": false,
       "hideCardLabels": false,
-      "shell": { "nav": "sidebar", "compact": true, "overlay": "none", "press": "sink" },
-      "player": { "seekbarHeight": 4, "seekbarColor": "theme" },
+      "shell": {
+        "nav": "sidebar",
+        "compact": true,
+        "overlay": "none",
+        "press": "sink"
+      },
+      "player": {
+        "seekbarHeight": 4,
+        "seekbarColor": "theme"
+      },
       "hero": {
         "height": 46,
         "mobileHeight": 46,
@@ -49,29 +57,133 @@
         "template": {
           "type": "overlay",
           "children": [
-            { "type": "artwork", "artwork": "backdrop", "style": { "anchor": "fill", "fit": "cover" } },
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
             {
               "type": "stack",
-              "style": { "anchor": "bottom-start", "padding": 28, "gap": 10, "maxWidth": 720 },
+              "style": {
+                "anchor": "bottom-start",
+                "padding": 28,
+                "gap": 10,
+                "maxWidth": 720
+              },
               "children": [
-                { "type": "text", "field": "title", "style": { "color": "#FFFFFF", "fontSize": 38, "fontWeight": 800, "lines": 2 } },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": 38,
+                    "fontWeight": 800,
+                    "lines": 2
+                  }
+                },
                 {
                   "type": "row",
-                  "style": { "gap": 8, "align": "center" },
+                  "style": {
+                    "gap": 8,
+                    "align": "center"
+                  },
                   "children": [
-                    { "type": "text", "field": "year", "when": { "field": "year" }, "style": { "color": "#C9C3F5", "fontSize": 13, "fontWeight": 700 } },
-                    { "type": "text", "field": "format", "when": { "field": "format" }, "style": { "color": "#C9C3F5", "fontSize": 13, "fontWeight": 700 } },
-                    { "type": "text", "field": "genres", "when": { "field": "genres" }, "style": { "color": "#9F98D6", "fontSize": 13 } }
+                    {
+                      "type": "text",
+                      "field": "year",
+                      "when": {
+                        "field": "year"
+                      },
+                      "style": {
+                        "color": "#C9C3F5",
+                        "fontSize": 13,
+                        "fontWeight": 700
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "when": {
+                        "field": "format"
+                      },
+                      "style": {
+                        "color": "#C9C3F5",
+                        "fontSize": 13,
+                        "fontWeight": 700
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "genres",
+                      "when": {
+                        "field": "genres"
+                      },
+                      "style": {
+                        "color": "#9F98D6",
+                        "fontSize": 13
+                      }
+                    }
                   ]
                 },
-                { "type": "text", "field": "description", "when": { "field": "description" }, "style": { "color": "#D6D2F0", "fontSize": 14, "maxWidth": 600, "lines": 3 } },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "when": {
+                    "field": "description"
+                  },
+                  "style": {
+                    "color": "#D6D2F0",
+                    "fontSize": 14,
+                    "maxWidth": 600,
+                    "lines": 3
+                  }
+                },
                 {
                   "type": "row",
-                  "style": { "gap": 10, "align": "center" },
+                  "style": {
+                    "gap": 10,
+                    "align": "center"
+                  },
                   "children": [
-                    { "type": "action", "action": "play", "text": "Play", "style": { "background": "#7B5BF5", "color": "#FFFFFF", "minHeight": 40, "radius": 24, "fontWeight": 800 } },
-                    { "type": "action", "action": "details", "text": "Details", "style": { "background": "#FFFFFF1F", "color": "#FFFFFF", "minHeight": 40, "radius": 24, "fontWeight": 700 } },
-                    { "type": "action", "action": "list", "text": "Add to library", "style": { "background": "transparent", "color": "#C9C3F5", "minHeight": 40, "radius": 24, "fontWeight": 700 } }
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "Play",
+                      "style": {
+                        "background": "#7B5BF5",
+                        "color": "#FFFFFF",
+                        "minHeight": 40,
+                        "radius": 24,
+                        "fontWeight": 800
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "details",
+                      "text": "Details",
+                      "style": {
+                        "background": "#FFFFFF1F",
+                        "color": "#FFFFFF",
+                        "minHeight": 40,
+                        "radius": 24,
+                        "fontWeight": 700
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "list",
+                      "text": "Add to library",
+                      "style": {
+                        "background": "transparent",
+                        "color": "#C9C3F5",
+                        "minHeight": 40,
+                        "radius": 24,
+                        "fontWeight": 700
+                      }
+                    }
                   ]
                 }
               ]
@@ -80,22 +192,79 @@
         }
       },
       "rows": {
-        "defaults": { "layout": "carousel", "width": 150, "gap": 14, "spacing": 30, "radius": 8, "titleSize": 18, "aspect": "poster" },
-        "byId": { "continue": { "layout": "carousel", "width": 300, "aspect": "landscape", "radius": 8, "gap": 14 } }
+        "defaults": {
+          "layout": "carousel",
+          "width": 150,
+          "gap": 14,
+          "spacing": 30,
+          "radius": 8,
+          "titleSize": 18,
+          "aspect": "poster"
+        },
+        "byId": {
+          "continue": {
+            "layout": "carousel",
+            "width": 300,
+            "aspect": "landscape",
+            "radius": 8,
+            "gap": 14
+          }
+        }
       },
       "cards": {
         "poster": {
           "type": "stack",
-          "style": { "gap": 8 },
+          "style": {
+            "gap": 8
+          },
           "children": [
-            { "type": "artwork", "artwork": "poster", "style": { "aspect": "2 / 3", "radius": 8, "fit": "cover" } },
-            { "type": "text", "field": "title", "style": { "fontWeight": 600, "fontSize": 13, "lines": 1 } },
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 8,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontWeight": 600,
+                "fontSize": 13,
+                "lines": 1
+              }
+            },
             {
               "type": "row",
-              "style": { "gap": 6, "align": "center" },
+              "style": {
+                "gap": 6,
+                "align": "center"
+              },
               "children": [
-                { "type": "text", "field": "year", "when": { "field": "year" }, "style": { "color": "muted-foreground", "fontSize": 12 } },
-                { "type": "text", "field": "format", "when": { "field": "format" }, "style": { "color": "muted-foreground", "fontSize": 12 } }
+                {
+                  "type": "text",
+                  "field": "year",
+                  "when": {
+                    "field": "year"
+                  },
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 12
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  },
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 12
+                  }
+                }
               ]
             }
           ]
@@ -103,23 +272,79 @@
         "continue": {
           "type": "overlay",
           "children": [
-            { "type": "artwork", "artwork": "still", "style": { "aspect": "16 / 9", "radius": 8, "fit": "cover" } },
+            {
+              "type": "artwork",
+              "artwork": "still",
+              "style": {
+                "aspect": "16 / 9",
+                "radius": 8,
+                "fit": "cover"
+              }
+            },
             {
               "type": "stack",
-              "style": { "anchor": "bottom-start", "padding": 12, "gap": 3, "background": "#0C0B1BB3", "width": 100 },
+              "style": {
+                "anchor": "bottom-start",
+                "padding": 12,
+                "gap": 3,
+                "background": "#0C0B1BB3",
+                "width": 100
+              },
               "children": [
-                { "type": "text", "field": "title", "style": { "color": "#FFFFFF", "fontWeight": 800, "fontSize": 14, "lines": 1 } },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontWeight": 800,
+                    "fontSize": 14,
+                    "lines": 1
+                  }
+                },
                 {
                   "type": "row",
-                  "style": { "gap": 8, "align": "center" },
+                  "style": {
+                    "gap": 8,
+                    "align": "center"
+                  },
                   "children": [
-                    { "type": "text", "field": "episodeNumber", "style": { "color": "#C9C3F5", "fontSize": 12, "fontWeight": 700 } },
-                    { "type": "text", "field": "episodeTitle", "when": { "field": "episodeTitle" }, "style": { "color": "#D6D2F0", "fontSize": 12, "lines": 1 } }
+                    {
+                      "type": "text",
+                      "field": "episodeNumber",
+                      "style": {
+                        "color": "#C9C3F5",
+                        "fontSize": 12,
+                        "fontWeight": 700
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeTitle",
+                      "when": {
+                        "field": "episodeTitle"
+                      },
+                      "style": {
+                        "color": "#D6D2F0",
+                        "fontSize": 12,
+                        "lines": 1
+                      }
+                    }
                   ]
                 }
               ]
             },
-            { "type": "meter", "field": "progress", "when": { "field": "progress" }, "style": { "anchor": "bottom-start", "minHeight": 4, "background": "#FFFFFF33" } }
+            {
+              "type": "meter",
+              "field": "progress",
+              "when": {
+                "field": "progress"
+              },
+              "style": {
+                "anchor": "bottom-start",
+                "minHeight": 4,
+                "background": "#FFFFFF33"
+              }
+            }
           ]
         }
       },
@@ -135,30 +360,103 @@
           "search": true,
           "card": {
             "type": "row",
-            "style": { "gap": 14, "align": "center", "wrap": "nowrap", "padding": 8, "radius": 10 },
+            "style": {
+              "gap": 14,
+              "align": "center",
+              "wrap": "nowrap",
+              "padding": 8,
+              "radius": 10
+            },
             "children": [
               {
                 "type": "overlay",
-                "style": { "width": 22, "shrink": 0 },
+                "style": {
+                  "width": 22,
+                  "shrink": 0
+                },
                 "children": [
-                  { "type": "artwork", "artwork": "still", "style": { "aspect": "16 / 9", "radius": 6, "fit": "cover" } },
-                  { "type": "meter", "field": "progress", "when": { "field": "progress" }, "style": { "anchor": "bottom-start", "minHeight": 3 } }
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "style": {
+                      "aspect": "16 / 9",
+                      "radius": 6,
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "meter",
+                    "field": "progress",
+                    "when": {
+                      "field": "progress"
+                    },
+                    "style": {
+                      "anchor": "bottom-start",
+                      "minHeight": 3
+                    }
+                  }
                 ]
               },
               {
                 "type": "stack",
-                "style": { "grow": 1, "gap": 4 },
+                "style": {
+                  "grow": 1,
+                  "gap": 4
+                },
                 "children": [
                   {
                     "type": "row",
-                    "style": { "gap": 8, "align": "center", "wrap": "nowrap" },
+                    "style": {
+                      "gap": 8,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
                     "children": [
-                      { "type": "text", "field": "episodeNumber", "style": { "color": "theme", "fontSize": 12, "fontWeight": 800 } },
-                      { "type": "text", "field": "episodeTitle", "style": { "fontWeight": 700, "fontSize": 15, "lines": 1, "grow": 1 } },
-                      { "type": "text", "field": "duration", "when": { "field": "duration" }, "style": { "color": "muted-foreground", "fontSize": 12, "shrink": 0 } }
+                      {
+                        "type": "text",
+                        "field": "episodeNumber",
+                        "style": {
+                          "color": "theme",
+                          "fontSize": 12,
+                          "fontWeight": 800
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeTitle",
+                        "style": {
+                          "fontWeight": 700,
+                          "fontSize": 15,
+                          "lines": 1,
+                          "grow": 1
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "duration",
+                        "when": {
+                          "field": "duration"
+                        },
+                        "style": {
+                          "color": "muted-foreground",
+                          "fontSize": 12,
+                          "shrink": 0
+                        }
+                      }
                     ]
                   },
-                  { "type": "text", "field": "description", "when": { "field": "description" }, "style": { "color": "muted-foreground", "fontSize": 12, "lines": 2 } }
+                  {
+                    "type": "text",
+                    "field": "description",
+                    "when": {
+                      "field": "description"
+                    },
+                    "style": {
+                      "color": "muted-foreground",
+                      "fontSize": 12,
+                      "lines": 2
+                    }
+                  }
                 ]
               }
             ]
@@ -166,12 +464,36 @@
         }
       },
       "mobile": {
-        "hero": { "height": 44 },
-        "rows": {
-          "defaults": { "width": 116, "gap": 10, "spacing": 24, "radius": 8, "titleSize": 17 },
-          "byId": { "continue": { "layout": "carousel", "width": 240, "aspect": "landscape", "radius": 8, "gap": 10 } }
+        "hero": {
+          "height": 44
         },
-        "detail": { "layout": "stack", "bannerHeight": 30, "posterWidth": 128, "episodes": { "placement": "tab", "arrangement": "list" } }
+        "rows": {
+          "defaults": {
+            "width": 116,
+            "gap": 10,
+            "spacing": 24,
+            "radius": 8,
+            "titleSize": 17
+          },
+          "byId": {
+            "continue": {
+              "layout": "carousel",
+              "width": 240,
+              "aspect": "landscape",
+              "radius": 8,
+              "gap": 10
+            }
+          }
+        },
+        "detail": {
+          "layout": "stack",
+          "bannerHeight": 30,
+          "posterWidth": 128,
+          "episodes": {
+            "placement": "tab",
+            "arrangement": "list"
+          }
+        }
       }
     }
   }

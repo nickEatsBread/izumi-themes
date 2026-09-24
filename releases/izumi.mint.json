@@ -1,0 +1,28 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.mint",
+    "name": "Mint",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "Modelled on the AnimeKai site: a black canvas with a lime accent and a top bar. The featured banner keeps its filled progress bars at the start; section titles carry a lime bar and an arrow; posters have a soft radius with a score badge. The watch page docks the player above the server switcher and an episode number grid; the series page stacks info over a segmented control and a snapshot grid. Phones get a centred icon pill for navigation.",
+    "themeApi": 2,
+    "tags": [
+      "Dark",
+      "Site",
+      "Green",
+      "Docked player"
+    ],
+    "platforms": [
+      "desktop",
+      "phone"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.mint/1.0.0.json",
+    "sha256": "49f137920a8da0e9c134bef72385caeec8373e50523cb48c9254987684c6f2e5",
+    "bytes": 9245,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.mint.png"
+  }
+}

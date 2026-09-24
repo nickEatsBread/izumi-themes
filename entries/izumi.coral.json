@@ -3,16 +3,20 @@
   "name": "Coral",
   "version": "1.0.0",
   "author": "Izumi",
-  "description": "A phone-first look in coral red on deep navy with rounded cards. Home leads with a spotlight card — cover on the left, title, genres and a coral Watch button on the right — then tight poster rows. The series page paints the title and Play over the artwork with an episode list underneath. Desktop gets a wide spotlight banner with the same palette.",
-  "themeApi": 1,
+  "description": "A phone-first look in coral red on deep navy. The bottom bar floats above the page as a rounded card and only the active tab shows its label; the spotlight pager marks slides with coral pills at the start; section titles are uppercase with a coral bar; the series page uses pill tabs and a snapshot episode list. Desktop keeps the palette and the overlay series page.",
+  "themeApi": 2,
   "tags": [
     "Phone",
     "Dark",
-    "Spotlight"
+    "Coral"
+  ],
+  "platforms": [
+    "phone",
+    "desktop"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/1.0.0.json",
-  "sha256": "24cde7c878afe8bf64dc9d4da5e41f58454b178d17e0fd9da9c37d59c2ae94e5",
-  "bytes": 9617,
+  "sha256": "5102071cdbde4036e649fdfc5c5569556b8185dd0d9cde568cdda89fd0d2d067",
+  "bytes": 17790,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
 }
