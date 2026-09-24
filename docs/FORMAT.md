@@ -90,6 +90,24 @@ are not part of this contract.
 See Kindling for a split series rail, Tidal for overlay chrome and a top bar,
 and Ledger for a continue-watching home layout.
 
+## Phone overrides
+
+`presentation.mobile` holds a phone variant of the same layout. It accepts `density`,
+`hideCardLabels`, `trueBlack`, `hero`, `rows`, `detail`, `player` and `cards`, each with the
+same shape as its top-level counterpart, and applies on phones only: the Android app and any
+window up to 640 pixels wide. Everywhere else the block is ignored.
+
+Sections merge one level deep over the shared values. A phone `hero` keeps the shared
+`interval` unless it sets its own; phone `rows.defaults` fill in over the shared defaults;
+a row in `rows.byId` and a card family in `cards` replace the shared entry as a whole.
+`shell` is not accepted inside `mobile`: phones always use the bottom bar.
+
+Use it to give a phone a shorter or poster-led featured card, narrower poster rows, a stacked
+series page with a tab-hosted episode list, or caption-free tiles, without a second package.
+Packages that include `mobile` need a client that understands it (izumi 0.1.69 or newer);
+older clients report an unsupported presentation property. See Lavender, Coral, Onyx and
+Blossom for phone-first packages whose shared layout still renders on desktop.
+
 ## Listings and direct links
 
 An entry contains package metadata plus `tags` (at most 12), `download` (HTTPS package URL),

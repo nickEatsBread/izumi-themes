@@ -1,0 +1,23 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.blossom",
+    "name": "Blossom",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "A phone-first Material You look in soft pink over violet-black, with very round corners, a mesh glow and Nunito. Home opens on a featured card that pairs the cover with the title, score and pill actions, then rounded poster rows and card-style resume stills. The series page shows chips for score, format, episodes and season with a thumbnail episode list. Desktop uses the same palette with a wider banner.",
+    "themeApi": 1,
+    "tags": [
+      "Phone",
+      "Dark",
+      "Material"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/1.0.0.json",
+    "sha256": "f289b262060ccaf3625f92a24bc396480c1287060d47e3707f269269ee1529c4",
+    "bytes": 13896,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.blossom.png"
+  }
+}

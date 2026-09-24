@@ -1,0 +1,199 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 1,
+  "id": "izumi.coral",
+  "name": "Coral",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "A phone-first look in coral red on deep navy with rounded cards. Home leads with a spotlight card — cover on the left, title, genres and a coral Watch button on the right — then tight poster rows. The series page paints the title and Play over the artwork with an episode list underneath. Desktop gets a wide spotlight banner with the same palette.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "240 27% 13%",
+      "foreground": "0 0% 98%",
+      "muted": "240 24% 18%",
+      "mutedForeground": "240 12% 70%",
+      "primary": "357 100% 65%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "240 24% 18%",
+      "secondaryForeground": "0 0% 98%",
+      "accent": "240 24% 24%",
+      "accentForeground": "0 0% 98%",
+      "border": "240 20% 26%",
+      "input": "240 24% 18%",
+      "ring": "357 100% 65%",
+      "card": "240 26% 16%",
+      "cardForeground": "0 0% 98%",
+      "theme": "357 100% 65%"
+    },
+    "radius": 0.9,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "hideCardLabels": false,
+      "shell": { "nav": "sidebar", "compact": true, "overlay": "none", "press": "sink" },
+      "player": { "seekbarHeight": 4, "seekbarColor": "theme" },
+      "hero": {
+        "height": 50,
+        "mobileHeight": 44,
+        "rotate": true,
+        "interval": 10,
+        "rankHidden": true,
+        "template": {
+          "type": "overlay",
+          "children": [
+            { "type": "artwork", "artwork": "backdrop", "style": { "anchor": "fill", "fit": "cover" } },
+            {
+              "type": "row",
+              "style": { "anchor": "bottom-start", "padding": 28, "gap": 22, "align": "end", "wrap": "nowrap" },
+              "children": [
+                { "type": "artwork", "artwork": "poster", "style": { "maxWidth": 150, "aspect": "2 / 3", "radius": 14, "fit": "cover" } },
+                {
+                  "type": "stack",
+                  "style": { "gap": 8, "maxWidth": 560 },
+                  "children": [
+                    { "type": "text", "text": "SPOTLIGHT", "style": { "color": "#FF4D57", "fontSize": 11, "fontWeight": 800 } },
+                    { "type": "text", "field": "title", "style": { "color": "#FFFFFF", "fontSize": 34, "fontWeight": 800, "lines": 2 } },
+                    { "type": "text", "field": "genres", "when": { "field": "genres" }, "style": { "color": "#D8D8E8", "fontSize": 13, "fontWeight": 700 } },
+                    { "type": "text", "field": "description", "when": { "field": "description" }, "style": { "color": "#E4E4EE", "fontSize": 14, "lines": 2 } },
+                    {
+                      "type": "row",
+                      "style": { "gap": 10, "align": "center" },
+                      "children": [
+                        { "type": "action", "action": "play", "text": "Watch", "style": { "background": "#FF4D57", "color": "#FFFFFF", "minHeight": 40, "radius": 12, "fontWeight": 800 } },
+                        { "type": "action", "action": "details", "text": "Details", "style": { "background": "#FFFFFF1F", "color": "#FFFFFF", "minHeight": 40, "radius": 12, "fontWeight": 700 } }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": { "layout": "carousel", "width": 150, "gap": 14, "spacing": 32, "radius": 12, "titleSize": 18, "aspect": "poster" },
+        "byId": { "continue": { "layout": "carousel", "width": 290, "aspect": "landscape", "radius": 12, "gap": 14 } }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": { "gap": 8 },
+          "children": [
+            {
+              "type": "overlay",
+              "children": [
+                { "type": "artwork", "artwork": "poster", "style": { "aspect": "2 / 3", "radius": 12, "fit": "cover" } },
+                { "type": "text", "field": "score", "when": { "field": "score" }, "style": { "anchor": "top-start", "color": "#FFFFFF", "fontSize": 11, "fontWeight": 800, "background": "#FF4D57", "radius": 8, "padding": 5 } }
+              ]
+            },
+            { "type": "text", "field": "title", "style": { "fontWeight": 700, "fontSize": 13, "lines": 2 } },
+            { "type": "text", "field": "format", "when": { "field": "format" }, "style": { "color": "muted-foreground", "fontSize": 12 } }
+          ]
+        },
+        "continue": {
+          "type": "overlay",
+          "children": [
+            { "type": "artwork", "artwork": "still", "style": { "aspect": "16 / 9", "radius": 12, "fit": "cover" } },
+            {
+              "type": "stack",
+              "style": { "anchor": "bottom-start", "padding": 12, "gap": 3, "width": 100, "background": "#1A1A2ECC" },
+              "children": [
+                { "type": "text", "field": "title", "style": { "color": "#FFFFFF", "fontWeight": 800, "fontSize": 14, "lines": 1 } },
+                { "type": "text", "field": "episodeNumber", "style": { "color": "#FF8A91", "fontSize": 12, "fontWeight": 800 } }
+              ]
+            },
+            { "type": "meter", "field": "progress", "when": { "field": "progress" }, "style": { "anchor": "bottom-start", "minHeight": 4, "background": "#FFFFFF33" } }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "overlay",
+        "bannerHidden": false,
+        "cta": "large",
+        "episodes": {
+          "placement": "below",
+          "arrangement": "list",
+          "hover": "none",
+          "order": "flip",
+          "search": true,
+          "card": {
+            "type": "row",
+            "style": { "gap": 12, "align": "center", "wrap": "nowrap", "padding": 8, "radius": 12, "background": "card" },
+            "children": [
+              {
+                "type": "overlay",
+                "style": { "width": 30, "shrink": 0 },
+                "children": [
+                  { "type": "artwork", "artwork": "still", "style": { "aspect": "16 / 9", "radius": 8, "fit": "cover" } },
+                  { "type": "meter", "field": "progress", "when": { "field": "progress" }, "style": { "anchor": "bottom-start", "minHeight": 3 } }
+                ]
+              },
+              {
+                "type": "stack",
+                "style": { "grow": 1, "gap": 3 },
+                "children": [
+                  {
+                    "type": "row",
+                    "style": { "gap": 8, "align": "center", "wrap": "nowrap" },
+                    "children": [
+                      { "type": "text", "field": "episodeNumber", "style": { "color": "theme", "fontSize": 12, "fontWeight": 800, "shrink": 0 } },
+                      { "type": "text", "field": "episodeTitle", "style": { "fontWeight": 700, "fontSize": 14, "lines": 1, "grow": 1 } }
+                    ]
+                  },
+                  { "type": "text", "field": "description", "when": { "field": "description" }, "style": { "color": "muted-foreground", "fontSize": 12, "lines": 2 } }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "mobile": {
+        "hero": {
+          "height": 44,
+          "template": {
+            "type": "overlay",
+            "children": [
+              { "type": "artwork", "artwork": "backdrop", "style": { "anchor": "fill", "fit": "cover" } },
+              {
+                "type": "row",
+                "style": { "anchor": "bottom-start", "padding": 16, "gap": 14, "align": "end", "wrap": "nowrap", "width": 100 },
+                "children": [
+                  { "type": "artwork", "artwork": "poster", "style": { "maxWidth": 104, "aspect": "2 / 3", "radius": 12, "fit": "cover", "shrink": 0 } },
+                  {
+                    "type": "stack",
+                    "style": { "gap": 6, "grow": 1 },
+                    "children": [
+                      { "type": "text", "text": "SPOTLIGHT", "style": { "color": "#FF4D57", "fontSize": 10, "fontWeight": 800 } },
+                      { "type": "text", "field": "title", "style": { "color": "#FFFFFF", "fontSize": 22, "fontWeight": 800, "lines": 2 } },
+                      { "type": "text", "field": "genres", "when": { "field": "genres" }, "style": { "color": "#D8D8E8", "fontSize": 11, "fontWeight": 700, "lines": 1 } },
+                      {
+                        "type": "row",
+                        "style": { "gap": 8, "align": "center", "wrap": "nowrap" },
+                        "children": [
+                          { "type": "action", "action": "play", "text": "Watch", "style": { "background": "#FF4D57", "color": "#FFFFFF", "minHeight": 40, "radius": 12, "fontWeight": 800, "grow": 1, "justify": "center" } },
+                          { "type": "action", "action": "details", "text": "Info", "style": { "background": "#FFFFFF1F", "color": "#FFFFFF", "minHeight": 40, "radius": 12, "fontWeight": 700 } }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "rows": {
+          "defaults": { "width": 112, "gap": 10, "spacing": 24, "radius": 12, "titleSize": 17 },
+          "byId": { "continue": { "layout": "carousel", "width": 240, "aspect": "landscape", "radius": 12, "gap": 10 } }
+        }
+      }
+    }
+  }
+}

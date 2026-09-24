@@ -4,8 +4,15 @@
   "type": "module",
   "scripts": {
     "build": "node --experimental-strip-types scripts/catalog.mjs --write",
-    "test": "node --experimental-strip-types scripts/catalog.mjs"
+    "test": "node --experimental-strip-types scripts/catalog.mjs",
+    "listing": "node scripts/listing.mjs",
+    "previews": "node scripts/preview/render.mjs"
   },
-  "engines": { "node": ">=22.16.0" },
-  "license": "MIT"
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "playwright-core": "^1.47.0"
+  }
 }

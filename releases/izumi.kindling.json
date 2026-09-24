@@ -5,9 +5,9 @@
   "release": {
     "id": "izumi.kindling",
     "name": "Kindling",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "author": "Izumi",
-    "description": "Cool gray canvas, rose accent, Nunito. Home opens on a rotating full-bleed featured banner with Watch Now and View Details, then horizontal poster rows. The series page uses icon facts, an overlapping cover, and a right-hand rail with one short episode tile per row — square still on the left, title and synopsis on the right, grow-on-hover.",
+    "description": "Cool gray canvas, rose accent, Nunito. Home opens on a rotating full-bleed featured banner with Watch Now and View Details, then horizontal poster rows. The series page uses icon facts, an overlapping cover, and a right-hand rail with one short episode tile per row — square still on the left, title and synopsis on the right, grow-on-hover. Phones get a shorter banner, tighter rows and a stacked series page with the same episode tiles.",
     "themeApi": 1,
     "tags": [
       "Dark",
@@ -15,9 +15,9 @@
       "Episode rail"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.4.0.json",
-    "sha256": "d6417828b2d1f95f8653ba63cd8b97d481c47291297dad180011d6b0ea6c674d",
-    "bytes": 13190,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.5.0.json",
+    "sha256": "af096ad842690928eb30704db8844c9ce42ecdf5fbbfea225481598f448960e8",
+    "bytes": 25961,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.kindling.png"
   }
 }

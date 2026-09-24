@@ -1,0 +1,23 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.onyx",
+    "name": "Onyx",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "A phone-first true-black streaming look with an electric blue accent. Home opens on a tall centred featured card with white Play and Info buttons, then dense caption-free poster rows and small resume stills. The series page stacks a short banner, cover and a thumbnail episode list. Desktop keeps the black canvas with a wide featured backdrop.",
+    "themeApi": 1,
+    "tags": [
+      "Phone",
+      "True black",
+      "Caption-free"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/1.0.0.json",
+    "sha256": "982fa57f3c5c43d0a0bf335126761e7ed713ffe7a872cce85e6595d4770478cf",
+    "bytes": 9071,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
+  }
+}
