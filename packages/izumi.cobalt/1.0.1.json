@@ -1,0 +1,615 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 2,
+  "id": "izumi.cobalt",
+  "name": "Cobalt",
+  "version": "1.0.1",
+  "author": "Izumi",
+  "description": "A tracker-style navy canvas with a sky-blue accent and square corners. The stock featured banner keeps its rank badge, poster rows carry grey captions, and the series page stacks a muted facts panel — format, episodes, season, studio, source — beside the cover, with episodes in a still grid.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "211 51% 9%",
+      "foreground": "210 30% 92%",
+      "muted": "211 34% 14%",
+      "mutedForeground": "212 22% 66%",
+      "primary": "200 88% 59%",
+      "primaryForeground": "211 51% 9%",
+      "secondary": "211 34% 14%",
+      "secondaryForeground": "210 30% 92%",
+      "accent": "211 34% 18%",
+      "accentForeground": "210 30% 92%",
+      "border": "211 28% 20%",
+      "input": "211 34% 14%",
+      "ring": "200 88% 59%",
+      "card": "211 34% 13%",
+      "cardForeground": "210 30% 92%",
+      "theme": "200 88% 59%"
+    },
+    "radius": 0.35,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "hideCardLabels": false,
+      "shell": {
+        "nav": "sidebar",
+        "compact": false,
+        "overlay": "none",
+        "press": "none"
+      },
+      "player": {
+        "seekbarHeight": 3,
+        "seekbarColor": "theme"
+      },
+      "hero": {
+        "height": 44,
+        "mobileHeight": 44,
+        "rotate": true,
+        "interval": 12,
+        "rankHidden": false,
+        "rank": {
+          "type": "row",
+          "style": {
+            "gap": 6,
+            "align": "center",
+            "background": "#3DB4F2",
+            "radius": 4,
+            "padding": 8
+          },
+          "children": [
+            {
+              "type": "icon",
+              "icon": "score",
+              "style": {
+                "fontSize": 14,
+                "color": "#0B1622"
+              }
+            },
+            {
+              "type": "text",
+              "field": "rank",
+              "style": {
+                "color": "#0B1622",
+                "fontSize": 12,
+                "fontWeight": 800
+              }
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "layout": "carousel",
+          "width": 152,
+          "gap": 20,
+          "spacing": 36,
+          "radius": 4,
+          "titleSize": 18,
+          "aspect": "poster"
+        },
+        "byId": {
+          "continue": {
+            "layout": "carousel",
+            "width": 300,
+            "aspect": "landscape",
+            "radius": 4,
+            "gap": 20
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 4,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "color": "muted-foreground",
+                "fontWeight": 600,
+                "fontSize": 13,
+                "lines": 2
+              }
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "aspect": "16 / 9",
+                    "radius": 4,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "episodeNumber",
+                  "style": {
+                    "anchor": "bottom-end",
+                    "color": "#FFFFFF",
+                    "fontSize": 12,
+                    "fontWeight": 800,
+                    "background": "#0B1622D9",
+                    "radius": 4,
+                    "padding": 6
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "when": {
+                    "field": "progress"
+                  },
+                  "style": {
+                    "anchor": "bottom-start",
+                    "minHeight": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontWeight": 700,
+                "fontSize": 13,
+                "lines": 1
+              }
+            },
+            {
+              "type": "text",
+              "field": "episodeTitle",
+              "when": {
+                "field": "episodeTitle"
+              },
+              "style": {
+                "color": "muted-foreground",
+                "fontSize": 12,
+                "lines": 1
+              }
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "bannerHidden": false,
+        "posterWidth": 220,
+        "bannerHeight": 30,
+        "coverAlign": "start",
+        "facts": {
+          "type": "grid",
+          "style": {
+            "gap": 14,
+            "padding": 16,
+            "background": "muted",
+            "radius": 4,
+            "columns": 3
+          },
+          "children": [
+            {
+              "type": "stack",
+              "when": {
+                "field": "format"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Format",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "format",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "episodeCount"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Episodes",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "episodeCount",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "duration"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Episode duration",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "duration",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "status"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Status",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "status",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "season"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Season",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "season",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "score"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Average score",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "score",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600,
+                    "color": "theme"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "members"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Popularity",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "members",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "studio"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Studio",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "studio",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "source"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Source",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "source",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "when": {
+                "field": "genres"
+              },
+              "style": {
+                "gap": 2
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Genres",
+                  "style": {
+                    "color": "muted-foreground",
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "genres",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600,
+                    "color": "theme"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "episodes": {
+          "placement": "tab",
+          "arrangement": "grid",
+          "hover": "none",
+          "order": "tabs",
+          "search": true,
+          "card": {
+            "type": "stack",
+            "style": {
+              "gap": 0
+            },
+            "children": [
+              {
+                "type": "overlay",
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "style": {
+                      "aspect": "16 / 9",
+                      "radius": 4,
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "meter",
+                    "field": "progress",
+                    "when": {
+                      "field": "progress"
+                    },
+                    "style": {
+                      "anchor": "bottom-start",
+                      "minHeight": 3
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "style": {
+                  "padding": 10,
+                  "gap": 6
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 8,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "episodeNumber",
+                        "style": {
+                          "color": "theme",
+                          "fontSize": 13,
+                          "fontWeight": 800,
+                          "shrink": 0
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeTitle",
+                        "style": {
+                          "fontWeight": 700,
+                          "fontSize": 13,
+                          "lines": 1,
+                          "grow": 1
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "airDate",
+                    "when": {
+                      "field": "airDate"
+                    },
+                    "style": {
+                      "color": "muted-foreground",
+                      "fontSize": 11
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "mobile": {
+        "rows": {
+          "defaults": {
+            "width": 112,
+            "gap": 12,
+            "spacing": 24,
+            "radius": 4,
+            "titleSize": 16
+          }
+        },
+        "detail": {
+          "posterWidth": 124,
+          "bannerHeight": 26,
+          "episodes": {
+            "placement": "tab",
+            "arrangement": "list"
+          }
+        }
+      }
+    }
+  }
+}

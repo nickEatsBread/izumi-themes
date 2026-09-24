@@ -3,7 +3,7 @@
 //
 //   node scripts/preview/render.mjs [--izumi ../izumi] [--url http://127.0.0.1:1420]
 //                                   [--only izumi.kindling,...] [--out previews] [--live]
-//                                   [--shots home,series,phone] [--keep-shots dir]
+//                                   [--shots home,series,phone] [--keep-shots dir] [--viewport 1280x1400]
 //
 // The client must be served by `npm run dev` (Vite) from the sibling izumi checkout, so its
 // modules are importable for seeding. Every preview is the actual Home screen with the theme
@@ -26,6 +26,8 @@ const outDir = resolve(root, args.out ?? 'previews')
 const only = args.only ? new Set(String(args.only).split(',')) : null
 const live = Boolean(args.live)
 const shots = new Set(String(args.shots ?? 'home,series,phone').split(','))
+// `--viewport 1280x1400` sizes the kept desktop shots (Home stays at the catalog's 1280x800).
+const keptViewport = (() => { const m = /^(\d+)x(\d+)$/.exec(String(args.viewport ?? '')); return m ? { width: Number(m[1]), height: Number(m[2]) } : { width: 1280, height: 800 } })()
 const keepShots = args['keep-shots'] ? resolve(root, String(args['keep-shots'])) : null
 const localBase = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
 
@@ -79,7 +81,7 @@ async function renderEntry(entry, pkg, design, phone) {
         writeFileSync(join(outDir, `${entry.id}.png`), home)
       }
       if (keepShots && shots.has('series')) {
-        const series = await capture({ design, platform: 'linux', viewport: { width: 1280, height: 800 }, scale: 1, path: `/app/anime/${MEDIA[0].id}`, wait: waitForSeries })
+        const series = await capture({ design, platform: 'linux', viewport: keptViewport, scale: 1, path: `/app/anime/${MEDIA[0].id}`, wait: waitForSeries })
         writeFileSync(join(keepShots, `${entry.id}-series.png`), series)
       }
       if (keepShots && shots.has('phone')) {
