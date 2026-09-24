@@ -40,7 +40,22 @@
       "pattern": "^\\d{1,6}\\.\\d{1,6}\\.\\d{1,6}$"
     },
     "themeApi": {
-      "const": 1
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "desktop",
+          "phone"
+        ]
+      }
     },
     "tags": {
       "type": "array",

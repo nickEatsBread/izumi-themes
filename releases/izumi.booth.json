@@ -1,0 +1,28 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.booth",
+    "name": "Booth",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "Modelled on the Miruro site: a near-black canvas with a violet accent and a top bar. Home opens on a wide featured banner with pill buttons and violet pill slide markers, then poster rows with a score badge and an arrow at each heading. The watch page keeps the player deliberately small, docked to the left, with a scrolling episode list beside it; the series page splits info and a thumbnail episode rail with pill tabs. Phones get a floating icon-only bottom bar.",
+    "themeApi": 2,
+    "tags": [
+      "Dark",
+      "Site",
+      "Violet",
+      "Docked player"
+    ],
+    "platforms": [
+      "desktop",
+      "phone"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/1.0.0.json",
+    "sha256": "c6249af9a03cfaea70e027a5bde2fd1a5ba3608469a0df8bb2150e208817f0bd",
+    "bytes": 21057,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.booth.png"
+  }
+}

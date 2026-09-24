@@ -1,0 +1,28 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.reel",
+    "name": "Reel",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "Modelled on the AnimePahe watch page: a flat charcoal canvas, a top bar, no featured banner, and Home as a grid of 16:9 snapshot tiles with the format pinned to each still. The watch page docks the player at the top with the server switcher and an episode snapshot grid beneath it; the series page lists episodes as snapshots with an episode badge. On phones the same grid runs under a flush bottom bar with a line marker.",
+    "themeApi": 2,
+    "tags": [
+      "Dark",
+      "Site",
+      "Grid",
+      "Docked player"
+    ],
+    "platforms": [
+      "desktop",
+      "phone"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.reel/1.0.0.json",
+    "sha256": "e3d4efc16d10be584717809d449037d13aa94a8dfe08aa62bf3d063c129b58bd",
+    "bytes": 9112,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.reel.png"
+  }
+}

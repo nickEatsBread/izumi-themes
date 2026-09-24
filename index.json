@@ -4,22 +4,72 @@
   "schemaVersion": 1,
   "themes": [
     {
+      "id": "izumi.amethyst",
+      "name": "Amethyst",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Modelled on the AniWave site: deep slate surfaces with a soft purple accent and a top bar. The featured swiper shows a slide counter, format and year tags and square-cornered buttons; section titles are small uppercase text; posters have a format tag pinned to the bottom. The watch page docks the player with a scrolling episode list beside it; the series page splits info and an episode rail under underlined tabs. Phones get a flush bottom bar with a dot under the active tab.",
+      "themeApi": 2,
+      "tags": [
+        "Dark",
+        "Site",
+        "Purple",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.amethyst/1.0.0.json",
+      "sha256": "67095139ededcaf54f15b0702d63ef502dfeb7db46847317948efafedeb5b3ae",
+      "bytes": 19426,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.amethyst.png"
+    },
+    {
       "id": "izumi.blossom",
       "name": "Blossom",
       "version": "1.0.0",
       "author": "Izumi",
-      "description": "A phone-first Material You look in soft pink over violet-black, with very round corners, a mesh glow and Nunito. Home opens on a featured card that pairs the cover with the title, score and pill actions, then rounded poster rows and card-style resume stills. The series page shows chips for score, format, episodes and season with a thumbnail episode list. Desktop uses the same palette with a wider banner.",
-      "themeApi": 1,
+      "description": "A phone-first Material You look in soft pink over violet-black, with very round corners, a mesh glow and Nunito. The bottom bar is a centred floating pill with a tonal highlight behind the active tab; the trending pager fills pink bars at the end; section titles are uppercase; the series page switches between Info and Watch through a bar of two equal tabs, with chips for score, format, episodes and season. Desktop keeps the palette with a wider banner.",
+      "themeApi": 2,
       "tags": [
         "Phone",
         "Dark",
         "Material"
       ],
+      "platforms": [
+        "phone",
+        "desktop"
+      ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/1.0.0.json",
-      "sha256": "f289b262060ccaf3625f92a24bc396480c1287060d47e3707f269269ee1529c4",
-      "bytes": 13896,
+      "sha256": "12b8d901a8e7277179a182f9ab2ea20540ddb6b0b90f70aab4979a0d063d3735",
+      "bytes": 27105,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.blossom.png"
+    },
+    {
+      "id": "izumi.booth",
+      "name": "Booth",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Modelled on the Miruro site: a near-black canvas with a violet accent and a top bar. Home opens on a wide featured banner with pill buttons and violet pill slide markers, then poster rows with a score badge and an arrow at each heading. The watch page keeps the player deliberately small, docked to the left, with a scrolling episode list beside it; the series page splits info and a thumbnail episode rail with pill tabs. Phones get a floating icon-only bottom bar.",
+      "themeApi": 2,
+      "tags": [
+        "Dark",
+        "Site",
+        "Violet",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/1.0.0.json",
+      "sha256": "c6249af9a03cfaea70e027a5bde2fd1a5ba3608469a0df8bb2150e208817f0bd",
+      "bytes": 21057,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.booth.png"
     },
     {
       "id": "izumi.cobalt",
@@ -27,15 +77,19 @@
       "version": "1.0.0",
       "author": "Izumi",
       "description": "A tracker-style navy canvas with a sky-blue accent and square corners. The stock featured banner keeps its rank badge, poster rows carry grey captions, and the series page stacks a muted facts panel — format, episodes, season, studio, source — beside the cover, with episodes in a still grid.",
-      "themeApi": 1,
+      "themeApi": 2,
       "tags": [
         "Dark",
         "Tracker",
         "Facts panel"
       ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.cobalt/1.0.0.json",
-      "sha256": "2b2ef55e942b253a84b2183ad95009bff59c975ff309c8a3d524982de8bc7eb6",
+      "sha256": "254ce46fa7f09e6774ec4a995eb2bfaf14a0631501d6c3243cbcb1b1f002577d",
       "bytes": 16193,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.cobalt.png"
     },
@@ -44,17 +98,21 @@
       "name": "Coral",
       "version": "1.0.0",
       "author": "Izumi",
-      "description": "A phone-first look in coral red on deep navy with rounded cards. Home leads with a spotlight card — cover on the left, title, genres and a coral Watch button on the right — then tight poster rows. The series page paints the title and Play over the artwork with an episode list underneath. Desktop gets a wide spotlight banner with the same palette.",
-      "themeApi": 1,
+      "description": "A phone-first look in coral red on deep navy. The bottom bar floats above the page as a rounded card and only the active tab shows its label; the spotlight pager marks slides with coral pills at the start; section titles are uppercase with a coral bar; the series page uses pill tabs and a snapshot episode list. Desktop keeps the palette and the overlay series page.",
+      "themeApi": 2,
       "tags": [
         "Phone",
         "Dark",
-        "Spotlight"
+        "Coral"
+      ],
+      "platforms": [
+        "phone",
+        "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/1.0.0.json",
-      "sha256": "24cde7c878afe8bf64dc9d4da5e41f58454b178d17e0fd9da9c37d59c2ae94e5",
-      "bytes": 9617,
+      "sha256": "5102071cdbde4036e649fdfc5c5569556b8185dd0d9cde568cdda89fd0d2d067",
+      "bytes": 17790,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
     },
     {
@@ -63,15 +121,19 @@
       "version": "1.0.0",
       "author": "Izumi",
       "description": "The catalog’s light theme. A warm paper canvas, serif type and a coral accent. Top navigation, a featured backdrop with a paper caption card and an ink-dark Watch button, generously rounded poster rows with titles and years, and a split series page with a right-hand episode rail.",
-      "themeApi": 1,
+      "themeApi": 2,
       "tags": [
         "Light",
         "Serif",
         "Top nav"
       ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.daylight/1.0.0.json",
-      "sha256": "69d169bbf0ffaf4a6aa3618d8e98970598627e2999274e9d3c3604a299aa9360",
+      "sha256": "9a42aba2ea34add0a79adda2e4492614f4ef6a69d485bd7fb7fc3e04a8812f4d",
       "bytes": 12350,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight.png"
     },
@@ -92,6 +154,29 @@
       "sha256": "d25291b4b03f592f627d38c1d97d526637967d0ccde8adb71884050921212162",
       "bytes": 6012,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ember.png"
+    },
+    {
+      "id": "izumi.frost",
+      "name": "Frost",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Modelled on the AllAnime site: cool slate surfaces with a sky-blue accent and a top bar. The featured banner keeps the stock layout with white dots at the end; section titles are heavy with an arrow; posters carry a blue score badge. The watch page docks a centred player with the episode list beside it; the series page splits info and a thumbnail episode rail under pill tabs. Phones get a floating bottom bar with labels and a tonal pill.",
+      "themeApi": 2,
+      "tags": [
+        "Dark",
+        "Site",
+        "Blue",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.frost/1.0.0.json",
+      "sha256": "06f94f311a09e2130fd64ad947a1648f6c913df1bce3d53da62a75ccab642ea8",
+      "bytes": 11006,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.frost.png"
     },
     {
       "id": "izumi.halo",
@@ -117,15 +202,19 @@
       "version": "1.5.0",
       "author": "Izumi",
       "description": "Cool gray canvas, rose accent, Nunito. Home opens on a rotating full-bleed featured banner with Watch Now and View Details, then horizontal poster rows. The series page uses icon facts, an overlapping cover, and a right-hand rail with one short episode tile per row — square still on the left, title and synopsis on the right, grow-on-hover. Phones get a shorter banner, tighter rows and a stacked series page with the same episode tiles.",
-      "themeApi": 1,
+      "themeApi": 2,
       "tags": [
         "Dark",
         "Split series",
         "Episode rail"
       ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.5.0.json",
-      "sha256": "af096ad842690928eb30704db8844c9ce42ecdf5fbbfea225481598f448960e8",
+      "sha256": "cf4e797515aeadeb69bf2d1c556ad69491d9771ff75a3c95ceade30544948cf5",
       "bytes": 25961,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.kindling.png"
     },
@@ -134,17 +223,21 @@
       "name": "Lavender",
       "version": "1.0.0",
       "author": "Izumi",
-      "description": "A phone-first Material look: a periwinkle accent on soft violet-black, large rounded corners and tonal buttons. Home opens on a featured card with pill actions, then small rounded poster rows and wide resume cards. The series page stacks a compact cover, chips and a thumbnail episode list. Desktop keeps the same palette with a wider featured banner.",
-      "themeApi": 1,
+      "description": "A phone-first Material look: a periwinkle accent on soft violet-black, large rounded corners and tonal buttons. The bottom bar is an 80dp Material navigation bar with a tonal pill behind the active icon and labels on every tab; the featured pager uses centred Material dots; rows end in an arrow; the series page uses underlined tabs over a thumbnail episode list. Desktop keeps the palette with a wider banner.",
+      "themeApi": 2,
       "tags": [
         "Phone",
         "Dark",
         "Material"
       ],
+      "platforms": [
+        "phone",
+        "desktop"
+      ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/1.0.0.json",
-      "sha256": "3f926671cf6ef038b20b39653fa93df9b220038b450e2976d9b9b14873d2cc0c",
-      "bytes": 9658,
+      "sha256": "6f6038334dd0a6f01f89856a97769cbdfb92213f7e68a9797122c2a7db66c6d2",
+      "bytes": 17502,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
     },
     {
@@ -166,21 +259,72 @@
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ledger.png"
     },
     {
+      "id": "izumi.lime",
+      "name": "Lime",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Modelled on the classic Gogoanime site: a light canvas with green links and a top bar, no featured banner, and Home as tight poster grids under uppercase, underlined section titles. The watch page docks the player above the server switcher and an episode number grid; the series page stacks the cover and facts over underlined tabs and a snapshot grid. Phones keep the grid under a flush white bottom bar with a green line marker.",
+      "themeApi": 2,
+      "tags": [
+        "Light",
+        "Site",
+        "Green",
+        "Grid",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lime/1.0.0.json",
+      "sha256": "d136866777f125c3a5d84ca7c0e448bc04c37b9abb272550d348c273eefb4a60",
+      "bytes": 7120,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lime.png"
+    },
+    {
+      "id": "izumi.mint",
+      "name": "Mint",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Modelled on the AnimeKai site: a black canvas with a lime accent and a top bar. The featured banner keeps its filled progress bars at the start; section titles carry a lime bar and an arrow; posters have a soft radius with a score badge. The watch page docks the player above the server switcher and an episode number grid; the series page stacks info over a segmented control and a snapshot grid. Phones get a centred icon pill for navigation.",
+      "themeApi": 2,
+      "tags": [
+        "Dark",
+        "Site",
+        "Green",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.mint/1.0.0.json",
+      "sha256": "49f137920a8da0e9c134bef72385caeec8373e50523cb48c9254987684c6f2e5",
+      "bytes": 9245,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.mint.png"
+    },
+    {
       "id": "izumi.nebula",
       "name": "Nebula",
       "version": "1.0.0",
       "author": "Izumi",
       "description": "A deep violet-navy canvas with a soft mesh glow and a bright violet accent. Compact icon rail, a wide featured backdrop with pill actions, rounded poster rows with quiet titles, and a full-bleed series page whose episodes run as a thumbnail list beneath the artwork.",
-      "themeApi": 1,
+      "themeApi": 2,
       "tags": [
         "Dark",
         "Mesh",
         "Overlay series"
       ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.nebula/1.0.0.json",
-      "sha256": "1d87085d135c79d7dc6b4c5b8edabab1ea54c5b2e1b8368d3d826b34d620878c",
-      "bytes": 8398,
+      "sha256": "5141b5f1bf006ca3f5b1afc42fd7c3491e790d6a9e86c98dcae3dc086e45ec81",
+      "bytes": 14300,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.nebula.png"
     },
     {
@@ -188,17 +332,21 @@
       "name": "Onyx",
       "version": "1.0.0",
       "author": "Izumi",
-      "description": "A phone-first true-black streaming look with an electric blue accent. Home opens on a tall centred featured card with white Play and Info buttons, then dense caption-free poster rows and small resume stills. The series page stacks a short banner, cover and a thumbnail episode list. Desktop keeps the black canvas with a wide featured backdrop.",
-      "themeApi": 1,
+      "description": "A phone-first true-black streaming look with an electric blue accent. The bottom bar is a translucent black tab bar that never hides, with white active icons and labels on every tab; the tall centred featured card carries white dots beneath its buttons; the series page uses a segmented control over a snapshot episode list. Desktop keeps the black canvas with a wider banner.",
+      "themeApi": 2,
       "tags": [
         "Phone",
-        "True black",
-        "Caption-free"
+        "Dark",
+        "Black"
+      ],
+      "platforms": [
+        "phone",
+        "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/1.0.0.json",
-      "sha256": "982fa57f3c5c43d0a0bf335126761e7ed713ffe7a872cce85e6595d4770478cf",
-      "bytes": 9071,
+      "sha256": "52219e469148abe22707533ffb0ad00017c46894761fc6ddacc841266e7779b8",
+      "bytes": 16461,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
     },
     {
@@ -225,17 +373,68 @@
       "version": "1.0.0",
       "author": "Izumi",
       "description": "Cinematic glass. A tall rotating backdrop with a frosted caption card and a cyan halo, a top navigation bar, large rounded poster rails, wide resume stills with glass captions, and a full-bleed series page with an episode carousel of rounded stills.",
-      "themeApi": 1,
+      "themeApi": 2,
       "tags": [
         "Dark",
         "Glass",
         "Top nav"
       ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.prism/1.0.0.json",
-      "sha256": "448923bde2bd7800351d6a9343cf93af0ad9e2f5e114fb422c8d605375f06377",
-      "bytes": 10352,
+      "sha256": "1027fb6cbc155b10ed977da2958e6acdf474eb65ff7eb8e8406110ebc4a12f40",
+      "bytes": 18744,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.prism.png"
+    },
+    {
+      "id": "izumi.reel",
+      "name": "Reel",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Modelled on the AnimePahe watch page: a flat charcoal canvas, a top bar, no featured banner, and Home as a grid of 16:9 snapshot tiles with the format pinned to each still. The watch page docks the player at the top with the server switcher and an episode snapshot grid beneath it; the series page lists episodes as snapshots with an episode badge. On phones the same grid runs under a flush bottom bar with a line marker.",
+      "themeApi": 2,
+      "tags": [
+        "Dark",
+        "Site",
+        "Grid",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.reel/1.0.0.json",
+      "sha256": "e3d4efc16d10be584717809d449037d13aa94a8dfe08aa62bf3d063c129b58bd",
+      "bytes": 9112,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.reel.png"
+    },
+    {
+      "id": "izumi.spotlight",
+      "name": "Spotlight",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Modelled on the HiAnime site: indigo surfaces with a pale pink accent and a top bar. Home opens on a numbered \"Spotlight\" banner with pill buttons and no slide markers, then sharp-cornered poster rows; the Trending row stamps a large rank number on each cover. The watch page docks a wide player with the episode list beside it; the series page is a full-bleed overlay with a large pink Watch button and a snapshot episode grid. Phones use a flush bottom bar with pink active tabs.",
+      "themeApi": 2,
+      "tags": [
+        "Dark",
+        "Site",
+        "Pink",
+        "Numbered",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/1.0.0.json",
+      "sha256": "b46838164f038cf68872a9bcc2b831c4018eb0dbd1654d64e4027ee55f37efac",
+      "bytes": 24885,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.spotlight.png"
     },
     {
       "id": "izumi.tangerine",
@@ -243,16 +442,20 @@
       "version": "1.0.0",
       "author": "Izumi",
       "description": "Streaming-service orange on charcoal with square corners. A compact top bar, a tall featured backdrop with a bold Start Watching button, tight poster rows, and a stacked series page whose episodes are a grid of 16:9 stills with numbered titles.",
-      "themeApi": 1,
+      "themeApi": 2,
       "tags": [
         "Dark",
         "Square",
         "Top nav"
       ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tangerine/1.0.0.json",
-      "sha256": "c1f428881dd3950b4ab32357ab109d35cad74661e7eda792753061fc966aed4c",
-      "bytes": 8908,
+      "sha256": "e55735b88cb5767b9360af8c4e222c05945b89b2ea866ed76f610660ed55db8e",
+      "bytes": 15538,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tangerine.png"
     },
     {

@@ -2,7 +2,7 @@
   "app": "izumi",
   "kind": "theme-package",
   "schemaVersion": 1,
-  "themeApi": 1,
+  "themeApi": 2,
   "id": "izumi.daylight",
   "name": "Daylight",
   "version": "1.0.0",

@@ -1,0 +1,24 @@
+{
+  "id": "izumi.lime",
+  "name": "Lime",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Modelled on the classic Gogoanime site: a light canvas with green links and a top bar, no featured banner, and Home as tight poster grids under uppercase, underlined section titles. The watch page docks the player above the server switcher and an episode number grid; the series page stacks the cover and facts over underlined tabs and a snapshot grid. Phones keep the grid under a flush white bottom bar with a green line marker.",
+  "themeApi": 2,
+  "tags": [
+    "Light",
+    "Site",
+    "Green",
+    "Grid",
+    "Docked player"
+  ],
+  "platforms": [
+    "desktop",
+    "phone"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lime/1.0.0.json",
+  "sha256": "d136866777f125c3a5d84ca7c0e448bc04c37b9abb272550d348c273eefb4a60",
+  "bytes": 7120,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lime.png"
+}

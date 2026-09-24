@@ -1,0 +1,23 @@
+{
+  "id": "izumi.frost",
+  "name": "Frost",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Modelled on the AllAnime site: cool slate surfaces with a sky-blue accent and a top bar. The featured banner keeps the stock layout with white dots at the end; section titles are heavy with an arrow; posters carry a blue score badge. The watch page docks a centred player with the episode list beside it; the series page splits info and a thumbnail episode rail under pill tabs. Phones get a floating bottom bar with labels and a tonal pill.",
+  "themeApi": 2,
+  "tags": [
+    "Dark",
+    "Site",
+    "Blue",
+    "Docked player"
+  ],
+  "platforms": [
+    "desktop",
+    "phone"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.frost/1.0.0.json",
+  "sha256": "06f94f311a09e2130fd64ad947a1648f6c913df1bce3d53da62a75ccab642ea8",
+  "bytes": 11006,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.frost.png"
+}

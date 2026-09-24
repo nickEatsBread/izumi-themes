@@ -1,0 +1,392 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 2,
+  "id": "izumi.frost",
+  "name": "Frost",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Modelled on the AllAnime site: cool slate surfaces with a sky-blue accent and a top bar. The featured banner keeps the stock layout with white dots at the end; section titles are heavy with an arrow; posters carry a blue score badge. The watch page docks a centred player with the episode list beside it; the series page splits info and a thumbnail episode rail under pill tabs. Phones get a floating bottom bar with labels and a tonal pill.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "215 24% 9%",
+      "foreground": "210 20% 96%",
+      "muted": "215 18% 17%",
+      "mutedForeground": "213 12% 66%",
+      "primary": "199 89% 60%",
+      "primaryForeground": "215 24% 9%",
+      "secondary": "215 18% 17%",
+      "secondaryForeground": "210 20% 96%",
+      "accent": "215 18% 17%",
+      "accentForeground": "210 20% 96%",
+      "border": "215 16% 23%",
+      "input": "215 18% 17%",
+      "ring": "199 89% 60%",
+      "card": "215 22% 13%",
+      "cardForeground": "210 20% 96%",
+      "theme": "199 89% 60%"
+    },
+    "radius": 0.8,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "aurora",
+    "backdropStrength": 0.2,
+    "glassBlur": 16,
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "hideCardLabels": false,
+      "shell": {
+        "nav": "top",
+        "compact": false,
+        "bottomNav": {
+          "style": "floating",
+          "labels": "always",
+          "indicator": "pill",
+          "height": 64,
+          "iconSize": 22,
+          "radius": 22,
+          "background": "#121A26F2",
+          "border": true,
+          "blur": true,
+          "activeColor": "#38BDF8"
+        }
+      },
+      "player": {
+        "seekbarHeight": 5,
+        "seekbarColor": "theme",
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 70,
+          "align": "center"
+        }
+      },
+      "hero": {
+        "height": 52,
+        "mobileHeight": 48,
+        "rotate": true,
+        "interval": 10,
+        "rankHidden": false,
+        "indicator": {
+          "style": "dots",
+          "position": "end",
+          "color": "#FFFFFF"
+        }
+      },
+      "rows": {
+        "defaults": {
+          "layout": "carousel",
+          "width": 150,
+          "gap": 14,
+          "spacing": 34,
+          "radius": 12,
+          "titleSize": 18,
+          "aspect": "poster",
+          "heading": {
+            "weight": 900,
+            "viewMore": "arrow"
+          }
+        },
+        "byId": {
+          "continue": {
+            "layout": "carousel",
+            "width": 276,
+            "aspect": "landscape",
+            "radius": 12
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 12,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "when": {
+                    "field": "score"
+                  },
+                  "style": {
+                    "anchor": "top-end",
+                    "gap": 3,
+                    "align": "center",
+                    "padding": 5,
+                    "background": "#38BDF8",
+                    "radius": 6
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "score",
+                      "style": {
+                        "fontSize": 11,
+                        "color": "#0B1826"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "score",
+                      "style": {
+                        "color": "#0B1826",
+                        "fontSize": 11,
+                        "fontWeight": 800
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontWeight": 700,
+                "fontSize": 13,
+                "lines": 2
+              }
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "style": {
+            "gap": 0,
+            "background": "card",
+            "radius": 12
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "aspect": "16 / 9",
+                    "radius": 12,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "when": {
+                    "field": "progress"
+                  },
+                  "style": {
+                    "anchor": "bottom-start",
+                    "minHeight": 4,
+                    "background": "#FFFFFF33"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "style": {
+                "padding": 12,
+                "gap": 3
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "title",
+                  "style": {
+                    "fontWeight": 800,
+                    "fontSize": 14,
+                    "lines": 1
+                  }
+                },
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 8,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "episodeNumber",
+                      "style": {
+                        "color": "theme",
+                        "fontSize": 12,
+                        "fontWeight": 800
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeTitle",
+                      "when": {
+                        "field": "episodeTitle"
+                      },
+                      "style": {
+                        "color": "muted-foreground",
+                        "fontSize": 12,
+                        "lines": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "split",
+        "bannerHidden": false,
+        "posterWidth": 210,
+        "bannerHeight": 30,
+        "tabs": "pills",
+        "cta": "large",
+        "episodes": {
+          "placement": "right",
+          "arrangement": "list",
+          "hover": "scale",
+          "order": "flip",
+          "search": true,
+          "card": {
+            "type": "row",
+            "style": {
+              "gap": 12,
+              "align": "center",
+              "wrap": "nowrap",
+              "padding": 8,
+              "radius": 12,
+              "background": "card"
+            },
+            "children": [
+              {
+                "type": "overlay",
+                "style": {
+                  "width": 34,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "style": {
+                      "aspect": "16 / 9",
+                      "radius": 8,
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "meter",
+                    "field": "progress",
+                    "when": {
+                      "field": "progress"
+                    },
+                    "style": {
+                      "anchor": "bottom-start",
+                      "minHeight": 3
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "style": {
+                  "grow": 1,
+                  "gap": 3
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 8,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "episodeNumber",
+                        "style": {
+                          "color": "theme",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "shrink": 0
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeTitle",
+                        "style": {
+                          "fontWeight": 700,
+                          "fontSize": 14,
+                          "lines": 1,
+                          "grow": 1
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "description",
+                    "when": {
+                      "field": "description"
+                    },
+                    "style": {
+                      "color": "muted-foreground",
+                      "fontSize": 12,
+                      "lines": 2
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "mobile": {
+        "rows": {
+          "defaults": {
+            "width": 114,
+            "gap": 10,
+            "spacing": 26,
+            "radius": 12,
+            "titleSize": 17
+          },
+          "byId": {
+            "continue": {
+              "layout": "carousel",
+              "width": 240,
+              "aspect": "landscape",
+              "radius": 12
+            }
+          }
+        },
+        "detail": {
+          "layout": "stack",
+          "posterWidth": 130,
+          "bannerHeight": 28,
+          "cta": "large",
+          "tabs": "pills",
+          "episodes": {
+            "placement": "tab",
+            "arrangement": "list"
+          }
+        }
+      }
+    }
+  }
+}

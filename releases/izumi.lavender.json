@@ -7,17 +7,21 @@
     "name": "Lavender",
     "version": "1.0.0",
     "author": "Izumi",
-    "description": "A phone-first Material look: a periwinkle accent on soft violet-black, large rounded corners and tonal buttons. Home opens on a featured card with pill actions, then small rounded poster rows and wide resume cards. The series page stacks a compact cover, chips and a thumbnail episode list. Desktop keeps the same palette with a wider featured banner.",
-    "themeApi": 1,
+    "description": "A phone-first Material look: a periwinkle accent on soft violet-black, large rounded corners and tonal buttons. The bottom bar is an 80dp Material navigation bar with a tonal pill behind the active icon and labels on every tab; the featured pager uses centred Material dots; rows end in an arrow; the series page uses underlined tabs over a thumbnail episode list. Desktop keeps the palette with a wider banner.",
+    "themeApi": 2,
     "tags": [
       "Phone",
       "Dark",
       "Material"
     ],
+    "platforms": [
+      "phone",
+      "desktop"
+    ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
     "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/1.0.0.json",
-    "sha256": "3f926671cf6ef038b20b39653fa93df9b220038b450e2976d9b9b14873d2cc0c",
-    "bytes": 9658,
+    "sha256": "6f6038334dd0a6f01f89856a97769cbdfb92213f7e68a9797122c2a7db66c6d2",
+    "bytes": 17502,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
   }
 }

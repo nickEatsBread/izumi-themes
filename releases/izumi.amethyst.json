@@ -1,0 +1,28 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.amethyst",
+    "name": "Amethyst",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "Modelled on the AniWave site: deep slate surfaces with a soft purple accent and a top bar. The featured swiper shows a slide counter, format and year tags and square-cornered buttons; section titles are small uppercase text; posters have a format tag pinned to the bottom. The watch page docks the player with a scrolling episode list beside it; the series page splits info and an episode rail under underlined tabs. Phones get a flush bottom bar with a dot under the active tab.",
+    "themeApi": 2,
+    "tags": [
+      "Dark",
+      "Site",
+      "Purple",
+      "Docked player"
+    ],
+    "platforms": [
+      "desktop",
+      "phone"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.amethyst/1.0.0.json",
+    "sha256": "67095139ededcaf54f15b0702d63ef502dfeb7db46847317948efafedeb5b3ae",
+    "bytes": 19426,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.amethyst.png"
+  }
+}

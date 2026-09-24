@@ -2,7 +2,7 @@
   "app": "izumi",
   "kind": "theme-package",
   "schemaVersion": 1,
-  "themeApi": 1,
+  "themeApi": 2,
   "id": "izumi.kindling",
   "name": "Kindling",
   "version": "1.5.0",

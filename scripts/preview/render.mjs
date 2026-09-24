@@ -113,7 +113,7 @@ async function capture({ design, platform, viewport, scale, path, wait }) {
   }))
   await page.goto(`${baseUrl}${path}`, { waitUntil: 'domcontentloaded' })
   if (!live) await seedHistory(page)
-  await wait(page)
+  await wait(page, design)
   await settleImages(page)
   await page.waitForTimeout(600)
   const shot = await page.screenshot({ type: 'png', fullPage: false })
@@ -146,8 +146,9 @@ function publicMedia(media) {
   return copy
 }
 
-async function waitForHome(page) {
-  await page.waitForSelector('[data-theme-hero], [aria-label="Featured"]', { timeout: 60000 })
+async function waitForHome(page, design) {
+  // A theme can hide the featured banner (`hero.hidden`); Home then opens straight on the rows.
+  if (!design?.presentation?.hero?.hidden) await page.waitForSelector('[data-theme-hero], [aria-label="Featured"]', { timeout: 60000 })
   await page.waitForSelector('[data-theme-row] img, [data-carousel-scroller] img', { timeout: 60000 })
   await page.waitForTimeout(1200)
 }

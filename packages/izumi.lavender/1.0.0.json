@@ -2,12 +2,12 @@
   "app": "izumi",
   "kind": "theme-package",
   "schemaVersion": 1,
-  "themeApi": 1,
+  "themeApi": 2,
   "id": "izumi.lavender",
   "name": "Lavender",
   "version": "1.0.0",
   "author": "Izumi",
-  "description": "A phone-first Material look: a periwinkle accent on soft violet-black, large rounded corners and tonal buttons. Home opens on a featured card with pill actions, then small rounded poster rows and wide resume cards. The series page stacks a compact cover, chips and a thumbnail episode list. Desktop keeps the same palette with a wider featured banner.",
+  "description": "A phone-first Material look: a periwinkle accent on soft violet-black, large rounded corners and tonal buttons. The bottom bar is an 80dp Material navigation bar with a tonal pill behind the active icon and labels on every tab; the featured pager uses centred Material dots; rows end in an arrow; the series page uses underlined tabs over a thumbnail episode list. Desktop keeps the palette with a wider banner.",
   "design": {
     "tokens": {
       "scheme": "dark",
@@ -38,8 +38,29 @@
       "density": "comfortable",
       "trueBlack": false,
       "hideCardLabels": false,
-      "shell": { "nav": "sidebar", "compact": true, "overlay": "none", "press": "sink" },
-      "player": { "seekbarHeight": 4, "seekbarColor": "theme" },
+      "shell": {
+        "nav": "sidebar",
+        "compact": true,
+        "overlay": "none",
+        "press": "sink",
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "pill",
+          "height": 80,
+          "iconSize": 24,
+          "blur": false,
+          "border": false,
+          "background": "#1B1826",
+          "activeColor": "#DCD6FF",
+          "inactiveColor": "#A79FCF",
+          "hide": "never"
+        }
+      },
+      "player": {
+        "seekbarHeight": 4,
+        "seekbarColor": "theme"
+      },
       "hero": {
         "height": 48,
         "mobileHeight": 56,
@@ -49,63 +70,239 @@
         "template": {
           "type": "overlay",
           "children": [
-            { "type": "artwork", "artwork": "backdrop", "style": { "anchor": "fill", "fit": "cover" } },
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
             {
               "type": "stack",
-              "style": { "anchor": "bottom-start", "padding": 28, "gap": 10, "maxWidth": 680 },
+              "style": {
+                "anchor": "bottom-start",
+                "padding": 28,
+                "gap": 10,
+                "maxWidth": 680
+              },
               "children": [
-                { "type": "text", "text": "FEATURED", "style": { "color": "#8979F2", "fontSize": 11, "fontWeight": 800 } },
-                { "type": "text", "field": "title", "style": { "color": "#FFFFFF", "fontSize": 36, "fontWeight": 800, "lines": 2 } },
-                { "type": "text", "field": "genres", "when": { "field": "genres" }, "style": { "color": "#DCD6FF", "fontSize": 13, "fontWeight": 700 } },
-                { "type": "text", "field": "description", "when": { "field": "description" }, "style": { "color": "#E6E2F7", "fontSize": 14, "maxWidth": 560, "lines": 3 } },
+                {
+                  "type": "text",
+                  "text": "FEATURED",
+                  "style": {
+                    "color": "#8979F2",
+                    "fontSize": 11,
+                    "fontWeight": 800
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": 36,
+                    "fontWeight": 800,
+                    "lines": 2
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "genres",
+                  "when": {
+                    "field": "genres"
+                  },
+                  "style": {
+                    "color": "#DCD6FF",
+                    "fontSize": 13,
+                    "fontWeight": 700
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "when": {
+                    "field": "description"
+                  },
+                  "style": {
+                    "color": "#E6E2F7",
+                    "fontSize": 14,
+                    "maxWidth": 560,
+                    "lines": 3
+                  }
+                },
                 {
                   "type": "row",
-                  "style": { "gap": 10, "align": "center" },
+                  "style": {
+                    "gap": 10,
+                    "align": "center"
+                  },
                   "children": [
-                    { "type": "action", "action": "play", "text": "Play", "style": { "background": "#8979F2", "color": "#14101F", "minHeight": 42, "radius": 28, "fontWeight": 800 } },
-                    { "type": "action", "action": "details", "text": "Details", "style": { "background": "#8979F233", "color": "#DCD6FF", "minHeight": 42, "radius": 28, "fontWeight": 700 } }
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "Play",
+                      "style": {
+                        "background": "#8979F2",
+                        "color": "#14101F",
+                        "minHeight": 42,
+                        "radius": 28,
+                        "fontWeight": 800
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "details",
+                      "text": "Details",
+                      "style": {
+                        "background": "#8979F233",
+                        "color": "#DCD6FF",
+                        "minHeight": 42,
+                        "radius": 28,
+                        "fontWeight": 700
+                      }
+                    }
                   ]
                 }
               ]
             }
           ]
+        },
+        "indicator": {
+          "style": "dots",
+          "position": "center",
+          "color": "#DCD6FF"
         }
       },
       "rows": {
-        "defaults": { "layout": "carousel", "width": 160, "gap": 16, "spacing": 32, "radius": 18, "titleSize": 19, "aspect": "poster" },
-        "byId": { "continue": { "layout": "carousel", "width": 300, "aspect": "landscape", "radius": 18, "gap": 16 } }
+        "defaults": {
+          "layout": "carousel",
+          "width": 160,
+          "gap": 16,
+          "spacing": 32,
+          "radius": 18,
+          "titleSize": 19,
+          "aspect": "poster",
+          "heading": {
+            "weight": 800,
+            "viewMore": "arrow"
+          }
+        },
+        "byId": {
+          "continue": {
+            "layout": "carousel",
+            "width": 300,
+            "aspect": "landscape",
+            "radius": 18,
+            "gap": 16
+          }
+        }
       },
       "cards": {
         "poster": {
           "type": "stack",
-          "style": { "gap": 8 },
+          "style": {
+            "gap": 8
+          },
           "children": [
-            { "type": "artwork", "artwork": "poster", "style": { "aspect": "2 / 3", "radius": 18, "fit": "cover" } },
-            { "type": "text", "field": "title", "style": { "fontWeight": 700, "fontSize": 13, "lines": 2 } }
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 18,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontWeight": 700,
+                "fontSize": 13,
+                "lines": 2
+              }
+            }
           ]
         },
         "continue": {
           "type": "stack",
-          "style": { "gap": 0, "background": "card", "radius": 18 },
+          "style": {
+            "gap": 0,
+            "background": "card",
+            "radius": 18
+          },
           "children": [
             {
               "type": "overlay",
               "children": [
-                { "type": "artwork", "artwork": "still", "style": { "aspect": "16 / 9", "radius": 18, "fit": "cover" } },
-                { "type": "meter", "field": "progress", "when": { "field": "progress" }, "style": { "anchor": "bottom-start", "minHeight": 4, "background": "#FFFFFF33" } }
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "aspect": "16 / 9",
+                    "radius": 18,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "when": {
+                    "field": "progress"
+                  },
+                  "style": {
+                    "anchor": "bottom-start",
+                    "minHeight": 4,
+                    "background": "#FFFFFF33"
+                  }
+                }
               ]
             },
             {
               "type": "stack",
-              "style": { "padding": 12, "gap": 3 },
+              "style": {
+                "padding": 12,
+                "gap": 3
+              },
               "children": [
-                { "type": "text", "field": "title", "style": { "fontWeight": 800, "fontSize": 14, "lines": 1 } },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "style": {
+                    "fontWeight": 800,
+                    "fontSize": 14,
+                    "lines": 1
+                  }
+                },
                 {
                   "type": "row",
-                  "style": { "gap": 8, "align": "center" },
+                  "style": {
+                    "gap": 8,
+                    "align": "center"
+                  },
                   "children": [
-                    { "type": "text", "field": "episodeNumber", "style": { "color": "theme", "fontSize": 12, "fontWeight": 800 } },
-                    { "type": "text", "field": "episodeTitle", "when": { "field": "episodeTitle" }, "style": { "color": "muted-foreground", "fontSize": 12, "lines": 1 } }
+                    {
+                      "type": "text",
+                      "field": "episodeNumber",
+                      "style": {
+                        "color": "theme",
+                        "fontSize": 12,
+                        "fontWeight": 800
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeTitle",
+                      "when": {
+                        "field": "episodeTitle"
+                      },
+                      "style": {
+                        "color": "muted-foreground",
+                        "fontSize": 12,
+                        "lines": 1
+                      }
+                    }
                   ]
                 }
               ]
@@ -126,28 +323,86 @@
           "search": false,
           "card": {
             "type": "row",
-            "style": { "gap": 12, "align": "center", "wrap": "nowrap", "padding": 8, "radius": 16, "background": "card" },
+            "style": {
+              "gap": 12,
+              "align": "center",
+              "wrap": "nowrap",
+              "padding": 8,
+              "radius": 16,
+              "background": "card"
+            },
             "children": [
               {
                 "type": "overlay",
-                "style": { "width": 36, "shrink": 0 },
+                "style": {
+                  "width": 36,
+                  "shrink": 0
+                },
                 "children": [
-                  { "type": "artwork", "artwork": "still", "style": { "aspect": "16 / 9", "radius": 12, "fit": "cover" } },
-                  { "type": "meter", "field": "progress", "when": { "field": "progress" }, "style": { "anchor": "bottom-start", "minHeight": 3 } }
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "style": {
+                      "aspect": "16 / 9",
+                      "radius": 12,
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "meter",
+                    "field": "progress",
+                    "when": {
+                      "field": "progress"
+                    },
+                    "style": {
+                      "anchor": "bottom-start",
+                      "minHeight": 3
+                    }
+                  }
                 ]
               },
               {
                 "type": "stack",
-                "style": { "grow": 1, "gap": 3 },
+                "style": {
+                  "grow": 1,
+                  "gap": 3
+                },
                 "children": [
-                  { "type": "text", "field": "episodeNumber", "style": { "color": "theme", "fontSize": 11, "fontWeight": 800 } },
-                  { "type": "text", "field": "episodeTitle", "style": { "fontWeight": 700, "fontSize": 14, "lines": 1 } },
-                  { "type": "text", "field": "duration", "when": { "field": "duration" }, "style": { "color": "muted-foreground", "fontSize": 12 } }
+                  {
+                    "type": "text",
+                    "field": "episodeNumber",
+                    "style": {
+                      "color": "theme",
+                      "fontSize": 11,
+                      "fontWeight": 800
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "episodeTitle",
+                    "style": {
+                      "fontWeight": 700,
+                      "fontSize": 14,
+                      "lines": 1
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "duration",
+                    "when": {
+                      "field": "duration"
+                    },
+                    "style": {
+                      "color": "muted-foreground",
+                      "fontSize": 12
+                    }
+                  }
                 ]
               }
             ]
           }
-        }
+        },
+        "tabs": "underline"
       },
       "mobile": {
         "density": "comfortable",
@@ -156,46 +411,186 @@
           "template": {
             "type": "overlay",
             "children": [
-              { "type": "artwork", "artwork": "backdrop", "style": { "anchor": "fill", "fit": "cover" } },
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
               {
                 "type": "stack",
-                "style": { "anchor": "bottom-start", "padding": 18, "gap": 8, "width": 100 },
+                "style": {
+                  "anchor": "bottom-start",
+                  "padding": 18,
+                  "gap": 8,
+                  "width": 100
+                },
                 "children": [
-                  { "type": "text", "text": "FEATURED", "style": { "color": "#8979F2", "fontSize": 11, "fontWeight": 800 } },
-                  { "type": "text", "field": "title", "style": { "color": "#FFFFFF", "fontSize": 28, "fontWeight": 800, "lines": 2 } },
+                  {
+                    "type": "text",
+                    "text": "FEATURED",
+                    "style": {
+                      "color": "#8979F2",
+                      "fontSize": 11,
+                      "fontWeight": 800
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "style": {
+                      "color": "#FFFFFF",
+                      "fontSize": 28,
+                      "fontWeight": 800,
+                      "lines": 2
+                    }
+                  },
                   {
                     "type": "row",
-                    "style": { "gap": 6, "align": "center" },
+                    "style": {
+                      "gap": 6,
+                      "align": "center"
+                    },
                     "children": [
-                      { "type": "text", "field": "format", "when": { "field": "format" }, "style": { "color": "#DCD6FF", "fontSize": 12, "fontWeight": 700, "background": "#FFFFFF1F", "radius": 10, "padding": 6 } },
-                      { "type": "text", "field": "score", "when": { "field": "score" }, "style": { "color": "#DCD6FF", "fontSize": 12, "fontWeight": 700, "background": "#FFFFFF1F", "radius": 10, "padding": 6 } },
-                      { "type": "text", "field": "year", "when": { "field": "year" }, "style": { "color": "#DCD6FF", "fontSize": 12, "fontWeight": 700, "background": "#FFFFFF1F", "radius": 10, "padding": 6 } }
+                      {
+                        "type": "text",
+                        "field": "format",
+                        "when": {
+                          "field": "format"
+                        },
+                        "style": {
+                          "color": "#DCD6FF",
+                          "fontSize": 12,
+                          "fontWeight": 700,
+                          "background": "#FFFFFF1F",
+                          "radius": 10,
+                          "padding": 6
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "score",
+                        "when": {
+                          "field": "score"
+                        },
+                        "style": {
+                          "color": "#DCD6FF",
+                          "fontSize": 12,
+                          "fontWeight": 700,
+                          "background": "#FFFFFF1F",
+                          "radius": 10,
+                          "padding": 6
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "year",
+                        "when": {
+                          "field": "year"
+                        },
+                        "style": {
+                          "color": "#DCD6FF",
+                          "fontSize": 12,
+                          "fontWeight": 700,
+                          "background": "#FFFFFF1F",
+                          "radius": 10,
+                          "padding": 6
+                        }
+                      }
                     ]
                   },
-                  { "type": "text", "field": "genres", "when": { "field": "genres" }, "style": { "color": "#C9C2EE", "fontSize": 12, "lines": 1 } },
+                  {
+                    "type": "text",
+                    "field": "genres",
+                    "when": {
+                      "field": "genres"
+                    },
+                    "style": {
+                      "color": "#C9C2EE",
+                      "fontSize": 12,
+                      "lines": 1
+                    }
+                  },
                   {
                     "type": "row",
-                    "style": { "gap": 8, "align": "center", "wrap": "nowrap" },
+                    "style": {
+                      "gap": 8,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
                     "children": [
-                      { "type": "action", "action": "play", "text": "Play", "style": { "background": "#8979F2", "color": "#14101F", "minHeight": 44, "radius": 24, "fontWeight": 800, "grow": 1, "justify": "center" } },
-                      { "type": "action", "action": "details", "text": "Details", "style": { "background": "#8979F233", "color": "#DCD6FF", "minHeight": 44, "radius": 24, "fontWeight": 700 } }
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "Play",
+                        "style": {
+                          "background": "#8979F2",
+                          "color": "#14101F",
+                          "minHeight": 44,
+                          "radius": 24,
+                          "fontWeight": 800,
+                          "grow": 1,
+                          "justify": "center"
+                        }
+                      },
+                      {
+                        "type": "action",
+                        "action": "details",
+                        "text": "Details",
+                        "style": {
+                          "background": "#8979F233",
+                          "color": "#DCD6FF",
+                          "minHeight": 44,
+                          "radius": 24,
+                          "fontWeight": 700
+                        }
+                      }
                     ]
                   }
                 ]
               }
             ]
+          },
+          "indicator": {
+            "style": "dots",
+            "position": "center",
+            "color": "#DCD6FF"
           }
         },
         "rows": {
-          "defaults": { "width": 118, "gap": 12, "spacing": 26, "radius": 16, "titleSize": 18 },
-          "byId": { "continue": { "layout": "carousel", "width": 252, "aspect": "landscape", "radius": 16, "gap": 12 } }
+          "defaults": {
+            "width": 118,
+            "gap": 12,
+            "spacing": 26,
+            "radius": 16,
+            "titleSize": 18,
+            "heading": {
+              "weight": 800,
+              "viewMore": "arrow"
+            }
+          },
+          "byId": {
+            "continue": {
+              "layout": "carousel",
+              "width": 252,
+              "aspect": "landscape",
+              "radius": 16,
+              "gap": 12
+            }
+          }
         },
         "detail": {
           "layout": "stack",
           "posterWidth": 140,
           "bannerHeight": 30,
           "cta": "large",
-          "episodes": { "placement": "tab", "arrangement": "list" }
+          "episodes": {
+            "placement": "tab",
+            "arrangement": "list"
+          },
+          "tabs": "underline"
         }
       }
     }

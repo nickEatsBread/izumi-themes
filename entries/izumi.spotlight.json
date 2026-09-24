@@ -1,0 +1,24 @@
+{
+  "id": "izumi.spotlight",
+  "name": "Spotlight",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Modelled on the HiAnime site: indigo surfaces with a pale pink accent and a top bar. Home opens on a numbered \"Spotlight\" banner with pill buttons and no slide markers, then sharp-cornered poster rows; the Trending row stamps a large rank number on each cover. The watch page docks a wide player with the episode list beside it; the series page is a full-bleed overlay with a large pink Watch button and a snapshot episode grid. Phones use a flush bottom bar with pink active tabs.",
+  "themeApi": 2,
+  "tags": [
+    "Dark",
+    "Site",
+    "Pink",
+    "Numbered",
+    "Docked player"
+  ],
+  "platforms": [
+    "desktop",
+    "phone"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/1.0.0.json",
+  "sha256": "b46838164f038cf68872a9bcc2b831c4018eb0dbd1654d64e4027ee55f37efac",
+  "bytes": 24885,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.spotlight.png"
+}

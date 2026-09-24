@@ -8,15 +8,19 @@
     "version": "1.5.0",
     "author": "Izumi",
     "description": "Cool gray canvas, rose accent, Nunito. Home opens on a rotating full-bleed featured banner with Watch Now and View Details, then horizontal poster rows. The series page uses icon facts, an overlapping cover, and a right-hand rail with one short episode tile per row — square still on the left, title and synopsis on the right, grow-on-hover. Phones get a shorter banner, tighter rows and a stacked series page with the same episode tiles.",
-    "themeApi": 1,
+    "themeApi": 2,
     "tags": [
       "Dark",
       "Split series",
       "Episode rail"
     ],
+    "platforms": [
+      "desktop",
+      "phone"
+    ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
     "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.5.0.json",
-    "sha256": "af096ad842690928eb30704db8844c9ce42ecdf5fbbfea225481598f448960e8",
+    "sha256": "cf4e797515aeadeb69bf2d1c556ad69491d9771ff75a3c95ceade30544948cf5",
     "bytes": 25961,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.kindling.png"
   }
