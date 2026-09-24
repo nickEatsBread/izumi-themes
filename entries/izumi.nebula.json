@@ -1,0 +1,18 @@
+{
+  "id": "izumi.nebula",
+  "name": "Nebula",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "A deep violet-navy canvas with a soft mesh glow and a bright violet accent. Compact icon rail, a wide featured backdrop with pill actions, rounded poster rows with quiet titles, and a full-bleed series page whose episodes run as a thumbnail list beneath the artwork.",
+  "themeApi": 1,
+  "tags": [
+    "Dark",
+    "Mesh",
+    "Overlay series"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.nebula/1.0.0.json",
+  "sha256": "1d87085d135c79d7dc6b4c5b8edabab1ea54c5b2e1b8368d3d826b34d620878c",
+  "bytes": 8398,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.nebula.png"
+}

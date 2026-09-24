@@ -4,6 +4,78 @@
   "schemaVersion": 1,
   "themes": [
     {
+      "id": "izumi.blossom",
+      "name": "Blossom",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "A phone-first Material You look in soft pink over violet-black, with very round corners, a mesh glow and Nunito. Home opens on a featured card that pairs the cover with the title, score and pill actions, then rounded poster rows and card-style resume stills. The series page shows chips for score, format, episodes and season with a thumbnail episode list. Desktop uses the same palette with a wider banner.",
+      "themeApi": 1,
+      "tags": [
+        "Phone",
+        "Dark",
+        "Material"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/1.0.0.json",
+      "sha256": "f289b262060ccaf3625f92a24bc396480c1287060d47e3707f269269ee1529c4",
+      "bytes": 13896,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.blossom.png"
+    },
+    {
+      "id": "izumi.cobalt",
+      "name": "Cobalt",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "A tracker-style navy canvas with a sky-blue accent and square corners. The stock featured banner keeps its rank badge, poster rows carry grey captions, and the series page stacks a muted facts panel — format, episodes, season, studio, source — beside the cover, with episodes in a still grid.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Tracker",
+        "Facts panel"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.cobalt/1.0.0.json",
+      "sha256": "2b2ef55e942b253a84b2183ad95009bff59c975ff309c8a3d524982de8bc7eb6",
+      "bytes": 16193,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.cobalt.png"
+    },
+    {
+      "id": "izumi.coral",
+      "name": "Coral",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "A phone-first look in coral red on deep navy with rounded cards. Home leads with a spotlight card — cover on the left, title, genres and a coral Watch button on the right — then tight poster rows. The series page paints the title and Play over the artwork with an episode list underneath. Desktop gets a wide spotlight banner with the same palette.",
+      "themeApi": 1,
+      "tags": [
+        "Phone",
+        "Dark",
+        "Spotlight"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/1.0.0.json",
+      "sha256": "24cde7c878afe8bf64dc9d4da5e41f58454b178d17e0fd9da9c37d59c2ae94e5",
+      "bytes": 9617,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
+    },
+    {
+      "id": "izumi.daylight",
+      "name": "Daylight",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "The catalog’s light theme. A warm paper canvas, serif type and a coral accent. Top navigation, a featured backdrop with a paper caption card and an ink-dark Watch button, generously rounded poster rows with titles and years, and a split series page with a right-hand episode rail.",
+      "themeApi": 1,
+      "tags": [
+        "Light",
+        "Serif",
+        "Top nav"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.daylight/1.0.0.json",
+      "sha256": "69d169bbf0ffaf4a6aa3618d8e98970598627e2999274e9d3c3604a299aa9360",
+      "bytes": 12350,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight.png"
+    },
+    {
       "id": "izumi.ember",
       "name": "Ember",
       "version": "1.2.0",
@@ -42,9 +114,9 @@
     {
       "id": "izumi.kindling",
       "name": "Kindling",
-      "version": "1.4.0",
+      "version": "1.5.0",
       "author": "Izumi",
-      "description": "Cool gray canvas, rose accent, Nunito. Home opens on a rotating full-bleed featured banner with Watch Now and View Details, then horizontal poster rows. The series page uses icon facts, an overlapping cover, and a right-hand rail with one short episode tile per row — square still on the left, title and synopsis on the right, grow-on-hover.",
+      "description": "Cool gray canvas, rose accent, Nunito. Home opens on a rotating full-bleed featured banner with Watch Now and View Details, then horizontal poster rows. The series page uses icon facts, an overlapping cover, and a right-hand rail with one short episode tile per row — square still on the left, title and synopsis on the right, grow-on-hover. Phones get a shorter banner, tighter rows and a stacked series page with the same episode tiles.",
       "themeApi": 1,
       "tags": [
         "Dark",
@@ -52,10 +124,28 @@
         "Episode rail"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.4.0.json",
-      "sha256": "d6417828b2d1f95f8653ba63cd8b97d481c47291297dad180011d6b0ea6c674d",
-      "bytes": 13190,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.5.0.json",
+      "sha256": "af096ad842690928eb30704db8844c9ce42ecdf5fbbfea225481598f448960e8",
+      "bytes": 25961,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.kindling.png"
+    },
+    {
+      "id": "izumi.lavender",
+      "name": "Lavender",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "A phone-first Material look: a periwinkle accent on soft violet-black, large rounded corners and tonal buttons. Home opens on a featured card with pill actions, then small rounded poster rows and wide resume cards. The series page stacks a compact cover, chips and a thumbnail episode list. Desktop keeps the same palette with a wider featured banner.",
+      "themeApi": 1,
+      "tags": [
+        "Phone",
+        "Dark",
+        "Material"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/1.0.0.json",
+      "sha256": "3f926671cf6ef038b20b39653fa93df9b220038b450e2976d9b9b14873d2cc0c",
+      "bytes": 9658,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
     },
     {
       "id": "izumi.ledger",
@@ -76,6 +166,42 @@
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ledger.png"
     },
     {
+      "id": "izumi.nebula",
+      "name": "Nebula",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "A deep violet-navy canvas with a soft mesh glow and a bright violet accent. Compact icon rail, a wide featured backdrop with pill actions, rounded poster rows with quiet titles, and a full-bleed series page whose episodes run as a thumbnail list beneath the artwork.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Mesh",
+        "Overlay series"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.nebula/1.0.0.json",
+      "sha256": "1d87085d135c79d7dc6b4c5b8edabab1ea54c5b2e1b8368d3d826b34d620878c",
+      "bytes": 8398,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.nebula.png"
+    },
+    {
+      "id": "izumi.onyx",
+      "name": "Onyx",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "A phone-first true-black streaming look with an electric blue accent. Home opens on a tall centred featured card with white Play and Info buttons, then dense caption-free poster rows and small resume stills. The series page stacks a short banner, cover and a thumbnail episode list. Desktop keeps the black canvas with a wide featured backdrop.",
+      "themeApi": 1,
+      "tags": [
+        "Phone",
+        "True black",
+        "Caption-free"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/1.0.0.json",
+      "sha256": "982fa57f3c5c43d0a0bf335126761e7ed713ffe7a872cce85e6595d4770478cf",
+      "bytes": 9071,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
+    },
+    {
       "id": "izumi.orchid",
       "name": "Orchid",
       "version": "1.2.0",
@@ -92,6 +218,42 @@
       "sha256": "bcfc6009060745f8211558adabbef543564eb27a3480e183cacc05502b8e8093",
       "bytes": 4846,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.orchid.png"
+    },
+    {
+      "id": "izumi.prism",
+      "name": "Prism",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Cinematic glass. A tall rotating backdrop with a frosted caption card and a cyan halo, a top navigation bar, large rounded poster rails, wide resume stills with glass captions, and a full-bleed series page with an episode carousel of rounded stills.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Glass",
+        "Top nav"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.prism/1.0.0.json",
+      "sha256": "448923bde2bd7800351d6a9343cf93af0ad9e2f5e114fb422c8d605375f06377",
+      "bytes": 10352,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.prism.png"
+    },
+    {
+      "id": "izumi.tangerine",
+      "name": "Tangerine",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Streaming-service orange on charcoal with square corners. A compact top bar, a tall featured backdrop with a bold Start Watching button, tight poster rows, and a stacked series page whose episodes are a grid of 16:9 stills with numbered titles.",
+      "themeApi": 1,
+      "tags": [
+        "Dark",
+        "Square",
+        "Top nav"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tangerine/1.0.0.json",
+      "sha256": "c1f428881dd3950b4ab32357ab109d35cad74661e7eda792753061fc966aed4c",
+      "bytes": 8908,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tangerine.png"
     },
     {
       "id": "izumi.tidal",
