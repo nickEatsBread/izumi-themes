@@ -149,9 +149,11 @@ function publicMedia(media) {
 }
 
 async function waitForHome(page, design) {
-  // A theme can hide the featured banner (`hero.hidden`); Home then opens straight on the rows.
-  if (!design?.presentation?.hero?.hidden) await page.waitForSelector('[data-theme-hero], [aria-label="Featured"]', { timeout: 60000 })
-  await page.waitForSelector('[data-theme-row] img, [data-carousel-scroller] img', { timeout: 60000 })
+  // A theme layout (API 3) decides whether Home has a featured banner; otherwise `hero.hidden` does.
+  const layoutHome = design?.presentation?.layout?.home
+  const hero = layoutHome ? layoutHome.some((entry) => entry.role === 'hero') : !design?.presentation?.hero?.hidden
+  if (hero) await page.waitForSelector('[data-theme-hero], [aria-label="Featured"], [data-slot="home.hero"]', { timeout: 60000 })
+  await page.waitForSelector('[data-theme-row] img, [data-carousel-scroller] img, [data-slot^="block."] img', { timeout: 60000 })
   await page.waitForTimeout(1200)
 }
 

@@ -1,0 +1,110 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.reel",
+  "name": "Reel",
+  "version": "2.0.0",
+  "author": "Izumi",
+  "description": "animepahe look: black and magenta, a text-link header, a latest-releases grid of stills, facts beside the synopsis.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "0 0% 93%",
+      "muted": "0 0% 7%",
+      "mutedForeground": "0 0% 60%",
+      "primary": "334 99% 42%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "0 0% 13%",
+      "secondaryForeground": "0 0% 93%",
+      "accent": "0 0% 13%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 13%",
+      "input": "0 0% 13%",
+      "ring": "334 99% 42%",
+      "card": "0 0% 7%",
+      "cardForeground": "0 0% 93%",
+      "theme": "334 99% 42%"
+    },
+    "radius": 0,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "sansita"
+    },
+    "presentation": {
+      "density": "compact",
+      "trueBlack": true,
+      "brand": "text",
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "text",
+          "search": "field-end",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "line",
+          "background": "#000000",
+          "activeColor": "#D5015B",
+          "border": true,
+          "blur": false
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "factsStyle": "table",
+        "tabs": "underline",
+        "episodes": {
+          "arrangement": "grid"
+        }
+      },
+      "player": {
+        "seekbarColor": "theme",
+        "layout": "docked",
+        "dock": {
+          "episodes": "below",
+          "width": 72,
+          "align": "center"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "block": "latest-episodes",
+            "title": "Latest Releases",
+            "columns": 3,
+            "pageSize": 12,
+            "pagination": "numbers",
+            "caption": "overlay"
+          }
+        ]
+      },
+      "mobile": {
+        "layout": {
+          "home": [
+            {
+              "block": "latest-episodes",
+              "title": "Latest Releases",
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "numbers",
+              "caption": "overlay"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Reel — the animepahe look. Measured from the live site (docs/theme-references/animepahe.md). */\r\n\r\n/* ---------- Header: a 47 px black bar with the content in an 1100 px column ---------- */\r\n[data-slot=\"nav.top\"] {\r\n  background: #000;\r\n  border-bottom: 0;\r\n  padding-left: max(12px, calc((100vw - 1100px) / 2));\r\n  padding-right: max(12px, calc((100vw - 1100px) / 2));\r\n  gap: 0;\r\n}\r\n/* The wordmark stands alone, as the site's does: drop the logo mark's link box. */\r\n[data-slot=\"nav.top\"] a[data-slot=\"brand\"]:not(:has([data-part=\"brand.text\"])) { display: none; }\r\n[data-slot=\"nav.top\"] [data-part=\"brand.text\"] {\r\n  font-family: var(--ui-font);\r\n  font-size: 26px;\r\n  font-weight: 400;\r\n  letter-spacing: -0.5px;\r\n  color: #fff;\r\n  margin-right: 16px;\r\n}\r\n[data-part=\"brand.char\"]:nth-child(n + 4) { color: #d5015b; }\r\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"] {\r\n  height: 37px;\r\n  padding: 8px 15px;\r\n  border-radius: 0;\r\n  background: rgba(0, 0, 0, 0.4);\r\n  color: #fff;\r\n  font-size: 14px;\r\n  font-weight: 400;\r\n  text-transform: lowercase;\r\n}\r\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"][data-active] { color: #fff; background: rgba(0, 0, 0, 0.4); }\r\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"]:hover { color: #d5015b; background: rgba(0, 0, 0, 0.4); }\r\n[data-slot=\"nav.top\"] :has(> [data-part=\"search.field\"]) { width: 225px; }\r\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] {\r\n  height: 36px;\r\n  border: 0;\r\n  border-radius: 0;\r\n  background: #e7edf3;\r\n  color: #667d99;\r\n  font-size: 13px;\r\n}\r\n\r\n/* ---------- Home: \"Latest Releases\" in a centred 1100 px column ---------- */\r\n[data-slot=\"home\"] { max-width: 1100px; margin-left: auto; margin-right: auto; padding-top: 24px; }\r\n[data-slot=\"block.latest-episodes\"] { padding-left: 0; padding-right: 0; }\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.title\"] {\r\n  font-size: 32px;\r\n  font-weight: 300;\r\n  color: #eee;\r\n  margin: 0 0 16px;\r\n}\r\n[data-slot=\"block.latest-episodes\"] :has(> [data-part=\"block.item\"]) { gap: 10px; }\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] > button,\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.still\"] { border-radius: 0; }\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.title\"] { font-size: 12.8px; font-weight: 500; }\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.number\"] { font-size: 19.2px; font-weight: 600; }\r\n\r\n/* Pager: « ‹ n › » — only the current page number shows. */\r\n[data-part=\"pagination\"] { gap: 0; }\r\n[data-part=\"pagination\"] > span { display: none; }\r\n[data-part=\"pagination\"] [data-part=\"page-number\"]:not([data-active]) { display: none; }\r\n[data-part=\"pagination\"] button {\r\n  height: 38px;\r\n  min-width: 35px;\r\n  padding: 8px 12px;\r\n  border: 1px solid #000;\r\n  border-radius: 0;\r\n  background: #111;\r\n  color: #a20145;\r\n  font-size: 16px;\r\n  font-weight: 400;\r\n}\r\n[data-part=\"pagination\"] [data-part=\"page-number\"][data-active] { background: #d5015b; color: #fff; }\r\n\r\n/* ---------- Series page: a centred 1100 px column, synopsis beside a facts column ---------- */\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] > div:has([data-part=\"detail.title\"]) {\r\n  max-width: 1100px;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  padding-left: 0;\r\n  padding-right: 0;\r\n}\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-part=\"detail.title\"]) {\r\n  display: grid;\r\n  grid-template-columns: minmax(0, 1fr) 250px;\r\n  column-gap: 30px;\r\n  align-items: start;\r\n}\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-part=\"detail.title\"]) > * { grid-column: 1; }\r\n[data-slot=\"detail\"] [data-part=\"detail.title\"] {\r\n  grid-column: 1 / -1 !important;\r\n  grid-row: 1;\r\n  margin-bottom: 0;\r\n  font-family: var(--font-display);\r\n  font-size: 32px;\r\n  font-weight: 500;\r\n  color: #fff;\r\n}\r\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] {\r\n  grid-column: 1 / -1 !important;\r\n  grid-row: 2;\r\n  margin-bottom: 12px;\r\n  font-size: 17.6px;\r\n  font-weight: 600;\r\n  color: #fff;\r\n}\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"] { grid-column: 2 !important; grid-row: 3 / span 4; margin: 0; }\r\n[data-slot=\"detail\"] [data-part=\"detail.synopsis\"] { font-size: 16px; line-height: 24px; color: #eee; }\r\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 0; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] { display: block; font-size: 12px; line-height: 18px; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"] { display: block; margin-bottom: 3px; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"] { display: inline; font-weight: 700; color: #eee; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"]::after { content: \":\"; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { display: inline; margin-left: 4px; color: #eee; }\r\n[data-part=\"detail.facts\"] [data-part=\"fact.value\"] a { color: #d5015b; }\r\n[data-slot=\"detail\"] [data-part=\"button\"] { border-radius: 0; }\r\n[data-slot=\"detail\"] [data-part=\"tabs\"] { gap: 0; }\r\n[data-slot=\"detail\"] [data-part=\"tab\"] { width: 180px; height: 50px; justify-content: center; text-align: center; font-size: 16px; font-weight: 400; color: #f1f1f1; border-radius: 0; }\r\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"],\r\n[data-slot=\"detail.episodes\"] [data-part=\"episode.still\"] { border-radius: 0; }\r\n[data-part=\"episode.number\"] svg { color: #28a745; }\r\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { color: #fff; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { height: 2px; border-radius: 0; background: #d5015b; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] { gap: 6px; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > * { height: 36px; min-height: 36px; font-size: 14px; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] [data-part=\"button\"] { padding-left: 14px; padding-right: 14px; }\n[data-slot=\"detail.episodes\"] [data-part=\"badge\"] { display: none; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"thumb\"] { background: transparent; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"thumb\"] [data-part=\"episode.number\"] {\n  top: auto;\n  left: auto;\n  right: 14px;\n  bottom: 12px;\n  padding: 0;\n  background: none;\n  font-size: 19.2px;\n  font-weight: 600;\n  color: #fff;\n  text-shadow: 0 1px 2px #000;\n}\n[data-slot=\"detail.episodes\"] [data-part=\"episode.title\"] { font-size: 12.8px; font-weight: 500; }\n"
+  }
+}
