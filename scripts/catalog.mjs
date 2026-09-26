@@ -2,6 +2,8 @@ import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import assert from 'node:assert/strict'
 import { parsePresentation } from './presentation.ts'
+import { checkThemeCss } from './css.mjs'
+import { parseThemeFonts } from './font-ids.ts'
 
 const root = new URL('../', import.meta.url)
 const localBase = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
@@ -12,10 +14,13 @@ const scalarRanges = { radius: [0, 2], fontScale: [.85, 1.2], backdropStrength: 
 function validatePackage(pkg, entry) {
   assert.equal(pkg.app, 'izumi'); assert.equal(pkg.kind, 'theme-package'); assert.equal(pkg.schemaVersion, 1)
   for (const key of ['id', 'version', 'themeApi']) assert.equal(pkg[key], entry[key], `Package ${key} does not match its listing`)
-  assert([1, 2].includes(pkg.themeApi), 'Unsupported theme API')
+  assert([1, 2, 3].includes(pkg.themeApi), 'Unsupported theme API')
   for (const key of ['name', 'author', 'description']) assert.equal(typeof pkg[key], 'string')
   assert(pkg.design && !Array.isArray(pkg.design))
-  for (const key of Object.keys(pkg.design)) assert(contentKeys.includes(key), `Unsupported design key: ${key}`)
+  const keys = pkg.themeApi >= 3 ? [...contentKeys, 'css', 'fonts'] : contentKeys
+  for (const key of Object.keys(pkg.design)) assert(keys.includes(key), `Unsupported design key: ${key}`)
+  if (pkg.design.css !== undefined) checkThemeCss(pkg.design.css)
+  if (pkg.design.fonts !== undefined) parseThemeFonts(pkg.design.fonts)
   if (pkg.design.presentation) parsePresentation(pkg.design.presentation, pkg.themeApi)
   if (pkg.design.tokens) for (const [key, value] of Object.entries(pkg.design.tokens)) {
     if (key === 'scheme') { assert(['dark', 'light'].includes(value)); continue }
@@ -44,7 +49,7 @@ const entries = []
 for (const filename of (await readdir(new URL('entries/', root))).filter(name => name.endsWith('.json')).sort()) {
   const entry = await parse(`entries/${filename}`)
   assert(/^[a-z0-9][a-z0-9.-]{1,63}$/.test(entry.id)); assert(/^[0-9]{1,6}\.[0-9]{1,6}\.[0-9]{1,6}$/.test(entry.version))
-  assert([1, 2].includes(entry.themeApi), 'Unsupported theme API'); assert(Array.isArray(entry.tags) && entry.tags.length <= 12)
+  assert([1, 2, 3].includes(entry.themeApi), 'Unsupported theme API'); assert(Array.isArray(entry.tags) && entry.tags.length <= 12)
   if (entry.platforms !== undefined) {
     assert(Array.isArray(entry.platforms) && entry.platforms.length >= 1 && entry.platforms.length <= 2 && new Set(entry.platforms).size === entry.platforms.length, 'Invalid platforms')
     for (const platform of entry.platforms) assert(['desktop', 'phone'].includes(platform), `Unknown platform: ${platform}`)
@@ -52,11 +57,11 @@ for (const filename of (await readdir(new URL('entries/', root))).filter(name =>
   assert(!entries.some(other => other.id === entry.id), 'Duplicate theme ID')
   for (const [key, max] of [['name', 48], ['author', 80], ['description', 600]]) assert(typeof entry[key] === 'string' && entry[key].trim().length > 0 && entry[key].length <= max)
   for (const tag of entry.tags) assert(typeof tag === 'string' && tag.length <= 32)
-  assert(Number.isSafeInteger(entry.bytes) && entry.bytes > 0 && entry.bytes <= 256000)
+  assert(Number.isSafeInteger(entry.bytes) && entry.bytes > 0 && entry.bytes <= 512000)
   assert(/^[a-f0-9]{64}$/.test(entry.sha256)); https(entry.download)
   if (entry.preview) https(entry.preview)
   if (entry.project) https(entry.project)
-  const bytes = await download(entry.download, 256000)
+  const bytes = await download(entry.download, 512000)
   assert.equal(bytes.length, entry.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256)
   validatePackage(JSON.parse(bytes.toString('utf8')), entry)
   entries.push(entry)

@@ -63,7 +63,8 @@
           "themeApi": {
             "enum": [
               1,
-              2
+              2,
+              3
             ]
           },
           "platforms": {
@@ -106,7 +107,7 @@
           "bytes": {
             "type": "integer",
             "minimum": 1,
-            "maximum": 256000
+            "maximum": 512000
           }
         }
       }
