@@ -4,6 +4,7 @@
 //   node scripts/preview/render.mjs [--izumi ../izumi] [--url http://127.0.0.1:1420]
 //                                   [--only izumi.kindling,...] [--out previews] [--live]
 //                                   [--shots home,series,phone] [--keep-shots dir] [--viewport 1280x1400]
+//                                   [--series <anilist id>]
 //
 // The client must be served by `npm run dev` (Vite) from the sibling izumi checkout, so its
 // modules are importable for seeding. Every preview is the actual Home screen with the theme
@@ -29,6 +30,8 @@ const shots = new Set(String(args.shots ?? 'home,series,phone').split(','))
 // `--viewport 1280x1400` sizes the kept desktop shots (Home stays at the catalog's 1280x800).
 const keptViewport = (() => { const m = /^(\d+)x(\d+)$/.exec(String(args.viewport ?? '')); return m ? { width: Number(m[1]), height: Number(m[2]) } : { width: 1280, height: 800 } })()
 const keepShots = args['keep-shots'] ? resolve(root, String(args['keep-shots'])) : null
+// The series page to shoot: a fixture title offline; live, `--series <id>` or the most-trending series with banner art.
+const seriesId = args.series ? Number(args.series) : live ? await trendingSeriesId() : MEDIA[0].id
 const localBase = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
 
 const { chromium } = await loadPlaywright()
@@ -71,7 +74,7 @@ try {
 async function renderEntry(entry, pkg, design, phone) {
     if (phone) {
       const home = await capture({ design, platform: 'android', viewport: { width: 390, height: 844 }, scale: 2, path: '/app/home', wait: waitForHome })
-      const series = await capture({ design, platform: 'android', viewport: { width: 390, height: 844 }, scale: 2, path: `/app/anime/${MEDIA[0].id}`, wait: waitForSeries })
+      const series = await capture({ design, platform: 'android', viewport: { width: 390, height: 844 }, scale: 2, path: `/app/anime/${seriesId}`, wait: waitForSeries })
       const composed = await composePhones(design, [home, series])
       writeFileSync(join(outDir, `${entry.id}.png`), composed)
       if (keepShots) { writeFileSync(join(keepShots, `${entry.id}-phone-home.png`), home); writeFileSync(join(keepShots, `${entry.id}-phone-series.png`), series) }
@@ -81,7 +84,7 @@ async function renderEntry(entry, pkg, design, phone) {
         writeFileSync(join(outDir, `${entry.id}.png`), home)
       }
       if (keepShots && shots.has('series')) {
-        const series = await capture({ design, platform: 'linux', viewport: keptViewport, scale: 1, path: `/app/anime/${MEDIA[0].id}`, wait: waitForSeries })
+        const series = await capture({ design, platform: 'linux', viewport: keptViewport, scale: 1, path: `/app/anime/${seriesId}`, wait: waitForSeries })
         writeFileSync(join(keepShots, `${entry.id}-series.png`), series)
       }
       if (keepShots && shots.has('phone')) {
@@ -223,6 +226,18 @@ async function loadPlaywright() {
   try { return await import('playwright-core') } catch { /* fall through */ }
   const require = createRequire(import.meta.url)
   try { return require('playwright') } catch { throw new Error('Install playwright-core (npm i -D playwright-core) or set IZUMI_PREVIEW_PLAYWRIGHT.') }
+}
+
+/** The first non-adult trending series with banner art, so a live series page opens on artwork. */
+async function trendingSeriesId() {
+  const query = 'query { Page(perPage: 12) { media(type: ANIME, sort: TRENDING_DESC, isAdult: false) { id bannerImage } } }'
+  try {
+    const response = await fetch('https://graphql.anilist.co', { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify({ query }) })
+    const media = (await response.json())?.data?.Page?.media ?? []
+    return media.find((item) => item.bannerImage)?.id ?? MEDIA[0].id
+  } catch {
+    return MEDIA[0].id
+  }
 }
 
 function parseArgs(list) {
