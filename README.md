@@ -34,9 +34,10 @@ user's device, including while offline.
 
 ## Development
 
-Node.js 22.16 or newer is required. Validation has no package dependencies.
+Node.js 22.16 or newer is required.
 
 ```sh
+npm install
 npm run build
 npm test
 ```
