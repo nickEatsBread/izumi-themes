@@ -3,7 +3,7 @@
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
 
-`themeApi` is `1` or `2`. API 1 is the original key set and every API 1 package stays valid on
+`themeApi` is `1`, `2`, or `3`. API 1 is the original key set and every API 1 package stays valid on
 every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions): the
 bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
 layout and the `mobile` block. A client that only knows API 1 refuses an API 2 package with
@@ -12,14 +12,14 @@ half-rendered layout. Declare the lowest API a package actually uses.
 
 ## Package
 
-A package is one UTF-8 JSON document, at most 256,000 bytes. Required envelope fields:
+A package is one UTF-8 JSON document, at most 512,000 bytes. Required envelope fields:
 
 | Field | Value |
 | --- | --- |
 | `app` | `izumi` |
 | `kind` | `theme-package` |
 | `schemaVersion` | `1` |
-| `themeApi` | `1` or `2` (see above) |
+| `themeApi` | `1`, `2`, or `3` (see above) |
 | `id` | Stable lowercase author/theme identity, 2–64 letters, digits, dots or hyphens |
 | `name` | Display name, 1–48 characters |
 | `author` | Attribution, 1–80 characters |
@@ -187,3 +187,21 @@ for rollback. An ID installed from one origin cannot silently be replaced from a
 Theme export shares design settings only. App backup includes installed package records
 and saved designs through their local storage records. Theme synchronization is not enabled
 by this release.
+
+## Theme API 3
+
+Declare `"themeApi": 3` to use:
+
+- `design.css` — a stylesheet (≤ 128 KB) aimed at izumi's styling hooks (`data-slot`, `data-part`,
+  `data-active`…; see the client's docs/THEMES.md). The catalog rejects `@import`, `@font-face`,
+  `@namespace`, `@page`, `@property`, `@counter-style`, `@font-feature-values`, app-region/behavior/
+  -moz-binding, every `url()` except small `data:image` URIs, `image-set()`, `image()`, `src()`,
+  `element()`, `cross-fade()`, `expression()` (with or without a vendor prefix, escaped or not),
+  custom properties with backslashes, and `--izumi-safe-*` declarations. Declare `@keyframes` at the
+  top level.
+- `design.fonts` — `{ "ui", "heading", "display" }` using ids from `scripts/font-ids.ts`.
+- Template nodes: `part` names; fields `nextEpisode`, `airingIn`, `airingCountdown`, `slide`, `slides`,
+  `episodesAired`.
+- `presentation.brand`: `"mark"` or `"text"` (styleable letters; the text is always "izumi").
+
+Packages may be up to 512 KB.

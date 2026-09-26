@@ -18,7 +18,7 @@ rendered by `scripts/preview/` over a fixture catalogue with generated key art.
 ## Publishing
 
 1. Copy an example from `packages/` and give it a unique ID and a `major.minor.patch` version.
-2. Follow the format in `docs/FORMAT.md`. A package is a UTF-8 JSON file under 256 KB.
+2. Follow the format in `docs/FORMAT.md`. A package is a UTF-8 JSON file under 512 KB.
 3. Host the file at a public HTTPS URL. A versioned GitHub file or release asset works.
 4. Add an entry under `entries/` with a preview image, package URL, exact byte size, and SHA-256.
    For a package in this repository, `npm run listing -- packages/<id>/<version>.json --tags "Dark,Top nav"`
@@ -34,9 +34,10 @@ user's device, including while offline.
 
 ## Development
 
-Node.js 22.16 or newer is required. Validation has no package dependencies.
+Node.js 22.16 or newer is required.
 
 ```sh
+npm install
 npm run build
 npm test
 ```
