@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node --experimental-strip-types scripts/catalog.mjs --write",
-    "test": "node --experimental-strip-types scripts/catalog.mjs",
+    "build": "node --experimental-strip-types --import ./scripts/ts-resolve.mjs scripts/catalog.mjs --write",
+    "test": "node --experimental-strip-types --import ./scripts/ts-resolve.mjs scripts/catalog.mjs",
     "listing": "node scripts/listing.mjs",
     "previews": "node scripts/preview/render.mjs"
   },

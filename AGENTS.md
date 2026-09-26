@@ -6,5 +6,7 @@
 # Repository boundaries
 
 - This repository is the public theme catalog. The client, its renderer and the presentation
-  validator live in the sibling `../izumi` checkout; `scripts/presentation.ts` is a copy of
-  `src/lib/themes/presentation.ts` there and must stay identical.
+  validator live in the sibling `../izumi` checkout; `scripts/presentation.ts`,
+  `scripts/block-schema.ts`, `scripts/css-policy.ts` and `scripts/font-ids.ts` are copies of the
+  same files in `src/lib/themes/` there and must stay identical (`scripts/ts-resolve.mjs` lets
+  their extensionless imports run under Node).
