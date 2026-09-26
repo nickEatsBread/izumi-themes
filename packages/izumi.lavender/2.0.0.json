@@ -1,0 +1,640 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.lavender",
+  "name": "Lavender",
+  "version": "2.0.0",
+  "author": "Izumi",
+  "description": "anilili look: black and purple, genre chips over a full-bleed hero, segmented tabs, ★ score badges, pill tabs.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 2%",
+      "foreground": "0 0% 94%",
+      "muted": "252 9% 11%",
+      "mutedForeground": "240 2% 65%",
+      "primary": "249 81% 71%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "252 9% 11%",
+      "secondaryForeground": "0 0% 94%",
+      "accent": "252 9% 11%",
+      "accentForeground": "0 0% 94%",
+      "border": "240 5% 17%",
+      "input": "240 6% 7%",
+      "ring": "249 81% 71%",
+      "card": "240 6% 7%",
+      "cardForeground": "0 0% 94%",
+      "theme": "249 81% 71%"
+    },
+    "radius": 0.75,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "roboto",
+      "heading": "roboto",
+      "display": "roboto"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "brand": "text",
+      "shell": {
+        "nav": "sidebar",
+        "compact": true,
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "pill",
+          "height": 80,
+          "iconSize": 24,
+          "background": "#101012",
+          "activeColor": "#8B7AF1",
+          "inactiveColor": "#A5A5A8",
+          "blur": false,
+          "border": false,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 62,
+        "mobileHeight": 40,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "pills",
+          "position": "center",
+          "color": "#8B7AF1"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "lavender.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "part": "lavender.chip",
+              "when": {
+                "field": "airingIn"
+              },
+              "style": {
+                "anchor": "top-start",
+                "gap": 6,
+                "align": "center",
+                "padding": 8,
+                "radius": 80
+              },
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "duration",
+                  "style": {
+                    "fontSize": 14,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "EP",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "nextEpisode",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "airingIn",
+                  "part": "lavender.countdown",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "lavender.chip",
+              "when": {
+                "field": "slides"
+              },
+              "style": {
+                "anchor": "top-end",
+                "gap": 4,
+                "align": "center",
+                "padding": 8,
+                "radius": 80
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "slide",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "/",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "slides",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "lavender.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "center",
+                "gap": 12,
+                "padding": 24,
+                "width": 100
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "lavender.meta",
+                  "style": {
+                    "gap": 8,
+                    "align": "center",
+                    "justify": "center",
+                    "wrap": "wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "when": {
+                        "field": "format"
+                      },
+                      "style": {
+                        "fontSize": 14,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "when": {
+                        "field": "episodesAired"
+                      },
+                      "style": {
+                        "gap": 4,
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "episodes",
+                          "style": {
+                            "fontSize": 14,
+                            "color": "#FFFFFF"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodesAired",
+                          "style": {
+                            "fontSize": 14,
+                            "color": "#FFFFFF"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "when": {
+                        "field": "score"
+                      },
+                      "style": {
+                        "gap": 4,
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "★",
+                          "style": {
+                            "fontSize": 14,
+                            "color": "#F5C451"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "score",
+                          "style": {
+                            "fontSize": 14,
+                            "color": "#FFFFFF"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "when": {
+                        "field": "duration"
+                      },
+                      "style": {
+                        "gap": 4,
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "duration",
+                          "style": {
+                            "fontSize": 14,
+                            "color": "#FFFFFF"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "duration",
+                          "style": {
+                            "fontSize": 14,
+                            "color": "#FFFFFF"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "lavender.title",
+                  "style": {
+                    "fontSize": 30,
+                    "fontWeight": 800,
+                    "color": "#FFFFFF",
+                    "lines": 2,
+                    "textAlign": "center"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "genres",
+                  "part": "lavender.genres",
+                  "when": {
+                    "field": "genres"
+                  },
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 500,
+                    "color": "#FFFFFF",
+                    "padding": 6,
+                    "radius": 80,
+                    "lines": 1
+                  }
+                },
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 10,
+                    "align": "center",
+                    "justify": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "action",
+                      "action": "details",
+                      "text": "Details",
+                      "part": "lavender.details",
+                      "style": {
+                        "minHeight": 48,
+                        "radius": 80,
+                        "fontSize": 15,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "Watch Now",
+                      "part": "lavender.watch",
+                      "style": {
+                        "minHeight": 48,
+                        "radius": 80,
+                        "fontSize": 15,
+                        "fontWeight": 700,
+                        "color": "#000000",
+                        "background": "#FFFFFF"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 12,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "lavender.score",
+                  "when": {
+                    "field": "score"
+                  },
+                  "style": {
+                    "anchor": "top-start",
+                    "gap": 4,
+                    "align": "center",
+                    "padding": 5,
+                    "radius": 80
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "★",
+                      "style": {
+                        "fontSize": 11,
+                        "color": "theme"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "score",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontSize": 15,
+                "fontWeight": 600,
+                "lines": 1
+              }
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 6,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  },
+                  "style": {
+                    "fontSize": 13,
+                    "color": "muted-foreground"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "·",
+                  "when": {
+                    "field": "year"
+                  },
+                  "style": {
+                    "fontSize": 13,
+                    "color": "muted-foreground"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "year",
+                  "when": {
+                    "field": "year"
+                  },
+                  "style": {
+                    "fontSize": 13,
+                    "color": "muted-foreground"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "pills",
+        "factsStyle": "cards",
+        "countdown": "long",
+        "header": {
+          "type": "stack",
+          "style": {
+            "gap": 10,
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "studio",
+              "part": "lavender.studio",
+              "when": {
+                "field": "studio"
+              },
+              "style": {
+                "fontSize": 15,
+                "fontWeight": 500,
+                "lines": 1
+              }
+            },
+            {
+              "type": "row",
+              "when": {
+                "field": "score"
+              },
+              "style": {
+                "gap": 5,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "score",
+                  "style": {
+                    "fontSize": 18,
+                    "fontWeight": 700,
+                    "color": "theme"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "score",
+                  "style": {
+                    "fontSize": 18,
+                    "fontWeight": 500,
+                    "color": "theme"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "episodes": {
+          "arrangement": "list"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "block": "genre-chips",
+            "genres": "top",
+            "all": true
+          },
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "tabs": [
+              {
+                "label": "NEWEST",
+                "role": "newest"
+              },
+              {
+                "label": "POPULAR",
+                "role": "popular"
+              },
+              {
+                "label": "MOVIES",
+                "role": "movies"
+              },
+              {
+                "label": "TOP RATED",
+                "role": "rated"
+              }
+            ],
+            "columns": 6,
+            "pageSize": 18,
+            "pagination": "more"
+          }
+        ],
+        "nav": {
+          "bottom": [
+            "schedule",
+            "library",
+            "settings"
+          ],
+          "top": [
+            "search"
+          ]
+        }
+      },
+      "mobile": {
+        "detail": {
+          "posterWidth": 130
+        },
+        "rows": {
+          "byId": {
+            "continue": {
+              "width": 180
+            }
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "block": "genre-chips",
+              "genres": "top",
+              "all": true
+            },
+            {
+              "role": "hero"
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "tabs": [
+                {
+                  "label": "NEWEST",
+                  "role": "newest"
+                },
+                {
+                  "label": "POPULAR",
+                  "role": "popular"
+                },
+                {
+                  "label": "MOVIES",
+                  "role": "movies"
+                },
+                {
+                  "label": "TOP RATED",
+                  "role": "rated"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "more"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Lavender — the anilili look (docs/theme-references/anilili.md): black, one purple accent, Roboto, pills. */\r\n\r\n/* Wordmark: \"izumi\" in the accent, heavy, like the app bar's \"Anilili\". */\r\n[data-part=\"brand.text\"] { font-family: var(--ui-font); font-weight: 800; font-size: 28px; color: #8b7af1; letter-spacing: -0.3px; }\r\n/* The phone app bar shows the wordmark alone. */\r\n@media (max-width: 640px) { [data-part=\"brand.mark\"] { display: none !important; } }\r\n\r\n/* Genre chips: \"All\" filled accent; the rest dark filled pills with a hairline border. */\r\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] {\r\n  height: 36px;\r\n  padding: 0 16px;\r\n  display: inline-flex;\r\n  align-items: center;\r\n  border-radius: 999px;\r\n  border: 1px solid #2a2a2e;\r\n  background: #1a191e;\r\n  color: #f0f0f0;\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n}\r\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"][data-active] { background: #8b7af1; border-color: #8b7af1; color: #fff; }\r\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] { white-space: nowrap; flex-shrink: 0; }\r\n[data-slot=\"block.genre-chips\"] :has(> [data-part=\"chip\"]) { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }\r\n/* Desktop: clear the window's title strip above the chip row. */\r\n@media (min-width: 641px) { [data-slot=\"home\"] { padding-top: 44px; } }\r\n\r\n/* Hero: countdown and counter chips, centred info, a translucent Details pill beside a white Watch Now pill. */\r\n[data-part=\"lavender.hero\"]::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  inset: 0;\r\n  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.25), rgba(5, 5, 5, 0.1) 40%, #050505);\r\n  pointer-events: none;\r\n}\r\n[data-part=\"lavender.hero\"] > * { z-index: 1; }\r\n[data-part=\"lavender.chip\"] {\r\n  margin: 16px;\r\n  background: rgba(0, 0, 0, 0.45);\r\n  border: 1px solid rgba(255, 255, 255, 0.28);\r\n  backdrop-filter: blur(8px);\r\n}\r\n[data-part=\"lavender.countdown\"] { text-transform: uppercase; }\r\n[data-part=\"lavender.info\"] { text-align: center; }\r\n[data-part=\"lavender.genres\"] { background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.28); padding: 6px 14px; }\r\n[data-part=\"lavender.details\"] { padding: 0 22px; background: rgba(0, 0, 0, 0.45) !important; border: 1px solid rgba(255, 255, 255, 0.35); color: #fff !important; }\r\n[data-part=\"lavender.watch\"] { padding: 0 24px; }\r\n[data-part=\"hero.dot\"] { width: 6px; height: 6px; border-radius: 999px; background: #5a5a60; }\r\n[data-part=\"hero.dot\"][data-active] { width: 24px; background: #8b7af1; }\r\n\r\n/* Rows: 24 px bold titles. */\r\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 24px; font-weight: 700; color: #f0f0f0; }\r\n\r\n/* Segmented NEWEST / POPULAR / MOVIES / TOP RATED strip. */\r\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] {\r\n  display: flex;\r\n  gap: 4px;\r\n  padding: 4px;\r\n  margin: 0 0 16px;\r\n  border: 0;\r\n  border-radius: 12px;\r\n  background: #101012;\r\n  width: fit-content;\r\n  max-width: 100%;\r\n}\r\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] {\r\n  padding: 8px 16px;\r\n  border-radius: 10px;\r\n  color: #a5a5a8;\r\n  font-size: 14px;\r\n  font-weight: 600;\r\n  text-transform: uppercase;\r\n}\r\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { background: #28204e; color: #8b7af1; }\r\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\r\n/* Phone: the four segments share the full width, as in the app. */\r\n@media (max-width: 640px) {\r\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { width: 100%; }\r\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { flex: 1 1 0; padding: 8px 4px; font-size: 13px; text-align: center; white-space: nowrap; }\r\n}\r\n\r\n/* The ★ score badge on every poster: dark pill, accent hairline. */\r\n[data-part=\"lavender.score\"] { margin: 6px; background: rgba(5, 5, 5, 0.72); border: 1px solid #8b7af1; }\r\n\r\n/* Series page: pill tabs (accent active), studio chip look for facts cards, accent score. */\r\n[data-slot=\"detail\"] [data-part=\"tab\"] { border-radius: 999px; height: 44px; padding: 0 18px; }\r\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { background: #8b7af1; color: #fff; }\r\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 14px; }\r\n[data-slot=\"detail\"] [data-part=\"detail.title\"] { font-weight: 800; text-transform: uppercase; }\r\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] { font-size: 26px; }\r\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] { display: none; }\r\n[data-part=\"lavender.studio\"] { padding: 5px 12px; border: 1px solid #3a3a3e; border-radius: 10px; color: #f0f0f0; }\r\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact\"] { border: 1px solid #2a2a2e; border-radius: 16px; background: #101012; padding: 10px 16px; }\r\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.value\"] { font-size: 16px; font-weight: 700; }\r\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.label\"] { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 500; color: #a5a5a8; }\r\n[data-part=\"detail.countdown\"] { border: 1px solid #2a2a2e; border-radius: 16px; background: #101012; }\r\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 999px; }\r\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"secondary\"] { border-radius: 999px; border: 1px solid #2a2a2e; background: transparent; color: #8b7af1; }\r\n\r\n/* Bottom bar: a solid accent pill behind the active icon, white icon, accent label. */\r\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] > span:first-child { background: #8b7af1 !important; }\r\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] svg { color: #fff; }\r\n"
+  }
+}
