@@ -215,7 +215,9 @@ Declare `"themeApi": 3` to use:
     `recent`, `list`, `season`, `trending`, `popular`, genre rows…; a role the active catalog lacks
     is skipped); `{ "role": "hero" }` places the featured banner (leave it out to hide it, at most
     once). Blocks: `{ "block": "latest-episodes", "columns": 3, "pageSize": 12, "pagination":
-    "numbers" }`, `tabbed-grid` (`tabs` [{ `label`, `role` }], `columns`, `pageSize`, `pagination`),
+    "numbers", "caption": "below" | "overlay" }` (`caption` puts the title and episode number on
+    the still instead of below it; default `"below"`), `tabbed-grid` (`tabs` [{ `label`, `role` }],
+    `columns`, `pageSize`, `pagination`),
     `genre-chips` (`genres`: `"top"` or a list, `all`), `ranked-list` (`tabs`, `limit` ≤ 20),
     `profile-header` (`buttons` [{ `label`, `to` }]). Any block accepts `title`, `area` (`main`,
     `aside`) and `phone` (show an aside block on phones). Block values must already be in range —
