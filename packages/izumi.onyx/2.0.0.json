@@ -1,0 +1,453 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.onyx",
+  "name": "Onyx",
+  "version": "2.0.0",
+  "author": "Izumi",
+  "description": "Nuvio look: white on near-black, a full-bleed hero with a View details pill, a floating pill nav, stadium buttons.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 5%",
+      "foreground": "200 18% 97%",
+      "muted": "240 3% 11%",
+      "mutedForeground": "212 9% 75%",
+      "primary": "0 0% 96%",
+      "primaryForeground": "0 0% 5%",
+      "secondary": "240 3% 11%",
+      "secondaryForeground": "200 18% 97%",
+      "accent": "240 3% 11%",
+      "accentForeground": "200 18% 97%",
+      "border": "180 6% 16%",
+      "input": "0 0% 9%",
+      "ring": "0 0% 96%",
+      "card": "0 0% 9%",
+      "cardForeground": "200 18% 97%",
+      "theme": "0 0% 96%"
+    },
+    "radius": 1,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "roboto",
+      "heading": "roboto",
+      "display": "roboto"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "sidebar",
+        "compact": true,
+        "bottomNav": {
+          "style": "floating",
+          "labels": "always",
+          "indicator": "none",
+          "height": 64,
+          "iconSize": 24,
+          "radius": 32,
+          "background": "#1C1C1E8C",
+          "activeColor": "#F5F7F8",
+          "inactiveColor": "#969CA3",
+          "blur": true,
+          "border": false,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 62,
+        "mobileHeight": 75,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "dots",
+          "position": "center",
+          "color": "#F5F7F8"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "onyx.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "onyx.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 14,
+                "padding": 48,
+                "width": 55
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "logo",
+                  "part": "onyx.logo",
+                  "when": {
+                    "field": "logo"
+                  },
+                  "style": {
+                    "fit": "contain",
+                    "maxWidth": 240
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "onyx.title",
+                  "when": {
+                    "field": "logo",
+                    "absent": true
+                  },
+                  "style": {
+                    "fontSize": 44,
+                    "fontWeight": 900,
+                    "color": "#F5F7F8",
+                    "lines": 2,
+                    "textAlign": "start"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "onyx.meta",
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "justify": "start",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "when": {
+                        "field": "format"
+                      },
+                      "style": {
+                        "fontSize": 14,
+                        "color": "#B8BEC5"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "·",
+                      "when": {
+                        "field": "genre"
+                      },
+                      "style": {
+                        "fontSize": 14,
+                        "color": "#B8BEC5"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "genre",
+                      "when": {
+                        "field": "genre"
+                      },
+                      "style": {
+                        "fontSize": 14,
+                        "color": "#B8BEC5"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "·",
+                      "when": {
+                        "field": "year"
+                      },
+                      "style": {
+                        "fontSize": 14,
+                        "color": "#B8BEC5"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "year",
+                      "when": {
+                        "field": "year"
+                      },
+                      "style": {
+                        "fontSize": 14,
+                        "color": "#B8BEC5"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "action",
+                  "action": "details",
+                  "text": "View details",
+                  "part": "onyx.details",
+                  "style": {
+                    "minHeight": 44,
+                    "radius": 40,
+                    "fontSize": 15,
+                    "fontWeight": 700,
+                    "color": "#0D0D0D",
+                    "background": "#F5F7F8"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 126,
+          "gap": 12,
+          "titleSize": 20,
+          "heading": {
+            "weight": 700,
+            "viewMore": "arrow"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 12,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 500,
+                "lines": 1
+              }
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "underline",
+        "factsStyle": "table",
+        "header": {
+          "type": "text",
+          "field": "genres",
+          "part": "onyx.genres",
+          "when": {
+            "field": "genres"
+          },
+          "style": {
+            "fontSize": 14,
+            "color": "muted-foreground",
+            "lines": 1
+          }
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "trending"
+          },
+          {
+            "role": "popular"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "role": "movies"
+          },
+          {
+            "role": "rated"
+          }
+        ],
+        "nav": {
+          "bottom": [
+            "search",
+            "library",
+            "settings"
+          ],
+          "top": []
+        }
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "onyx.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "poster",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "onyx.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "center",
+                  "gap": 14,
+                  "padding": 24,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "onyx.logo",
+                    "when": {
+                      "field": "logo"
+                    },
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 240
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "onyx.title",
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    },
+                    "style": {
+                      "fontSize": 32,
+                      "fontWeight": 900,
+                      "color": "#F5F7F8",
+                      "lines": 2,
+                      "textAlign": "center"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "onyx.meta",
+                    "style": {
+                      "gap": 6,
+                      "align": "center",
+                      "justify": "center",
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "format",
+                        "when": {
+                          "field": "format"
+                        },
+                        "style": {
+                          "fontSize": 14,
+                          "color": "#B8BEC5"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "·",
+                        "when": {
+                          "field": "genre"
+                        },
+                        "style": {
+                          "fontSize": 14,
+                          "color": "#B8BEC5"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "genre",
+                        "when": {
+                          "field": "genre"
+                        },
+                        "style": {
+                          "fontSize": 14,
+                          "color": "#B8BEC5"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "·",
+                        "when": {
+                          "field": "year"
+                        },
+                        "style": {
+                          "fontSize": 14,
+                          "color": "#B8BEC5"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "year",
+                        "when": {
+                          "field": "year"
+                        },
+                        "style": {
+                          "fontSize": 14,
+                          "color": "#B8BEC5"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "action",
+                    "action": "details",
+                    "text": "View details",
+                    "part": "onyx.details",
+                    "style": {
+                      "minHeight": 44,
+                      "radius": 40,
+                      "fontSize": 15,
+                      "fontWeight": 700,
+                      "color": "#0D0D0D",
+                      "background": "#F5F7F8"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "rows": {
+          "byId": {
+            "continue": {
+              "width": 206
+            }
+          }
+        },
+        "detail": {
+          "factsStyle": "template"
+        }
+      }
+    },
+    "css": "/* Onyx — the Nuvio look (docs/theme-references/nuvio.md): near-black, white on black, Roboto, stadium buttons. */\n\n/* Home has no app bar: the featured banner fills the top of the screen, behind the status bar. */\n[data-slot=\"home.header\"] { display: none; }\n@media (max-width: 640px) { [data-slot=\"home.hero\"] { margin-top: calc(-1 * env(safe-area-inset-top, 0px)) !important; } }\n\n/* Featured banner: square top corners, 28 px bottom corners, a seven-stop fade into the page. */\n[data-slot=\"home.hero\"] { border-radius: 0 0 28px 28px; overflow: hidden; }\n[data-part=\"onyx.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(to bottom, rgba(13, 13, 13, 0) 0%, rgba(13, 13, 13, 0.04) 16%, rgba(13, 13, 13, 0.14) 32%, rgba(13, 13, 13, 0.34) 50%, rgba(13, 13, 13, 0.6) 68%, rgba(13, 13, 13, 0.86) 84%, #0d0d0d 100%);\n  pointer-events: none;\n}\n[data-part=\"onyx.hero\"] > * { z-index: 1; }\n[data-part=\"onyx.logo\"] img { max-height: 92px; object-fit: contain; }\n[data-part=\"onyx.details\"] { padding: 0 28px; }\n[data-part=\"hero.dot\"] { width: 8px; height: 8px; border-radius: 999px; background: rgba(245, 247, 248, 0.35); }\n[data-part=\"hero.dot\"][data-active] { width: 32px; background: #f5f7f8; }\n\n/* Rows. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 20px; font-weight: 700; color: #f5f7f8; }\n\n/* Series page: no poster card; on phones a centred title and genre line over the artwork. */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"],\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] { text-align: center; font-size: 30px; font-weight: 800; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.header\"] { text-align: center; }\n/* The genre line under the title replaces the facts line and the genre chips. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.meta\"],\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] { display: none; }\n\n/* A white stadium Play; the secondary actions are 52 px circles. */\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 40px; background: #f5f7f8; color: #0d0d0d; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"button\"][data-variant=\"primary\"] { height: 52px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] { justify-content: center; gap: 12px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[data-focusable] {\n  flex: 0 0 52px;\n  width: 52px;\n  height: 52px;\n  padding: 0;\n  gap: 0;\n  border-radius: 999px;\n  background: #1c1c1e;\n  font-size: 0;\n}\n\n/* Facts as a plain label / value list. */\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"] { font-weight: 400; color: #969ca3; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { font-weight: 500; color: #f5f7f8; }\n\n/* Underline tabs in white. */\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { color: #f5f7f8; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { background: #f5f7f8; }\n"
+  }
+}
