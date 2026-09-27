@@ -1,0 +1,274 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.blossom",
+  "name": "Blossom",
+  "version": "2.0.0",
+  "author": "Izumi",
+  "description": "Dantotsu look: pure black and pink, a profile banner with hub cards, ★ cover rails, bottom series tabs.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "330 12% 92%",
+      "muted": "0 0% 11%",
+      "mutedForeground": "330 6% 62%",
+      "primary": "316 100% 79%",
+      "primaryForeground": "314 100% 18%",
+      "secondary": "0 0% 11%",
+      "secondaryForeground": "330 12% 92%",
+      "accent": "0 0% 13%",
+      "accentForeground": "330 12% 92%",
+      "border": "330 6% 20%",
+      "input": "0 0% 11%",
+      "ring": "316 100% 79%",
+      "card": "0 0% 11%",
+      "cardForeground": "330 12% 92%",
+      "theme": "316 100% 79%"
+    },
+    "radius": 1,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "poppins",
+      "heading": "poppins",
+      "display": "poppins"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "brand": "text",
+      "shell": {
+        "nav": "sidebar",
+        "compact": true,
+        "bottomNav": {
+          "style": "pill",
+          "labels": "active",
+          "indicator": "line",
+          "height": 56,
+          "iconSize": 24,
+          "radius": 40,
+          "background": "#222222F9",
+          "activeColor": "#FF92E2",
+          "inactiveColor": "#9E8C98",
+          "blur": false,
+          "border": false,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 102,
+          "gap": 14,
+          "titleSize": 16,
+          "heading": {
+            "weight": 700,
+            "viewMore": "arrow"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "blossom.cover",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 16,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "blossom.score",
+                  "when": {
+                    "field": "score"
+                  },
+                  "style": {
+                    "anchor": "bottom-end",
+                    "gap": 3,
+                    "align": "center",
+                    "padding": 4,
+                    "radius": 80
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "★",
+                      "style": {
+                        "fontSize": 11,
+                        "color": "primary-foreground"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "score",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "primary-foreground"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "blossom.ongoing",
+                  "when": {
+                    "field": "airingIn"
+                  },
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "blossom.title",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lines": 2
+              }
+            },
+            {
+              "type": "row",
+              "when": {
+                "field": "episodesAired"
+              },
+              "style": {
+                "gap": 2,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "episodesAired",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 700,
+                    "color": "theme"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "/",
+                  "when": {
+                    "field": "episodeCount"
+                  },
+                  "style": {
+                    "fontSize": 13,
+                    "color": "muted-foreground"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "episodeCount",
+                  "when": {
+                    "field": "episodeCount"
+                  },
+                  "style": {
+                    "fontSize": 13,
+                    "color": "muted-foreground"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "bottom",
+        "factsStyle": "table",
+        "countdown": "long",
+        "listButton": "full",
+        "header": {
+          "type": "text",
+          "field": "status",
+          "part": "blossom.status",
+          "when": {
+            "field": "status"
+          },
+          "style": {
+            "fontSize": 14,
+            "fontWeight": 700,
+            "color": "theme",
+            "opacity": 0.66
+          }
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "block": "profile-header",
+            "buttons": [
+              {
+                "label": "Anime list",
+                "to": "library"
+              },
+              {
+                "label": "Release calendar",
+                "to": "schedule"
+              }
+            ]
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "list"
+          },
+          {
+            "role": "recommendations"
+          },
+          {
+            "role": "trending"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "role": "popular"
+          }
+        ],
+        "nav": {
+          "home": 1,
+          "bottom": [
+            "search",
+            "library"
+          ],
+          "top": [
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "detail": {
+          "posterWidth": 108
+        }
+      }
+    },
+    "css": "/* Blossom — the Dantotsu look (docs/theme-references/dantotsu.md): pure black, one pink seed, Poppins, 16 px corners. */\n\n/* Home opens on the profile: no app bar; its search and settings float over the banner as round buttons. */\n@media (max-width: 640px) {\n  [data-slot=\"home.header\"] { position: absolute; inset: 0 0 auto; z-index: 5; padding: 12px 16px; pointer-events: none; }\n  [data-slot=\"home.header\"] [data-slot=\"brand\"],\n  [data-slot=\"home.header\"] [data-part=\"brand.mark\"] { visibility: hidden; }\n  [data-slot=\"home.header\"] a { pointer-events: auto; width: 52px; height: 52px; margin-left: 8px; border-radius: 999px; background: rgba(28, 28, 28, 0.9); }\n}\n\n/* The profile banner: full width, square, a slow Ken Burns drift, faded into the page. */\n@keyframes blossom-ken-burns { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.18) translate(-3%, -2%); } }\n[data-slot=\"block.profile-header\"] { padding: 0; }\n[data-slot=\"block.profile-header\"] > div { border-radius: 0; background: #000; overflow: hidden; }\n[data-slot=\"block.profile-header\"] [data-part=\"block.banner\"] { animation: blossom-ken-burns 20s ease-in-out infinite alternate; }\n[data-slot=\"block.profile-header\"] > div > div:has(+ div) { background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.1) 100%); }\n[data-slot=\"block.profile-header\"] [data-part=\"block.avatar\"] { width: 52px; height: 52px; border: 0; }\n[data-slot=\"block.profile-header\"] [data-part=\"block.name\"] { font-size: 18px; font-weight: 700; }\n[data-slot=\"block.profile-header\"] [data-part=\"block.stat\"] { font-size: 12px; color: rgba(255, 255, 255, 0.58); }\n\n/* Hub cards: two 72 px tiles, a centred uppercase label over a short pink underline. */\n[data-slot=\"block.profile-header\"] [data-nav-row] { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; background: #000; }\n[data-slot=\"block.profile-header\"] [data-part=\"button\"] {\n  position: relative;\n  display: grid;\n  place-items: center;\n  height: 72px;\n  padding: 0 8px 6px;\n  border-radius: 16px;\n  background: linear-gradient(135deg, #2a1f27, #141014);\n  backdrop-filter: none;\n  font-size: 15px;\n  font-weight: 700;\n  letter-spacing: 0.4px;\n  text-align: center;\n  text-transform: uppercase;\n  color: #fff;\n}\n[data-slot=\"block.profile-header\"] [data-part=\"button\"]::after {\n  content: \"\";\n  position: absolute;\n  bottom: 18px;\n  left: calc(50% - 32px);\n  width: 64px;\n  height: 2px;\n  border-radius: 2px;\n  background: #ff92e2;\n}\n\n/* Rows: 16 px bold titles; covers float on a soft shadow; a pink score pill and an ongoing dot. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 16px; font-weight: 700; }\n[data-part=\"blossom.cover\"] > .theme-artwork { box-shadow: 0 8px 14px rgba(0, 0, 0, 0.55); }\n[data-part=\"blossom.score\"] { margin: 6px; background: #ff92e2; }\n[data-part=\"blossom.ongoing\"] { width: 16px; height: 16px; margin: 8px; border-radius: 999px; background: #7ee07e; border: 2px solid #000; }\n[data-part=\"blossom.title\"] { line-height: 1.25; min-height: 2.5em; }\n\n/* Series page: the floating 16 px cover, a four-line title, the outlined full-width list button. */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 16px; box-shadow: 0 16px 30px rgba(0, 0, 0, 0.6); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] { font-size: 18px; font-weight: 700; -webkit-line-clamp: 4; }\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-part=\"detail.list-button\"][data-variant=\"full\"] { height: 48px; border: 1.5px solid #fff; border-radius: 16px; color: #ff92e2; font-size: 14px; font-weight: 700; letter-spacing: 0.6px; }\n\n/* Facts as a table: a dim bold label, a bright bold value at the end. */\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"] { font-weight: 700; color: rgba(237, 224, 230, 0.58); }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { font-weight: 700; text-align: end; }\n\n/* The pill nav: only the active tab shows its label, uppercase and bold, with the line at the bottom edge. */\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item.label\"] { text-transform: uppercase; font-weight: 700; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] > span:first-child:not([data-part]) { top: auto; bottom: 4px; left: 22px; right: 22px; height: 3px; }\n\n/* Series tabs: the page's own bottom bar, 64 px, a rounded pink indicator on top of the active tab. */\n[data-part=\"tabs\"][data-variant=\"bottom\"] [data-part=\"tab\"] { position: relative; padding: 22px 0 20px; font-size: 11px; letter-spacing: 0.2px; }\n[data-part=\"tabs\"][data-variant=\"bottom\"] [data-part=\"tab\"][data-active]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 26%;\n  right: 26%;\n  height: 3px;\n  border-radius: 0 0 3px 3px;\n  background: #ff92e2;\n}\n[data-part=\"detail.facts\"][data-variant=\"table\"] { max-width: 560px; }\n"
+  }
+}
