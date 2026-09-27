@@ -416,6 +416,28 @@
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.reel.png"
     },
     {
+      "id": "izumi.saffron",
+      "name": "Saffron",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Crunchyroll look: black and orange in DM Sans, square corners, a text-link bar, a full-bleed hero, bold poster rows.",
+      "themeApi": 3,
+      "tags": [
+        "Dark",
+        "Site",
+        "Top bar"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.saffron/1.0.0.json",
+      "sha256": "0e49d96acc0d52b8d7c9eadc05b61ce4c629134d9e38e4ae09752a01a74144dd",
+      "bytes": 18136,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.saffron.png"
+    },
+    {
       "id": "izumi.slate",
       "name": "Slate",
       "version": "1.0.0",
