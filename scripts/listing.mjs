@@ -8,8 +8,11 @@
 import { createHash } from 'node:crypto'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, relative, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const root = resolve(new URL('..', import.meta.url).pathname)
+// fileURLToPath, not URL.pathname: the pathname keeps a leading slash before the drive letter on Windows and
+// leaves spaces percent-encoded.
+const root = fileURLToPath(new URL('..', import.meta.url))
 const base = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
 const [file, ...rest] = process.argv.slice(2)
 if (!file) { console.error('usage: node scripts/listing.mjs packages/<id>/<version>.json [--tags a,b] [--platforms desktop,phone] [--preview url] [--project url]'); process.exit(1) }
