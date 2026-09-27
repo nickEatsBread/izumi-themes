@@ -5,15 +5,17 @@ preview, and install a theme. **Add from link** also accepts unlisted themes.
 
 This repository contains listings and example themes. Desktop-led: Kindling, Ledger, Tidal,
 Ember, Halo, Orchid, Nebula, Prism, Cobalt, Tangerine and Daylight (the light theme).
-Streaming-site looks with a docked watch layout (the player in a stage with episodes beside or
-below it): Reel, Booth, Spotlight, Mint, Amethyst, Lime and Frost. Phone-first: Lavender,
-Coral, Onyx and Blossom, each carrying a `presentation.mobile` block and its own bottom bar,
-slide marker and tab style (theme API 2, see `docs/FORMAT.md`) while keeping a desktop layout.
+Replicas of streaming sites (theme API 3, each listing names its reference): Reel, Booth,
+Spotlight, Frost, Volt, Slate, Iris, Marigold, Carbon and Saffron, most with a docked watch
+layout (the player in a stage with episodes beside or below it). Replicas of phone apps: Lavender,
+Coral, Onyx and Blossom, each carrying a `presentation.mobile` block with its own bottom bar,
+slide marker and tab style while keeping a desktop layout. See `docs/FORMAT.md`.
 Listings say which layouts a theme was designed for (`platforms`). The renderer ships with the
 client; installing a theme changes presentation without installing executable code.
 
 Every preview in `previews/` is a screenshot of the real client with that theme applied,
-rendered by `scripts/preview/` over a fixture catalogue with generated key art.
+rendered by `scripts/preview/`: the replicas over live catalog data (`--live`), the rest over a
+fixture catalogue with generated key art.
 
 ## Publishing
 
