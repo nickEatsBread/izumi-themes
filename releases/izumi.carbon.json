@@ -1,0 +1,28 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.carbon",
+    "name": "Carbon",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "Anime Nexus look: zinc in DM Sans, a centred logo, a light Watch now, corner-badged episodes, a popular list.",
+    "themeApi": 3,
+    "tags": [
+      "Dark",
+      "Site",
+      "Top bar",
+      "Docked player"
+    ],
+    "platforms": [
+      "desktop",
+      "phone"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.carbon/1.0.0.json",
+    "sha256": "08f4bb6f3dd0dca0812dced5251b9f9711d520c4a60257049865434ff6543620",
+    "bytes": 18581,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.carbon.png"
+  }
+}
