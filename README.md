@@ -61,7 +61,8 @@ npm run previews                 # all listings; --only izumi.kindling,izumi.cor
 `--keep-shots <dir>` also saves the series page and phone Home for each desktop theme.
 Rendering uses a fixture catalogue of original sample titles and generated artwork, so it works
 offline and ships no licensed images; `--live` renders against the real network instead, opening
-the most-trending series with banner art for the series shots (`--series <id>` picks one).
+the most-trending series with banner art for the series shots (`--series <id>` picks one;
+`--hero-slide <n>` starts Home on a later featured slide).
 Set `IZUMI_PREVIEW_CHROMIUM` to use a specific Chromium binary.
 
 ## Scope

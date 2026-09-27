@@ -4,7 +4,7 @@
 //   node scripts/preview/render.mjs [--izumi ../izumi] [--url http://127.0.0.1:1420]
 //                                   [--only izumi.kindling,...] [--out previews] [--live]
 //                                   [--shots home,series,phone] [--keep-shots dir] [--viewport 1280x1400]
-//                                   [--series <anilist id>]
+//                                   [--series <anilist id>] [--hero-slide <n>]
 //
 // The client must be served by `npm run dev` (Vite) from the sibling izumi checkout, so its
 // modules are importable for seeding. Every preview is the actual Home screen with the theme
@@ -32,6 +32,8 @@ const keptViewport = (() => { const m = /^(\d+)x(\d+)$/.exec(String(args.viewpor
 const keepShots = args['keep-shots'] ? resolve(root, String(args['keep-shots'])) : null
 // The series page to shoot: a fixture title offline; live, `--series <id>` or the most-trending series with banner art.
 const seriesId = args.series ? Number(args.series) : live ? await trendingSeriesId() : MEDIA[0].id
+// Live Home shots can start on a later featured slide (0-based) when the first one makes a poor listing image.
+const heroSlide = args['hero-slide'] ? Number(args['hero-slide']) : 0
 const localBase = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
 
 const { chromium } = await loadPlaywright()
@@ -119,6 +121,10 @@ async function capture({ design, platform, viewport, scale, path, wait }) {
   await page.goto(`${baseUrl}${path}`, { waitUntil: 'domcontentloaded' })
   if (!live) await seedHistory(page)
   await wait(page, design)
+  if (heroSlide && path === '/app/home') {
+    const dots = page.locator('[data-part="hero.dot"]')
+    if (await dots.count() > heroSlide) { await dots.nth(heroSlide).click(); await page.waitForTimeout(1500) }
+  }
   await settleImages(page)
   await page.waitForTimeout(600)
   const shot = await page.screenshot({ type: 'png', fullPage: false })
