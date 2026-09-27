@@ -176,6 +176,29 @@
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.halo.png"
     },
     {
+      "id": "izumi.iris",
+      "name": "Iris",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Senshi look: near-black and purple, a full-bleed hero under a clear header, overlay poster rails, medal-ranked trending.",
+      "themeApi": 3,
+      "tags": [
+        "Dark",
+        "Site",
+        "Top bar",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.iris/1.0.0.json",
+      "sha256": "720d65f8b6c4887b36652b3e6db6e3e479633e218181dfc1469422f852039726",
+      "bytes": 22267,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.iris.png"
+    },
+    {
       "id": "izumi.kindling",
       "name": "Kindling",
       "version": "1.5.0",
