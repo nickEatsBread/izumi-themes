@@ -4,29 +4,6 @@
   "schemaVersion": 1,
   "themes": [
     {
-      "id": "izumi.amethyst",
-      "name": "Amethyst",
-      "version": "1.0.0",
-      "author": "Izumi",
-      "description": "Modelled on the AniWave site: deep slate surfaces with a soft purple accent and a top bar. The featured swiper shows a slide counter, format and year tags and square-cornered buttons; section titles are small uppercase text; posters have a format tag pinned to the bottom. The watch page docks the player with a scrolling episode list beside it; the series page splits info and an episode rail under underlined tabs. Phones get a flush bottom bar with a dot under the active tab.",
-      "themeApi": 2,
-      "tags": [
-        "Dark",
-        "Site",
-        "Purple",
-        "Docked player"
-      ],
-      "platforms": [
-        "desktop",
-        "phone"
-      ],
-      "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.amethyst/1.0.0.json",
-      "sha256": "67095139ededcaf54f15b0702d63ef502dfeb7db46847317948efafedeb5b3ae",
-      "bytes": 19426,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.amethyst.png"
-    },
-    {
       "id": "izumi.blossom",
       "name": "Blossom",
       "version": "2.0.0",
@@ -260,53 +237,6 @@
       "sha256": "3e0f7f7e3ceb3e574af9bffada2df430f700eb9b75e5318c7fe899a65c52da78",
       "bytes": 7888,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ledger.png"
-    },
-    {
-      "id": "izumi.lime",
-      "name": "Lime",
-      "version": "1.0.0",
-      "author": "Izumi",
-      "description": "Modelled on the classic Gogoanime site: a light canvas with green links and a top bar, no featured banner, and Home as tight poster grids under uppercase, underlined section titles. The watch page docks the player above the server switcher and an episode number grid; the series page stacks the cover and facts over underlined tabs and a snapshot grid. Phones keep the grid under a flush white bottom bar with a green line marker.",
-      "themeApi": 2,
-      "tags": [
-        "Light",
-        "Site",
-        "Green",
-        "Grid",
-        "Docked player"
-      ],
-      "platforms": [
-        "desktop",
-        "phone"
-      ],
-      "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lime/1.0.0.json",
-      "sha256": "d136866777f125c3a5d84ca7c0e448bc04c37b9abb272550d348c273eefb4a60",
-      "bytes": 7120,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lime.png"
-    },
-    {
-      "id": "izumi.mint",
-      "name": "Mint",
-      "version": "1.0.0",
-      "author": "Izumi",
-      "description": "Modelled on the AnimeKai site: a black canvas with a lime accent and a top bar. The featured banner keeps its filled progress bars at the start; section titles carry a lime bar and an arrow; posters have a soft radius with a score badge. The watch page docks the player above the server switcher and an episode number grid; the series page stacks info over a segmented control and a snapshot grid. Phones get a centred icon pill for navigation.",
-      "themeApi": 2,
-      "tags": [
-        "Dark",
-        "Site",
-        "Green",
-        "Docked player"
-      ],
-      "platforms": [
-        "desktop",
-        "phone"
-      ],
-      "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.mint/1.0.0.json",
-      "sha256": "49f137920a8da0e9c134bef72385caeec8373e50523cb48c9254987684c6f2e5",
-      "bytes": 9245,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.mint.png"
     },
     {
       "id": "izumi.nebula",

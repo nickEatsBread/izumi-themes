@@ -28,6 +28,9 @@ rendered by `scripts/preview/` over a fixture catalogue with generated key art.
 The catalog's `index.json` is generated from the entries. An update must receive a new
 version and matching checksum. Authors can host packages in their own repositories.
 
+Retired listings move to `delisted/`: they leave `index.json`, while their packages and release
+descriptors stay so existing installs and shared links keep working.
+
 Users can also paste a direct package link or a release-descriptor link. A release descriptor
 allows checking for updates from the same location. Packages and personal edits stay on the
 user's device, including while offline.
