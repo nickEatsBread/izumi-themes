@@ -68,8 +68,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/2.0.0.json",
-      "sha256": "da65ebaa20c047f48de1115e714a1117fd6a6fde84cc80bfef38041e0ecd8a31",
-      "bytes": 41057,
+      "sha256": "20105e19a321650c32c3bedf585adcdd79ef369d202edd016e8ed3b08435e0da",
+      "bytes": 41136,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.booth.png"
     },
     {
@@ -113,8 +113,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.0.json",
-      "sha256": "64ac5c818d9173196614ba1efd0f9231ba75d9ab1088d9c3acf979ab0bf9a454",
-      "bytes": 16985,
+      "sha256": "70536594fb84c8cf0cca566d2b7c39de08088378787b4de635d50f5281a7ec28",
+      "bytes": 17064,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
     },
     {
@@ -239,8 +239,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.0.json",
-      "sha256": "25b41852b9c41fc31c0fe51a98b5f4fcb15b6dbc02f74c668f5c86445debba2b",
-      "bytes": 23975,
+      "sha256": "06c05b7101505473e5d7627dcb799dc79b906b006d494cd51f70bcd8d7d93abc",
+      "bytes": 23855,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
     },
     {
@@ -349,8 +349,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.0.json",
-      "sha256": "29f4ac1ba6fbaae6cb276669f6630662f7998363dd288b753b00ee3e8d27e5cb",
-      "bytes": 15944,
+      "sha256": "2e4a46f21d8517bff45e53ee9b1c9e687aa21687b124def4fb6518086866d3d4",
+      "bytes": 16022,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
     },
     {
@@ -419,15 +419,14 @@
     {
       "id": "izumi.spotlight",
       "name": "Spotlight",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "author": "Izumi",
-      "description": "Modelled on the HiAnime site: indigo surfaces with a pale pink accent and a top bar. Home opens on a numbered \"Spotlight\" banner with pill buttons and no slide markers, then sharp-cornered poster rows; the Trending row stamps a large rank number on each cover. The watch page docks a wide player with the episode list beside it; the series page is a full-bleed overlay with a large pink Watch button and a snapshot episode grid. Phones use a flush bottom bar with pink active tabs.",
-      "themeApi": 2,
+      "description": "Anikoto look: navy and sky blue in Nunito, a split hero with Play now, poster grid with sub counts, Top anime aside.",
+      "themeApi": 3,
       "tags": [
         "Dark",
         "Site",
-        "Pink",
-        "Numbered",
+        "Top bar",
         "Docked player"
       ],
       "platforms": [
@@ -435,9 +434,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/1.0.0.json",
-      "sha256": "b46838164f038cf68872a9bcc2b831c4018eb0dbd1654d64e4027ee55f37efac",
-      "bytes": 24885,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/2.0.0.json",
+      "sha256": "20bd1c356d7a6164ce4fdf01b3f497ff2106ff86b7f054c4d4dcfc03f20b6b3b",
+      "bytes": 22453,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.spotlight.png"
     },
     {
