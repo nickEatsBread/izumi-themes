@@ -1,0 +1,28 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.marigold",
+    "name": "Marigold",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "KickAssAnime look: black and Material yellow in Roboto, a flush app bar, year-chip poster grid, a releases list.",
+    "themeApi": 3,
+    "tags": [
+      "Dark",
+      "Site",
+      "Top bar",
+      "Docked player"
+    ],
+    "platforms": [
+      "desktop",
+      "phone"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marigold/1.0.0.json",
+    "sha256": "036f9083aaa3e64d4894c0b6117bfa0e930264519888f0a9be3bfed8f199f859",
+    "bytes": 11195,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marigold.png"
+  }
+}
