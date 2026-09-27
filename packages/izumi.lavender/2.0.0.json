@@ -11,22 +11,22 @@
   "design": {
     "tokens": {
       "scheme": "dark",
-      "background": "0 0% 2%",
-      "foreground": "0 0% 94%",
-      "muted": "252 9% 11%",
-      "mutedForeground": "240 2% 65%",
-      "primary": "249 81% 71%",
-      "primaryForeground": "0 0% 100%",
-      "secondary": "252 9% 11%",
-      "secondaryForeground": "0 0% 94%",
-      "accent": "252 9% 11%",
-      "accentForeground": "0 0% 94%",
-      "border": "240 5% 17%",
+      "background": "240 9% 2%",
+      "foreground": "240 12% 95%",
+      "muted": "240 8% 10%",
+      "mutedForeground": "240 4% 61%",
+      "primary": "248 82% 71%",
+      "primaryForeground": "240 12% 95%",
+      "secondary": "240 6% 7%",
+      "secondaryForeground": "240 12% 95%",
+      "accent": "240 8% 10%",
+      "accentForeground": "240 12% 95%",
+      "border": "240 6% 16%",
       "input": "240 6% 7%",
-      "ring": "249 81% 71%",
+      "ring": "248 82% 71%",
       "card": "240 6% 7%",
-      "cardForeground": "0 0% 94%",
-      "theme": "249 81% 71%"
+      "cardForeground": "240 12% 95%",
+      "theme": "248 82% 71%"
     },
     "radius": 0.75,
     "font": "system",
@@ -473,56 +473,194 @@
         }
       },
       "detail": {
-        "layout": "stack",
+        "layout": "split",
         "tabs": "pills",
-        "factsStyle": "cards",
+        "factsStyle": "template",
         "countdown": "long",
+        "listButton": "inline",
+        "nav": "hidden",
+        "sections": {
+          "tabs": [
+            "overview"
+          ]
+        },
         "header": {
-          "type": "stack",
+          "type": "row",
+          "part": "lavender.tv-meta",
           "style": {
-            "gap": 10,
-            "align": "start"
+            "gap": 8,
+            "align": "center"
           },
           "children": [
-            {
-              "type": "text",
-              "field": "studio",
-              "part": "lavender.studio",
-              "when": {
-                "field": "studio"
-              },
-              "style": {
-                "fontSize": 15,
-                "fontWeight": 500,
-                "lines": 1
-              }
-            },
             {
               "type": "row",
               "when": {
                 "field": "score"
               },
               "style": {
-                "gap": 5,
+                "gap": 3,
                 "align": "center"
               },
               "children": [
                 {
                   "type": "text",
-                  "field": "score",
+                  "text": "★",
                   "style": {
-                    "fontSize": 18,
-                    "fontWeight": 700,
+                    "fontSize": 15,
                     "color": "theme"
                   }
                 },
                 {
                   "type": "text",
-                  "text": "score",
+                  "field": "score",
                   "style": {
-                    "fontSize": 18,
-                    "fontWeight": 500,
-                    "color": "theme"
+                    "fontSize": 13,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "format",
+              "part": "lavender.tv-meta-item",
+              "when": {
+                "field": "format"
+              },
+              "style": {
+                "fontSize": 13,
+                "fontWeight": 500,
+                "color": "#FFFFFFBD"
+              }
+            },
+            {
+              "type": "text",
+              "field": "year",
+              "part": "lavender.tv-meta-item",
+              "when": {
+                "field": "year"
+              },
+              "style": {
+                "fontSize": 13,
+                "fontWeight": 500,
+                "color": "#FFFFFFBD"
+              }
+            },
+            {
+              "type": "text",
+              "field": "duration",
+              "part": "lavender.tv-meta-item",
+              "when": {
+                "field": "duration"
+              },
+              "style": {
+                "fontSize": 13,
+                "fontWeight": 500,
+                "color": "#FFFFFFBD"
+              }
+            },
+            {
+              "type": "text",
+              "field": "genre",
+              "part": "lavender.tv-meta-item",
+              "when": {
+                "field": "genre"
+              },
+              "style": {
+                "fontSize": 13,
+                "fontWeight": 500,
+                "color": "#FFFFFFBD"
+              }
+            }
+          ]
+        },
+        "facts": {
+          "type": "stack",
+          "part": "lavender.tv-about",
+          "style": {
+            "gap": 5
+          },
+          "children": [
+            {
+              "type": "text",
+              "text": "About",
+              "style": {
+                "fontSize": 20,
+                "fontWeight": 700,
+                "color": "#FFFFFF"
+              }
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 8
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "status",
+                  "when": {
+                    "field": "status"
+                  },
+                  "style": {
+                    "fontSize": 17,
+                    "color": "#FFFFFFA8"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "•",
+                  "when": {
+                    "field": "episodeCount"
+                  },
+                  "style": {
+                    "fontSize": 17,
+                    "color": "#FFFFFFA8"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "episodeCount",
+                  "when": {
+                    "field": "episodeCount"
+                  },
+                  "style": {
+                    "fontSize": 17,
+                    "color": "#FFFFFFA8"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "episodes",
+                  "when": {
+                    "field": "episodeCount"
+                  },
+                  "style": {
+                    "fontSize": 17,
+                    "color": "#FFFFFFA8"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "•",
+                  "when": {
+                    "field": "season"
+                  },
+                  "style": {
+                    "fontSize": 17,
+                    "color": "#FFFFFFA8"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "season",
+                  "when": {
+                    "field": "season"
+                  },
+                  "style": {
+                    "fontSize": 17,
+                    "color": "#FFFFFFA8"
                   }
                 }
               ]
@@ -530,7 +668,107 @@
           ]
         },
         "episodes": {
-          "arrangement": "list"
+          "placement": "right",
+          "arrangement": "list",
+          "hover": "none",
+          "order": "none",
+          "toolbar": "header",
+          "controls": [],
+          "search": "field",
+          "paging": "ranges",
+          "pageSize": 100,
+          "toolbarMin": 12,
+          "seasons": "chips",
+          "card": {
+            "type": "row",
+            "part": "lavender.tv-ep",
+            "style": {
+              "gap": 12,
+              "align": "center",
+              "wrap": "nowrap",
+              "padding": 8,
+              "radius": 12,
+              "background": "#FFFFFF0E"
+            },
+            "children": [
+              {
+                "type": "overlay",
+                "style": {
+                  "radius": 8,
+                  "shrink": 0
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "style": {
+                      "maxWidth": 142,
+                      "aspect": "16 / 9",
+                      "fit": "cover"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "style": {
+                  "grow": 1,
+                  "shrink": 1,
+                  "gap": 4
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "part": "lavender.tv-ep-label",
+                    "style": {
+                      "gap": 3,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "EPISODE",
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 900,
+                          "color": "theme"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeNo",
+                        "part": "lavender.ep-no",
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 900,
+                          "color": "theme"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "episodeTitle",
+                    "style": {
+                      "fontSize": 14,
+                      "fontWeight": 600,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    }
+                  },
+                  {
+                    "type": "meter",
+                    "field": "progress",
+                    "part": "lavender.tv-meter",
+                    "when": {
+                      "field": "progress",
+                      "atMost": 100
+                    }
+                  }
+                ]
+              }
+            ]
+          }
         }
       },
       "layout": {
@@ -584,7 +822,245 @@
       },
       "mobile": {
         "detail": {
-          "posterWidth": 130
+          "layout": "stack",
+          "factsStyle": "cards",
+          "listButton": "full",
+          "posterWidth": 98,
+          "sections": {
+            "mode": "tabs",
+            "tabs": [
+              "overview",
+              "episodes",
+              "relations"
+            ],
+            "labels": {
+              "overview": "home",
+              "relations": "related"
+            },
+            "default": "overview",
+            "info": "overview"
+          },
+          "header": {
+            "type": "stack",
+            "style": {
+              "gap": 4,
+              "align": "start"
+            },
+            "children": [
+              {
+                "type": "text",
+                "field": "studio",
+                "part": "lavender.studio",
+                "when": {
+                  "field": "studio"
+                },
+                "style": {
+                  "fontSize": 13,
+                  "fontWeight": 600,
+                  "lines": 1
+                }
+              },
+              {
+                "type": "row",
+                "part": "lavender.score-line",
+                "style": {
+                  "gap": 4,
+                  "align": "center"
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "when": {
+                      "field": "score"
+                    },
+                    "style": {
+                      "gap": 4
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "score",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "theme"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "score",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "theme"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "part": "lavender.eps",
+                    "when": {
+                      "field": "episodeCount"
+                    },
+                    "style": {
+                      "gap": 4
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "·",
+                        "part": "lavender.dot",
+                        "style": {
+                          "fontSize": 14,
+                          "color": "theme"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeCount",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "theme"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "episodes",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "theme"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "episodes": {
+            "placement": "tab",
+            "arrangement": "list",
+            "hover": "none",
+            "order": "none",
+            "toolbar": "bar",
+            "controls": [
+              "search",
+              "layout"
+            ],
+            "search": "field",
+            "paging": "dropdown",
+            "pageSize": 100,
+            "toolbarMin": 13,
+            "seasons": "chips",
+            "card": {
+              "type": "row",
+              "part": "lavender.ep",
+              "style": {
+                "gap": 13,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "overlay",
+                  "part": "lavender.ep-thumb",
+                  "style": {
+                    "radius": 10,
+                    "shrink": 0
+                  },
+                  "children": [
+                    {
+                      "type": "artwork",
+                      "artwork": "still",
+                      "style": {
+                        "maxWidth": 132,
+                        "aspect": "16 / 9",
+                        "fit": "cover"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "lavender.ep-badge",
+                      "style": {
+                        "anchor": "bottom-end",
+                        "gap": 2,
+                        "align": "center",
+                        "radius": 5,
+                        "background": "#000000C7"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "EP",
+                          "style": {
+                            "fontSize": 11,
+                            "fontWeight": 500,
+                            "color": "#FFFFFF"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodeNo",
+                          "part": "lavender.ep-no",
+                          "style": {
+                            "fontSize": 11,
+                            "fontWeight": 500,
+                            "color": "#FFFFFF"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "meter",
+                      "field": "progress",
+                      "part": "lavender.ep-meter",
+                      "when": {
+                        "field": "progress",
+                        "atMost": 100
+                      },
+                      "style": {
+                        "anchor": "bottom-start"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "stack",
+                  "style": {
+                    "grow": 1,
+                    "shrink": 1,
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "episodeTitle",
+                      "part": "lavender.ep-title",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 600,
+                        "lines": 2,
+                        "color": "foreground"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeCode",
+                      "part": "lavender.ep-sub",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "muted-foreground"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
         },
         "rows": {
           "byId": {
@@ -634,6 +1110,6 @@
         }
       }
     },
-    "css": "/* Lavender — the anilili look (docs/theme-references/anilili.md): black, one purple accent, Roboto, pills. */\n\n/* The phone app bar shows the wordmark alone. */\n\n/* Genre chips: \"All\" filled accent; the rest dark filled pills with a hairline border. */\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] {\n  height: 36px;\n  padding: 0 16px;\n  display: inline-flex;\n  align-items: center;\n  border-radius: 999px;\n  border: 1px solid #2a2a2e;\n  background: #1a191e;\n  color: #f0f0f0;\n  font-size: 14px;\n  font-weight: 500;\n}\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"][data-active] { background: #8b7af1; border-color: #8b7af1; color: #fff; }\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] { white-space: nowrap; flex-shrink: 0; }\n[data-slot=\"block.genre-chips\"] :has(> [data-part=\"chip\"]) { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }\n/* Desktop: clear the window's title strip above the chip row. */\n@media (min-width: 641px) { [data-slot=\"home\"] { padding-top: 44px; } }\n\n/* Hero: countdown and counter chips, centred info, a translucent Details pill beside a white Watch Now pill. */\n[data-part=\"lavender.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.25), rgba(5, 5, 5, 0.1) 40%, #050505) !important;\n  pointer-events: none;\n}\n[data-part=\"lavender.hero\"]::after { z-index: 1; }\n[data-part=\"lavender.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"lavender.chip\"] {\n  margin: 16px;\n  background: rgba(0, 0, 0, 0.45);\n  border: 1px solid rgba(255, 255, 255, 0.28);\n  backdrop-filter: blur(8px);\n}\n[data-part=\"lavender.countdown\"] { text-transform: uppercase; }\n[data-part=\"lavender.info\"] { text-align: center; }\n[data-part=\"lavender.genres\"] { background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.28); padding: 6px 14px; }\n[data-part=\"lavender.details\"] { padding: 0 22px; background: rgba(0, 0, 0, 0.45) !important; border: 1px solid rgba(255, 255, 255, 0.35); color: #fff !important; }\n[data-part=\"lavender.watch\"] { padding: 0 24px; }\n[data-part=\"hero.dot\"] { width: 6px; height: 6px; border-radius: 999px; background: #5a5a60; }\n[data-part=\"hero.dot\"][data-active] { width: 24px; background: #8b7af1; }\n\n/* Rows: 24 px bold titles. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 24px; font-weight: 700; color: #f0f0f0; }\n\n/* Segmented NEWEST / POPULAR / MOVIES / TOP RATED strip. */\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] {\n  display: flex;\n  gap: 4px;\n  padding: 4px;\n  margin: 0 0 16px;\n  border: 0;\n  border-radius: 12px;\n  background: #101012;\n  width: fit-content;\n  max-width: 100%;\n}\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] {\n  padding: 8px 16px;\n  border-radius: 10px;\n  color: #a5a5a8;\n  font-size: 14px;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { background: #28204e; color: #8b7af1; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n/* Phone: the four segments share the full width, as in the app. */\n@media (max-width: 640px) {\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { width: 100%; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { flex: 1 1 0; padding: 8px 4px; font-size: 13px; text-align: center; white-space: nowrap; }\n}\n\n/* The ★ score badge on every poster: dark pill, accent hairline. */\n[data-part=\"lavender.score\"] { margin: 6px; background: rgba(5, 5, 5, 0.72); border: 1px solid #8b7af1; }\n\n/* Series page: pill tabs (accent active), studio chip look for facts cards, accent score. */\n[data-slot=\"detail\"] [data-part=\"tab\"] { border-radius: 999px; height: 44px; padding: 0 18px; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { background: #8b7af1; color: #fff; }\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 14px; }\n[data-slot=\"detail\"] [data-part=\"detail.title\"] { font-weight: 800; text-transform: uppercase; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] { font-size: 26px; }\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-part=\"lavender.studio\"] { padding: 5px 12px; border: 1px solid #3a3a3e; border-radius: 10px; color: #f0f0f0; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact\"] { border: 1px solid #2a2a2e; border-radius: 16px; background: #101012; padding: 10px 16px; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.value\"] { font-size: 16px; font-weight: 700; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.label\"] { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 500; color: #a5a5a8; }\n[data-part=\"detail.countdown\"] { border: 1px solid #2a2a2e; border-radius: 16px; background: #101012; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 999px; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"secondary\"] { border-radius: 999px; border: 1px solid #2a2a2e; background: transparent; color: #8b7af1; }\n\n/* Bottom bar: a solid accent pill behind the active icon, white icon, accent label. */\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] > span:first-child { background: #8b7af1 !important; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] svg { color: #fff; }\n"
+    "css": "/* Lavender — the anilili look (docs/theme-references/anilili.md): black, one purple accent, Roboto, pills. */\n\n/* The phone app bar shows the wordmark alone. */\n\n/* Genre chips: \"All\" filled accent; the rest dark filled pills with a hairline border. */\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] {\n  height: 36px;\n  padding: 0 16px;\n  display: inline-flex;\n  align-items: center;\n  border-radius: 999px;\n  border: 1px solid #2a2a2e;\n  background: #1a191e;\n  color: #f0f0f0;\n  font-size: 14px;\n  font-weight: 500;\n}\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"][data-active] { background: #8b7af1; border-color: #8b7af1; color: #fff; }\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] { white-space: nowrap; flex-shrink: 0; }\n[data-slot=\"block.genre-chips\"] :has(> [data-part=\"chip\"]) { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }\n/* Desktop: clear the window's title strip above the chip row. */\n@media (min-width: 641px) { [data-slot=\"home\"] { padding-top: 44px; } }\n\n/* Hero: countdown and counter chips, centred info, a translucent Details pill beside a white Watch Now pill. */\n[data-part=\"lavender.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.25), rgba(5, 5, 5, 0.1) 40%, #050505) !important;\n  pointer-events: none;\n}\n[data-part=\"lavender.hero\"]::after { z-index: 1; }\n[data-part=\"lavender.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"lavender.chip\"] {\n  margin: 16px;\n  background: rgba(0, 0, 0, 0.45);\n  border: 1px solid rgba(255, 255, 255, 0.28);\n  backdrop-filter: blur(8px);\n}\n[data-part=\"lavender.countdown\"] { text-transform: uppercase; }\n[data-part=\"lavender.info\"] { text-align: center; }\n[data-part=\"lavender.genres\"] { background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.28); padding: 6px 14px; }\n[data-part=\"lavender.details\"] { padding: 0 22px; background: rgba(0, 0, 0, 0.45) !important; border: 1px solid rgba(255, 255, 255, 0.35); color: #fff !important; }\n[data-part=\"lavender.watch\"] { padding: 0 24px; }\n[data-part=\"hero.dot\"] { width: 6px; height: 6px; border-radius: 999px; background: #5a5a60; }\n[data-part=\"hero.dot\"][data-active] { width: 24px; background: #8b7af1; }\n\n/* Rows: 24 px bold titles. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 24px; font-weight: 700; color: #f0f0f0; }\n\n/* Segmented NEWEST / POPULAR / MOVIES / TOP RATED strip. */\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] {\n  display: flex;\n  gap: 4px;\n  padding: 4px;\n  margin: 0 0 16px;\n  border: 0;\n  border-radius: 12px;\n  background: #101012;\n  width: fit-content;\n  max-width: 100%;\n}\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] {\n  padding: 8px 16px;\n  border-radius: 10px;\n  color: #a5a5a8;\n  font-size: 14px;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { background: #28204e; color: #8b7af1; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n/* Phone: the four segments share the full width, as in the app. */\n@media (max-width: 640px) {\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { width: 100%; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { flex: 1 1 0; padding: 8px 4px; font-size: 13px; text-align: center; white-space: nowrap; }\n}\n\n/* The ★ score badge on every poster: dark pill, accent hairline. */\n[data-part=\"lavender.score\"] { margin: 6px; background: rgba(5, 5, 5, 0.72); border: 1px solid #8b7af1; }\n\n/* ===== Series page: anilili replica (docs/theme-references/anilili-series.md) ===== */\n\n/* --- Phone: top of page --- */\n/* Artwork band below the black bar zone, fading over its full height (anilili 190 dp). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] { height: 190px; min-height: 0; max-height: none; margin-top: calc(env(safe-area-inset-top, 0px) + 64px); margin-bottom: -21px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"]::after { content: \"\"; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(to bottom, rgba(5, 5, 6, 0), #050506); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.poster\"] { height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 12px; border: 1px solid #27272c; box-shadow: none; }\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-slot=\"detail\"] [data-part=\"detail.byline\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] { font-size: 22px; line-height: 28px; font-weight: 900; text-transform: none; letter-spacing: 0; -webkit-line-clamp: 3; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.header\"] { margin-top: 3px; }\n[data-part=\"lavender.studio\"] { display: inline-block; max-width: 100%; height: 32px; line-height: 30px; padding: 0 16px; border: 1px solid #27272c; border-radius: 8px; color: #f1f1f4; font-weight: 600; }\n[data-part=\"lavender.score-line\"] > [data-part=\"lavender.eps\"]:first-child > [data-part=\"lavender.dot\"] { display: none; }\n\n/* Tabs: 34 px pills, accent active, surface inactive (phone and desktop). \"home\"/\"related\" labels\n   come from detail.sections.labels — no DOM-order tricks needed. */\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"pills\"] { gap: 8px; padding-top: 8px; padding-bottom: 8px; margin-bottom: 0; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"pills\"] [data-part=\"tab\"] { height: 34px; padding: 0 18px; border-radius: 18px; background: #101012; color: #98989f; font-size: 13px; line-height: 15px; font-weight: 600; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"pills\"] [data-part=\"tab\"][data-active] { background: #8979f2; color: #f1f1f4; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"][data-variant=\"pills\"] { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 56px); z-index: 20; background: #050506; }\n\n/* Fact cards (phone quick facts): 112ish px, radius 12, 12 px padding, 16/600 value over 11/500 label. */\n[data-part=\"detail.facts\"][data-variant=\"cards\"] { gap: 8px; margin-top: 8px; padding-top: 8px; padding-bottom: 8px; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact\"] { flex: 0 0 112px; width: 112px; min-width: 0; padding: 12px; border-radius: 12px; background: #101012; border: 1px solid #27272c; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.value\"] { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 16px; line-height: 19px; font-weight: 600; color: #f1f1f4; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.label\"] { margin-top: 3px; font-size: 11px; line-height: 13px; font-weight: 500; letter-spacing: 0; text-transform: none; color: #98989f; }\n\n/* Next-episode card: clock + two lines (izumi's text stays relative to \"now\", not an absolute date). */\n[data-slot=\"detail\"] [data-part=\"detail.countdown\"][data-variant=\"long\"] { display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 10px; align-items: center; width: auto; max-width: none; margin-top: 8px; margin-bottom: 8px; padding: 14px; border-radius: 12px; background: #101012; border: 1px solid #27272c; font-size: 13px; line-height: 15px; font-weight: 600; color: #f1f1f4; }\n[data-slot=\"detail\"] [data-part=\"detail.countdown\"][data-variant=\"long\"]::before { content: \"\"; grid-row: span 2; width: 24px; height: 24px; background-color: #8979f2; -webkit-mask-image: url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Cpath%20d=%27M11.99%202C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208zm.5-13H11v6l5.25%203.15.75-1.23-4.5-2.67z%27/%3E%3C/svg%3E); mask-image: url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Cpath%20d=%27M11.99%202C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208zm.5-13H11v6l5.25%203.15.75-1.23-4.5-2.67z%27/%3E%3C/svg%3E); -webkit-mask-size: 24px 24px; mask-size: 24px 24px; }\n[data-slot=\"detail\"] [data-part=\"detail.countdown\"][data-variant=\"long\"] span { display: block; font-size: 14px; line-height: 16px; font-weight: 400; color: #98989f; }\n\n/* Genre chips: no border, #18181C, 12/500, 28 px, 7 px gap. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] { gap: 7px; margin-top: 0; padding-top: 8px; padding-bottom: 8px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] [data-part=\"chip\"] { padding: 6px 11px; border: 0; border-radius: 16px; background: #18181c; color: #f1f1f4; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.5px; }\n\n/* Overview: heading + clamp (there is no separate heading hook, so a ::before draws it). */\n[data-slot=\"detail\"][data-variant=\"phone\"] button[data-part=\"detail.synopsis\"] { margin-top: 8px; font-size: 14px; line-height: 20px; color: #98989f; -webkit-line-clamp: 5; }\n[data-slot=\"detail\"][data-variant=\"phone\"] button[data-part=\"detail.synopsis\"]::before { content: \"Overview\"; display: block; margin-bottom: 7px; font-size: 16px; line-height: 19px; font-weight: 700; color: #f1f1f4; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.section-title\"] { font-size: 16px; font-weight: 700; color: #f1f1f4; }\n\n/* Buttons: full pills, 40 px, 13/600; the list button outlined in the accent, with a heart, Watch\n   filled in the accent — the two sit as EQUAL-WIDTH SIBLINGS in one row (anilili's [♡ Add to list |\n   ▶ Watch]), not stacked full-width rows. They are adjacent, unwrapped children of the page's own\n   content column (no hook of its own), so the row is built the same way the old tier-B stopgap did\n   — :has() plus a dense 2-column grid that leaves every OTHER child spanning both columns (i.e.\n   unchanged, full-width) and only pulls these two into a shared row — but now it is exactly two\n   rules instead of reordering nine sections, since detail.sections.info already moved everything\n   else into the Home tab. */\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> [data-part=\"button\"][data-variant=\"primary\"] + [data-part=\"detail.list-button\"]) {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);\n  column-gap: 10px;\n  grid-auto-flow: row dense;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> [data-part=\"button\"][data-variant=\"primary\"] + [data-part=\"detail.list-button\"]) > * { grid-column: 1 / -1; }\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> [data-part=\"button\"][data-variant=\"primary\"] + [data-part=\"detail.list-button\"]) > [data-part=\"button\"][data-variant=\"primary\"] { grid-column: 2; margin-top: 14px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> [data-part=\"button\"][data-variant=\"primary\"] + [data-part=\"detail.list-button\"]) > [data-part=\"detail.list-button\"] { grid-column: 1; margin-top: 14px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"button\"][data-variant=\"primary\"] { height: 40px; padding: 0 24px; border-radius: 999px; font-size: 13px; font-weight: 600; background: #8979f2; color: #f1f1f4; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"button\"][data-variant=\"primary\"] svg { width: 19px; height: 19px; fill: currentColor; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.list-button\"][data-variant=\"full\"] { height: 40px; gap: 6px; border: 1px solid #27272c; border-radius: 999px; background: transparent; color: #8979f2; font-size: 13px; font-weight: 600; text-transform: none; letter-spacing: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.list-button\"][data-variant=\"full\"]::before { content: \"\"; width: 18px; height: 18px; background-color: currentColor; -webkit-mask-image: url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Cpath%20d=%27M16.5%203c-1.74%200-3.41.81-4.5%202.09C10.91%203.81%209.24%203%207.5%203%204.42%203%202%205.42%202%208.5c0%203.78%203.4%206.86%208.55%2011.54L12%2021.35l1.45-1.32C18.6%2015.36%2022%2012.28%2022%208.5%2022%205.42%2019.58%203%2016.5%203zm-4.4%2015.55l-.1.1-.1-.1C7.14%2014.24%204%2011.39%204%208.5%204%206.5%205.5%205%207.5%205c1.54%200%203.04.99%203.57%202.36h1.87C13.46%205.99%2014.96%205%2016.5%205c2%200%203.5%201.5%203.5%203.5%200%202.89-3.14%205.74-7.9%2010.05z%27/%3E%3C/svg%3E); mask-image: url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Cpath%20d=%27M16.5%203c-1.74%200-3.41.81-4.5%202.09C10.91%203.81%209.24%203%207.5%203%204.42%203%202%205.42%202%208.5c0%203.78%203.4%206.86%208.55%2011.54L12%2021.35l1.45-1.32C18.6%2015.36%2022%2012.28%2022%208.5%2022%205.42%2019.58%203%2016.5%203zm-4.4%2015.55l-.1.1-.1-.1C7.14%2014.24%204%2011.39%204%208.5%204%206.5%205.5%205%207.5%205c1.54%200%203.04.99%203.57%202.36h1.87C13.46%205.99%2014.96%205%2016.5%205c2%200%203.5%201.5%203.5%203.5%200%202.89-3.14%205.74-7.9%2010.05z%27/%3E%3C/svg%3E); -webkit-mask-size: 18px 18px; mask-size: 18px 18px; }\n\n/* The compact icon row (Save/Share/Trailer/More) has no anilili equivalent, so it stays out of\n   view on phones — Save and Share become unreachable there (tracker links stay reachable from the\n   list-button's own menu); this mirrors the spec's own tier-B stopgap intent, now a single rule\n   instead of a DOM-position hack. Desktop keeps its own fuller action bar (more room, no complaint\n   about it in the brief). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] { display: none; }\n\n/* Season chips (detail.episodes.seasons: \"chips\"): \"Season N\" + year, active = accent fill. */\n[data-slot=\"episodes.seasons\"][data-variant=\"chips\"] { gap: 8px; margin-bottom: 12px; }\n[data-slot=\"episodes.seasons\"][data-variant=\"chips\"] [data-part=\"season\"] { min-height: 46px; padding: 8px 14px; border-radius: 12px; border: 1px solid #27272c; background: #101012; }\n[data-slot=\"episodes.seasons\"][data-variant=\"chips\"] [data-part=\"season\"][data-active] { background: #8979f2; border-color: #8979f2; }\n[data-slot=\"episodes.seasons\"][data-variant=\"chips\"] [data-part=\"season.label\"] { font-size: 13px; font-weight: 600; color: #f1f1f4; }\n[data-slot=\"episodes.seasons\"][data-variant=\"chips\"] [data-part=\"season\"][data-active] [data-part=\"season.label\"] { font-weight: 700; }\n[data-slot=\"episodes.seasons\"][data-variant=\"chips\"] [data-part=\"season.year\"] { font-size: 11px; font-weight: 600; color: #98989f; opacity: 1; }\n[data-slot=\"episodes.seasons\"][data-variant=\"chips\"] [data-part=\"season\"][data-active] [data-part=\"season.year\"] { color: rgba(241, 241, 244, 0.8); }\n\n/* Episode browser bar (phone, toolbar: \"bar\"): range dropdown, always-visible filter field, one\n   layout-toggle icon — anilili's whole \"sorting\" UI. There is no Oldest/Newest control at all\n   (detail.episodes.order: \"none\"), so nothing needed to hide it. */\n[data-slot=\"detail.episodes\"] [data-slot=\"episodes.toolbar\"][data-variant=\"bar\"] { gap: 8px; }\n[data-part=\"episodes.range\"] { height: 48px; padding: 0 8px 0 14px; gap: 2px; border: 1px solid #27272c; border-radius: 10px; background: transparent; color: #f1f1f4; font-size: 13px; font-weight: 600; }\n[data-part=\"episodes.layout\"], [data-part=\"episodes.more\"] { width: 40px; height: 40px; background: #101012; }\nlabel[data-part=\"episodes.search\"] input[data-part=\"input\"] { height: 40px; border-radius: 10px; border: 1px solid #27272c; background: transparent; font-size: 13px; font-weight: 600; }\n[data-part=\"episodes.menu\"][data-variant=\"range\"],\n[data-part=\"episodes.menu\"][data-variant=\"more\"],\n[data-part=\"episodes.menu\"][data-variant=\"seasons\"] { background: #211f26; border-radius: 8px; border-color: rgba(255, 255, 255, 0.08); }\n[data-part=\"episodes.empty\"] { color: #98989f; }\n\n/* Episode rows (phone template): flush 132 px stills, \"EP n\" badge, inset progress bar, no card fill,\n   a second line under the title from episodeCode (E5 / S2 E5) — never a literal duplicate of \"Episode\n   N\", since episodeTitle always carries a fallback title and can't be told apart from a real one. */\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"template\"] { background: transparent; border-radius: 12px; padding: 4px 0; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"template\"][aria-disabled=\"true\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] { padding-top: 6px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] div:has(> div > [data-part=\"episode\"]) { gap: 12px; padding-left: 0; padding-right: 0; } /* 6 + 6 dp row margins; pitch 94 dp */\n[data-slot=\"detail.episodes\"] div:has(> [data-part=\"episode\"]) { animation: none; }\n[data-part=\"lavender.ep-badge\"] { margin: 5px; padding: 3px 6px; line-height: 13px; }\n[data-part=\"lavender.ep-thumb\"]:has([data-part=\"lavender.ep-meter\"]) [data-part=\"lavender.ep-badge\"] { top: 0; bottom: auto; }\n[data-part=\"lavender.ep-meter\"] { left: 6px; right: 6px; bottom: 5px; width: auto; height: 3px; min-height: 3px; border-radius: 1.5px; background: rgba(255, 255, 255, 0.25); }\n[data-part=\"lavender.ep-title\"] { line-height: 22px; }\n[data-part=\"lavender.ep-sub\"] { margin-top: 1px; }\n\n/* Number tiles: 5 columns, 44 px, surface fill, hairline border, watched = a bottom accent bar\n   (data-state, not an accent fill — anilili keeps the surface colour and marks watched with a bar). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] div:has(> [data-part=\"episode\"][data-variant=\"number\"]) { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"number\"] { height: 44px; border-radius: 8px; border: 1px solid #27272c; font-size: 13px; font-weight: 600; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"number\"][data-state=\"watched\"] { background: #101012; color: #f1f1f4; position: relative; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"number\"][data-state=\"watched\"]::after { content: \"\"; position: absolute; left: 8px; right: 8px; bottom: 4px; height: 3px; border-radius: 1.5px; background: #8979f2; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"number\"][data-state=\"resume\"] { border-color: #8979f2; }\n\n/* Relations tab (phone only — desktop keeps the app's own 16:9 poster rail, the closer stand-in for\n   the TV \"Related rail\"): anilili rows (poster + title + meta + a trailing play glyph), not a poster\n   grid. detail.relations has no style option yet (§6 H unshipped — see report), so this restyles the\n   generic card/card.art/card.title/card.meta hooks scoped to the relations slot. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] { display: flex; flex-direction: column; gap: 8px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] [data-part=\"card\"] { width: 100%; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] [data-part=\"card\"] > a { display: flex; align-items: center; gap: 12px; width: 100%; border-radius: 12px; border: 1px solid #27272c; background: #101012; padding: 9px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] [data-part=\"card.art\"] { width: 58px; flex: 0 0 58px; aspect-ratio: 2 / 3; border-radius: 8px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] [data-theme-card-label] { flex: 1; min-width: 0; min-height: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] [data-part=\"card.title\"] { margin-top: 0; font-size: 14px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] [data-part=\"card.meta\"] { color: #98989f; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] [data-part=\"card\"] > a::after { content: \"\"; flex: 0 0 auto; width: 24px; height: 24px; background-color: #f1f1f4; -webkit-mask-image: url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Cpath%20d=%27M8%205v14l11-7z%27/%3E%3C/svg%3E); mask-image: url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Cpath%20d=%27M8%205v14l11-7z%27/%3E%3C/svg%3E); -webkit-mask-size: 24px 24px; mask-size: 24px 24px; }\n\n/* --- Desktop = TV details --- */\n/* The TV reference skips tabs entirely (info left, episode panel right, Related folded straight\n   into the column below \"About\"). detail.sections.tabs lists only \"overview\" on desktop, so\n   Relations/Cast & Crew/Recommended already render as plain stacked sections, not tabs — the\n   single remaining \"Home\" pill is redundant chrome (nothing to switch to) and gets hidden. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"tabs\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"tabs\"] + * { margin-top: 16px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.section-title\"] { margin-top: 4px; font-size: 20px; font-weight: 700; color: #fff; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.poster\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { font-size: 36px; line-height: 39px; font-weight: 900; text-transform: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"lavender.tv-meta-item\"]::before { content: \"\"; display: inline-block; width: 3px; height: 3px; margin-right: 8px; vertical-align: middle; border-radius: 50%; background: rgba(255, 255, 255, 0.38); }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"] { color: rgba(255, 255, 255, 0.75); font-size: 17px; line-height: 20px; -webkit-line-clamp: 5; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 12px; padding: 9px 19px; background: #fff; color: #000; font-weight: 700; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.list-button\"] { border-radius: 12px; padding: 9px 17px; border: 1px solid #27272c; background: rgba(0, 0, 0, 0.52); color: #fff; font-weight: 600; }\n@media (min-width: 960px) { [data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> aside) { grid-template-columns: minmax(0, 47fr) minmax(22rem, 53fr); } }\n[data-slot=\"detail\"][data-variant=\"desktop\"] aside [data-slot=\"detail.episodes\"] { padding: 18px 14px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(0, 0, 0, 0.78); }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"episodes.heading\"] { font-size: 24px; font-weight: 900; color: #fff; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"episodes.count\"] { margin-left: 8px; font-size: 12px; font-weight: 500; color: rgba(255, 255, 255, 0.52); }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"episodes.seasons\"][data-variant=\"chips\"] { margin: 0 0 12px; padding: 0 6px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"episodes.ranges\"] { padding: 0 6px; margin: 9px 0 0; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"episodes.ranges\"] [data-part=\"chip\"] { border-radius: 9px; padding: 7px 13px; font-size: 12px; font-weight: 500; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.64); }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"episodes.ranges\"] [data-part=\"chip\"][data-active] { background: rgba(137, 121, 242, 0.3); border-color: rgba(137, 121, 242, 0.72); color: #fff; font-weight: 700; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] label[data-part=\"episodes.search\"] { padding: 0 6px; margin: 9px 0 0; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] label[data-part=\"episodes.search\"] input[data-part=\"input\"] { min-height: 56px; border-radius: 10px; background: #101012; border: 1px solid #27272c; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] label[data-part=\"episodes.search\"] input[data-part=\"input\"]:focus-visible { border-color: #8979f2; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.episodes\"] > div:has([data-part=\"episode\"]) { padding: 12px 6px 6px; gap: 9px; }\n[data-part=\"lavender.tv-ep\"] { border: 1px solid rgba(255, 255, 255, 0.07); }\n[data-part=\"episode\"]:is(:hover, :focus-visible) [data-part=\"lavender.tv-ep\"] { background: rgba(255, 255, 255, 0.13); border: 2px solid #8979f2; }\n[data-part=\"episode\"][data-nav-id=\"series-quick-episode\"] [data-part=\"lavender.tv-ep-label\"]::after { content: \"CONTINUE\"; margin-left: auto; padding: 3px 6px; border-radius: 5px; background: rgba(137, 121, 242, 0.32); color: #fff; font-size: 10px; font-weight: 900; }\n[data-part=\"lavender.tv-meter\"] { height: 3px; min-height: 3px; margin-top: 3px; background: rgba(255, 255, 255, 0.25); }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"button\"][data-variant=\"secondary\"] { border-radius: 999px; border: 1px solid #2a2a2e; background: transparent; color: #8b7af1; }\n\n/* Bottom bar: a solid accent pill behind the active icon, white icon, accent label. */\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] > span:first-child { background: #8b7af1 !important; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] svg { color: #fff; }\n"
   }
 }
