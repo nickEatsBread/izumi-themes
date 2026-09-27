@@ -5,23 +5,24 @@
   "release": {
     "id": "izumi.blossom",
     "name": "Blossom",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "author": "Izumi",
-    "description": "A phone-first Material You look in soft pink over violet-black, with very round corners, a mesh glow and Nunito. The bottom bar is a centred floating pill with a tonal highlight behind the active tab; the trending pager fills pink bars at the end; section titles are uppercase; the series page switches between Info and Watch through a bar of two equal tabs, with chips for score, format, episodes and season. Desktop keeps the palette with a wider banner.",
-    "themeApi": 2,
+    "description": "Dantotsu look: pure black and pink, a profile banner with hub cards, ★ cover rails, bottom series tabs.",
+    "themeApi": 3,
     "tags": [
       "Phone",
       "Dark",
-      "Material"
+      "App",
+      "Pink"
     ],
     "platforms": [
       "phone",
       "desktop"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/1.0.0.json",
-    "sha256": "12b8d901a8e7277179a182f9ab2ea20540ddb6b0b90f70aab4979a0d063d3735",
-    "bytes": 27105,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/2.0.0.json",
+    "sha256": "d6124be46664034af00f482bf4512af3735f6b29aee8a9fae4bd6924a6d9c31f",
+    "bytes": 12064,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.blossom.png"
   }
 }
