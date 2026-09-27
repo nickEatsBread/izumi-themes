@@ -35,8 +35,8 @@
     "backdropStrength": 0,
     "glassBlur": 0,
     "fonts": {
-      "ui": "roboto",
-      "heading": "roboto",
+      "ui": "inter",
+      "heading": "inter",
       "display": "roboto"
     },
     "presentation": {
@@ -248,8 +248,11 @@
       },
       "detail": {
         "layout": "stack",
-        "tabs": "underline",
-        "factsStyle": "table",
+        "actionsFirst": true,
+        "factsStyle": "template",
+        "countdown": "none",
+        "title": "logo",
+        "nav": "hidden",
         "header": {
           "type": "text",
           "field": "genres",
@@ -260,7 +263,230 @@
           "style": {
             "fontSize": 14,
             "color": "muted-foreground",
-            "lines": 1
+            "lines": 1,
+            "textAlign": "center"
+          }
+        },
+        "facts": {
+          "type": "row",
+          "part": "onyx.meta-row",
+          "style": {
+            "gap": 14,
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "year",
+              "when": {
+                "field": "year"
+              },
+              "style": {
+                "fontSize": 16,
+                "fontWeight": 700,
+                "color": "#F5F7F8"
+              }
+            },
+            {
+              "type": "text",
+              "field": "duration",
+              "when": {
+                "field": "duration"
+              },
+              "style": {
+                "fontSize": 16,
+                "fontWeight": 700,
+                "color": "#F5F7F8"
+              }
+            },
+            {
+              "type": "text",
+              "field": "format",
+              "part": "onyx.badge",
+              "when": {
+                "field": "format"
+              },
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 600,
+                "color": "#969CA3"
+              }
+            },
+            {
+              "type": "text",
+              "field": "score",
+              "when": {
+                "field": "score"
+              },
+              "style": {
+                "fontSize": 16,
+                "fontWeight": 700,
+                "color": "#F5C518"
+              }
+            }
+          ]
+        },
+        "sections": {
+          "mode": "stack",
+          "tabs": [
+            "overview",
+            "characters",
+            "episodes"
+          ],
+          "labels": {
+            "characters": "cast",
+            "recommended": "more-like-this"
+          },
+          "info": "overview"
+        },
+        "episodes": {
+          "arrangement": "carousel",
+          "hover": "none",
+          "order": "none",
+          "search": false,
+          "toolbar": "bar",
+          "controls": [],
+          "paging": "ranges",
+          "pageSize": 50,
+          "seasons": "posters",
+          "card": {
+            "type": "overlay",
+            "part": "onyx.ep",
+            "style": {
+              "minHeight": 184,
+              "radius": 12
+            },
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "still",
+                "part": "onyx.ep-art",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "onyx.ep-watched",
+                "when": {
+                  "field": "watched"
+                },
+                "style": {
+                  "anchor": "top-end"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "✓",
+                    "part": "onyx.ep-watched-mark"
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "part": "onyx.ep-info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "width": 100,
+                  "gap": 6,
+                  "padding": 10,
+                  "align": "start"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "field": "episodeCode",
+                    "part": "onyx.ep-code",
+                    "style": {
+                      "fontSize": 10,
+                      "fontWeight": 600,
+                      "color": "#FFFFFFE6"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "episodeTitle",
+                    "part": "onyx.ep-title",
+                    "style": {
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "color": "#FFFFFF",
+                      "lines": 2
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "description",
+                    "part": "onyx.ep-overview",
+                    "when": {
+                      "field": "description"
+                    },
+                    "style": {
+                      "fontSize": 11,
+                      "color": "#FFFFFFDB",
+                      "lines": 2
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "onyx.ep-meta",
+                    "style": {
+                      "gap": 12,
+                      "align": "center",
+                      "wrap": "nowrap",
+                      "width": 100
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "duration",
+                        "when": {
+                          "field": "duration"
+                        },
+                        "style": {
+                          "fontSize": 10,
+                          "color": "#FFFFFFC7"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "rating",
+                        "when": {
+                          "field": "rating"
+                        },
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 600,
+                          "color": "#F5C518"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "airDate",
+                        "part": "onyx.ep-date",
+                        "when": {
+                          "field": "airDate"
+                        },
+                        "style": {
+                          "fontSize": 10,
+                          "color": "#FFFFFFC7"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "meter",
+                    "field": "progress",
+                    "part": "onyx.ep-progress",
+                    "when": {
+                      "field": "progress",
+                      "atMost": 99
+                    }
+                  }
+                ]
+              }
+            ]
           }
         }
       },
@@ -442,12 +668,9 @@
               "width": 206
             }
           }
-        },
-        "detail": {
-          "factsStyle": "template"
         }
       }
     },
-    "css": "/* Onyx — the Nuvio look (docs/theme-references/nuvio.md): near-black, white on black, Roboto, stadium buttons. */\n\n/* Home has no app bar of its own: the featured banner fills the top of the screen and the header floats over it. */\n[data-slot=\"home.header\"] { position: absolute; inset: 0 0 auto; z-index: 5; background: linear-gradient(to bottom, rgba(13, 13, 13, 0.6), rgba(13, 13, 13, 0)); }\n@media (max-width: 640px) { [data-slot=\"home.hero\"] { margin-top: calc(-1 * env(safe-area-inset-top, 0px)) !important; } }\n\n/* Featured banner: square top corners, 28 px bottom corners, a seven-stop fade into the page. */\n[data-slot=\"home.hero\"] { border-radius: 0 0 28px 28px; overflow: hidden; }\n[data-part=\"onyx.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(to bottom, rgba(13, 13, 13, 0) 0%, rgba(13, 13, 13, 0.04) 16%, rgba(13, 13, 13, 0.14) 32%, rgba(13, 13, 13, 0.34) 50%, rgba(13, 13, 13, 0.6) 68%, rgba(13, 13, 13, 0.86) 84%, #0d0d0d 100%) !important;\n  pointer-events: none;\n}\n[data-part=\"onyx.hero\"]::after { z-index: 1; }\n[data-part=\"onyx.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"onyx.logo\"] img { max-height: 92px; object-fit: contain; }\n[data-part=\"onyx.details\"] { padding: 0 28px; }\n[data-part=\"hero.dot\"] { width: 8px; height: 8px; border-radius: 999px; background: rgba(245, 247, 248, 0.35); }\n[data-part=\"hero.dot\"][data-active] { width: 32px; background: #f5f7f8; }\n\n/* Rows. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 20px; font-weight: 700; color: #f5f7f8; }\n\n/* Series page: no poster card; on phones a centred title and genre line over the artwork. */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"],\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] { text-align: center; font-size: 30px; font-weight: 800; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.header\"] { text-align: center; }\n/* The genre line under the title replaces the facts line and the genre chips. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.meta\"],\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] { display: none; }\n\n/* A white stadium Play; the secondary actions are 52 px circles. */\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 40px; background: #f5f7f8; color: #0d0d0d; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"button\"][data-variant=\"primary\"] { height: 52px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] { justify-content: center; gap: 12px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[data-focusable] {\n  flex: 0 0 52px;\n  width: 52px;\n  height: 52px;\n  padding: 0;\n  gap: 0;\n  border-radius: 999px;\n  background: #1c1c1e;\n  font-size: 0;\n}\n\n/* Facts as a plain label / value list. */\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"] { font-weight: 400; color: #969ca3; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { font-weight: 500; color: #f5f7f8; }\n\n/* Underline tabs in white. */\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { color: #f5f7f8; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { background: #f5f7f8; }\n"
+    "css": "/* Onyx — the Nuvio look (docs/theme-references/nuvio.md): near-black, white on black, Roboto, stadium buttons. */\n\n/* Home has no app bar of its own: the featured banner fills the top of the screen and the header floats over it. */\n[data-slot=\"home.header\"] { position: absolute; inset: 0 0 auto; z-index: 5; background: linear-gradient(to bottom, rgba(13, 13, 13, 0.6), rgba(13, 13, 13, 0)); }\n@media (max-width: 640px) { [data-slot=\"home.hero\"] { margin-top: calc(-1 * env(safe-area-inset-top, 0px)) !important; } }\n\n/* Featured banner: square top corners, 28 px bottom corners, a seven-stop fade into the page. */\n[data-slot=\"home.hero\"] { border-radius: 0 0 28px 28px; overflow: hidden; }\n[data-part=\"onyx.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(to bottom, rgba(13, 13, 13, 0) 0%, rgba(13, 13, 13, 0.04) 16%, rgba(13, 13, 13, 0.14) 32%, rgba(13, 13, 13, 0.34) 50%, rgba(13, 13, 13, 0.6) 68%, rgba(13, 13, 13, 0.86) 84%, #0d0d0d 100%) !important;\n  pointer-events: none;\n}\n[data-part=\"onyx.hero\"]::after { z-index: 1; }\n[data-part=\"onyx.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"onyx.logo\"] img { max-height: 92px; object-fit: contain; }\n[data-part=\"onyx.details\"] { padding: 0 28px; }\n[data-part=\"hero.dot\"] { width: 8px; height: 8px; border-radius: 999px; background: rgba(245, 247, 248, 0.35); }\n[data-part=\"hero.dot\"][data-active] { width: 32px; background: #f5f7f8; }\n\n/* Rows. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 20px; font-weight: 700; color: #f5f7f8; }\n\n/* ── Series page: Nuvio MetaDetailsScreen (docs/theme-references/nuvio-series.md) ── */\n/* Built on the real API 3 hooks: episodes.seasons/season*, episodes.toolbar/more, detail.sections\n   (stack)/detail.section*, detail.title:\"logo\"/detail.logo, detail.byline, detail.airing. Two\n   selectors below still fall back to a documented-hook-scoped `:has()` because no hook covers the\n   episode-carousel scroller or the phone \"Information\" grid wrapper yet — see the report. */\n\n/* Hero: clamp(420px, 133vw, 760px) tall, a 7-stop fade 320 px up from the bottom. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] {\n  height: clamp(420px, 133vw, 760px);\n  min-height: 0;\n  max-height: none;\n  margin-bottom: -72px;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] > img { object-position: center !important; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] > div { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: auto 0 0;\n  height: 320px;\n  pointer-events: none;\n  background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0) 0%, rgba(13, 13, 13, 0.04) 16%, rgba(13, 13, 13, 0.14) 32%, rgba(13, 13, 13, 0.34) 50%, rgba(13, 13, 13, 0.62) 68%, rgba(13, 13, 13, 0.84) 84%, #0d0d0d 100%);\n}\n\n/* No poster card. The title (`detail.title: \"logo\"` shows the title logo natively — no duplicate\n   header artwork or :has() needed) and the genre line sit centred over the hero's lower fade. */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"],\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] {\n  position: relative;\n  z-index: 1;\n  text-align: center;\n  font-size: 38px;\n  line-height: 42px;\n  font-weight: 700;\n  letter-spacing: -1.2px;\n  -webkit-line-clamp: 3;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.logo\"] {\n  display: block;\n  width: 60%;\n  height: 80px;\n  margin-inline: auto;\n  object-fit: contain;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.header\"] { position: relative; z-index: 1; margin-top: 8px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"onyx.genres\"] { line-height: 20px; }\n\n/* One-row Play pill + a couple of 52 px circles (Save, then the ⋯ overflow); Share is hidden\n   (Nuvio has neither). Pulling `detail.actions` up over the Play row is still the only way to\n   merge them into one line — API 3 has no single actions-cluster hook (reported below). */\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 40px; background: #f5f7f8; color: #0d0d0d; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] svg { fill: currentColor; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"button\"][data-variant=\"primary\"] {\n  width: calc(100% - 128px);\n  height: 52px;\n  margin-top: 8px;\n  padding: 0 16px;\n  gap: 8px;\n  font-family: var(--font-display);\n  font-size: 14px;\n  line-height: 20px;\n  font-weight: 500;\n  letter-spacing: 0.1px;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] { width: max-content; margin: -52px 0 0 auto; gap: 12px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button {\n  flex: 0 0 52px;\n  width: 52px;\n  height: 52px;\n  padding: 0;\n  gap: 0;\n  border-radius: 999px;\n  background: #222222;\n  color: #f5f7f8;\n  font-size: 0;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-part=\"button\"][data-variant=\"icon\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[aria-haspopup] { background: rgba(34, 34, 34, 0.82); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[aria-haspopup] svg { transition: transform 240ms cubic-bezier(0.4, 0, 0.2, 1); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[aria-expanded=\"true\"] { background: #f5f7f8; color: #0d0d0d; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[aria-expanded=\"true\"] svg { transform: rotate(90deg); }\n\n/* Stacked sections (`detail.sections.mode: \"stack\"`): 20 / 600 titles, 20 px between sections, no\n   tab strip at all — so the old tab-bar styling is gone along with it. */\n[data-slot=\"detail.section\"] { margin-top: 20px; }\n[data-slot=\"detail.section\"]:first-of-type { margin-top: 0; }\n[data-part=\"detail.section-title\"] {\n  margin-bottom: 14px;\n  font-family: var(--font-heading);\n  font-size: 20px;\n  line-height: 24px;\n  font-weight: 600;\n  color: #f5f7f8;\n}\n\n/* Overview section: the compact meta row (year/runtime/badge/score are the built-in `detail.meta`\n   composition on phones — the custom Nuvio `facts` template only renders on desktop, see report),\n   no genre rail (already in the hero), no release-timing line, full-strength description. */\n[data-slot=\"detail\"] [data-part=\"detail.meta\"] {\n  font-family: var(--font-display);\n  font-size: 14px;\n  font-weight: 700;\n  color: #f5f7f8;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] { display: none; }\n[data-part=\"detail.airing\"] { display: none; }\n[data-slot=\"detail\"] [data-part=\"detail.synopsis\"] { color: #f5f7f8; font-size: 14px; line-height: 22px; }\n\n/* The phone Overview \"Information\" grid: strip the rounded-card look for a quiet declutter toward\n   Nuvio's Show Details table (right-aligned values, a hairline rule, no shading). */\n[data-slot=\"detail.section\"][data-section=\"overview\"] [data-part=\"fact\"] {\n  border-radius: 0;\n  background: transparent;\n  padding: 10px 0;\n  border-bottom: 1px solid rgba(245, 247, 248, 0.1);\n}\n[data-slot=\"detail.section\"][data-section=\"overview\"] [data-part=\"fact.label\"] {\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: none;\n  letter-spacing: 0;\n  color: rgba(245, 247, 248, 0.8);\n}\n[data-slot=\"detail.section\"][data-section=\"overview\"] [data-part=\"fact.value\"] {\n  margin-top: 2px;\n  font-weight: 500;\n  color: #f5f7f8;\n}\n\n/* Cast section: circular avatars with a name/role caption, closer to Nuvio's 80 px rail than\n   izumi's bordered photo-left rows (it stays a grid — no rail-arrangement hook for people yet). */\n[data-section=\"characters\"] [data-part=\"person\"] {\n  flex-direction: column;\n  align-items: center;\n  gap: 8px;\n  padding: 0;\n  border: 0;\n  border-radius: 0;\n  background: transparent;\n  text-align: center;\n}\n[data-section=\"characters\"] [data-part=\"person.photo\"] {\n  width: 80px;\n  height: 80px;\n  aspect-ratio: 1 / 1;\n  border-radius: 999px;\n  object-fit: cover;\n}\n[data-section=\"characters\"] [data-part=\"person.name\"] { font-size: 14px; font-weight: 700; color: #f5f7f8; }\n[data-section=\"characters\"] [data-part=\"person.role\"] { font-size: 12px; color: #969ca3; text-transform: capitalize; }\n\n/* Season picker (`detail.episodes.seasons: \"posters\"`), Nuvio §2.3-2.4: 100 × 150 tiles, radius 8,\n   a 1 px / 2 px border, a \"Seasons\" heading (no hook for that text — added as content on the\n   documented `episodes.seasons` slot, not matched by aria-label or structure).\n   The heading is reserved as top PADDING, not a negative-offset ::before: the picker sets\n   `overflow-x: auto` for its own horizontal scroll, and per the CSS Overflow spec a lone\n   non-\"visible\" axis forces the other axis to \"auto\" too, so anything positioned outside the\n   box on Y (confirmed live: a -30px ::before) is clipped away rather than shown above it. */\n[data-slot=\"episodes.seasons\"][data-variant=\"posters\"] { padding-top: 30px; gap: 16px; }\n[data-slot=\"episodes.seasons\"][data-variant=\"posters\"]::before {\n  content: \"Seasons\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  font-family: var(--font-heading);\n  font-size: 18px;\n  line-height: 24px;\n  font-weight: 600;\n  color: #f5f7f8;\n}\n[data-slot=\"episodes.seasons\"][data-variant=\"posters\"] [data-part=\"season\"] { width: 100px; }\n[data-slot=\"episodes.seasons\"][data-variant=\"posters\"] [data-part=\"season.art\"] {\n  border-radius: 8px;\n  background: rgba(34, 34, 34, 0.5);\n  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);\n}\n[data-slot=\"episodes.seasons\"][data-variant=\"posters\"] [data-part=\"season\"][data-active] [data-part=\"season.art\"] { box-shadow: inset 0 0 0 2px #f5f7f8; }\n[data-slot=\"episodes.seasons\"][data-variant=\"posters\"] [data-part=\"season.label\"] { font-size: 15px; font-weight: 600; color: #969ca3; }\n[data-slot=\"episodes.seasons\"][data-variant=\"posters\"] [data-part=\"season\"][data-active] [data-part=\"season.label\"] { font-weight: 700; color: #f5f7f8; }\n\n/* Episode toolbar: `controls: []` and `order: \"none\"` leave nothing inline and drop sort from the\n   overflow entirely — Nuvio has neither. Only the small overflow button (download/queue) remains. */\n[data-slot=\"episodes.toolbar\"][data-variant=\"bar\"] { margin-bottom: 8px; justify-content: flex-end; }\n[data-part=\"episodes.more\"] { width: 36px; height: 36px; border-radius: 999px; background: rgba(34, 34, 34, 0.6); color: #969ca3; }\n[data-part=\"episodes.more\"] svg { width: 16px; height: 16px; }\n\n/* The episode carousel row: bleeds to the screen edges with a 12 px gap. There is still no hook for\n   the scroller/track itself, so this reaches it via :has() scoped to the documented `episode` part\n   (structural containment, not text/aria matching) rather than any Tailwind class. */\n[data-slot=\"detail.episodes\"] div:has(> [data-part=\"episode\"][data-variant=\"template\"]) { gap: 12px; scrollbar-width: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] div:has(> [data-part=\"episode\"][data-variant=\"template\"]) {\n  margin-inline: -16px;\n  padding: 0 16px 4px;\n  scroll-padding-inline: 16px;\n}\n\n/* The Nuvio horizontal episode card (template parts). */\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"template\"] {\n  overflow: hidden;\n  border-radius: 12px;\n  background: rgba(34, 34, 34, 0.45);\n  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);\n}\n[data-part=\"onyx.ep\"] { height: 184px; }\n[data-part=\"onyx.ep-art\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.2) 56%, rgba(0, 0, 0, 0.45) 70%, rgba(0, 0, 0, 0.68) 84%, rgba(0, 0, 0, 0.92) 100%);\n}\n[data-part=\"onyx.ep-watched\"] { width: 20px; height: 20px; margin: 10px; border-radius: 999px; background: #f5f7f8; display: grid; place-items: center; }\n[data-part=\"onyx.ep-watched-mark\"] { font-size: 11px; font-weight: 900; line-height: 1; color: #111111; }\n[data-part=\"onyx.ep-info\"] { padding-bottom: 12px; }\n[data-part=\"onyx.ep-code\"] { display: inline-block; padding: 3px 7px; border-radius: 5px; background: rgba(0, 0, 0, 0.42); font-size: 9px; line-height: 12px; letter-spacing: 0; }\n[data-part=\"onyx.ep-title\"] { line-height: 19px; }\n[data-part=\"onyx.ep-overview\"] { font-family: var(--font-display); line-height: 15px; letter-spacing: 0.4px; }\n[data-part=\"onyx.ep-meta\"] { font-family: var(--font-display); line-height: 16px; letter-spacing: 0.5px; }\n[data-part=\"onyx.ep-date\"] { margin-inline-start: auto; }\n/* The meter's own scoped styles compile to (0,2,0)/(0,3,1); this three-attribute chain matches R8's\n   original approach to outrank them (a tie is broken by the theme stylesheet loading last). */\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [data-part=\"onyx.ep-progress\"] { height: 4px; margin-top: 2px; background: rgba(255, 255, 255, 0.22); }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [data-part=\"onyx.ep-progress\"] > span { background: #f5f5f5; }\n\n/* Desktop: a 56 px Play, a larger logo, and the same full-strength description. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"button\"][data-variant=\"primary\"] { height: 56px; padding: 0 28px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { text-align: start; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.logo\"] { width: auto; height: 72px; object-position: left center; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.header\"] { margin-top: 8px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"onyx.genres\"] { text-align: start; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"] { -webkit-line-clamp: 3; color: #f5f7f8; font-size: 14px; line-height: 22px; }\n[data-part=\"onyx.badge\"] { padding: 4px 8px; border: 1px solid rgba(150, 156, 163, 0.55); border-radius: 6px; line-height: 14px; letter-spacing: 0.8px; }\n\n/* Desktop client bug (confirmed live, reported below): with `actionsFirst: true` and a stacked\n   Overview section, AnimeDetail.svelte shows the description twice — once under the actions\n   (desktop has no equivalent of the phone `sections.info` toggle) and again inside the stacked\n   Overview section. Drop the second one; the first already sits where Nuvio wants it. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.section\"][data-section=\"overview\"] [data-part=\"detail.synopsis\"] { display: none; }\n"
   }
 }
