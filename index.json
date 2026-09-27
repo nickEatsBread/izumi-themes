@@ -347,6 +347,29 @@
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.reel.png"
     },
     {
+      "id": "izumi.slate",
+      "name": "Slate",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "AniZone look: slate and rose in Figtree, text-link top bar, a newest poster row, episode stills, tag cards.",
+      "themeApi": 3,
+      "tags": [
+        "Dark",
+        "Site",
+        "Top bar",
+        "Docked player"
+      ],
+      "platforms": [
+        "desktop",
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.slate/1.0.0.json",
+      "sha256": "e632b5214eb1c37fa9b32b9b5cf4f06f8972969cac979607f8fa10587f25cf7b",
+      "bytes": 8142,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.slate.png"
+    },
+    {
       "id": "izumi.spotlight",
       "name": "Spotlight",
       "version": "2.0.0",
