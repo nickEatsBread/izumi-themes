@@ -31,7 +31,8 @@ const shots = new Set(String(args.shots ?? 'home,series,phone').split(','))
 const keptViewport = (() => { const m = /^(\d+)x(\d+)$/.exec(String(args.viewport ?? '')); return m ? { width: Number(m[1]), height: Number(m[2]) } : { width: 1280, height: 800 } })()
 const keepShots = args['keep-shots'] ? resolve(root, String(args['keep-shots'])) : null
 // The series page to shoot: a fixture title offline; live, `--series <id>` or the most-trending series with banner art.
-const seriesId = args.series ? Number(args.series) : live ? await trendingSeriesId() : MEDIA[0].id
+const trending = live ? await trendingMedia() : []
+const seriesId = args.series ? Number(args.series) : trending[0]?.id ?? MEDIA[0].id
 // Live Home shots can start on a later featured slide (0-based) when the first one makes a poor listing image.
 const heroSlide = args['hero-slide'] ? Number(args['hero-slide']) : 0
 const localBase = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
@@ -119,7 +120,8 @@ async function capture({ design, platform, viewport, scale, path, wait }) {
     'save-local-history': true,
   }))
   await page.goto(`${baseUrl}${path}`, { waitUntil: 'domcontentloaded' })
-  if (!live) await seedHistory(page)
+  if (!live) await seedHistory(page, [MEDIA[3], MEDIA[8], MEDIA[12], MEDIA[1]].map(publicMedia))
+  else if (trending.length > 1) await seedHistory(page, trending.slice(1, 5))
   await wait(page, design)
   if (heroSlide && path === '/app/home') {
     const dots = page.locator('[data-part="hero.dot"]')
@@ -133,12 +135,12 @@ async function capture({ design, platform, viewport, scale, path, wait }) {
   return shot
 }
 
-async function seedHistory(page) {
+async function seedHistory(page, titles) {
   // Continue Watching is local-first: record a few plays through the client's own history
   // module (Vite serves it as an importable module), then let the row reconcile as usual.
   // Each play also gets a mid-episode resume point, so resume cards show a real progress meter
   // and percentage rather than an empty bar.
-  const plays = [MEDIA[3], MEDIA[8], MEDIA[12], MEDIA[1]].map((media, index) => ({ media: publicMedia(media), episode: 2 + index * 3, seconds: 380 + index * 210 }))
+  const plays = titles.map((media, index) => ({ media, episode: Math.min(2 + index * 3, media.episodes || 99), seconds: 380 + index * 210 }))
   await page.evaluate(async (plays) => {
     const history = await import('/src/lib/player/history.ts')
     const progress = await import('/src/lib/player/progress.ts').catch(() => null)
@@ -234,15 +236,17 @@ async function loadPlaywright() {
   try { return require('playwright') } catch { throw new Error('Install playwright-core (npm i -D playwright-core) or set IZUMI_PREVIEW_PLAYWRIGHT.') }
 }
 
-/** The first non-adult trending series with banner art, so a live series page opens on artwork. */
-async function trendingSeriesId() {
-  const query = 'query { Page(perPage: 12) { media(type: ANIME, sort: TRENDING_DESC, isAdult: false) { id bannerImage } } }'
+/** Live renders: the most-trending non-adult series that have banner art — the series page opens on the
+ *  first, and the next few seed the watch history, so Continue Watching and the profile banner show real
+ *  titles as they would for a viewer. Empty (fixtures take over) when AniList can't be reached. */
+async function trendingMedia() {
+  const query = 'query { Page(perPage: 16) { media(type: ANIME, sort: TRENDING_DESC, isAdult: false) { id idMal title { romaji english userPreferred } coverImage { medium large extraLarge } bannerImage status format episodes duration nextAiringEpisode { episode airingAt timeUntilAiring } } } }'
   try {
     const response = await fetch('https://graphql.anilist.co', { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify({ query }) })
     const media = (await response.json())?.data?.Page?.media ?? []
-    return media.find((item) => item.bannerImage)?.id ?? MEDIA[0].id
+    return media.filter((item) => item.bannerImage)
   } catch {
-    return MEDIA[0].id
+    return []
   }
 }
 
