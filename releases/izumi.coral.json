@@ -5,23 +5,24 @@
   "release": {
     "id": "izumi.coral",
     "name": "Coral",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "author": "Izumi",
-    "description": "A phone-first look in coral red on deep navy. The bottom bar floats above the page as a rounded card and only the active tab shows its label; the spotlight pager marks slides with coral pills at the start; section titles are uppercase with a coral bar; the series page uses pill tabs and a snapshot episode list. Desktop keeps the palette and the overlay series page.",
-    "themeApi": 2,
+    "description": "Zangetsu look: near-black and coral, a glowing card hero, ★ poster rails, a floating dock, full-bleed series header.",
+    "themeApi": 3,
     "tags": [
       "Phone",
       "Dark",
-      "Coral"
+      "App",
+      "Floating dock"
     ],
     "platforms": [
       "phone",
       "desktop"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/1.0.0.json",
-    "sha256": "5102071cdbde4036e649fdfc5c5569556b8185dd0d9cde568cdda89fd0d2d067",
-    "bytes": 17790,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.0.json",
+    "sha256": "7b1e823531dab4c9e55de50f7a0bf2e8bbfef9c1a2602b172352c9500697d688",
+    "bytes": 44441,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
   }
 }

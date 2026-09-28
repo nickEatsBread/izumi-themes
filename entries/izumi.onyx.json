@@ -1,22 +1,23 @@
 {
   "id": "izumi.onyx",
   "name": "Onyx",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Izumi",
-  "description": "A phone-first true-black streaming look with an electric blue accent. The bottom bar is a translucent black tab bar that never hides, with white active icons and labels on every tab; the tall centred featured card carries white dots beneath its buttons; the series page uses a segmented control over a snapshot episode list. Desktop keeps the black canvas with a wider banner.",
-  "themeApi": 2,
+  "description": "Nuvio look: white on near-black, a full-bleed hero with a View details pill, a floating pill nav, stadium buttons.",
+  "themeApi": 3,
   "tags": [
     "Phone",
     "Dark",
-    "Black"
+    "App",
+    "Monochrome"
   ],
   "platforms": [
     "phone",
     "desktop"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/1.0.0.json",
-  "sha256": "52219e469148abe22707533ffb0ad00017c46894761fc6ddacc841266e7779b8",
-  "bytes": 16461,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.0.json",
+  "sha256": "1d5f31f8aacb860eceff410702b0bf824f760fa0e439cbe5d69519382e9e3b4b",
+  "bytes": 34489,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
 }

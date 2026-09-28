@@ -1,0 +1,22 @@
+{
+  "id": "izumi.saffron",
+  "name": "Saffron",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Crunchyroll look: black and orange DM Sans, a key-art carousel with title logos, a Categories menu and episode grids.",
+  "themeApi": 3,
+  "tags": [
+    "Dark",
+    "Site",
+    "Top bar"
+  ],
+  "platforms": [
+    "desktop",
+    "phone"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.saffron/1.0.0.json",
+  "sha256": "5ddd74b40414ac3d3e7af9820f239ff8e0d8c864afa49f762ddb07e9e635293f",
+  "bytes": 44866,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.saffron.png"
+}

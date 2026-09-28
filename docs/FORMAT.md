@@ -203,5 +203,29 @@ Declare `"themeApi": 3` to use:
 - Template nodes: `part` names; fields `nextEpisode`, `airingIn`, `airingCountdown`, `slide`, `slides`,
   `episodesAired`.
 - `presentation.brand`: `"mark"` or `"text"` (styleable letters; the text is always "izumi").
+- `presentation.shell.top` — the desktop top bar (`shell.nav: "top"`): `labels` (`icons`, `text`,
+  `both`), `search` (`icon`, `field-center`, `field-end`), `menu` (`none`, `drawer`), `brand`
+  (`start`, `center`).
+- `presentation.detail` — `factsStyle` (`template`, `table`, `cards`, `chips`), `countdown` (`none`,
+  `compact`, `long`), `listButton` (`inline`, `full`, `hidden`), and `tabs: "bottom"` (a phone tab
+  bar in place of the app's bottom navigation).
+- `presentation.layout` — the theme's Home and navigation, applied while the theme is active (people
+  can turn it off or customize a copy):
+  - `home`: 1–30 entries in order. `{ "role": "trending" }` places a catalog row by role (`continue`,
+    `recent`, `list`, `season`, `trending`, `popular`, genre rows…; a role the active catalog lacks
+    is skipped); `{ "role": "hero" }` places the featured banner (leave it out to hide it, at most
+    once). Blocks: `{ "block": "latest-episodes", "columns": 3, "pageSize": 12, "pagination":
+    "numbers", "caption": "below" | "overlay" }` (`caption` puts the title and episode number on
+    the still instead of below it; default `"below"`), `tabbed-grid` (`tabs` [{ `label`, `role` }],
+    `columns`, `pageSize`, `pagination`),
+    `genre-chips` (`genres`: `"top"` or a list, `all`), `ranked-list` (`tabs`, `limit` ≤ 20),
+    `profile-header` (`buttons` [{ `label`, `to` }]). Any block accepts `title`, `area` (`main`,
+    `aside`) and `phone` (show an aside block on phones). Block values must already be in range —
+    `scripts/block-schema.ts` rejects anything it would have to repair.
+  - `asideWidth`: 240–420 pixels.
+  - `nav`: `bottom` (≤ 5) and `top` (≤ 4) destination ids (`schedule`, `downloads`, `watch`,
+    `settings`, `search`, `trakt`, `letterboxd`, `library`; a destination sits in one list only) and
+    `home` (Home's position on the bottom bar, 0–5).
+  - `mobile.layout` may replace `home` (and `asideWidth`) on phones; `nav` is top-level only.
 
 Packages may be up to 512 KB.
