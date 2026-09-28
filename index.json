@@ -22,8 +22,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/2.0.0.json",
-      "sha256": "c0ade9ed3f84ebc615097961202616d8bed0c269546369acce12d1089479dadb",
-      "bytes": 11907,
+      "sha256": "a705a9759a0a37392a3e3d638953a2fb8a3714aebc9dac91ce1acbdbb80aaa3c",
+      "bytes": 35702,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.blossom.png"
     },
     {
@@ -113,8 +113,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.0.json",
-      "sha256": "3611a3745b02e38c56c346e2a737c4e481d76817b9d19e063a606c53be25ef15",
-      "bytes": 16756,
+      "sha256": "7b1e823531dab4c9e55de50f7a0bf2e8bbfef9c1a2602b172352c9500697d688",
+      "bytes": 44441,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
     },
     {
@@ -262,8 +262,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.0.json",
-      "sha256": "6c3017d45388e39f3260405cfeb589d3f4fc9c77cae224d2fbbe42e40c6f2506",
-      "bytes": 23527,
+      "sha256": "f786aac9b9f9c353058997c3b6cd2359c9c8d7faf5344bce959ace4323cd5869",
+      "bytes": 58783,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
     },
     {
@@ -348,8 +348,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.0.json",
-      "sha256": "ee7dfba144822c9e7dafbff1658ff16cd93a18d4e6dfccf099626bba6828ee88",
-      "bytes": 16158,
+      "sha256": "1d5f31f8aacb860eceff410702b0bf824f760fa0e439cbe5d69519382e9e3b4b",
+      "bytes": 34489,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
     },
     {
@@ -420,7 +420,7 @@
       "name": "Saffron",
       "version": "1.0.0",
       "author": "Izumi",
-      "description": "Crunchyroll look: black and orange in DM Sans, square corners, a text-link bar, a full-bleed hero, bold poster rows.",
+      "description": "Crunchyroll look: black and orange DM Sans, a key-art carousel with title logos, a Categories menu and episode grids.",
       "themeApi": 3,
       "tags": [
         "Dark",
@@ -433,8 +433,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.saffron/1.0.0.json",
-      "sha256": "a85299344b6e6608b9391517a5f750d4b80196de739260c137afb607805b0ed5",
-      "bytes": 17886,
+      "sha256": "5ddd74b40414ac3d3e7af9820f239ff8e0d8c864afa49f762ddb07e9e635293f",
+      "bytes": 44866,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.saffron.png"
     },
     {
