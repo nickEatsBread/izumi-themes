@@ -7,7 +7,7 @@
     "name": "Marigold",
     "version": "1.0.1",
     "author": "Izumi",
-    "description": "KickAssAnime look: black and Material yellow in Roboto, a flush app bar, year-chip poster grid, a releases list.",
+    "description": "KickAssAnime look: black and Material yellow in Roboto, a pinned side menu, year-chip poster grid, today's releases.",
     "themeApi": 3,
     "tags": [
       "Dark",
@@ -21,8 +21,8 @@
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
     "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marigold/1.0.1.json",
-    "sha256": "c11741b3b463e933e9a27e765147b8ad11da82ad45916b96e1521becd11ac629",
-    "bytes": 13501,
+    "sha256": "0137de5481dd29887daa6357cea9eb6dc50ef8f5f5b358c370845f85d2b67245",
+    "bytes": 14901,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marigold.png"
   }
 }
