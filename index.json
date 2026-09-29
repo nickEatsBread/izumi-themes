@@ -29,7 +29,7 @@
     {
       "id": "izumi.booth",
       "name": "Booth",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": "Izumi",
       "description": "Miruro look: near-black and lavender in Geist, a card hero with a gradient title, a tabbed grid and a Top Airing aside.",
       "themeApi": 3,
@@ -44,15 +44,15 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/2.0.0.json",
-      "sha256": "a2a112d3ea7d2d9fc9648a2a2f2e999bd4a65eada21e2f1b8418b851c30f43f6",
-      "bytes": 40827,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/2.0.1.json",
+      "sha256": "716851907764b9d724f59be122fc87135ff26b9cf00dfabb506fab20b59a7c3f",
+      "bytes": 43689,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.booth.png"
     },
     {
       "id": "izumi.carbon",
       "name": "Carbon",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "Izumi",
       "description": "Anime Nexus look: zinc in DM Sans, a centred logo, a light Watch now, corner-badged episodes, a popular list.",
       "themeApi": 3,
@@ -67,9 +67,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.carbon/1.0.1.json",
-      "sha256": "855ca52b8448ade3c2e260d9f96afcac39cb51247c84a34aecb00324d63fb6f2",
-      "bytes": 24056,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.carbon/1.0.2.json",
+      "sha256": "cce06029692c96d5d1aac1c461121860934a92180b6c5bd1d8d629b214a43ce3",
+      "bytes": 26967,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.carbon.png"
     },
     {
@@ -160,7 +160,7 @@
     {
       "id": "izumi.frost",
       "name": "Frost",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": "Izumi",
       "description": "MKissa look: pure black in Inter, a labelled side rail, big poster cards with episode footers, orange ranks.",
       "themeApi": 3,
@@ -175,9 +175,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.frost/2.0.0.json",
-      "sha256": "c99a28ea30738d644c267440f262b51626fa7d150f91e0d610a3bff73dbbfc91",
-      "bytes": 13916,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.frost/2.0.1.json",
+      "sha256": "82ae9e5e1109d1d733a0bfa5535b4c6ddec113dff2205dd87f7002e1a2326f19",
+      "bytes": 16634,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.frost.png"
     },
     {
@@ -201,7 +201,7 @@
     {
       "id": "izumi.iris",
       "name": "Iris",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "Izumi",
       "description": "Senshi look: near-black and purple, a full-bleed hero under a clear header, overlay poster rails, medal-ranked trending.",
       "themeApi": 3,
@@ -216,9 +216,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.iris/1.0.1.json",
-      "sha256": "9d15623fee99c66a65f5fdbe72cc29b78f4733b07d0023d72ac4778b3621712c",
-      "bytes": 23132,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.iris/1.0.2.json",
+      "sha256": "a84d171972a9c53d2bdd294e1ec62e0f22ab238e79cf51785ec0db1d663374cf",
+      "bytes": 26516,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.iris.png"
     },
     {
@@ -287,7 +287,7 @@
     {
       "id": "izumi.marigold",
       "name": "Marigold",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "Izumi",
       "description": "KickAssAnime look: black and Material yellow in Roboto, a flush app bar, year-chip poster grid, a releases list.",
       "themeApi": 3,
@@ -302,9 +302,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marigold/1.0.0.json",
-      "sha256": "0e52cc0ea8e4aaa109dacc3458e8c341d1ca05d46249b318c6bcc5120300ead1",
-      "bytes": 10810,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marigold/1.0.1.json",
+      "sha256": "c11741b3b463e933e9a27e765147b8ad11da82ad45916b96e1521becd11ac629",
+      "bytes": 13501,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marigold.png"
     },
     {
@@ -463,7 +463,7 @@
     {
       "id": "izumi.spotlight",
       "name": "Spotlight",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": "Izumi",
       "description": "Anikoto look: navy and sky blue in Nunito, a split hero with Play now, poster grid with sub counts, Top anime aside.",
       "themeApi": 3,
@@ -478,9 +478,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/2.0.0.json",
-      "sha256": "bead1c7c5f7b0d3ff2a0775ea236f9b26f107baa758ab689687fd64f5971e2ae",
-      "bytes": 22158,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/2.0.1.json",
+      "sha256": "6662f24b06c36473e32055ee72e1a5e3276cce0725f968e9f77bf7a9a02cab47",
+      "bytes": 25080,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.spotlight.png"
     },
     {
@@ -526,7 +526,7 @@
     {
       "id": "izumi.volt",
       "name": "Volt",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "Izumi",
       "description": "Re:Anime look: black and lime in Inter, a full-bleed hero with skewed buttons, trending ranks in each cover's colour.",
       "themeApi": 3,
@@ -541,9 +541,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.volt/1.0.0.json",
-      "sha256": "267357c56366fdfd8d44bccff3fa769b9dac1829b8e5f5d1faeb835eeb130701",
-      "bytes": 33412,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.volt/1.0.1.json",
+      "sha256": "fe737878ee8db6d1f91fcf9e5f66817fd6a556db7d50c4c7708702c64558874f",
+      "bytes": 36653,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.volt.png"
     }
   ]
