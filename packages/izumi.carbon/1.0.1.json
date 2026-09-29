@@ -1,0 +1,619 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.carbon",
+  "name": "Carbon",
+  "version": "1.0.1",
+  "author": "Izumi",
+  "description": "Anime Nexus look: zinc in DM Sans, a centred logo, a light Watch now, corner-badged episodes, a popular list.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "240 10% 4%",
+      "foreground": "0 0% 98%",
+      "muted": "240 4% 16%",
+      "mutedForeground": "240 5% 65%",
+      "primary": "240 6% 90%",
+      "primaryForeground": "240 6% 10%",
+      "secondary": "240 4% 16%",
+      "secondaryForeground": "0 0% 98%",
+      "accent": "240 4% 16%",
+      "accentForeground": "0 0% 98%",
+      "border": "240 4% 16%",
+      "input": "240 4% 16%",
+      "ring": "240 5% 84%",
+      "card": "240 6% 10%",
+      "cardForeground": "0 0% 98%",
+      "theme": "240 6% 90%"
+    },
+    "radius": 0.3,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "dm-sans",
+      "heading": "dm-sans",
+      "display": "dm-sans"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "icons",
+          "search": "icon",
+          "menu": "drawer",
+          "brand": "center"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "pill",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#09090B",
+          "activeColor": "#FAFAFA",
+          "inactiveColor": "#A1A1AA",
+          "blur": true,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 60,
+        "mobileHeight": 56,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "pills",
+          "position": "center",
+          "color": "#FAFAFA"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "carbon.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "carbon.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 14,
+                "padding": 64,
+                "width": 60
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "logo",
+                  "part": "carbon.logo",
+                  "when": {
+                    "field": "logo"
+                  },
+                  "style": {
+                    "fit": "contain",
+                    "maxWidth": 360
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 44,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "color": "#FAFAFA"
+                  },
+                  "field": "title",
+                  "part": "carbon.title",
+                  "when": {
+                    "field": "logo",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "carbon.badge",
+                  "when": {
+                    "field": "year"
+                  },
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "radius": 4
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 13,
+                        "fontWeight": 400,
+                        "color": "#A1A1AA"
+                      },
+                      "text": "▦"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#FAFAFA"
+                      },
+                      "field": "year"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 500,
+                    "lines": 1,
+                    "color": "#E4E4E7"
+                  },
+                  "field": "genres",
+                  "when": {
+                    "field": "genres"
+                  },
+                  "part": "carbon.genres"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 400,
+                    "lines": 3,
+                    "color": "#A1A1AA"
+                  },
+                  "field": "description",
+                  "part": "carbon.synopsis"
+                },
+                {
+                  "type": "action",
+                  "action": "play",
+                  "text": "Watch Now",
+                  "part": "carbon.watch",
+                  "style": {
+                    "minHeight": 40,
+                    "radius": 4,
+                    "fontSize": 14,
+                    "fontWeight": 500,
+                    "color": "#18181B",
+                    "background": "#E4E4E7"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 160,
+          "gap": 16,
+          "titleSize": 20,
+          "heading": {
+            "weight": 600,
+            "viewMore": "arrow"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 6,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "text",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lines": 1,
+                "color": "#FAFAFA"
+              },
+              "field": "title"
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 5,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 400,
+                    "color": "#A1A1AA"
+                  },
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 400,
+                    "color": "#A1A1AA"
+                  },
+                  "text": "·",
+                  "when": {
+                    "field": "year"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 400,
+                    "color": "#A1A1AA"
+                  },
+                  "field": "year",
+                  "when": {
+                    "field": "year"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "column": "poster",
+        "posterWidth": 248,
+        "actionsFirst": true,
+        "tabs": "segmented",
+        "factsStyle": "table",
+        "countdown": "compact",
+        "sections": {
+          "tabs": [
+            "episodes",
+            "relations",
+            "recommended"
+          ],
+          "labels": {
+            "recommended": "recommendations"
+          },
+          "unlisted": "hidden"
+        },
+        "episodes": {
+          "arrangement": "grid",
+          "hover": "none",
+          "card": {
+            "type": "stack",
+            "part": "carbon.ep",
+            "style": {
+              "gap": 8
+            },
+            "children": [
+              {
+                "type": "overlay",
+                "part": "carbon.ep-art",
+                "style": {
+                  "aspect": "16 / 9",
+                  "radius": 6
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "style": {
+                      "anchor": "fill",
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "duration",
+                    "when": {
+                      "field": "duration"
+                    },
+                    "part": "carbon.ep-duration",
+                    "style": {
+                      "anchor": "top-start",
+                      "fontSize": 12,
+                      "fontWeight": 500,
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "style": {
+                  "gap": 2
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 4
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "EPISODE",
+                        "part": "carbon.ep-label",
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 400,
+                          "color": "#A1A1AA"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeNo",
+                        "part": "carbon.ep-label",
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 400,
+                          "color": "#A1A1AA"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "episodeName",
+                    "when": {
+                      "field": "episodeName"
+                    },
+                    "part": "carbon.ep-title",
+                    "style": {
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "color": "#FAFAFA",
+                      "lines": 1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "block": "latest-episodes",
+            "title": "Latest Episodes",
+            "columns": 4,
+            "pageSize": 12,
+            "pagination": "more",
+            "caption": "below"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "Popular Shows",
+            "tabs": [
+              {
+                "label": "Today",
+                "role": "trending"
+              },
+              {
+                "label": "Season",
+                "role": "season"
+              },
+              {
+                "label": "All time",
+                "role": "popular"
+              }
+            ],
+            "limit": 10
+          }
+        ],
+        "asideWidth": 340,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "carbon.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "carbon.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 14,
+                  "padding": 20,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "carbon.logo",
+                    "when": {
+                      "field": "logo"
+                    },
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 280
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 28,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FAFAFA"
+                    },
+                    "field": "title",
+                    "part": "carbon.title",
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "carbon.badge",
+                    "when": {
+                      "field": "year"
+                    },
+                    "style": {
+                      "gap": 6,
+                      "align": "center",
+                      "radius": 4
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 13,
+                          "fontWeight": 400,
+                          "color": "#A1A1AA"
+                        },
+                        "text": "▦"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "#FAFAFA"
+                        },
+                        "field": "year"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 12,
+                      "fontWeight": 500,
+                      "lines": 1,
+                      "color": "#E4E4E7"
+                    },
+                    "field": "genres",
+                    "when": {
+                      "field": "genres"
+                    },
+                    "part": "carbon.genres"
+                  },
+                  {
+                    "type": "action",
+                    "action": "play",
+                    "text": "Watch Now",
+                    "part": "carbon.watch",
+                    "style": {
+                      "minHeight": 40,
+                      "radius": 4,
+                      "fontSize": 14,
+                      "fontWeight": 500,
+                      "color": "#18181B",
+                      "background": "#E4E4E7"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "latest-episodes",
+              "title": "New Episodes",
+              "columns": 2,
+              "pageSize": 8,
+              "pagination": "more",
+              "caption": "below"
+            },
+            {
+              "block": "ranked-list",
+              "phone": true,
+              "title": "Popular Shows",
+              "tabs": [
+                {
+                  "label": "Today",
+                  "role": "trending"
+                },
+                {
+                  "label": "All time",
+                  "role": "popular"
+                }
+              ],
+              "limit": 5
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Carbon — the Anime Nexus look (docs/theme-references/animenexus.md): shadcn zinc, DM Sans, 4 px corners. */\n\n/* Header: background at 95 % with a blur and a hairline; the brand is a light square with the dark mark. */\n[data-slot=\"nav.top\"] { background: rgba(9, 9, 11, 0.95) !important; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; }\n\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { border-radius: 6px; color: #fafafa; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover { background: #27272a; }\n\n/* Hero: the art fades into the page from the left and the bottom. */\n[data-part=\"carbon.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  z-index: 1;\n  background-image: linear-gradient(to right, #09090b 0%, rgba(9, 9, 11, 0.7) 40%, rgba(9, 9, 11, 0) 70%), linear-gradient(to top, #09090b 0%, rgba(9, 9, 11, 0) 40%) !important;\n  pointer-events: none;\n}\n[data-part=\"carbon.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"carbon.info\"] { padding-bottom: 72px; }\n[data-part=\"carbon.logo\"] img { max-height: 140px; object-fit: contain; object-position: left bottom; }\n[data-part=\"carbon.badge\"] { padding: 4px 10px; border: 1px solid rgba(255, 255, 255, 0.05); background: rgba(24, 24, 27, 0.95); }\n[data-part=\"carbon.genres\"] { padding: 2px 8px; border-radius: 999px; background: rgba(228, 228, 231, 0.15); }\n[data-part=\"carbon.watch\"] { padding: 0 24px; gap: 8px; }\n[data-part=\"hero.dot\"] { width: 7px; height: 7px; border-radius: 999px; background: rgba(250, 250, 250, 0.3); }\n[data-part=\"hero.dot\"][data-active] { width: 22px; background: #fafafa; }\n\n/* Headings: 20 px semibold. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 20px; font-weight: 600; letter-spacing: -0.2px; color: #fafafa; }\n\n/* Latest Episodes: the badge sits in the top-left corner of each still. */\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] > button { border-radius: 6px; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.number\"] { top: 0; left: 0; padding: 3px 8px; border-radius: 4px 0; background: rgba(0, 0, 0, 0.5); font-size: 12px; font-weight: 500; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.title\"] { font-size: 14px; font-weight: 400; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.meta\"] { color: #a1a1aa; }\n\n/* Popular Shows: amber first rank, grey after. */\n[data-slot=\"block.ranked-list\"] [data-part=\"block.rank\"] { font-size: 20px; font-weight: 700; color: #71717a; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"block.rank\"] { color: #f59e0b; }\n[data-slot=\"block.ranked-list\"] [data-part=\"card.art\"] { width: 48px; border-radius: 4px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tabs\"] { padding: 3px; border-radius: 6px; background: #18181b; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"][data-active] { background: #27272a; color: #fafafa; }\n\n/* Series page: shadcn segmented tabs. */\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"segmented\"] { background: #27272a; border-radius: 8px; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"segmented\"] [data-part=\"tab\"][data-active] { background: #09090b; color: #fafafa; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 4px; background: #e4e4e7; color: #18181b; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"] { color: #a1a1aa; font-weight: 500; }\n\n/* Series page, measured from the site's desktop page: a 248 px left column (poster, trailer, next\n   episode, facts card), the titles and actions beside it, three segmented tabs and a six-across grid\n   of small episode cards. */\n[data-part=\"detail.alt-title\"] { font-size: 18px !important; font-weight: 700; line-height: 28px; color: #fafafa !important; }\n[data-slot=\"detail\"] [data-part=\"detail.title\"] { font-size: 36px !important; font-weight: 900 !important; line-height: 1; text-transform: uppercase; }\n[data-slot=\"detail\"] [data-part=\"chip\"] { padding: 2px 8px; border: 1px solid rgba(228, 228, 231, 0.2); border-radius: 32px; font-size: 12px; font-weight: 500; color: #fafafa; }\n[data-slot=\"detail\"] [data-part=\"detail.synopsis\"] { font-size: 14px !important; line-height: 22.75px; color: rgba(250, 250, 250, 0.8) !important; }\n[data-slot=\"detail.column\"] [data-part=\"detail.poster\"] { border-radius: 4px !important; box-shadow: none !important; }\n[data-part=\"detail.trailer\"] { height: 40px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 4px !important; background: rgba(24, 24, 27, 0.95) !important; font-weight: 500 !important; }\n[data-slot=\"detail.column\"] [data-part=\"detail.countdown\"] { padding: 14px 16px; border: 1px solid rgba(52, 211, 153, 0.2); border-radius: 4px; background: rgba(52, 211, 153, 0.1); color: #fafafa; }\n[data-slot=\"detail.column\"] [data-part=\"detail.facts\"] { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; gap: 16px !important; padding: 16px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 4px; background: rgba(24, 24, 27, 0.95); }\n[data-slot=\"detail.column\"] [data-part=\"detail.facts\"] [data-part=\"fact\"] { display: grid !important; gap: 2px; }\n[data-slot=\"detail.column\"] [data-part=\"fact.label\"] { font-size: 12px !important; font-weight: 500 !important; text-transform: uppercase; color: #a1a1aa !important; }\n[data-slot=\"detail.column\"] [data-part=\"fact.value\"] { font-size: 14px !important; font-weight: 500 !important; color: #fafafa !important; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"segmented\"] { padding: 6px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 4px !important; background: rgba(24, 24, 27, 0.95) !important; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"segmented\"] [data-part=\"tab\"] { padding: 8px 16px; border: 1px solid transparent; border-radius: 4px !important; font-size: 14px; font-weight: 500; color: #a1a1aa; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"segmented\"] [data-part=\"tab\"][data-active] { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.045) !important; color: #fafafa !important; }\n[data-slot=\"detail.episodes\"] [data-part=\"episodes.grid\"] { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; gap: 20px 16px !important; }\n[data-part=\"carbon.ep-duration\"] { margin: 0 !important; padding: 3px 8px; border-radius: 4px 0 !important; background: rgba(0, 0, 0, 0.5); }\n[data-part=\"carbon.ep-label\"] { text-transform: uppercase; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"] { background: transparent !important; box-shadow: none !important; }\n"
+  }
+}
