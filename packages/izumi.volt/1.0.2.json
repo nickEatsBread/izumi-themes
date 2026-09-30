@@ -1,0 +1,1031 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.volt",
+  "name": "Volt",
+  "version": "1.0.2",
+  "author": "Izumi",
+  "description": "Re:Anime look: black and lime in Inter, a full-bleed hero with skewed buttons, trending ranks in each cover's colour.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "0 0% 100%",
+      "muted": "240 6% 10%",
+      "mutedForeground": "240 5% 65%",
+      "primary": "84 100% 41%",
+      "primaryForeground": "143 67% 5%",
+      "secondary": "240 6% 10%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "240 4% 16%",
+      "accentForeground": "0 0% 100%",
+      "border": "240 4% 16%",
+      "input": "240 6% 10%",
+      "ring": "84 100% 41%",
+      "card": "240 6% 10%",
+      "cardForeground": "0 0% 100%",
+      "theme": "84 100% 41%"
+    },
+    "radius": 0.5,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "inter"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "icons",
+          "search": "field-center",
+          "menu": "drawer",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "line",
+          "height": 64,
+          "iconSize": 22,
+          "background": "#0A0A0A",
+          "activeColor": "#7CCF00",
+          "inactiveColor": "#9F9FA9",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 62,
+        "mobileHeight": 60,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "bars",
+          "position": "end",
+          "color": "#7CCF00",
+          "past": "empty"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "volt.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "volt.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 14,
+                "padding": 56,
+                "width": 46
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 8,
+                    "align": "center",
+                    "wrap": "wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "volt.chip",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 4
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 13,
+                            "fontWeight": 600,
+                            "color": "#7CCF00"
+                          },
+                          "text": "★"
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14,
+                            "fontWeight": 600,
+                            "color": "#7CCF00"
+                          },
+                          "field": "score"
+                        }
+                      ],
+                      "when": {
+                        "field": "score"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "volt.chip",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 4
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14,
+                            "fontWeight": 600,
+                            "color": "#7CCF00"
+                          },
+                          "field": "format"
+                        }
+                      ],
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "volt.chip",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 4
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14,
+                            "fontWeight": 600,
+                            "color": "#7CCF00"
+                          },
+                          "field": "year"
+                        }
+                      ],
+                      "when": {
+                        "field": "year"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "artwork",
+                  "artwork": "logo",
+                  "part": "volt.logo",
+                  "when": {
+                    "field": "logo"
+                  },
+                  "style": {
+                    "fit": "contain",
+                    "maxWidth": 380
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 44,
+                    "fontWeight": 800,
+                    "lines": 2,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title",
+                  "part": "volt.title",
+                  "when": {
+                    "field": "logo",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 400,
+                    "lines": 3,
+                    "color": "#D1D5DC"
+                  },
+                  "field": "description",
+                  "part": "volt.synopsis"
+                },
+                {
+                  "type": "row",
+                  "part": "volt.buttons",
+                  "style": {
+                    "gap": 14,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "WATCH NOW",
+                      "part": "volt.watch",
+                      "style": {
+                        "minHeight": 44,
+                        "fontSize": 14,
+                        "fontWeight": 800,
+                        "color": "#04140A",
+                        "background": "#7CCF00"
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "details",
+                      "text": "DETAILS",
+                      "part": "volt.details",
+                      "style": {
+                        "minHeight": 44,
+                        "fontSize": 14,
+                        "fontWeight": 800,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "volt.pager",
+              "when": {
+                "field": "slides"
+              },
+              "style": {
+                "anchor": "top-end",
+                "gap": 8,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "action",
+                  "action": "previous",
+                  "text": "‹",
+                  "part": "volt.nav",
+                  "style": {
+                    "minHeight": 36,
+                    "radius": 4,
+                    "fontSize": 18,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "action",
+                  "action": "next",
+                  "text": "›",
+                  "part": "volt.nav",
+                  "style": {
+                    "minHeight": 36,
+                    "radius": 4,
+                    "fontSize": 18,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 158,
+          "gap": 14,
+          "titleSize": 24,
+          "heading": {
+            "weight": 700,
+            "viewMore": "arrow"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 276,
+            "gap": 16
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 7
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "volt.cover",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 8,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "volt.badge",
+                  "when": {
+                    "field": "score"
+                  },
+                  "style": {
+                    "anchor": "top-start",
+                    "gap": 3,
+                    "align": "center",
+                    "radius": 80
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 500,
+                        "color": "#FACC15"
+                      },
+                      "text": "★"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 500,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "score"
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "volt.eps",
+                  "when": {
+                    "field": "episodesAired"
+                  },
+                  "style": {
+                    "anchor": "bottom-start",
+                    "gap": 3,
+                    "align": "center",
+                    "radius": 6
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 800,
+                        "color": "#FFFFFF"
+                      },
+                      "text": "CC"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 500,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "episodesAired"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 500,
+                        "color": "#FFFFFF"
+                      },
+                      "text": "/",
+                      "when": {
+                        "field": "episodeCount"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 500,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "episodeCount",
+                      "when": {
+                        "field": "episodeCount"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 7,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "volt.airing",
+                  "when": {
+                    "field": "airingIn"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "volt.dot",
+                  "when": {
+                    "field": "airingIn",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 500,
+                    "lines": 1,
+                    "shrink": 1,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title"
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 4,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 400,
+                    "color": "muted-foreground"
+                  },
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 400,
+                    "color": "muted-foreground"
+                  },
+                  "text": "·",
+                  "when": {
+                    "field": "duration"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 400,
+                    "color": "muted-foreground"
+                  },
+                  "field": "duration",
+                  "when": {
+                    "field": "duration"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "volt.cw",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "volt.cw-art",
+              "style": {
+                "aspect": "16 / 9",
+                "radius": 6
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "volt.cw-ep",
+                  "style": {
+                    "anchor": "top-start",
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EP",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeNo",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "timeLeft",
+                  "when": {
+                    "field": "timeLeft"
+                  },
+                  "part": "volt.cw-time",
+                  "style": {
+                    "anchor": "bottom-end",
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "volt.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "volt.cw-title",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 500,
+                "color": "#FFFFFF",
+                "lines": 1
+              }
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "underline",
+        "factsStyle": "template",
+        "countdown": "compact",
+        "header": {
+          "type": "row",
+          "style": {
+            "gap": 8,
+            "align": "center",
+            "wrap": "wrap"
+          },
+          "children": [
+            {
+              "type": "row",
+              "part": "volt.chip",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "radius": 4
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 600,
+                    "color": "#7CCF00"
+                  },
+                  "text": "★"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "color": "#7CCF00"
+                  },
+                  "field": "score"
+                }
+              ],
+              "when": {
+                "field": "score"
+              }
+            },
+            {
+              "type": "row",
+              "part": "volt.chip",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "radius": 4
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "color": "#7CCF00"
+                  },
+                  "field": "format"
+                }
+              ],
+              "when": {
+                "field": "format"
+              }
+            },
+            {
+              "type": "row",
+              "part": "volt.chip",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "radius": 4
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "color": "#7CCF00"
+                  },
+                  "field": "status"
+                }
+              ],
+              "when": {
+                "field": "status"
+              }
+            },
+            {
+              "type": "row",
+              "part": "volt.chip",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "radius": 4
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "color": "#7CCF00"
+                  },
+                  "field": "year"
+                }
+              ],
+              "when": {
+                "field": "year"
+              }
+            }
+          ]
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "title": "Latest Episodes",
+            "tabs": [
+              {
+                "label": "All",
+                "role": "newest"
+              },
+              {
+                "label": "Trending",
+                "role": "trending"
+              },
+              {
+                "label": "Popular",
+                "role": "popular"
+              }
+            ],
+            "columns": 6,
+            "pageSize": 18,
+            "pagination": "numbers"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "Top Trending",
+            "tabs": [
+              {
+                "label": "Today",
+                "role": "trending"
+              },
+              {
+                "label": "Season",
+                "role": "season"
+              },
+              {
+                "label": "All time",
+                "role": "popular"
+              }
+            ],
+            "limit": 10
+          }
+        ],
+        "asideWidth": 330,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library",
+            "settings"
+          ],
+          "top": [
+            "watch"
+          ]
+        }
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "volt.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "volt.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 14,
+                  "padding": 20,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 8,
+                      "align": "center",
+                      "wrap": "wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "row",
+                        "part": "volt.chip",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 4
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 13,
+                              "fontWeight": 600,
+                              "color": "#7CCF00"
+                            },
+                            "text": "★"
+                          },
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14,
+                              "fontWeight": 600,
+                              "color": "#7CCF00"
+                            },
+                            "field": "score"
+                          }
+                        ],
+                        "when": {
+                          "field": "score"
+                        }
+                      },
+                      {
+                        "type": "row",
+                        "part": "volt.chip",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 4
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14,
+                              "fontWeight": 600,
+                              "color": "#7CCF00"
+                            },
+                            "field": "format"
+                          }
+                        ],
+                        "when": {
+                          "field": "format"
+                        }
+                      },
+                      {
+                        "type": "row",
+                        "part": "volt.chip",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 4
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14,
+                              "fontWeight": 600,
+                              "color": "#7CCF00"
+                            },
+                            "field": "year"
+                          }
+                        ],
+                        "when": {
+                          "field": "year"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "volt.logo",
+                    "when": {
+                      "field": "logo"
+                    },
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 300
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 28,
+                      "fontWeight": 800,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    },
+                    "field": "title",
+                    "part": "volt.title",
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 15,
+                      "fontWeight": 400,
+                      "lines": 2,
+                      "color": "#D1D5DC"
+                    },
+                    "field": "description",
+                    "part": "volt.synopsis"
+                  },
+                  {
+                    "type": "row",
+                    "part": "volt.buttons",
+                    "style": {
+                      "gap": 14,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "WATCH NOW",
+                        "part": "volt.watch",
+                        "style": {
+                          "minHeight": 44,
+                          "fontSize": 14,
+                          "fontWeight": 800,
+                          "color": "#04140A",
+                          "background": "#7CCF00"
+                        }
+                      },
+                      {
+                        "type": "action",
+                        "action": "details",
+                        "text": "DETAILS",
+                        "part": "volt.details",
+                        "style": {
+                          "minHeight": 44,
+                          "fontSize": 14,
+                          "fontWeight": 800,
+                          "color": "#FFFFFF"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "title": "Latest Episodes",
+              "tabs": [
+                {
+                  "label": "All",
+                  "role": "newest"
+                },
+                {
+                  "label": "Trending",
+                  "role": "trending"
+                },
+                {
+                  "label": "Popular",
+                  "role": "popular"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "numbers"
+            },
+            {
+              "role": "season"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Volt — the Re:Anime look (docs/theme-references/reanime.md): black, Inter, one lime accent, skewed buttons. */\n\n/* Header: transparent over the hero; destinations live in the drawer. */\n[data-slot=\"nav.top\"] { background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0)) !important; border: 0 !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { display: none; }\n[data-slot=\"nav.top\"] form:has([data-part=\"search.field\"]) { width: 100%; max-width: 360px; margin-right: auto; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 44px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; background: rgba(0, 0, 0, 0.55); font-size: 15px; }\n@media (min-width: 641px) { [data-slot=\"home.hero\"] { margin-top: -84px !important; } }\n\n/* Hero: full-bleed art fading to black at the bottom and left. */\n[data-part=\"volt.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  z-index: 1;\n  background-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.55) 30%, rgba(0, 0, 0, 0) 60%), linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0) 55%) !important;\n  pointer-events: none;\n}\n[data-part=\"volt.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"volt.chip\"] { padding: 4px 8px; background: rgba(0, 0, 0, 0.8); }\n[data-part=\"volt.logo\"] img { max-height: 120px; object-fit: contain; object-position: left center; }\n[data-part=\"volt.synopsis\"] { max-width: 576px; }\n/* The site's buttons are parallelograms. */\n[data-part=\"volt.watch\"], [data-part=\"volt.details\"] { transform: skewX(-12deg); padding: 0 30px; gap: 8px; letter-spacing: 1px; }\n[data-part=\"volt.details\"] { background: rgba(0, 0, 0, 0.6) !important; border: 1px solid rgba(255, 255, 255, 0.2); }\n[data-part=\"volt.pager\"] { margin: 96px 24px 0 0; }\n[data-part=\"volt.nav\"] { width: 36px; justify-content: center; padding: 0; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.6) !important; }\n/* Slide markers: segmented 14 x 3 bars at 30% white, the current one a 26 px lime pill. The drawn\n   shape is the marker's track (the button around it keeps its finger-sized hit area unpainted). */\n[data-part=\"hero.dot.track\"] { width: 14px !important; height: 3px !important; border-radius: 2px !important; background: rgba(255, 255, 255, 0.3) !important; }\n[data-part=\"hero.dot\"][data-active] [data-part=\"hero.dot.track\"] { width: 26px !important; background: #7ccf00 !important; }\n\n/* Section titles: a 4 x 24 lime bar before each. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { display: inline-flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 700; color: #fff; }\n[data-part=\"row.title\"]::before, [data-part=\"block.title\"]::before { content: \"\"; width: 4px; height: 24px; border-radius: 999px; background: #7ccf00; }\n\n/* Latest Episodes tabs: plain text, lime when active. */\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { gap: 14px; padding: 0; border: 0; background: transparent; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { padding: 0; border: 0; background: transparent; color: #9f9fa9; font-size: 13px; font-weight: 600; box-shadow: none; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { color: #7ccf00; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n\n/* Poster cards. */\n[data-part=\"volt.cover\"] > .theme-artwork { background: #18181b; }\n[data-part=\"volt.badge\"] { margin: 7px; padding: 3px 7px; background: rgba(0, 0, 0, 0.72); }\n[data-part=\"volt.eps\"] { margin: 7px; padding: 3px 6px; background: rgba(0, 0, 0, 0.72); }\n[data-part=\"volt.airing\"], [data-part=\"volt.dot\"] { flex: 0 0 7px; width: 7px; height: 7px; border-radius: 999px; }\n[data-part=\"volt.airing\"] { background: #22c55e; }\n[data-part=\"volt.dot\"] { background: #71717a; }\n\n/* Top Trending: tabs as small uppercase words, huge italic outlined numerals in each title's cover colour. */\n[data-slot=\"block.ranked-list\"] [data-part=\"block.title\"] { font-size: 20px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tabs\"] { gap: 14px; margin: 0 0 8px; padding: 0; border: 0; border-bottom: 1px solid #27272a; border-radius: 0; background: transparent; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"] { padding: 0 0 10px; border-radius: 0; background: transparent; color: #6d727c; font-size: 11.2px; font-weight: 700; letter-spacing: 0.9px; text-transform: uppercase; box-shadow: none; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"][data-active] { color: #7ccf00; box-shadow: inset 0 -2px 0 #7ccf00; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"] { position: relative; min-height: 96px; padding-left: 56px; overflow: hidden; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.rank\"] {\n  position: absolute;\n  left: -6px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: auto;\n  font-size: 80px;\n  font-weight: 900;\n  font-style: italic;\n  line-height: 1;\n  color: transparent !important;\n  -webkit-text-stroke: 2px rgb(var(--cover-rgb, 124 207 0));\n}\n[data-slot=\"block.ranked-list\"] [data-part=\"card.title\"] { font-size: 15px; font-weight: 700; color: #fff; }\n\n/* Series page. */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 8px; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { color: #7ccf00; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { background: #7ccf00; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { transform: skewX(-12deg); border-radius: 0; background: #7ccf00; color: #04140a; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }\n/* The lime chip row (detail.header) replaces the facts line. */\n[data-slot=\"detail\"] [data-part=\"detail.meta\"] { display: none; }\n\n/* Phone bottom bar: uppercase labels with tracking, a lime line and tint on the active tab. */\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item.label\"] { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] { background: linear-gradient(to bottom, rgba(124, 207, 0, 0.16), rgba(124, 207, 0, 0)); }\n\n/* Continue Watching: the site's resume card — a 276 px 16:9 still, \"EP 1\" top-left and the time\n   bottom-right on 70% black 4 px chips, a 4 px bar along the bottom in the lime accent. */\n[data-part=\"volt.cw-ep\"], [data-part=\"volt.cw-time\"] { margin: 8px !important; padding: 2px 6px; border-radius: 4px; background: rgba(0, 0, 0, 0.7); }\n[data-part=\"volt.cw-time\"] { margin-bottom: 12px !important; }\n[data-part=\"volt.cw-bar\"] { height: 4px !important; background: #45556c !important; }\n[data-part=\"volt.cw-bar\"] > * { background: #7ccf00 !important; }\n"
+  }
+}

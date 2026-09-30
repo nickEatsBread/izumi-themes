@@ -547,7 +547,7 @@
     {
       "id": "izumi.volt",
       "name": "Volt",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": "Izumi",
       "description": "Re:Anime look: black and lime in Inter, a full-bleed hero with skewed buttons, trending ranks in each cover's colour.",
       "themeApi": 3,
@@ -562,9 +562,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.volt/1.0.1.json",
-      "sha256": "fe737878ee8db6d1f91fcf9e5f66817fd6a556db7d50c4c7708702c64558874f",
-      "bytes": 36653,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.volt/1.0.2.json",
+      "sha256": "a94d983f42b24593e2a5f6c2e029b6d34abaa0d8807b848842924ec8e501118c",
+      "bytes": 36984,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.volt.png"
     }
   ]
