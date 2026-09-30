@@ -1,0 +1,600 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.iris",
+  "name": "Iris",
+  "version": "1.0.1",
+  "author": "Izumi",
+  "description": "Senshi look: near-black and purple, a full-bleed hero under a clear header, overlay poster rails, medal-ranked trending.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "240 6% 6%",
+      "foreground": "0 0% 100%",
+      "muted": "240 6% 10%",
+      "mutedForeground": "0 0% 64%",
+      "primary": "271 81% 56%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "240 6% 10%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "240 6% 10%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 16%",
+      "input": "240 6% 10%",
+      "ring": "271 81% 56%",
+      "card": "240 6% 10%",
+      "cardForeground": "0 0% 100%",
+      "theme": "271 91% 65%"
+    },
+    "radius": 0.5,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "system",
+      "heading": "system",
+      "display": "system"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "both",
+          "search": "field-center",
+          "menu": "none",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#0F0F11",
+          "activeColor": "#A855F7",
+          "inactiveColor": "#A3A3A3",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 64,
+        "mobileHeight": 62,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "none"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "iris.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "iris.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 14,
+                "padding": 64,
+                "width": 42
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 44,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title",
+                  "part": "iris.title"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lines": 4,
+                    "color": "#D4D4D4"
+                  },
+                  "field": "description",
+                  "part": "iris.synopsis"
+                },
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 10,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "PLAY",
+                      "part": "iris.play",
+                      "style": {
+                        "minHeight": 48,
+                        "radius": 8,
+                        "fontSize": 16,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF",
+                        "background": "#9333EA"
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "details",
+                      "text": "ⓘ",
+                      "part": "iris.save",
+                      "style": {
+                        "minHeight": 48,
+                        "radius": 8,
+                        "fontSize": 18,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "iris.pager",
+              "when": {
+                "field": "slides"
+              },
+              "style": {
+                "anchor": "bottom-end",
+                "gap": 10,
+                "align": "center",
+                "padding": 32
+              },
+              "children": [
+                {
+                  "type": "action",
+                  "action": "previous",
+                  "text": "‹",
+                  "part": "iris.nav",
+                  "style": {
+                    "minHeight": 36,
+                    "radius": 80,
+                    "fontSize": 18,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 3,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 600,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "slide"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 600,
+                        "color": "#A3A3A3"
+                      },
+                      "text": "/"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 600,
+                        "color": "#A3A3A3"
+                      },
+                      "field": "slides"
+                    }
+                  ]
+                },
+                {
+                  "type": "action",
+                  "action": "next",
+                  "text": "›",
+                  "part": "iris.nav",
+                  "style": {
+                    "minHeight": 36,
+                    "radius": 80,
+                    "fontSize": 18,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 178,
+          "gap": 16,
+          "titleSize": 30,
+          "heading": {
+            "weight": 700,
+            "viewMore": "text"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "overlay",
+          "part": "iris.card",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 8,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "part": "iris.ep",
+              "when": {
+                "field": "episodesAired"
+              },
+              "style": {
+                "anchor": "top-end",
+                "gap": 3,
+                "align": "center",
+                "radius": 6
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  },
+                  "text": "EP"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "episodesAired"
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "iris.caption",
+              "style": {
+                "anchor": "bottom-start",
+                "gap": 3,
+                "padding": 12,
+                "width": 100
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "lines": 1,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title"
+                },
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 5,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#A3A3A3"
+                      },
+                      "field": "format",
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#A3A3A3"
+                      },
+                      "text": "·",
+                      "when": {
+                        "field": "year"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#A3A3A3"
+                      },
+                      "field": "year",
+                      "when": {
+                        "field": "year"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "pills",
+        "factsStyle": "table",
+        "countdown": "compact"
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "recent"
+          },
+          {
+            "role": "newest"
+          },
+          {
+            "role": "popular"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "Trending",
+            "tabs": [
+              {
+                "label": "Today",
+                "role": "trending"
+              }
+            ],
+            "limit": 10
+          }
+        ],
+        "asideWidth": 330,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "iris.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "iris.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 14,
+                  "padding": 20,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 28,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    },
+                    "field": "title",
+                    "part": "iris.title"
+                  },
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 10,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "PLAY",
+                        "part": "iris.play",
+                        "style": {
+                          "minHeight": 48,
+                          "radius": 8,
+                          "fontSize": 16,
+                          "fontWeight": 700,
+                          "color": "#FFFFFF",
+                          "background": "#9333EA"
+                        }
+                      },
+                      {
+                        "type": "action",
+                        "action": "details",
+                        "text": "ⓘ",
+                        "part": "iris.save",
+                        "style": {
+                          "minHeight": 48,
+                          "radius": 8,
+                          "fontSize": 18,
+                          "fontWeight": 700,
+                          "color": "#FFFFFF"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "row",
+                "part": "iris.pager",
+                "when": {
+                  "field": "slides"
+                },
+                "style": {
+                  "anchor": "bottom-end",
+                  "gap": 10,
+                  "align": "center",
+                  "padding": 20
+                },
+                "children": [
+                  {
+                    "type": "action",
+                    "action": "previous",
+                    "text": "‹",
+                    "part": "iris.nav",
+                    "style": {
+                      "minHeight": 36,
+                      "radius": 80,
+                      "fontSize": 18,
+                      "fontWeight": 700,
+                      "color": "#FFFFFF"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 3,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 600,
+                          "color": "#FFFFFF"
+                        },
+                        "field": "slide"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 600,
+                          "color": "#A3A3A3"
+                        },
+                        "text": "/"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 600,
+                          "color": "#A3A3A3"
+                        },
+                        "field": "slides"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "action",
+                    "action": "next",
+                    "text": "›",
+                    "part": "iris.nav",
+                    "style": {
+                      "minHeight": 36,
+                      "radius": 80,
+                      "fontSize": 18,
+                      "fontWeight": 700,
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "role": "recent"
+            },
+            {
+              "role": "newest"
+            },
+            {
+              "role": "popular"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Iris — the Senshi look (docs/theme-references/senshi.md): #0F0F11, system sans, purple accents, a full-bleed hero. */\n\n/* Header: transparent over the hero; search right after the brand; icon + text links with purple icons. */\n[data-slot=\"nav.top\"] { background: linear-gradient(to bottom, rgba(15, 15, 17, 0.96) 0%, rgba(15, 15, 17, 0.7) 60%, rgba(15, 15, 17, 0)) !important; border: 0 !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"], [data-slot=\"nav.top\"] > button, [data-slot=\"nav.top\"] > a { text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6)); }\n[data-slot=\"nav.top\"] > div:has([data-part=\"search.field\"]) { order: 2; flex: 0 1 478px; margin-right: auto; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { order: 3; padding: 8px 12px; border-radius: 8px; color: #a3a3a3; font-size: 14px; font-weight: 700; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { color: #fff; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item.icon\"] { color: #a855f7; }\n[data-slot=\"nav.top\"] > button:not([data-part]), [data-slot=\"nav.top\"] > a:not([data-part]) { order: 4; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 40px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; background: rgba(24, 24, 27, 0.7); font-size: 14px; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]:focus { border-color: rgba(168, 85, 247, 0.6) !important; }\n/* Live results: Senshi's panel — the field's width, 16px corners, 72px rows with a 40×56 poster, purple title. */\n[data-part=\"search.suggestions\"] { margin-top: 17px !important; padding: 8px !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; border-radius: 16px !important; background: #18181b !important; box-shadow: none !important; }\n[data-part=\"search.suggestion\"] { min-height: 72px; padding: 8px !important; border-radius: 12px !important; gap: 12px !important; }\n[data-part=\"search.suggestion\"]:hover, [data-part=\"search.suggestion\"][data-active] { background: rgba(255, 255, 255, 0.05) !important; }\n[data-part=\"search.suggestion.poster\"] { width: 40px !important; height: 56px !important; border-radius: 8px !important; }\n[data-part=\"search.suggestion.title\"] { color: #c084fc; font-size: 14px !important; font-weight: 600 !important; }\n[data-part=\"search.suggestion.meta\"] { margin-top: 2px; font-size: 11px !important; color: #a1a1aa !important; }\n[data-part=\"search.suggestion.all\"] { display: none !important; }\n@media (min-width: 641px) { [data-slot=\"home.hero\"] { margin-top: -84px !important; } }\n\n/* Hero: a dark fade from the left and the bottom. */\n[data-part=\"iris.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  z-index: 1;\n  background-image: linear-gradient(to right, #0f0f11 0%, rgba(15, 15, 17, 0.75) 35%, rgba(15, 15, 17, 0) 65%), linear-gradient(to top, #0f0f11 0%, rgba(15, 15, 17, 0) 35%) !important;\n  pointer-events: none;\n}\n[data-part=\"iris.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"iris.info\"] { padding-bottom: 72px; }\n[data-part=\"iris.play\"] { padding: 0 24px; gap: 8px; }\n[data-part=\"iris.save\"] { width: 48px; justify-content: center; padding: 0; background: rgba(39, 39, 42, 0.9) !important; }\n[data-part=\"iris.nav\"] { width: 36px; justify-content: center; padding: 0; background: rgba(0, 0, 0, 0.55) !important; }\n\n/* Section headings: 30 px bold after a purple-tinted tile. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { display: inline-flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 700; color: #fff; }\n[data-part=\"row.title\"]::before, [data-part=\"block.title\"]::before {\n  content: \"▶\";\n  display: grid;\n  place-items: center;\n  width: 40px;\n  height: 40px;\n  border-radius: 10px;\n  background: rgba(147, 51, 234, 0.18);\n  color: #a855f7;\n  font-size: 14px;\n}\n[data-part=\"row.more\"] { color: #a3a3a3; font-size: 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }\n\n/* Poster cards: the title over a bottom fade, an EP chip at the top right. */\n[data-part=\"iris.card\"]::after { content: \"\"; position: absolute; inset: 45% 0 0; border-radius: 0 0 8px 8px; background: linear-gradient(to top, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0)); pointer-events: none; }\n[data-part=\"iris.caption\"], [data-part=\"iris.ep\"] { z-index: 1; }\n[data-part=\"iris.ep\"] { margin: 8px; padding: 3px 7px; background: rgba(0, 0, 0, 0.72); border: 1px solid rgba(255, 255, 255, 0.1); }\n\n/* Trending: medal-coloured rank digits. */\n[data-slot=\"block.ranked-list\"] [data-part=\"block.title\"]::before { content: \"↗\"; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.rank\"] { width: 24px; font-size: 20px; font-weight: 900; color: #525252; }\n[data-slot=\"block.ranked-list\"] li:nth-child(1) [data-part=\"block.rank\"] { color: #facc15; }\n[data-slot=\"block.ranked-list\"] li:nth-child(2) [data-part=\"block.rank\"] { color: #d4d4d4; }\n[data-slot=\"block.ranked-list\"] li:nth-child(3) [data-part=\"block.rank\"] { color: #d97706; }\n[data-slot=\"block.ranked-list\"] [data-part=\"card.art\"] { width: 40px; border-radius: 6px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"card.title\"] { font-size: 14px; font-weight: 700; color: #e5e5e5; }\n[data-slot=\"block.ranked-list\"] [data-part=\"card.meta\"] { font-size: 10px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; }\n\n/* Series page. */\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { background: #9333ea; color: #fff; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 8px; background: #9333ea; color: #fff; }\n@media (max-width: 640px) {\n  [data-part=\"row.title\"], [data-part=\"block.title\"] { gap: 10px; font-size: 20px; }\n  [data-part=\"row.title\"]::before, [data-part=\"block.title\"]::before { width: 32px; height: 32px; border-radius: 8px; font-size: 12px; }\n}\n"
+  }
+}

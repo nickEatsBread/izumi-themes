@@ -1,0 +1,358 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.marigold",
+  "name": "Marigold",
+  "version": "1.0.1",
+  "author": "Izumi",
+  "description": "KickAssAnime look: black and Material yellow in Roboto, a pinned side menu, year-chip poster grid, today's releases.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 6%",
+      "foreground": "0 0% 100%",
+      "muted": "0 0% 15%",
+      "mutedForeground": "0 0% 70%",
+      "primary": "54 98% 60%",
+      "primaryForeground": "0 0% 13%",
+      "secondary": "0 0% 15%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "0 0% 15%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 18%",
+      "input": "0 0% 12%",
+      "ring": "54 98% 60%",
+      "card": "0 0% 12%",
+      "cardForeground": "0 0% 100%",
+      "theme": "54 98% 60%"
+    },
+    "radius": 0.25,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "roboto",
+      "heading": "roboto",
+      "display": "roboto"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "both",
+          "search": "field-center",
+          "menu": "side",
+          "sideWidth": 260,
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#101010",
+          "activeColor": "#FDD835",
+          "inactiveColor": "#B3B3B3",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 150,
+          "gap": 16,
+          "titleSize": 24,
+          "heading": {
+            "weight": 700,
+            "viewMore": "text"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 143,
+            "gap": 16
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 4,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 700,
+                    "anchor": "top-end",
+                    "color": "#212121"
+                  },
+                  "field": "year",
+                  "when": {
+                    "field": "year"
+                  },
+                  "part": "kaa.year"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FFFFFF"
+              },
+              "field": "title"
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 5,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 500
+                  },
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  },
+                  "part": "kaa.tv"
+                },
+                {
+                  "type": "row",
+                  "part": "kaa.chip",
+                  "when": {
+                    "field": "episodesAired"
+                  },
+                  "style": {
+                    "gap": 2,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 500
+                      },
+                      "text": "EP"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 500
+                      },
+                      "field": "episodesAired"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "marigold.cw",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "marigold.cw-art",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 4
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "marigold.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "marigold.cw-title",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 500,
+                "color": "#FFFFFF",
+                "lines": 1
+              }
+            },
+            {
+              "type": "row",
+              "part": "marigold.cw-meta",
+              "style": {
+                "gap": 4
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "EP",
+                  "part": "marigold.cw-chip",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 400,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "episodeNo",
+                  "part": "marigold.cw-chip",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 400,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "underline",
+        "factsStyle": "table",
+        "countdown": "compact"
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "title": "Latest Update",
+            "tabs": [
+              {
+                "label": "ALL",
+                "role": "newest"
+              },
+              {
+                "label": "TRENDING",
+                "role": "trending"
+              },
+              {
+                "label": "POPULAR",
+                "role": "popular"
+              }
+            ],
+            "columns": 6,
+            "pageSize": 24,
+            "pagination": "numbers"
+          },
+          {
+            "block": "airing-today",
+            "area": "aside",
+            "title": "Today Releases",
+            "limit": 15,
+            "clock": true,
+            "more": true
+          }
+        ],
+        "asideWidth": 322,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "settings"
+          ]
+        },
+        "asideGap": 24
+      },
+      "mobile": {
+        "layout": {
+          "home": [
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "title": "Latest Update",
+              "tabs": [
+                {
+                  "label": "ALL",
+                  "role": "newest"
+                },
+                {
+                  "label": "TRENDING",
+                  "role": "trending"
+                },
+                {
+                  "label": "POPULAR",
+                  "role": "popular"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "numbers"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Marigold — the KickAssAnime look (docs/theme-references/kickassanime.md): #0F0F0F, Roboto, Material yellow, 4 px corners. */\n\n/* The flush 64 px app bar: the menu button, the search field in the middle, the account button in yellow. */\n[data-slot=\"nav.top\"] { background: #101010 !important; border-color: #1e1e1e !important; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 40px; border: 0; border-radius: 4px; background: #1e1e1e; font-size: 15px; }\n[data-slot=\"nav.top\"] > :last-child { border-radius: 4px; background: #fdd835 !important; color: #212121 !important; }\n@media (min-width: 641px) { [data-slot=\"home\"] { padding-top: 24px; } }\n\n/* The menu pinned down the left: 212 × 44 px destinations with a 24 px icon, 8 px apart, no accent\n   colour on the page you are on beyond a quiet lift and a yellow icon. */\n[data-slot=\"nav.panel\"] { gap: 8px; padding: 24px; border: 0; background: #101010; }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item\"] { height: 44px; gap: 16px; padding: 0 8px; border-radius: 4px; color: #fff; font-size: 16px; font-weight: 400; }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item\"]:hover { background: rgba(255, 255, 255, 0.08); }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item\"][data-active] { background: rgba(255, 255, 255, 0.12); }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] { color: #fdd835; }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item.icon\"] { width: 24px; }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item.icon\"] svg { width: 24px; height: 24px; }\n\n/* Headings. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 24px; font-weight: 700; color: #fff; }\n[data-part=\"row.more\"] { color: #fdd835; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }\n\n/* ALL / TRENDING / POPULAR: letter-spaced uppercase words, the active one yellow. */\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { gap: 6px; padding: 0; border: 0; background: transparent; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { padding: 6px 12px; border-radius: 4px; background: transparent; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; box-shadow: none; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { color: #fdd835; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n\n/* Poster cards: a yellow year chip, outlined chips under the title. */\n[data-part=\"kaa.year\"] { margin: 6px; padding: 1px 7px; border-radius: 4px; background: #fdd835; }\n[data-part=\"kaa.tv\"], [data-part=\"kaa.chip\"] { padding: 1px 6px; border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 4px; color: #fff; }\n[data-part=\"kaa.tv\"] { border-color: #fdd835; color: #fdd835; }\n\n/* Today Releases: a raised #1e1e1e card, 310 px wide; a 20 px heading with a yellow MORE, the date and\n   a live clock in spaced capitals, then 65 px rows of a 40 × 57 poster, the title and the airing time\n   right-aligned behind a yellow tick. */\n[data-slot=\"block.airing-today\"] { margin: 0 12px 16px 0; padding: 0 0 16px; border-radius: 4px; background: #1e1e1e; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"block.airing-today\"] > :first-child { margin: 0; padding: 16px; align-items: center; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.title\"] { font-size: 20px; font-weight: 500; line-height: 32px; letter-spacing: 0.25px; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.more\"] { padding: 0 12px; border-radius: 4px; color: #fdd835; font-size: 12px; font-weight: 500; line-height: 28px; letter-spacing: 1.07px; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.more\"]:hover { background: rgba(253, 216, 53, 0.08); text-decoration: none; }\n[data-part=\"block.clock\"] { margin: 0 16px 8px; color: rgba(255, 255, 255, 0.7); font-size: 14px; font-weight: 500; line-height: 36px; letter-spacing: 1.25px; }\n[data-slot=\"block.airing-today\"] ul { gap: 0; padding: 0 16px; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.item\"] { height: 65px; gap: 12px; padding: 0 12px; border-radius: 0; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.item\"]:hover { background: rgba(255, 255, 255, 0.08); }\n[data-part=\"airing.poster\"] { width: 40px; height: 57px; border-radius: 4px; }\n[data-part=\"airing.title\"] { color: #fff; font-size: 14px; font-weight: 500; line-height: 16.8px; letter-spacing: 0.1px; }\n[data-part=\"airing.time\"] { margin-top: 2px; gap: 8px; color: rgba(255, 255, 255, 0.7); font-size: 12px; letter-spacing: 0.4px; }\n[data-part=\"block.item\"][data-aired] [data-part=\"airing.time\"] svg { color: #fdd835; }\n\n/* Series page. */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 4px; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { color: #fdd835; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { background: #fdd835; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 4px; background: #fdd835; color: #212121; text-transform: uppercase; }\n\n/* Continue Watching: the site's own 143 px portrait card with 4 px corners, a yellow progress bar along\n   the bottom of the art, the title in 14 px and the episode as a small chip below. */\n[data-part=\"marigold.cw-bar\"] { height: 3px !important; background: rgba(0, 0, 0, 0.6) !important; }\n[data-part=\"marigold.cw-bar\"] > * { background: #fdd835 !important; }\n[data-part=\"marigold.cw-meta\"] { align-self: flex-start; padding: 1px 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.12); }\n"
+  }
+}

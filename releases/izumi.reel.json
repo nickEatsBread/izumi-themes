@@ -5,9 +5,9 @@
   "release": {
     "id": "izumi.reel",
     "name": "Reel",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "author": "Izumi",
-    "description": "animepahe look: black and magenta, a text-link header, a latest-releases grid of stills, facts beside the synopsis.",
+    "description": "animepahe look: black and magenta, a text-link header, a latest-releases grid, its player page with the settings bar.",
     "themeApi": 3,
     "tags": [
       "Dark",
@@ -20,9 +20,9 @@
       "phone"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.reel/2.0.0.json",
-    "sha256": "f81cab7c874f017b014a80acf84ed8733d58933de1b42cea50dc5ad4474624dd",
-    "bytes": 8874,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.reel/2.0.1.json",
+    "sha256": "e21287cc1c5edc9b05fbe320e780541c9bd38c344af855e589c8fec71ae21989",
+    "bytes": 12771,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.reel.png"
   }
 }

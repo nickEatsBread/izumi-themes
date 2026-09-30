@@ -1,0 +1,427 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.frost",
+  "name": "Frost",
+  "version": "2.0.1",
+  "author": "Izumi",
+  "description": "MKissa look: pure black in Inter, a labelled side rail, big poster cards with episode footers, orange ranks.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "0 0% 87%",
+      "muted": "240 6% 14%",
+      "mutedForeground": "0 0% 50%",
+      "primary": "28 100% 54%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "240 6% 14%",
+      "secondaryForeground": "0 0% 87%",
+      "accent": "240 6% 14%",
+      "accentForeground": "0 0% 87%",
+      "border": "210 10% 23%",
+      "input": "240 6% 14%",
+      "ring": "28 100% 54%",
+      "card": "240 6% 13%",
+      "cardForeground": "0 0% 87%",
+      "theme": "28 100% 54%"
+    },
+    "radius": 0.75,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "inter"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "shell": {
+        "nav": "sidebar",
+        "compact": false,
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "pill",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#0B0B0D",
+          "activeColor": "#FF8112",
+          "inactiveColor": "#8A8A8F",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 216,
+          "gap": 16,
+          "titleSize": 18,
+          "heading": {
+            "weight": 700,
+            "viewMore": "arrow"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 202,
+            "gap": 16
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "part": "frost.poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 12,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 8,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "frost.airing",
+                  "when": {
+                    "field": "airingIn"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "frost.dot",
+                  "when": {
+                    "field": "airingIn",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 13,
+                    "fontWeight": 500,
+                    "lines": 1,
+                    "shrink": 1
+                  },
+                  "field": "title"
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "frost.subtitle",
+              "style": {
+                "gap": 4,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 11,
+                    "fontWeight": 400
+                  },
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 11,
+                    "fontWeight": 400
+                  },
+                  "text": "·",
+                  "when": {
+                    "field": "year"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 11,
+                    "fontWeight": 400
+                  },
+                  "field": "year",
+                  "when": {
+                    "field": "year"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "frost.footer",
+              "when": {
+                "field": "episodesAired"
+              },
+              "style": {
+                "gap": 3,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 500
+                  },
+                  "field": "episodesAired"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 500
+                  },
+                  "text": "/",
+                  "when": {
+                    "field": "episodeCount"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 500
+                  },
+                  "field": "episodeCount",
+                  "when": {
+                    "field": "episodeCount"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 400
+                  },
+                  "text": "(Sub)",
+                  "part": "frost.kind"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 500
+                  },
+                  "text": "›",
+                  "part": "frost.chevron"
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "frost.cw",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "frost.cw-art",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 6
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "frost.cw-ep",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EP",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeNo",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "frost.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "frost.cw-title",
+              "style": {
+                "fontSize": 13,
+                "fontWeight": 500,
+                "color": "#DDDDDD",
+                "lines": 1
+              }
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "segmented",
+        "factsStyle": "cards",
+        "countdown": "compact"
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "tabs": [
+              {
+                "label": "Latest Updates",
+                "role": "newest"
+              },
+              {
+                "label": "New Series",
+                "role": "season"
+              }
+            ],
+            "columns": 5,
+            "pageSize": 20,
+            "pagination": "numbers"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "phone": true,
+            "title": "Popular",
+            "tabs": [
+              {
+                "label": "Daily",
+                "role": "trending"
+              },
+              {
+                "label": "All time",
+                "role": "popular"
+              }
+            ],
+            "limit": 10
+          }
+        ],
+        "asideWidth": 260,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "layout": {
+          "home": [
+            {
+              "block": "ranked-list",
+              "phone": true,
+              "title": "Popular",
+              "tabs": [
+                {
+                  "label": "Daily",
+                  "role": "trending"
+                },
+                {
+                  "label": "All time",
+                  "role": "popular"
+                }
+              ],
+              "limit": 5
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "tabs": [
+                {
+                  "label": "Latest Updates",
+                  "role": "newest"
+                },
+                {
+                  "label": "New Series",
+                  "role": "season"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "numbers"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Frost — the MKissa look (docs/theme-references/mkissa.md): pure black, Inter, 12 px cards on dark panels, orange ranks. */\n\n/* The side rail: icon over a small label, 8 px hover tiles. */\n[data-slot=\"nav.side\"] [data-part=\"nav.item\"] { flex-direction: column; justify-content: center; gap: 3px; min-height: 58px; border-radius: 8px; }\n[data-slot=\"nav.side\"] [data-part=\"nav.item.label\"] { opacity: 1 !important; max-width: 60px; font-size: 9px; font-weight: 500; line-height: 1.1; text-align: center; white-space: normal; }\n/* Desktop: clear the window's title strip. */\n@media (min-width: 641px) { [data-slot=\"home\"] { padding-top: 44px; } }\n[data-slot=\"nav.side\"] [data-part=\"nav.item\"][data-active] { color: #ff8112; }\n\n/* Headings and the segmented Latest Updates / New Series strip. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 18px; font-weight: 700; color: #ddd; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { gap: 0; padding: 3px; border: 1px solid #343a40; border-radius: 10px; background: rgba(33, 33, 37, 0.9); width: fit-content; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { padding: 7px 14px; border-radius: 8px; background: transparent; color: rgba(255, 255, 255, 0.5); font-size: 14px; font-weight: 500; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { background: #2e3440; color: #ddd; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n\n/* Media cards: a status dot before the title, a grey subtitle, a panel footer with a blue accent bar. */\n[data-part=\"frost.poster\"] { background: #252a2a; }\n[data-part=\"frost.airing\"], [data-part=\"frost.dot\"] { flex: 0 0 6px; width: 6px; height: 6px; border-radius: 999px; }\n[data-part=\"frost.airing\"] { background: #22c55e; }\n[data-part=\"frost.dot\"] { border: 1.5px solid rgba(255, 255, 255, 0.5); }\n[data-part=\"frost.subtitle\"] { padding-left: 14px; color: rgba(255, 255, 255, 0.5); }\n[data-part=\"frost.footer\"] { position: relative; min-height: 34px; margin-top: 2px; padding: 4px 8px 4px 11px; border: 1px solid #343a40; border-radius: 8px; background: rgba(33, 33, 37, 0.9); overflow: hidden; }\n[data-part=\"frost.footer\"]::before { content: \"\"; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #325d88; }\n[data-part=\"frost.kind\"] { color: rgba(255, 255, 255, 0.5); }\n[data-part=\"frost.chevron\"] { margin-left: auto; color: rgba(255, 255, 255, 0.5); }\n\n/* Popular: panel cards with an orange rank circle over the cover. */\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"] { position: relative; padding: 8px; border: 1px solid #343a40; border-radius: 12px; background: rgba(33, 33, 37, 0.9); }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.rank\"] { position: absolute; left: 6px; top: 6px; z-index: 1; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 999px; background: rgba(255, 129, 18, 0.78); color: #f1f8ff; font-size: 12px; font-weight: 700; }\n[data-slot=\"block.ranked-list\"] [data-part=\"card.art\"] { width: 64px; border-radius: 8px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"card.title\"] { font-size: 14px; font-weight: 600; }\n[data-slot=\"block.ranked-list\"] [data-part=\"card.meta\"] { display: inline-block; margin-top: 4px; padding: 1.6px 7.2px; border-radius: 999px; background: rgba(37, 42, 44, 0.65); color: rgba(255, 255, 255, 0.5); font-size: 10.9px; font-weight: 600; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tabs\"] { padding: 3px; border: 1px solid #343a40; border-radius: 10px; background: rgba(33, 33, 37, 0.9); }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"][data-active] { background: #2e3440; color: #ddd; }\n\n/* Series page: the banner card, facts as uppercase-label-over-value columns without boxes. */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 12px; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact\"] { align-items: flex-start; min-width: 0; padding: 0 14px 0 0; background: transparent; text-align: start; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.label\"] { order: -1; margin: 0 0 3px; color: rgba(255, 255, 255, 0.5); font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.value\"] { font-size: 13px; font-weight: 700; }\n\n/* Phones: Popular becomes a horizontal rail of small cards, as on the site. */\n@media (max-width: 640px) {\n  [data-slot=\"block.ranked-list\"] > ol { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }\n  [data-slot=\"block.ranked-list\"] > ol > li { flex: 0 0 128px; margin: 0 !important; }\n  [data-slot=\"block.ranked-list\"] [data-part=\"block.item\"] { height: 100%; flex-direction: column; align-items: stretch; gap: 6px; }\n  [data-slot=\"block.ranked-list\"] [data-part=\"card.art\"] { width: 100%; }\n  [data-slot=\"block.ranked-list\"] [data-part=\"card.title\"] { font-size: 12.5px; }\n}\n\n/* Continue Watching: the site's portrait card (≈202 px, 6 px corners) with the episode on a dark chip,\n   an orange progress bar along the bottom and the title in 13 px below. */\n[data-part=\"frost.cw-ep\"] { margin: 0 0 12px 8px !important; padding: 2px 6px; border-radius: 4px; background: rgba(0, 0, 0, 0.72); }\n[data-part=\"frost.cw-bar\"] { height: 3px !important; background: rgba(0, 0, 0, 0.6) !important; }\n[data-part=\"frost.cw-bar\"] > * { background: #ff8112 !important; }\n"
+  }
+}

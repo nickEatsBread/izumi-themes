@@ -1,0 +1,1250 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.booth",
+  "name": "Booth",
+  "version": "2.0.1",
+  "author": "Izumi",
+  "description": "Miruro look: near-black and lavender in Geist, a card hero with a gradient title, a tabbed grid and a Top Airing aside.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 3%",
+      "foreground": "0 0% 91%",
+      "muted": "0 0% 8%",
+      "mutedForeground": "0 0% 41%",
+      "primary": "249 100% 83%",
+      "primaryForeground": "249 30% 12%",
+      "secondary": "0 0% 8%",
+      "secondaryForeground": "0 0% 91%",
+      "accent": "0 0% 8%",
+      "accentForeground": "0 0% 91%",
+      "border": "0 0% 13%",
+      "input": "0 0% 8%",
+      "ring": "249 100% 83%",
+      "card": "0 0% 5%",
+      "cardForeground": "0 0% 91%",
+      "theme": "249 100% 83%"
+    },
+    "radius": 0.5,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "geist",
+      "heading": "geist",
+      "display": "geist"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "icons",
+          "search": "field-center",
+          "menu": "drawer",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#0E0E0E",
+          "activeColor": "#B5A8FF",
+          "inactiveColor": "#696969",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 53,
+        "mobileHeight": 49,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "none"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "booth.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "part": "booth.glass",
+              "when": {
+                "field": "airingIn"
+              },
+              "style": {
+                "anchor": "top-start",
+                "gap": 6,
+                "align": "center",
+                "radius": 8
+              },
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "duration",
+                  "style": {
+                    "fontSize": 16
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 600
+                  },
+                  "text": "EP"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 600
+                  },
+                  "field": "nextEpisode"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 600
+                  },
+                  "field": "airingIn",
+                  "part": "booth.countdown"
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "booth.pager",
+              "when": {
+                "field": "slides"
+              },
+              "style": {
+                "anchor": "top-end",
+                "gap": 8,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "action",
+                  "action": "previous",
+                  "text": "‹",
+                  "part": "booth.nav",
+                  "style": {
+                    "minHeight": 38,
+                    "radius": 8,
+                    "fontSize": 20,
+                    "fontWeight": 600,
+                    "color": "foreground"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "booth.glass",
+                  "style": {
+                    "gap": 3,
+                    "align": "center",
+                    "radius": 8
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 600
+                      },
+                      "field": "slide"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600
+                      },
+                      "text": "/"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10.4,
+                        "fontWeight": 600
+                      },
+                      "field": "slides"
+                    }
+                  ]
+                },
+                {
+                  "type": "action",
+                  "action": "next",
+                  "text": "›",
+                  "part": "booth.nav",
+                  "style": {
+                    "minHeight": 38,
+                    "radius": 8,
+                    "fontSize": 20,
+                    "fontWeight": 600,
+                    "color": "foreground"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "booth.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 10,
+                "padding": 24,
+                "width": 52
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "justify": "start",
+                    "wrap": "wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          },
+                          "field": "format"
+                        }
+                      ],
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "episodes",
+                          "style": {
+                            "fontSize": 14
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          },
+                          "field": "episodesAired"
+                        }
+                      ],
+                      "when": {
+                        "field": "episodesAired"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14,
+                            "fontWeight": 500
+                          },
+                          "text": "☆"
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          },
+                          "field": "score"
+                        }
+                      ],
+                      "when": {
+                        "field": "score"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "duration",
+                          "style": {
+                            "fontSize": 14
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          },
+                          "field": "duration"
+                        }
+                      ],
+                      "when": {
+                        "field": "duration"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 40,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "textAlign": "start"
+                  },
+                  "field": "title",
+                  "part": "booth.title"
+                },
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "justify": "start",
+                    "wrap": "wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500,
+                            "lines": 1
+                          },
+                          "field": "genres"
+                        }
+                      ],
+                      "when": {
+                        "field": "genres"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          },
+                          "field": "studio"
+                        }
+                      ],
+                      "when": {
+                        "field": "studio"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14.4,
+                    "fontWeight": 400,
+                    "lines": 3,
+                    "color": "muted-foreground"
+                  },
+                  "field": "description",
+                  "part": "booth.synopsis"
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "booth.corner",
+              "style": {
+                "anchor": "bottom-end",
+                "gap": 12,
+                "align": "center",
+                "padding": 24
+              },
+              "children": [
+                {
+                  "type": "action",
+                  "action": "details",
+                  "text": "DETAILS",
+                  "part": "booth.action",
+                  "style": {
+                    "minHeight": 47,
+                    "radius": 32,
+                    "fontSize": 16,
+                    "fontWeight": 700,
+                    "color": "foreground"
+                  }
+                },
+                {
+                  "type": "action",
+                  "action": "play",
+                  "text": "WATCH NOW",
+                  "part": "booth.action",
+                  "style": {
+                    "minHeight": 47,
+                    "radius": 32,
+                    "fontSize": 16,
+                    "fontWeight": 700,
+                    "color": "foreground"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 174,
+          "gap": 16,
+          "titleSize": 18,
+          "heading": {
+            "weight": 700,
+            "viewMore": "arrow"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 377,
+            "gap": 20,
+            "titleSize": 24
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 6
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 8,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 6,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "booth.airing",
+                  "when": {
+                    "field": "airingIn"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "booth.finished",
+                  "when": {
+                    "field": "airingIn",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 13.28,
+                    "fontWeight": 700,
+                    "lines": 1,
+                    "shrink": 1
+                  },
+                  "field": "title"
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "booth.detail",
+                  "when": {
+                    "field": "format"
+                  },
+                  "style": {
+                    "gap": 3,
+                    "align": "center",
+                    "radius": 8
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "muted-foreground"
+                      },
+                      "field": "format"
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "booth.detail",
+                  "when": {
+                    "field": "year"
+                  },
+                  "style": {
+                    "gap": 3,
+                    "align": "center",
+                    "radius": 8
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "muted-foreground"
+                      },
+                      "field": "year"
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "booth.detail",
+                  "when": {
+                    "field": "episodesAired"
+                  },
+                  "style": {
+                    "gap": 3,
+                    "align": "center",
+                    "radius": 8
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "episodes",
+                      "style": {
+                        "fontSize": 12
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "muted-foreground"
+                      },
+                      "field": "episodesAired"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "booth.cw",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "booth.cw-art",
+              "style": {
+                "aspect": "16 / 9",
+                "radius": 8
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "booth.cw-ep",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EP",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeNo",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "booth.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "booth.cw-title",
+              "style": {
+                "fontSize": 13,
+                "fontWeight": 500,
+                "color": "#E8E8E8",
+                "lines": 1
+              }
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "bar",
+        "factsStyle": "template",
+        "countdown": "compact",
+        "header": {
+          "type": "row",
+          "style": {
+            "gap": 6,
+            "align": "center",
+            "wrap": "wrap"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "format",
+              "part": "booth.tag",
+              "when": {
+                "field": "format"
+              },
+              "style": {
+                "fontSize": 12.8,
+                "fontWeight": 600,
+                "radius": 8
+              }
+            },
+            {
+              "type": "text",
+              "field": "status",
+              "part": "booth.tag",
+              "when": {
+                "field": "status"
+              },
+              "style": {
+                "fontSize": 12.8,
+                "fontWeight": 600,
+                "radius": 8
+              }
+            },
+            {
+              "type": "text",
+              "field": "score",
+              "part": "booth.tag",
+              "when": {
+                "field": "score"
+              },
+              "style": {
+                "fontSize": 12.8,
+                "fontWeight": 600,
+                "radius": 8
+              }
+            },
+            {
+              "type": "text",
+              "field": "year",
+              "part": "booth.tag",
+              "when": {
+                "field": "year"
+              },
+              "style": {
+                "fontSize": 12.8,
+                "fontWeight": 600,
+                "radius": 8
+              }
+            }
+          ]
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "block": "genre-chips",
+            "genres": "top",
+            "all": false
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "tabs": [
+              {
+                "label": "NEWEST",
+                "role": "newest"
+              },
+              {
+                "label": "POPULAR",
+                "role": "popular"
+              },
+              {
+                "label": "TOP RATED",
+                "role": "rated"
+              }
+            ],
+            "columns": 5,
+            "pageSize": 20,
+            "pagination": "numbers"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "TOP AIRING",
+            "tabs": [
+              {
+                "label": "TOP AIRING",
+                "role": "trending"
+              }
+            ],
+            "limit": 10
+          }
+        ],
+        "asideWidth": 384,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "watch",
+            "settings"
+          ]
+        },
+        "asideStart": 2
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "booth.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "row",
+                "part": "booth.glass",
+                "when": {
+                  "field": "airingIn"
+                },
+                "style": {
+                  "anchor": "top-start",
+                  "gap": 6,
+                  "align": "center",
+                  "radius": 8
+                },
+                "children": [
+                  {
+                    "type": "icon",
+                    "icon": "duration",
+                    "style": {
+                      "fontSize": 16
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 16,
+                      "fontWeight": 600
+                    },
+                    "text": "EP"
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 16,
+                      "fontWeight": 600
+                    },
+                    "field": "nextEpisode"
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 16,
+                      "fontWeight": 600
+                    },
+                    "field": "airingIn",
+                    "part": "booth.countdown"
+                  }
+                ]
+              },
+              {
+                "type": "row",
+                "part": "booth.pager",
+                "when": {
+                  "field": "slides"
+                },
+                "style": {
+                  "anchor": "top-end",
+                  "gap": 8,
+                  "align": "center"
+                },
+                "children": [
+                  {
+                    "type": "action",
+                    "action": "previous",
+                    "text": "‹",
+                    "part": "booth.nav",
+                    "style": {
+                      "minHeight": 38,
+                      "radius": 8,
+                      "fontSize": 20,
+                      "fontWeight": 600,
+                      "color": "foreground"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "booth.glass",
+                    "style": {
+                      "gap": 3,
+                      "align": "center",
+                      "radius": 8
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 600
+                        },
+                        "field": "slide"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 600
+                        },
+                        "text": "/"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 10.4,
+                          "fontWeight": 600
+                        },
+                        "field": "slides"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "action",
+                    "action": "next",
+                    "text": "›",
+                    "part": "booth.nav",
+                    "style": {
+                      "minHeight": 38,
+                      "radius": 8,
+                      "fontSize": 20,
+                      "fontWeight": 600,
+                      "color": "foreground"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "part": "booth.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "center",
+                  "gap": 10,
+                  "padding": 16,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 6,
+                      "align": "center",
+                      "justify": "center",
+                      "wrap": "wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "row",
+                        "part": "booth.pill",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 16
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14.4,
+                              "fontWeight": 500
+                            },
+                            "field": "format"
+                          }
+                        ],
+                        "when": {
+                          "field": "format"
+                        }
+                      },
+                      {
+                        "type": "row",
+                        "part": "booth.pill",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 16
+                        },
+                        "children": [
+                          {
+                            "type": "icon",
+                            "icon": "episodes",
+                            "style": {
+                              "fontSize": 14
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14.4,
+                              "fontWeight": 500
+                            },
+                            "field": "episodesAired"
+                          }
+                        ],
+                        "when": {
+                          "field": "episodesAired"
+                        }
+                      },
+                      {
+                        "type": "row",
+                        "part": "booth.pill",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 16
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14,
+                              "fontWeight": 500
+                            },
+                            "text": "☆"
+                          },
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14.4,
+                              "fontWeight": 500
+                            },
+                            "field": "score"
+                          }
+                        ],
+                        "when": {
+                          "field": "score"
+                        }
+                      },
+                      {
+                        "type": "row",
+                        "part": "booth.pill",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 16
+                        },
+                        "children": [
+                          {
+                            "type": "icon",
+                            "icon": "duration",
+                            "style": {
+                              "fontSize": 14
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14.4,
+                              "fontWeight": 500
+                            },
+                            "field": "duration"
+                          }
+                        ],
+                        "when": {
+                          "field": "duration"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 22,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "textAlign": "center"
+                    },
+                    "field": "title",
+                    "part": "booth.title"
+                  },
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 6,
+                      "align": "center",
+                      "justify": "center",
+                      "wrap": "wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "row",
+                        "part": "booth.pill",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 16
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14.4,
+                              "fontWeight": 500,
+                              "lines": 1
+                            },
+                            "field": "genres"
+                          }
+                        ],
+                        "when": {
+                          "field": "genres"
+                        }
+                      },
+                      {
+                        "type": "row",
+                        "part": "booth.pill",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "radius": 16
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 14.4,
+                              "fontWeight": 500
+                            },
+                            "field": "studio"
+                          }
+                        ],
+                        "when": {
+                          "field": "studio"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 12,
+                      "align": "center",
+                      "width": 100
+                    },
+                    "children": [
+                      {
+                        "type": "action",
+                        "action": "details",
+                        "text": "DETAILS",
+                        "part": "booth.action",
+                        "style": {
+                          "minHeight": 47,
+                          "radius": 32,
+                          "fontSize": 16,
+                          "fontWeight": 700,
+                          "color": "foreground",
+                          "grow": 1
+                        }
+                      },
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "WATCH NOW",
+                        "part": "booth.action",
+                        "style": {
+                          "minHeight": 47,
+                          "radius": 32,
+                          "fontSize": 16,
+                          "fontWeight": 700,
+                          "color": "foreground",
+                          "grow": 1
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "block": "genre-chips",
+              "genres": "top",
+              "all": false
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "tabs": [
+                {
+                  "label": "NEWEST",
+                  "role": "newest"
+                },
+                {
+                  "label": "POPULAR",
+                  "role": "popular"
+                },
+                {
+                  "label": "TOP RATED",
+                  "role": "rated"
+                }
+              ],
+              "columns": 3,
+              "pageSize": 12,
+              "pagination": "numbers"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Booth — the Miruro look (docs/theme-references/miruro.md): #080808, Geist, one lavender accent, 8 px corners, glass controls. */\n\n/* Top bar: square 40 px controls and a centred 42 px search field on the surface colour. */\n[data-slot=\"nav.top\"] { background: #080808; }\n/* Destinations live in the drawer; the bar keeps the menu, the wordmark, search and the account controls. */\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { display: none; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.menu\"],\n[data-slot=\"nav.top\"] > button:not([data-part]),\n[data-slot=\"nav.top\"] > a:not([data-part]) { width: 40px; height: 40px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #141414; }\n[data-slot=\"nav.top\"] form:has([data-part=\"search.field\"]) { width: 100%; max-width: 463px; margin: 0 auto; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 42px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #141414; font-size: 13.6px; }\n\n/* Featured card: inset, 8 px corners, a darkening fade; glass chips and pills. */\n[data-slot=\"home.hero\"] { margin: 10px 10px 16px !important; width: auto !important; border-radius: 8px; overflow: hidden; }\n[data-part=\"booth.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(to top, rgba(8, 8, 8, 0.92), rgba(8, 8, 8, 0.35) 55%, rgba(8, 8, 8, 0.15)) !important;\n  pointer-events: none;\n}\n[data-part=\"booth.hero\"]::after { z-index: 1; }\n[data-part=\"booth.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"booth.glass\"], [data-part=\"booth.pill\"], [data-part=\"booth.nav\"], [data-part=\"booth.action\"] {\n  background: rgba(14, 14, 14, 0.3) !important;\n  border: 1px solid rgba(245, 245, 245, 0.1);\n  backdrop-filter: blur(6px);\n  color: #e8e8e8;\n}\n[data-part=\"booth.glass\"] { margin: 16px; padding: 8px 9.6px; }\n[data-part=\"booth.pager\"] { margin: 16px; }\n[data-part=\"booth.pager\"] [data-part=\"booth.glass\"] { margin: 0; }\n[data-part=\"booth.nav\"] { width: 38px; justify-content: center; padding: 0; }\n[data-part=\"booth.pill\"] { padding: 4.8px 9.6px; }\n[data-part=\"booth.action\"] { padding: 0 18px; gap: 8px; justify-content: center; }\n[data-part=\"booth.countdown\"] { text-transform: uppercase; }\n/* The title fills with the cover's colour fading to white, as on the site. */\n[data-part=\"booth.title\"] {\n  background-image: linear-gradient(45deg, color-mix(in srgb, rgb(var(--hero-ambient-rgb, 181 168 255)) 78%, #fff), #fff);\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n  text-shadow: none !important;\n}\n\n/* Genre chip rail. */\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] { padding: 8px 28px; border: 0; border-radius: 8px; background: #141414; color: #e8e8e8; font-size: 12.8px; font-weight: 500; white-space: nowrap; flex-shrink: 0; }\n[data-slot=\"block.genre-chips\"] :has(> [data-part=\"chip\"]) { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }\n\n/* Segmented NEWEST / POPULAR / TOP RATED strip and the pager. */\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { display: flex; gap: 0; padding: 0; width: fit-content; max-width: 100%; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; overflow: hidden; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { padding: 12px 20px; border-radius: 0; background: #141414; color: #e8e8e8; font-size: 12.8px; font-weight: 500; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { background: rgba(181, 168, 255, 0.25); color: #b5a8ff; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n\n/* Poster cards: a status dot before the title, grey detail chips. */\n[data-part=\"booth.airing\"], [data-part=\"booth.finished\"] { flex: 0 0 8px; width: 8px; height: 8px; border-radius: 999px; }\n[data-part=\"booth.airing\"] { background: #a3e635; }\n[data-part=\"booth.finished\"] { background: #38bdf8; }\n[data-part=\"booth.detail\"] { padding: 3.2px; background: #141414; }\n\n/* TOP AIRING aside panel. */\n[data-slot=\"block.ranked-list\"] { padding: 12px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #0e0e0e; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.title\"] { font-size: 17.6px; font-weight: 700; }\n\n/* Rows. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-weight: 700; color: #e8e8e8; }\n\n/* Series page: equal tabs in a hairline strip with a tinted active tab; facts as tinted value chips. */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 8px; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"bar\"] { padding: 4px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #0e0e0e; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"bar\"] [data-part=\"tab\"] { border-radius: 8px; background: #141414; color: #696969; font-weight: 400; font-size: 13.3px; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"bar\"] [data-part=\"tab\"][data-active] { background: rgba(181, 168, 255, 0.25); color: #b5a8ff; }\n[data-part=\"booth.tag\"] { padding: 2.4px 6.4px; background-color: #b5a8ff; color: #16132b; }\n/* The tag row replaces the facts line; the full facts stay in the Details tab. */\n[data-slot=\"detail\"] [data-part=\"detail.meta\"] { display: none; }\n[data-slot=\"detail\"] [data-part=\"detail.synopsis\"] { color: #696969; font-size: 13.6px; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 8px; background: #141414; color: #e8e8e8; font-weight: 700; }\n\n/* Watch History (the site's continue row): 377 px 16:9 stills with 8 px corners, \"EP 13\" on a 75% black\n   8 px chip at the bottom left, a 4 px red progress bar along the bottom, the title in 12.8 px below. */\n[data-part=\"booth.cw-ep\"] { margin: 0 0 12px 8px !important; padding: 2px 8px; border-radius: 8px; background: rgba(0, 0, 0, 0.75); }\n[data-part=\"booth.cw-bar\"] { height: 4px !important; background: transparent !important; }\n[data-part=\"booth.cw-bar\"] > * { background: #e11d48 !important; }\n[data-part=\"booth.cw-title\"] { font-size: 12.8px !important; }\n"
+  }
+}

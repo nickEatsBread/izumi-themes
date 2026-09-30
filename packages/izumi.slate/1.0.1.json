@@ -1,0 +1,198 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.slate",
+  "name": "Slate",
+  "version": "1.0.1",
+  "author": "Izumi",
+  "description": "AniZone look: slate and rose in Figtree, text-link top bar, a newest poster row, episode stills, tag cards.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "217 33% 17%",
+      "foreground": "213 27% 84%",
+      "muted": "217 19% 27%",
+      "mutedForeground": "215 20% 65%",
+      "primary": "350 89% 60%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "217 19% 27%",
+      "secondaryForeground": "210 40% 96%",
+      "accent": "217 19% 27%",
+      "accentForeground": "210 40% 96%",
+      "border": "217 19% 27%",
+      "input": "222 47% 11%",
+      "ring": "350 89% 60%",
+      "card": "222 47% 11%",
+      "cardForeground": "210 40% 96%",
+      "theme": "350 89% 60%"
+    },
+    "radius": 0.5,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "figtree",
+      "heading": "figtree",
+      "display": "figtree"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "text",
+          "search": "field-end",
+          "menu": "none",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 64,
+          "iconSize": 24,
+          "background": "#1F2937",
+          "activeColor": "#0EA5E9",
+          "inactiveColor": "#CBD5E1",
+          "blur": true,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 150,
+          "gap": 20,
+          "titleSize": 30,
+          "heading": {
+            "weight": 400,
+            "viewMore": "hidden"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 264,
+            "gap": 16
+          },
+          "newest": {
+            "width": 257,
+            "gap": 20
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "part": "slate.poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 8,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontSize": 16,
+                "fontWeight": 400,
+                "lines": 2,
+                "color": "#FFFFFF"
+              }
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "underline",
+        "factsStyle": "table",
+        "countdown": "compact"
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "continue"
+          },
+          {
+            "role": "newest"
+          },
+          {
+            "block": "latest-episodes",
+            "title": "Latest Episodes",
+            "columns": 4,
+            "pageSize": 12,
+            "pagination": "more",
+            "caption": "below"
+          },
+          {
+            "block": "genre-chips",
+            "area": "aside",
+            "title": "Top Tags",
+            "genres": "top",
+            "all": false
+          }
+        ],
+        "asideWidth": 368,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library",
+            "downloads"
+          ],
+          "top": [
+            "settings"
+          ]
+        },
+        "asideGap": 32,
+        "asideStart": 2
+      },
+      "mobile": {
+        "layout": {
+          "home": [
+            {
+              "role": "continue"
+            },
+            {
+              "role": "newest"
+            },
+            {
+              "block": "latest-episodes",
+              "title": "Latest Episodes",
+              "columns": 2,
+              "pageSize": 10,
+              "pagination": "more",
+              "caption": "below"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Slate — the AniZone look (docs/theme-references/anizone.md): slate-800, Figtree, light headings, a rose home square. */\n\n/* Top bar: translucent gray with a blur; the brand is a rose rounded square with a white mark, no wordmark. */\n[data-slot=\"nav.top\"] { background: rgba(31, 41, 55, 0.5) !important; backdrop-filter: blur(12px); border-color: rgba(55, 65, 81, 0.4) !important; }\n\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { padding: 8px 16px; border-radius: 8px; color: #cbd5e1; font-size: 16px; font-weight: 400; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover { background: #374151; color: #fff; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { color: #fff; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 42px; border: 1px solid rgba(55, 65, 81, 0.4); border-radius: 999px; background: rgba(15, 23, 42, 0.3); font-size: 15px; }\n@media (min-width: 641px) { [data-slot=\"home\"] { padding-top: 24px; } }\n\n/* Headings: 30 px, weight 400, slate-100; centred on phones. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 30px; font-weight: 400; color: #f1f5f9; }\n@media (max-width: 640px) {\n  [data-part=\"row.title\"], [data-part=\"block.title\"] { width: 100%; font-size: 22px; text-align: center; }\n}\n\n/* Latest Episodes: 16:9 stills on gray-700 with a drop shadow; the caption below. */\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.still\"] { border-radius: 8px; overflow: hidden; background: #374151; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25); }\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.number\"] { top: auto; left: auto; right: 8px; bottom: 8px; padding: 4px 6px; border-radius: 6px; background: rgba(0, 0, 0, 0.7); font-size: 12px; font-weight: 400; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.title\"] { margin-top: 12px; font-size: 16px; font-weight: 400; color: #fff; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.meta\"] { font-size: 14px; color: #fff; }\n\n/* Posters. */\n[data-part=\"slate.poster\"] { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25); }\n\n/* Top Tags: genre chips as 56 px slate-900 cards with a chevron. */\n[data-slot=\"block.genre-chips\"] :has(> [data-part=\"chip\"]) { display: grid; gap: 10px; }\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: 56px;\n  padding: 0 18px;\n  border-radius: 8px;\n  background: linear-gradient(90deg, #0f172a, #1e293b);\n  color: #f1f5f9;\n  font-size: 15px;\n  font-weight: 500;\n}\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"]::after { content: \"›\"; font-size: 22px; color: #cbd5e1; }\n\n/* Series page. */\n[data-slot=\"detail\"] [data-part=\"detail.title\"] { font-weight: 500; color: #f1f5f9; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { color: #f43f5e; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { background: #f43f5e; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 8px; }\n@media (max-width: 640px) {\n  [data-slot=\"block.latest-episodes\"] [data-part=\"card.title\"] { font-size: 15px; }\n  [data-slot=\"block.latest-episodes\"] [data-part=\"card.meta\"] { font-size: 12px; color: #cbd5e1; }\n}\n\n/* Continue Watching: AniZone has no such row, so it takes the site's own episode card — a 264×149\n   16:9 still with rounded corners and a drop shadow, the episode badge bottom-right, the caption\n   below in white 16 px over a 14 px line. */\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.art\"] { border-radius: 8px !important; background: #374151 !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25); }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.episode\"] { top: auto !important; left: auto !important; right: 8px; bottom: 8px; padding: 4px 6px !important; border-radius: 6px !important; background: rgba(0, 0, 0, 0.7) !important; font-size: 12px !important; font-weight: 400 !important; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.title\"] { margin-top: 12px; font-size: 16px !important; font-weight: 400 !important; line-height: 24px; color: #fff; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.meta\"] { font-size: 14px !important; line-height: 20px; color: #cbd5e1 !important; }\n/* The page sits in the site's container, which steps with the window like Tailwind's (lg:container). */\n@media (min-width: 1024px) { [data-slot=\"home\"] { max-width: 1024px; margin-inline: auto; } }\n@media (min-width: 1280px) { [data-slot=\"home\"] { max-width: 1280px; } }\n@media (min-width: 1536px) { [data-slot=\"home\"] { max-width: 1536px; } }\n"
+  }
+}

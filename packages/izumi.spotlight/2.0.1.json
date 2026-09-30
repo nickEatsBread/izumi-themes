@@ -1,0 +1,650 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.spotlight",
+  "name": "Spotlight",
+  "version": "2.0.1",
+  "author": "Izumi",
+  "description": "Anikoto look: navy and sky blue in Nunito, a split hero with Play now, poster grid with sub counts, Top anime aside.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "211 51% 9%",
+      "foreground": "0 0% 87%",
+      "muted": "215 40% 16%",
+      "mutedForeground": "212 25% 60%",
+      "primary": "197 70% 49%",
+      "primaryForeground": "0 0% 97%",
+      "secondary": "214 41% 13%",
+      "secondaryForeground": "0 0% 87%",
+      "accent": "215 40% 16%",
+      "accentForeground": "0 0% 87%",
+      "border": "214 37% 19%",
+      "input": "214 40% 10%",
+      "ring": "197 70% 49%",
+      "card": "214 41% 13%",
+      "cardForeground": "0 0% 87%",
+      "theme": "197 70% 49%"
+    },
+    "radius": 0.375,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "nunito",
+      "heading": "nunito",
+      "display": "nunito"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "both",
+          "search": "field-center",
+          "menu": "drawer",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#142030",
+          "activeColor": "#26A3D6",
+          "inactiveColor": "#8097B2",
+          "blur": false,
+          "border": false,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 45,
+        "mobileHeight": 42,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "dots",
+          "position": "start",
+          "color": "#26A3D6"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "spot.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "spot.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 12,
+                "padding": 42,
+                "width": 38
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 42,
+                    "fontWeight": 800,
+                    "lines": 3,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title",
+                  "part": "spot.title"
+                },
+                {
+                  "type": "row",
+                  "part": "spot.badges",
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "wrap": "wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10.1,
+                        "fontWeight": 600
+                      },
+                      "field": "format",
+                      "when": {
+                        "field": "format"
+                      },
+                      "part": "spot.rating"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10.1,
+                        "fontWeight": 700
+                      },
+                      "text": "HD",
+                      "part": "spot.quality"
+                    },
+                    {
+                      "type": "row",
+                      "when": {
+                        "field": "episodesAired"
+                      },
+                      "style": {
+                        "gap": 3,
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "episodes",
+                          "style": {
+                            "fontSize": 15
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 15.6,
+                            "fontWeight": 400
+                          },
+                          "field": "episodesAired"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 15.6,
+                        "fontWeight": 400
+                      },
+                      "field": "year",
+                      "when": {
+                        "field": "year"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14.4,
+                    "fontWeight": 400,
+                    "lines": 3,
+                    "color": "muted-foreground"
+                  },
+                  "field": "description",
+                  "part": "spot.synopsis"
+                },
+                {
+                  "type": "action",
+                  "action": "play",
+                  "text": "PLAY NOW",
+                  "part": "spot.play",
+                  "style": {
+                    "minHeight": 40,
+                    "radius": 6,
+                    "fontSize": 19.2,
+                    "fontWeight": 800,
+                    "color": "#F8F8F8",
+                    "background": "primary"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 158,
+          "gap": 12,
+          "titleSize": 24,
+          "heading": {
+            "weight": 600,
+            "viewMore": "text"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 178,
+            "gap": 20,
+            "titleSize": 27
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 5,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "part": "spot.meta",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "spot.sub",
+                  "when": {
+                    "field": "episodesAired"
+                  },
+                  "style": {
+                    "gap": 3,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 800
+                      },
+                      "text": "CC"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10.8,
+                        "fontWeight": 600
+                      },
+                      "field": "episodesAired"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10.8,
+                    "fontWeight": 600
+                  },
+                  "field": "episodeCount",
+                  "when": {
+                    "field": "episodeCount"
+                  },
+                  "part": "spot.total"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10.8,
+                    "fontWeight": 600
+                  },
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  },
+                  "part": "spot.format"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "style": {
+                "fontSize": 14.4,
+                "fontWeight": 500,
+                "lines": 2
+              },
+              "field": "title",
+              "part": "spot.name"
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "spotlight.cw",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "spotlight.cw-art",
+              "style": {
+                "aspect": "2 / 3"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "spotlight.cw-ep",
+                  "style": {
+                    "anchor": "top-start",
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EP",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeNo",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "spotlight.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "spotlight.cw-title",
+              "style": {
+                "fontSize": 16,
+                "fontWeight": 500,
+                "color": "#A0B1C5",
+                "lines": 1
+              }
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "underline",
+        "factsStyle": "table",
+        "countdown": "compact"
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "title": "Latest Episode",
+            "tabs": [
+              {
+                "label": "All",
+                "role": "newest"
+              },
+              {
+                "label": "Trending",
+                "role": "trending"
+              },
+              {
+                "label": "Popular",
+                "role": "popular"
+              }
+            ],
+            "columns": 6,
+            "pageSize": 18,
+            "pagination": "numbers"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "Top anime",
+            "tabs": [
+              {
+                "label": "Today",
+                "role": "trending"
+              },
+              {
+                "label": "Season",
+                "role": "season"
+              },
+              {
+                "label": "All time",
+                "role": "popular"
+              }
+            ],
+            "limit": 10
+          }
+        ],
+        "asideWidth": 336,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "watch",
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "spot.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "spot.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 12,
+                  "padding": 20,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 22,
+                      "fontWeight": 800,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    },
+                    "field": "title",
+                    "part": "spot.title"
+                  },
+                  {
+                    "type": "row",
+                    "part": "spot.badges",
+                    "style": {
+                      "gap": 6,
+                      "align": "center",
+                      "wrap": "wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 10.1,
+                          "fontWeight": 600
+                        },
+                        "field": "format",
+                        "when": {
+                          "field": "format"
+                        },
+                        "part": "spot.rating"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 10.1,
+                          "fontWeight": 700
+                        },
+                        "text": "HD",
+                        "part": "spot.quality"
+                      },
+                      {
+                        "type": "row",
+                        "when": {
+                          "field": "episodesAired"
+                        },
+                        "style": {
+                          "gap": 3,
+                          "align": "center"
+                        },
+                        "children": [
+                          {
+                            "type": "icon",
+                            "icon": "episodes",
+                            "style": {
+                              "fontSize": 15
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 15.6,
+                              "fontWeight": 400
+                            },
+                            "field": "episodesAired"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 15.6,
+                          "fontWeight": 400
+                        },
+                        "field": "year",
+                        "when": {
+                          "field": "year"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 14.4,
+                      "fontWeight": 400,
+                      "lines": 2,
+                      "color": "muted-foreground"
+                    },
+                    "field": "description",
+                    "part": "spot.synopsis"
+                  },
+                  {
+                    "type": "action",
+                    "action": "play",
+                    "text": "PLAY NOW",
+                    "part": "spot.play",
+                    "style": {
+                      "minHeight": 40,
+                      "radius": 6,
+                      "fontSize": 17,
+                      "fontWeight": 800,
+                      "color": "#F8F8F8",
+                      "background": "primary"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "title": "Latest Episode",
+              "tabs": [
+                {
+                  "label": "All",
+                  "role": "newest"
+                },
+                {
+                  "label": "Trending",
+                  "role": "trending"
+                },
+                {
+                  "label": "Popular",
+                  "role": "popular"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "numbers"
+            },
+            {
+              "role": "season"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Spotlight — the Anikoto look (docs/theme-references/anikoto.md): navy, one sky-blue accent, Nunito, a split hero. */\n\n/* Header: #142030, the search field right after the brand, destinations as icon + text links after it. */\n[data-slot=\"nav.top\"] { background: #142030; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { order: 3; color: #a0b1c5; font-size: 14px; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { color: #26a3d6; }\n[data-slot=\"nav.top\"] > div:has([data-part=\"search.field\"]) { order: 2; flex: 0 1 558px; margin-right: auto; }\n[data-slot=\"nav.top\"] > button:not([data-part]), [data-slot=\"nav.top\"] > a:not([data-part]) { order: 4; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 36px; border: 0; border-radius: 6px; background: #101925; font-size: 13.2px; font-weight: 500; }\n\n/* Split hero: a navy panel on the left fading into the artwork on the right, 18 px corners. */\n[data-slot=\"home.hero\"] { margin: 10px 10px 18px !important; width: auto !important; border-radius: 18px; overflow: hidden; background: #142030; }\n[data-part=\"spot.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background-image: linear-gradient(90deg, #142030 0%, #142030 32%, rgba(20, 32, 48, 0.72) 44%, rgba(20, 32, 48, 0) 64%) !important;\n  pointer-events: none;\n}\n[data-part=\"spot.hero\"]::after { z-index: 1; }\n[data-part=\"spot.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"spot.info\"] { padding-bottom: 56px; }\n[data-part=\"spot.title\"] { text-transform: uppercase; line-height: 1.05; }\n[data-part=\"spot.badges\"] { color: #a0b1c5; }\n[data-part=\"spot.rating\"] { padding: 0 3px; border: 1.5px solid #a0b1c5; border-radius: 3px; }\n[data-part=\"spot.quality\"] { padding: 0 3px; border-radius: 2px; background: #a0b1c5; color: #0b1622; }\n[data-part=\"spot.synopsis\"] { color: #8097b2; font-weight: 300; }\n[data-part=\"spot.play\"] { padding: 0 26px; gap: 8px; text-transform: uppercase; }\n[data-part=\"hero.dot\"] { width: 7px; height: 7px; border-radius: 999px; background: #3b4b61; }\n[data-part=\"hero.dot\"][data-active] { background: #26a3d6; }\n@media (max-width: 640px) {\n  [data-part=\"spot.hero\"]::after { background-image: linear-gradient(to top, #142030 0%, rgba(20, 32, 48, 0.75) 45%, rgba(20, 32, 48, 0.1) 80%) !important; }\n  [data-part=\"spot.info\"] { padding-bottom: 28px; }\n}\n\n/* Section headings and plain text tabs. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 24px; font-weight: 600; color: #ddd; }\n[data-part=\"row.more\"] { color: #8097b2; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { gap: 6px; border: 0; background: transparent; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { padding: 0 3px; border: 0; background: transparent; color: #515f75; font-size: 14.4px; font-weight: 400; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { color: #26a3d6; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n\n/* Poster cards: a navy meta bar under the art with the sub count, total and format. */\n[data-part=\"spot.meta\"] { height: 24px; padding: 0 5px; border-radius: 0 0 6px 6px; background: #19273b; color: rgba(255, 255, 255, 0.8); }\n[data-part=\"spot.sub\"] { padding: 0 3px; border-radius: 1.5px; background: #26a3d6; color: #fff; }\n[data-part=\"spot.total\"] { padding: 0 3px; border-radius: 1.5px; background: rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.6); }\n[data-part=\"spot.format\"] { margin-left: auto; color: #8097b2; }\n[data-part=\"spot.name\"] { margin-top: 6px; color: #a0b1c5; line-height: 1.25; }\n\n/* Top anime aside: the title and range pills on one line, big outlined rank numerals. */\n[data-slot=\"block.ranked-list\"] { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 8px; }\n[data-slot=\"block.ranked-list\"] > ol { grid-column: 1 / -1; margin-top: 12px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tabs\"] { margin: 0; gap: 2px; padding: 0; background: transparent; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"] { padding: 2px 8px; border-radius: 3px; background: transparent; color: #8097b2; font-size: 12px; font-weight: 600; box-shadow: none; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"][data-active] { background: #26a3d6; color: #eee; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"] { padding: 8px 6px; border-radius: 5px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.rank\"] { width: 44px; font-size: 52px; font-weight: 800; font-style: italic; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px #515f75; }\n[data-slot=\"block.ranked-list\"] li:nth-child(1) [data-part=\"block.rank\"] { -webkit-text-stroke-color: #26a3d6; }\n[data-slot=\"block.ranked-list\"] li:nth-child(2) [data-part=\"block.rank\"] { -webkit-text-stroke-color: #e8506f; }\n[data-slot=\"block.ranked-list\"] li:nth-child(3) [data-part=\"block.rank\"] { -webkit-text-stroke-color: #f2c14e; }\n[data-slot=\"block.ranked-list\"] [data-part=\"card.title\"] { font-size: 14.4px; font-weight: 500; color: #a0b1c5; }\n\n/* Series page: a 26 px title, facts as two columns of \"Label: value\" with accent links. */\n[data-slot=\"detail\"] [data-part=\"detail.title\"] { font-weight: 500; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] { grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr); column-gap: 10px; max-width: 760px; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"] { color: #a0b1c5; font-weight: 400; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"]::after { content: \":\"; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { color: #ddd; }\n[data-part=\"detail.facts\"] a { color: #26a3d6; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 6px; font-weight: 800; text-transform: uppercase; }\n\n/* Continue Watching: the site's own portrait card — 178 px posters with 6 px bottom corners, the episode\n   on a dark chip, a progress bar in the site blue along the bottom, the title in 16.2 px slate-blue. */\n[data-part=\"spotlight.cw-art\"] { border-radius: 0 0 6px 6px; overflow: hidden; }\n[data-part=\"spotlight.cw-ep\"] { margin: 8px !important; padding: 2px 6px; border-radius: 4px; background: rgba(0, 0, 0, 0.7); }\n[data-part=\"spotlight.cw-bar\"] { height: 4px !important; background: rgba(0, 0, 0, 0.6) !important; }\n[data-part=\"spotlight.cw-bar\"] > * { background: #26a3d6 !important; }\n[data-part=\"spotlight.cw-title\"] { font-size: 16.2px !important; }\n"
+  }
+}

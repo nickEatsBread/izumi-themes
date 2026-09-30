@@ -1,7 +1,7 @@
 {
   "id": "izumi.iris",
   "name": "Iris",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "Izumi",
   "description": "Senshi look: near-black and purple, a full-bleed hero under a clear header, overlay poster rails, medal-ranked trending.",
   "themeApi": 3,
@@ -16,8 +16,8 @@
     "phone"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.iris/1.0.0.json",
-  "sha256": "398513bf63fe4374968e0d9c0f6b0f4d0bc094b3ca4b237ca24e909cb7f80942",
-  "bytes": 21949,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.iris/1.0.2.json",
+  "sha256": "a84d171972a9c53d2bdd294e1ec62e0f22ab238e79cf51785ec0db1d663374cf",
+  "bytes": 26516,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.iris.png"
 }
