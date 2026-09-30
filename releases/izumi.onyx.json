@@ -5,7 +5,7 @@
   "release": {
     "id": "izumi.onyx",
     "name": "Onyx",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "author": "Izumi",
     "description": "Nuvio look: white on near-black, a full-bleed hero with a View details pill, a floating pill nav, stadium buttons.",
     "themeApi": 3,
@@ -20,9 +20,9 @@
       "desktop"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.0.json",
-    "sha256": "1d5f31f8aacb860eceff410702b0bf824f760fa0e439cbe5d69519382e9e3b4b",
-    "bytes": 34489,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.1.json",
+    "sha256": "a2a1122dc7782af303d99d7ff6e1d77ffaec91e6f96199806d58fb5cc9d72b5f",
+    "bytes": 34697,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
   }
 }

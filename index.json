@@ -52,7 +52,7 @@
     {
       "id": "izumi.carbon",
       "name": "Carbon",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "Izumi",
       "description": "Anime Nexus look: zinc in DM Sans, a centred logo, a light Watch now, corner-badged episodes, a popular list.",
       "themeApi": 3,
@@ -67,9 +67,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.carbon/1.0.2.json",
-      "sha256": "cce06029692c96d5d1aac1c461121860934a92180b6c5bd1d8d629b214a43ce3",
-      "bytes": 26967,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.carbon/1.0.3.json",
+      "sha256": "9c494f873e671cc867a50fe895848af18ad4d2bec0199f9005bc1059c0866872",
+      "bytes": 27175,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.carbon.png"
     },
     {
@@ -97,7 +97,7 @@
     {
       "id": "izumi.coral",
       "name": "Coral",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": "Izumi",
       "description": "Zangetsu look: near-black and coral, a glowing card hero, ★ poster rails, a floating dock, full-bleed series header.",
       "themeApi": 3,
@@ -112,9 +112,9 @@
         "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.0.json",
-      "sha256": "7b1e823531dab4c9e55de50f7a0bf2e8bbfef9c1a2602b172352c9500697d688",
-      "bytes": 44441,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.1.json",
+      "sha256": "32c43c3392e4d20c074afafb4be8404d65caebc0f72ddcfa2d0e916dfe5fdf21",
+      "bytes": 44649,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
     },
     {
@@ -246,7 +246,7 @@
     {
       "id": "izumi.lavender",
       "name": "Lavender",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": "Izumi",
       "description": "anilili look: black and purple, genre chips over a full-bleed hero, segmented tabs, ★ score badges, pill tabs.",
       "themeApi": 3,
@@ -261,9 +261,9 @@
         "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.0.json",
-      "sha256": "f786aac9b9f9c353058997c3b6cd2359c9c8d7faf5344bce959ace4323cd5869",
-      "bytes": 58783,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.1.json",
+      "sha256": "17239cbc27229e93ec58bca3aee6d7c375a7086c9717365b1e07fb02efce162a",
+      "bytes": 58991,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
     },
     {
@@ -332,7 +332,7 @@
     {
       "id": "izumi.onyx",
       "name": "Onyx",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": "Izumi",
       "description": "Nuvio look: white on near-black, a full-bleed hero with a View details pill, a floating pill nav, stadium buttons.",
       "themeApi": 3,
@@ -347,9 +347,9 @@
         "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.0.json",
-      "sha256": "1d5f31f8aacb860eceff410702b0bf824f760fa0e439cbe5d69519382e9e3b4b",
-      "bytes": 34489,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.1.json",
+      "sha256": "a2a1122dc7782af303d99d7ff6e1d77ffaec91e6f96199806d58fb5cc9d72b5f",
+      "bytes": 34697,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
     },
     {
@@ -484,7 +484,7 @@
     {
       "id": "izumi.spotlight",
       "name": "Spotlight",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "author": "Izumi",
       "description": "Anikoto look: navy and sky blue in Nunito, a split hero with Play now, poster grid with sub counts, Top anime aside.",
       "themeApi": 3,
@@ -499,9 +499,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/2.0.1.json",
-      "sha256": "6662f24b06c36473e32055ee72e1a5e3276cce0725f968e9f77bf7a9a02cab47",
-      "bytes": 25080,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/2.0.2.json",
+      "sha256": "774a6c9e28b9d18e93bea00177dc5aa5225c5713ddc52537f2bd935b9ef37939",
+      "bytes": 25277,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.spotlight.png"
     },
     {

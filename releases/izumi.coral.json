@@ -5,7 +5,7 @@
   "release": {
     "id": "izumi.coral",
     "name": "Coral",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "author": "Izumi",
     "description": "Zangetsu look: near-black and coral, a glowing card hero, ★ poster rails, a floating dock, full-bleed series header.",
     "themeApi": 3,
@@ -20,9 +20,9 @@
       "desktop"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.0.json",
-    "sha256": "7b1e823531dab4c9e55de50f7a0bf2e8bbfef9c1a2602b172352c9500697d688",
-    "bytes": 44441,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.1.json",
+    "sha256": "32c43c3392e4d20c074afafb4be8404d65caebc0f72ddcfa2d0e916dfe5fdf21",
+    "bytes": 44649,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
   }
 }

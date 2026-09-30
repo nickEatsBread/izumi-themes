@@ -1,7 +1,7 @@
 {
   "id": "izumi.carbon",
   "name": "Carbon",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Izumi",
   "description": "Anime Nexus look: zinc in DM Sans, a centred logo, a light Watch now, corner-badged episodes, a popular list.",
   "themeApi": 3,
@@ -16,8 +16,8 @@
     "phone"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.carbon/1.0.2.json",
-  "sha256": "cce06029692c96d5d1aac1c461121860934a92180b6c5bd1d8d629b214a43ce3",
-  "bytes": 26967,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.carbon/1.0.3.json",
+  "sha256": "9c494f873e671cc867a50fe895848af18ad4d2bec0199f9005bc1059c0866872",
+  "bytes": 27175,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.carbon.png"
 }

@@ -1,0 +1,659 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.coral",
+  "name": "Coral",
+  "version": "2.0.1",
+  "author": "Izumi",
+  "description": "Zangetsu look: near-black and coral, a glowing card hero, ★ poster rails, a floating dock, full-bleed series header.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "240 15% 5%",
+      "foreground": "0 0% 100%",
+      "muted": "234 14% 15%",
+      "mutedForeground": "240 7% 68%",
+      "primary": "0 0% 100%",
+      "primaryForeground": "240 15% 5%",
+      "secondary": "234 14% 15%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "234 14% 15%",
+      "accentForeground": "0 0% 100%",
+      "border": "240 6% 13%",
+      "input": "240 12% 10%",
+      "ring": "357 100% 65%",
+      "card": "240 12% 10%",
+      "cardForeground": "0 0% 100%",
+      "theme": "357 100% 65%"
+    },
+    "radius": 0.75,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "nunito",
+      "heading": "nunito",
+      "display": "nunito"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "sidebar",
+        "compact": true,
+        "bottomNav": {
+          "style": "floating",
+          "labels": "always",
+          "indicator": "none",
+          "height": 68,
+          "iconSize": 24,
+          "radius": 26,
+          "background": "#16161C8C",
+          "activeColor": "#FF4D57",
+          "inactiveColor": "#A7A7B2",
+          "blur": true,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 62,
+        "mobileHeight": 62,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "pills",
+          "position": "center",
+          "color": "#FFFFFF"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "coral.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "coral.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "center",
+                "gap": 12,
+                "padding": 24,
+                "width": 100
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "coral.title",
+                  "style": {
+                    "fontSize": 30,
+                    "fontWeight": 800,
+                    "color": "#FFFFFF",
+                    "lines": 2,
+                    "textAlign": "center"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "coral.meta",
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "justify": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "genres",
+                      "part": "coral.genres",
+                      "when": {
+                        "field": "genres"
+                      },
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF",
+                        "lines": 1,
+                        "shrink": 1
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "·",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeCount",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "Episodes",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 12,
+                    "align": "center",
+                    "justify": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "Play",
+                      "part": "coral.play",
+                      "style": {
+                        "minHeight": 44,
+                        "radius": 12,
+                        "fontSize": 16,
+                        "fontWeight": 700,
+                        "color": "#0B0B0F",
+                        "background": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "favorite",
+                      "text": "+",
+                      "part": "coral.glass",
+                      "style": {
+                        "minHeight": 44,
+                        "radius": 80,
+                        "fontSize": 24,
+                        "fontWeight": 500,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "details",
+                      "text": "i",
+                      "part": "coral.glass",
+                      "style": {
+                        "minHeight": 44,
+                        "radius": 80,
+                        "fontSize": 18,
+                        "fontWeight": 800,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 116,
+          "gap": 12,
+          "titleSize": 20,
+          "heading": {
+            "weight": 700,
+            "viewMore": "text"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "coral.poster",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 12,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "coral.score",
+                  "when": {
+                    "field": "score"
+                  },
+                  "style": {
+                    "anchor": "top-end",
+                    "gap": 3,
+                    "align": "center",
+                    "padding": 4,
+                    "radius": 4
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "★",
+                      "style": {
+                        "fontSize": 10,
+                        "color": "#FFC53D"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "score",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "coral.card-title",
+              "style": {
+                "fontSize": 13,
+                "fontWeight": 600,
+                "lines": 2
+              }
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "overlay",
+        "tabs": "underline",
+        "header": {
+          "type": "row",
+          "part": "coral.detail-meta",
+          "style": {
+            "gap": 8,
+            "align": "center",
+            "wrap": "wrap"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "year",
+              "when": {
+                "field": "year"
+              },
+              "style": {
+                "fontSize": 15,
+                "color": "muted-foreground"
+              }
+            },
+            {
+              "type": "text",
+              "text": "·",
+              "when": {
+                "field": "episodeCount"
+              },
+              "style": {
+                "fontSize": 15,
+                "color": "muted-foreground"
+              }
+            },
+            {
+              "type": "row",
+              "when": {
+                "field": "episodeCount"
+              },
+              "style": {
+                "gap": 4
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "episodeCount",
+                  "style": {
+                    "fontSize": 15,
+                    "color": "muted-foreground"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "Episodes",
+                  "style": {
+                    "fontSize": 15,
+                    "color": "muted-foreground"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "·",
+              "when": {
+                "field": "status"
+              },
+              "style": {
+                "fontSize": 15,
+                "color": "muted-foreground"
+              }
+            },
+            {
+              "type": "text",
+              "field": "status",
+              "when": {
+                "field": "status"
+              },
+              "style": {
+                "fontSize": 15,
+                "color": "muted-foreground"
+              }
+            }
+          ]
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "recent"
+          },
+          {
+            "role": "list"
+          },
+          {
+            "role": "trending"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "role": "popular"
+          }
+        ],
+        "nav": {
+          "bottom": [
+            "library",
+            "downloads",
+            "settings"
+          ],
+          "top": [
+            "search"
+          ]
+        }
+      },
+      "mobile": {
+        "detail": {
+          "layout": "stack",
+          "countdown": "long",
+          "listButton": "full",
+          "nav": "hidden",
+          "sections": {
+            "tabs": [
+              "episodes",
+              "characters",
+              "relations"
+            ],
+            "labels": {
+              "characters": "cast",
+              "overview": "details"
+            },
+            "default": "episodes"
+          },
+          "episodes": {
+            "arrangement": "list",
+            "hover": "none",
+            "order": "none",
+            "search": true,
+            "toolbar": "header",
+            "controls": [
+              "search",
+              "layout"
+            ],
+            "paging": "ranges",
+            "pageSize": 50,
+            "card": {
+              "type": "stack",
+              "part": "z.ep",
+              "style": {
+                "gap": 8
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "z.ep-row",
+                  "style": {
+                    "gap": 14,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "overlay",
+                      "part": "z.ep-thumb",
+                      "style": {
+                        "radius": 10,
+                        "shrink": 0
+                      },
+                      "children": [
+                        {
+                          "type": "artwork",
+                          "artwork": "still",
+                          "style": {
+                            "aspect": "16 / 9",
+                            "fit": "cover",
+                            "maxWidth": 116
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": "▶",
+                          "part": "z.ep-play",
+                          "style": {
+                            "fontSize": 13,
+                            "color": "#FFFFFF",
+                            "background": "#00000059",
+                            "radius": 80
+                          }
+                        },
+                        {
+                          "type": "row",
+                          "part": "z.ep-rating",
+                          "when": {
+                            "field": "rating"
+                          },
+                          "style": {
+                            "anchor": "top-start",
+                            "gap": 2,
+                            "align": "center",
+                            "wrap": "nowrap",
+                            "background": "#000000B3",
+                            "radius": 6
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "★",
+                              "style": {
+                                "fontSize": 11,
+                                "color": "#FFC107"
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "field": "rating",
+                              "style": {
+                                "fontSize": 10,
+                                "fontWeight": 700,
+                                "color": "#FFFFFF"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "meter",
+                          "field": "progress",
+                          "part": "z.ep-progress",
+                          "when": {
+                            "field": "progress",
+                            "atMost": 99
+                          },
+                          "style": {
+                            "anchor": "bottom-start",
+                            "width": 100,
+                            "radius": 0
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "stack",
+                      "part": "z.ep-text",
+                      "style": {
+                        "gap": 4,
+                        "grow": 1,
+                        "shrink": 1
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodeTitle",
+                          "part": "z.ep-title",
+                          "style": {
+                            "fontSize": 15,
+                            "fontWeight": 700,
+                            "lines": 2
+                          }
+                        },
+                        {
+                          "type": "row",
+                          "part": "z.ep-meta",
+                          "style": {
+                            "gap": 8,
+                            "align": "center"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "field": "episodeNumber",
+                              "style": {
+                                "fontSize": 13,
+                                "fontWeight": 500,
+                                "color": "muted-foreground"
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "text": "·",
+                              "when": {
+                                "field": "duration"
+                              },
+                              "style": {
+                                "fontSize": 13,
+                                "color": "muted-foreground"
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "field": "duration",
+                              "when": {
+                                "field": "duration"
+                              },
+                              "style": {
+                                "fontSize": 13,
+                                "fontWeight": 500,
+                                "color": "muted-foreground"
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "text": "·",
+                              "when": {
+                                "field": "airDate"
+                              },
+                              "style": {
+                                "fontSize": 13,
+                                "color": "muted-foreground"
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "field": "airDate",
+                              "when": {
+                                "field": "airDate"
+                              },
+                              "style": {
+                                "fontSize": 13,
+                                "fontWeight": 500,
+                                "color": "muted-foreground"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "z.ep-synopsis",
+                  "when": {
+                    "field": "description"
+                  },
+                  "style": {
+                    "fontSize": 13,
+                    "lines": 3,
+                    "color": "muted-foreground"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "css": "/* Coral — the Zangetsu look (docs/theme-references/zangetsu.md): near-black, one coral accent, Nunito. */\n\n/* Featured hero: a rounded art card inset from the edges, glowing in the artwork's own colour. */\n[data-slot=\"home.hero\"] {\n  margin: 8px 16px 28px !important;\n  width: auto !important;\n  border-radius: 28px;\n  overflow: hidden;\n  box-shadow: 0 18px 70px -10px rgb(var(--hero-ambient-rgb, 255 77 87) / 0.55);\n}\n/* Desktop: clear the window's title strip above the card. */\n@media (min-width: 641px) { [data-slot=\"home.hero\"] { margin-top: 44px !important; } }\n[data-part=\"coral.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(to top, rgba(11, 11, 15, 0.95), rgba(11, 11, 15, 0.35) 45%, rgba(11, 11, 15, 0) 65%) !important;\n  pointer-events: none;\n}\n[data-part=\"coral.hero\"]::after { z-index: 1; }\n[data-part=\"coral.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"coral.info\"] { padding-bottom: 36px; }\n[data-part=\"coral.meta\"] { width: 100%; overflow: visible !important; text-transform: uppercase; letter-spacing: 0.8px; }\n[data-part=\"coral.play\"] { width: 138px; justify-content: center; gap: 8px; }\n[data-part=\"coral.glass\"] { width: 44px; justify-content: center; padding: 0; background: rgba(255, 255, 255, 0.14) !important; backdrop-filter: blur(10px); line-height: 1; }\n/* Slide markers are drawn on the marker's track; the button around it keeps its hit area unpainted. */\n[data-part=\"hero.dot.track\"] { width: 6px !important; height: 6px !important; border-radius: 3px !important; background: rgba(255, 255, 255, 0.35) !important; }\n[data-part=\"hero.dot\"][data-active] [data-part=\"hero.dot.track\"] { width: 20px !important; background: #fff !important; }\n\n/* Rows: 20 px headings with a wide gap above, a \"See All\" link in the accent. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; color: #fff; }\n[data-part=\"row.more\"] { color: #ff4d57; font-weight: 600; }\n\n/* Poster cards: bottom scrim, the ★ score pill top right, a fixed two-line title. */\n[data-part=\"coral.poster\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 55% 0 0;\n  border-radius: 0 0 12px 12px;\n  background: linear-gradient(to top, rgba(11, 11, 15, 0.7), rgba(11, 11, 15, 0));\n  pointer-events: none;\n}\n[data-part=\"coral.score\"] { margin: 6px; background: rgba(0, 0, 0, 0.6); z-index: 1; }\n[data-part=\"coral.card-title\"] { line-height: 1.3; min-height: 2.6em; }\n\n/* ── Series page (phone): Zangetsu's detail screen. Spec: docs/theme-references/zangetsu-series.md ──\n   Built on the API 3 episode-toolbar/state/section keys (design.json `mobile.detail`): order:\"none\",\n   toolbar:\"header\", paging:\"ranges\", nav:\"hidden\", sections, and the `z.ep-*` episode template. Only\n   pieces with no matching hook still use a structural/aria-label selector (marked INTERIM below). */\n\n/* Content column: 16 px gutter, Zangetsu's order (title, Play, second button, synopsis, credit lines,\n   icon row, countdown, airing, tabs). No `detail.content` hook exists yet, so the column that holds\n   `detail.actions` is still found structurally. */\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) { display: flex; flex-direction: column; padding-inline: 16px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > * { order: 20; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > div:has(> [data-part=\"detail.poster\"]) { order: 1; margin-top: 14px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > [data-part=\"button\"][data-variant=\"primary\"] { order: 2; margin-top: 18px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > [data-part=\"detail.list-button\"] { order: 3; margin-top: 10px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > [data-part=\"detail.synopsis\"] { order: 4; margin-top: 18px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > [data-part=\"detail.genres\"] { order: 5; margin-top: 14px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > [data-part=\"detail.byline\"] { order: 6; margin-top: 2px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > [data-part=\"detail.actions\"] { order: 7; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > [data-part=\"detail.countdown\"] { order: 25; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > div:has(> [data-part=\"detail.airing\"]) { order: 26; margin-top: 6px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] > div:has(> [data-part=\"detail.actions\"]) > div:has(> [data-part=\"tabs\"]) { order: 30; margin-top: 0; }\n\n/* No poster, no alt title, no built-in facts line: the `detail.header` template is the meta line. */\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-part=\"detail.poster\"], [data-part=\"detail.alt-title\"], [data-part=\"detail.meta\"]) { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.1; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.header\"] { margin-top: 8px; }\n[data-part=\"coral.detail-meta\"] { line-height: 1.35; }\n\n/* Artwork: 320 px + status bar, full-bleed, sharp cover fallback, Zangetsu's two scrims. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] { height: calc(320px + env(safe-area-inset-top)); min-height: 0; max-height: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] > img { opacity: 1; filter: none; transform: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] > div { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  background-image: linear-gradient(to top, rgb(11 11 15 / 0.95), rgb(11 11 15 / 0) 65%), linear-gradient(to bottom, rgb(11 11 15 / 0.6), rgb(11 11 15 / 0) 50%);\n}\n\n/* Floating bar (real hook now): plain arrow, opaque and borderless once titled. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.bar\"] { border-bottom-width: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.bar\"][data-solid] { background-color: hsl(var(--background)); -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-width: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.bar\"] span { font-size: 17px; font-weight: 600; }\n\n/* Play: white 52 px, radius 8, filled 26 px glyph. The list button below it: Zangetsu's grey Download\n   (listButton:\"full\" is the stand-in for the real download button until the client grows one). */\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 8px; background-color: #fff; color: #000; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"button\"][data-variant=\"primary\"] { width: 100%; height: 52px; padding: 0; gap: 8px; font-size: 16px; font-weight: 600; letter-spacing: -0.2px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"button\"][data-variant=\"primary\"] svg { width: 26px; height: 26px; fill: currentColor; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.list-button\"][data-variant=\"full\"] {\n  height: 52px; padding: 0; border: 0; border-radius: 8px; background-color: #20212a; color: #fff;\n  font-size: 16px; font-weight: 600; letter-spacing: -0.2px; text-transform: none;\n}\n\n/* Synopsis: izumi already clamps this to 3 lines on the phone stack (Tailwind `line-clamp-3` on\n   the component itself); an accent \"Read more\" is appended inline right after the truncated text\n   (izumi expands in place — no `readMore` tab-jump key exists yet). A `padding-bottom` +\n   `position: absolute` label here fights the clamp's own box model and leaks a 4th line in\n   Chromium, so the label rides the clamped flow instead of overlaying it. */\n[data-slot=\"detail\"][data-variant=\"phone\"] button[data-part=\"detail.synopsis\"] { position: relative; padding-right: 78px; font-size: 15px; line-height: 1.35; color: #a7a7b2; }\n[data-slot=\"detail\"][data-variant=\"phone\"] button[data-part=\"detail.synopsis\"]::after { content: \"Read more\"; position: absolute; right: 0; bottom: 0; font-size: 13px; font-weight: 700; color: #ff4d57; }\n\n/* Credit lines, built from the real `detail.genres` chip rail and `detail.byline` line (no `credits`\n   template/`starring` field exist yet, so this is the closest match: Zangetsu's Genres fallback and\n   Creators line, grey and mixed-case — not the coral uppercase tags the old draft used). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] {\n  flex-wrap: wrap; gap: 0 4px; margin-inline: 0; padding: 0; overflow: hidden; max-height: 2.6em;\n  font-size: 13px; line-height: 1.3; font-weight: 500; color: #a7a7b2;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"]::before { content: \"Genres: \"; color: #6e6e78; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] [data-part=\"chip\"] { padding: 0; border: 0; border-radius: 0; background: none; color: inherit; font: inherit; letter-spacing: 0; text-transform: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] [data-part=\"chip\"]:nth-child(n + 5) { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] [data-part=\"chip\"]:not(:last-child):not(:nth-child(4))::after { content: \",\"; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.byline\"] { gap: 0 4px; font-size: 13px; line-height: 1.3; font-weight: 500; color: #a7a7b2; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.byline\"]::before { content: \"Creators: \"; color: #6e6e78; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.byline\"] > :not(a) { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.byline\"] > a { font-weight: 500; color: inherit; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.byline\"]:not(:has(> a)) { display: none; }\n\n/* Icon-over-label row: no fills, 24 px icons, 11/600 grey labels, spaced around. Trailer/Share/More\n   are still bare buttons with no `data-action` hook, so their labels are generated off aria-label. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] { justify-content: space-around; gap: 0; margin: 20px -8px 8px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button:not([aria-label=\"Close menu\"]) {\n  flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 6px;\n  height: auto; min-width: 56px; padding: 6px; border-radius: 12px; background-color: transparent;\n  color: #a7a7b2; font-size: 11px; line-height: 1.3; font-weight: 600;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button svg { width: 24px; height: 24px; color: #fff; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[aria-label=\"Share series\"]::after { content: \"Share\"; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[aria-label=\"Trailer\"]::after { content: \"Trailer\"; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > button[aria-label=\"More\"]::after { content: \"More\"; }\n\n/* Airing countdown as Zangetsu's line: grey text, accent bold countdown, no pill. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.countdown\"] { margin-top: 14px; padding: 0; border-radius: 0; background: none; font-size: 15px; line-height: 1.35; font-weight: 400; color: #a7a7b2; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.countdown\"] > span { font-weight: 700; color: #ff4d57; }\n\n/* Tabs: pinned under the bar, left-anchored, 24 px between labels, 2.5 px accent line under the text.\n   Episodes · Cast · Relations · Details, via design.json `sections` (no `tabsPinned` key yet, so the\n   pin is still CSS `position: sticky`). */\n[data-slot=\"detail\"] [data-part=\"tab\"] { font-size: 15px; font-weight: 500; color: #a7a7b2; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { font-weight: 600; color: #ff4d57; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { left: 12px; right: 12px; bottom: 0; height: 2.5px; background-color: #ff4d57; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"underline\"] { border-bottom: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"] {\n  position: sticky; top: calc(max(0.5rem, env(safe-area-inset-top)) + 3rem); z-index: 20;\n  gap: 0; margin: 0 -16px; padding: 0 0 0 16px; background-color: hsl(var(--background));\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tab\"] { padding: 14px 24px 14px 0; border-radius: 0; background: none; transform: none; line-height: 1.2; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tab\"][data-active] > span { left: 2px; right: 26px; bottom: 8px; border-radius: 0; }\n\n/* Episode toolbar (real hooks: `episodes.toolbar` header variant, `episodes.heading`/`.count`,\n   `episodes.search`/`.layout`, `episodes.more`): \"Episodes  N\" left, quiet grey 36 px circles right,\n   no sort (order:\"none\" already removes the control). The default bg-secondary/size-9 classes already\n   land close to Zangetsu's #20212A/36 dp circles; this only tightens the exact numbers and typography. */\n[data-slot=\"episodes.toolbar\"][data-variant=\"header\"] { margin-top: 8px; margin-bottom: 14px; gap: 8px; }\n[data-part=\"episodes.heading\"] { font-size: 17px; font-weight: 600; color: #fff; gap: 6px; }\n[data-part=\"episodes.count\"] { font-size: 13px; font-weight: 600; color: #a7a7b2; }\n[data-slot=\"episodes.toolbar\"][data-variant=\"header\"] [data-part=\"episodes.search\"],\n[data-slot=\"episodes.toolbar\"][data-variant=\"header\"] [data-part=\"episodes.layout\"],\n[data-part=\"episodes.more\"] { width: 36px; height: 36px; background-color: #20212a; color: #fff; }\n[data-part=\"episodes.search\"][data-active] { background-color: #ff4d57; color: #fff; }\n[data-slot=\"episodes.toolbar\"][data-variant=\"header\"] svg { width: 20px; height: 20px; }\n[data-part=\"episodes.menu\"] { background-color: #16161c; border-color: rgb(255 255 255 / 0.08); }\n\n/* Range chips (real hooks: `episodes.ranges` + `chip[data-active]`), 50 episodes per chip. Accent\n   fill on the active chip: the default bg-primary is now white app-wide (see tokens.primary below),\n   so the active state needs its own accent override to keep Zangetsu's selected-chip colour. */\n[data-part=\"episodes.ranges\"] { gap: 8px; padding-bottom: 4px; }\n[data-part=\"episodes.ranges\"] [data-part=\"chip\"] { height: 34px; padding: 0 14px; border-radius: 9px; font-size: 13px; font-weight: 700; }\n[data-part=\"episodes.ranges\"] [data-part=\"chip\"][data-active] { background-color: #ff4d57; color: #fff; }\n\n/* Episode rows (the `z.ep-*` template, design.json `mobile.detail.episodes.card`): no card fill,\n   10 px above/below, 16 px gutter, 14 px between the thumbnail and the text column. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] div:has(> div > [data-part=\"episode\"][data-variant=\"template\"]) { gap: 0; padding-inline: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] div:has(> [data-part=\"episode\"][data-variant=\"template\"]) { animation: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"template\"] { padding: 10px 0; border-radius: 0; background-color: transparent; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"template\"][aria-disabled=\"true\"] { opacity: 1; }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [data-part=\"z.ep-title\"] { line-height: 1.35; color: #fff; }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [aria-disabled=\"true\"] [data-part=\"z.ep-title\"] { color: #6e6e78; }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [aria-disabled=\"true\"] [data-part=\"z.ep-play\"] { color: rgb(255 255 255 / 0.7); }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [data-part=\"z.ep-meta\"] { line-height: 1.3; }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [data-part=\"z.ep-synopsis\"] { font-style: italic; line-height: 1.4; }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [data-part=\"z.ep-play\"] { place-self: center; display: grid; place-items: center; width: 36px; height: 36px; padding-left: 2px; line-height: 1; }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [data-part=\"z.ep-rating\"] { margin: 4px; padding: 2px 5px; line-height: 1.1; }\n[data-slot=\"detail\"] [data-slot=\"detail.episodes\"] [data-part=\"z.ep-progress\"] { background-color: rgb(0 0 0 / 0.5); }\n\n/* Episode states (real hooks: `data-state`, `data-next`, `data-filler` on every `[data-part=\"episode\"]`):\n   a resume tile/row in accent, watched dimmed with a check, a CONTINUE badge, a FILLER badge. */\n[data-part=\"episode\"][data-state=\"watched\"] [data-part=\"z.ep-thumb\"]::after { content: \"\"; position: absolute; inset: 0; z-index: 1; background-color: rgb(0 0 0 / 0.45); }\n[data-part=\"episode\"][data-state=\"watched\"] [data-part=\"z.ep-thumb\"]::before { content: \"✓\"; position: absolute; top: 4px; right: 4px; z-index: 3; width: 16px; height: 16px; border-radius: 50%; background-color: #fff; color: #0b0b0f; font-size: 10px; font-weight: 900; line-height: 16px; text-align: center; }\n[data-part=\"episode\"][data-state=\"watched\"] [data-part=\"z.ep-title\"] { color: #a7a7b2 !important; }\n[data-part=\"episode\"][data-next] [data-part=\"z.ep-title\"] { color: #ff4d57 !important; font-weight: 800 !important; }\n[data-part=\"episode\"][data-next] [data-part=\"z.ep-text\"]::after { content: \"CONTINUE\"; align-self: flex-start; margin-top: 2px; padding: 2px 6px; border-radius: 6px; background-color: rgb(255 77 87 / 0.15); color: #ff4d57; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; }\n[data-part=\"episode\"][data-filler] [data-part=\"z.ep-meta\"]::after { content: \"FILLER\"; padding: 2px 6px; border-radius: 6px; background-color: rgb(255 77 87 / 0.15); color: #ff4d57; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; }\n\n/* Number grid: 5 columns, 10 px gaps, radius 10, 1.15 aspect. State colours come straight off\n   `data-state`/`data-next`/`data-filler` now, instead of the old scoped `--primary` override. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] div:has(> [data-part=\"episode\"][data-variant=\"number\"]) { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }\n[data-part=\"episode\"][data-variant=\"number\"] { height: auto; aspect-ratio: 1.15; border: 0.5px solid rgb(255 255 255 / 0.08); border-radius: 10px; font-size: 15px; font-weight: 700; }\n[data-part=\"episode\"][data-variant=\"number\"][data-state=\"watched\"] { position: relative; background-color: hsl(var(--secondary)); color: #6e6e78; }\n[data-part=\"episode\"][data-variant=\"number\"][data-state=\"watched\"]::after { content: \"✓\"; position: absolute; top: 4px; right: 4px; font-size: 11px; color: #6e6e78; }\n[data-part=\"episode\"][data-variant=\"number\"][data-next] { background-color: #ff4d57; color: #fff; box-shadow: none; border-color: transparent; }\n[data-part=\"episode\"][data-variant=\"number\"][data-filler] { position: relative; }\n[data-part=\"episode\"][data-variant=\"number\"][data-filler]::before { content: \"\"; position: absolute; top: 6px; left: 6px; width: 6px; height: 6px; border-radius: 50%; background-color: #6e6e78; }\n\n/* Relations: 3 columns like Zangetsu (`detail.relations`). SmallCard here renders our own\n   `cards.poster` template (`coral.score`), not the stock `card.score` — Zangetsu's relation cards\n   carry no score badge, so it is hidden. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.relations\"] { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 12px; margin-top: 18px; }\n[data-slot=\"detail.relations\"] [data-part=\"coral.score\"] { display: none !important; }\n\n/* Overview laid out like Zangetsu's Details tab: plain 96 px label column, synopsis last. No `fact`\n   hook covers the section wrapper, so it is still found structurally. */\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> section > dl > [data-part=\"fact\"]) { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> section > dl > [data-part=\"fact\"]) > section { margin-top: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> section > dl > [data-part=\"fact\"]) > section:has(> [data-part=\"detail.synopsis\"]) { order: 9; margin-top: 6px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> section > dl > [data-part=\"fact\"]) > section > h2 { margin-bottom: 10px; font-size: 13px; line-height: 1.3; font-weight: 500; color: #6e6e78; }\n[data-slot=\"detail\"][data-variant=\"phone\"] div:has(> section > dl > [data-part=\"fact\"]) > section:has(> dl) > h2 { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] dl:has(> [data-part=\"fact\"]) { display: block; }\n[data-slot=\"detail\"][data-variant=\"phone\"] dl > [data-part=\"fact\"] { display: grid; grid-template-columns: 96px minmax(0, 1fr); margin-bottom: 10px; padding: 0; border-radius: 0; background: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] dl > [data-part=\"fact\"] > [data-part=\"fact.label\"] { font-size: 13px; line-height: 1.3; font-weight: 500; letter-spacing: 0; text-transform: none; color: #6e6e78; }\n[data-slot=\"detail\"][data-variant=\"phone\"] dl > [data-part=\"fact\"] > [data-part=\"fact.value\"] { margin-top: 0; font-size: 13px; line-height: 1.3; font-weight: 600; color: #fff; }\n[data-slot=\"detail\"][data-variant=\"phone\"] section > p[data-part=\"detail.synopsis\"] { font-size: 15px; line-height: 1.35; color: #a7a7b2; }\n\n/* Cast: 3-column grid of square photos (real `person`/`person.photo`/`person.name`/`person.role`\n   hooks now). The character's narrative role (MAIN/SUPPORTING) is hidden; the nested voice-actor\n   block's own photo is hidden too, leaving its name as the caption — Zangetsu's \"first Japanese VA\". */\n[data-slot=\"detail.characters\"] > div { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 12px; }\n[data-slot=\"detail.characters\"] [data-part=\"person\"] { flex-direction: column; align-items: center; border: 0; border-radius: 0; background: none; text-align: center; padding: 0; min-width: 0; }\n[data-slot=\"detail.characters\"] [data-part=\"person.photo\"] { width: 100%; aspect-ratio: 1; border-radius: 12px; object-fit: cover; }\n[data-slot=\"detail.characters\"] [data-part=\"person\"] > div { width: 100%; min-width: 0; padding: 6px 0 0; }\n[data-slot=\"detail.characters\"] [data-part=\"person.name\"] { width: 100%; font-size: 13px; line-height: 1.3; }\n[data-slot=\"detail.characters\"] [data-part=\"person.role\"] { display: none; }\n[data-slot=\"detail.characters\"] [data-part=\"person\"] img:not([data-part=\"person.photo\"]) { display: none; }\n[data-slot=\"detail.characters\"] [data-part=\"person\"] > div > div:last-child:not([data-part=\"person.role\"]) { width: 100%; min-width: 0; margin-top: 2px; font-size: 11px; color: #a7a7b2; }\n[data-slot=\"detail.characters\"] [data-part=\"person\"] > div > div:last-child:not([data-part=\"person.role\"]) div { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n\n/* No dock on the series page (`detail.nav: \"hidden\"` in design.json suppresses it; no CSS needed). */\n\n/* The floating dock: frosted capsule, 7 % white hairline, colour-and-glyph active state only. */\n[data-slot=\"nav.bottom\"] { border-color: rgba(255, 255, 255, 0.07) !important; }\n"
+  }
+}
