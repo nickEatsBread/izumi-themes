@@ -1,0 +1,126 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 3,
+  "id": "izumi.pocket",
+  "name": "Pocket",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Built for Steam Deck-class handhelds: L1/R1 section tabs, button prompts, big legible type and focus captions.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "216 24% 7%",
+      "foreground": "216 20% 96%",
+      "muted": "216 18% 14%",
+      "mutedForeground": "218 12% 67%",
+      "primary": "205 100% 62%",
+      "primaryForeground": "216 40% 8%",
+      "secondary": "216 18% 15%",
+      "secondaryForeground": "216 20% 96%",
+      "accent": "216 18% 18%",
+      "accentForeground": "216 20% 96%",
+      "border": "216 16% 20%",
+      "input": "216 18% 12%",
+      "ring": "205 100% 62%",
+      "card": "216 20% 11%",
+      "cardForeground": "216 20% 96%",
+      "theme": "205 100% 62%"
+    },
+    "radius": 0.625,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "inter"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "text",
+          "search": "icon",
+          "menu": "drawer",
+          "bumpers": true
+        },
+        "hints": true
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 128,
+          "gap": 14,
+          "spacing": 20,
+          "radius": 10,
+          "titleSize": 20,
+          "caption": "focus",
+          "heading": {
+            "weight": 700,
+            "viewMore": "text"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 264,
+            "gap": 14
+          }
+        }
+      },
+      "detail": {
+        "layout": "split",
+        "column": "poster",
+        "posterWidth": 180,
+        "cta": "large",
+        "tabs": "pills",
+        "countdown": "compact",
+        "sections": {
+          "tabs": [
+            "episodes",
+            "overview",
+            "relations",
+            "recommended"
+          ],
+          "default": "episodes"
+        },
+        "episodes": {
+          "arrangement": "list",
+          "paging": "ranges",
+          "pageSize": "auto",
+          "toolbar": "header",
+          "controls": [
+            "sort"
+          ]
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "continue"
+          },
+          {
+            "role": "recent"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "role": "trending"
+          },
+          {
+            "role": "popular"
+          }
+        ]
+      }
+    },
+    "css": "/* Pocket: izumi for Steam Deck-class handhelds. Pad first, touch second, legible at arm's length. */\n\n/* Top bar: section tabs as pills between the L1/R1 glyphs; the page you are on is filled. */\n[data-slot=\"nav.top\"] { background: #0d1015 !important; border-color: #1f2530 !important; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"] { height: 36px; padding: 0 11px; border-radius: 999px; color: #a0a8b6; font-size: 15px; font-weight: 600; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"]:hover { background: #1e232c; color: #f2f4f7; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"][data-active] { background: #3daeff; color: #0a1220; }\n[data-part=\"nav.bumper\"] { margin: 0 2px; }\n\n/* Glyphs and the hint bar. */\n[data-part=\"hints.glyph\"] { background: #e8ecf2; color: #0d1015; }\n[data-slot=\"hints\"] { background: #0d1015; border-color: #1f2530; font-size: 15px; }\n[data-part=\"hints.label\"] { color: #dfe4ec; }\n\n/* Rows: 20 px headings; \"View more\" always visible (no hover on touch or pad). */\n[data-part=\"row.title\"] { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }\n[data-part=\"row.more\"] { opacity: 1 !important; color: #3daeff; font-size: 14px; }\n[data-part=\"row.caption.title\"] { font-size: 16px; color: #f2f4f7; }\n[data-part=\"row.caption.meta\"] { font-size: 14px; color: #a0a8b6; }\n\n/* Cards: one-line 15 px titles and 14 px meta, never smaller. */\n[data-part=\"card.title\"] { font-size: 15px; font-weight: 600; line-height: 1.3; -webkit-line-clamp: 1; }\n[data-part=\"card.meta\"] { font-size: 14px; }\n[data-part=\"card.episode\"] { font-size: 14px; }\n\n/* Never below 14 px where a page gives a hook (Valve's 9 px panel minimum at the Deck's 1.25× zoom);\n   uppercase badges at 13 px keep a 9 px cap height. */\n[data-part=\"card.badge\"] { font-size: 13px; }\n[data-part=\"episode.number\"] { font-size: 16px; }\n[data-part=\"episode.meta\"], [data-part=\"person.role\"], [data-part=\"detail.meta\"], [data-part=\"detail.airing\"], [data-part=\"chip\"] { font-size: 14px; }\n\n/* Series page and tabs. */\n[data-part=\"tab\"] { font-size: 16px; }\n[data-part=\"tab\"][data-active] { background: #3daeff; color: #0a1220; }\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"] { min-height: 48px; font-size: 16px; }\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"][data-active] { background: #1e232c; color: #3daeff; }\n\n/* Pad focus: an accent ring with a soft glow on artwork and tabs. Paint only (no transform\n   transitions), so it can't trip WebKitGTK's layer-drop blink. */\n:scope.gamemode [data-part=\"card\"] a:focus [data-part=\"card.art\"],\n:scope.gamemode [data-part=\"card\"]:focus [data-part=\"card.art\"],\n:scope.controller-mode [data-part=\"card\"] a:focus [data-part=\"card.art\"],\n:scope.controller-mode [data-part=\"card\"]:focus [data-part=\"card.art\"] { box-shadow: 0 0 0 3px #3daeff, 0 0 22px rgba(61, 174, 255, 0.4); }\n:scope.gamemode [data-part=\"tab\"]:focus, :scope.controller-mode [data-part=\"tab\"]:focus,\n:scope.gamemode [data-part=\"episode\"]:focus, :scope.controller-mode [data-part=\"episode\"]:focus { box-shadow: 0 0 0 3px #3daeff; }\n"
+  }
+}

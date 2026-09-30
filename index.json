@@ -371,6 +371,27 @@
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.orchid.png"
     },
     {
+      "id": "izumi.pocket",
+      "name": "Pocket",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Built for Steam Deck-class handhelds: L1/R1 section tabs, button prompts, big legible type and focus captions.",
+      "themeApi": 3,
+      "tags": [
+        "Dark",
+        "Handheld",
+        "Top bar"
+      ],
+      "platforms": [
+        "desktop"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.pocket/1.0.0.json",
+      "sha256": "7cd421c2676548f93b5c751711e9470675fd8dd7d7435c6274a710ac6692a4c9",
+      "bytes": 6008,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.pocket.png"
+    },
+    {
       "id": "izumi.prism",
       "name": "Prism",
       "version": "1.0.1",
