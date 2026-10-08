@@ -164,7 +164,9 @@ async function waitForHome(page, design) {
   const layoutHome = design?.presentation?.layout?.home
   const hero = layoutHome ? layoutHome.some((entry) => entry.role === 'hero') : !design?.presentation?.hero?.hidden
   if (hero) await page.waitForSelector('[data-theme-hero], [aria-label="Featured"], [data-slot="home.hero"]', { timeout: 60000 })
-  await page.waitForSelector('[data-theme-row] img, [data-carousel-scroller] img, [data-slot^="block."] img', { timeout: 60000 })
+  // `:visible` on each branch: waitForSelector only tests the first match, and a theme may hide a block's
+  // own image (a profile header kept for its buttons hides its banner), which would never become visible.
+  await page.waitForSelector('[data-theme-row] img:visible, [data-carousel-scroller] img:visible, [data-slot^="block."] img:visible', { timeout: 60000 })
   await page.waitForTimeout(1200)
 }
 

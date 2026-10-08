@@ -3,10 +3,11 @@
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
 
-`themeApi` is `1`, `2`, or `3`. API 1 is the original key set and every API 1 package stays valid on
-every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions): the
-bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
-layout and the `mobile` block. A client that only knows API 1 refuses an API 2 package with
+`themeApi` is `1`, `2`, `3` or `4`. API 1 is the original key set and every API 1 package stays
+valid on every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions):
+the bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
+layout and the `mobile` block. API 3 and API 4 add the keys under [Theme API 3](#theme-api-3) and
+[Theme API 4](#theme-api-4). A client that only knows an older API refuses a newer package with
 "requires a different theme API"; the gallery lists it as "Needs a newer izumi" instead of a
 half-rendered layout. Declare the lowest API a package actually uses.
 
@@ -19,7 +20,7 @@ A package is one UTF-8 JSON document, at most 512,000 bytes. Required envelope f
 | `app` | `izumi` |
 | `kind` | `theme-package` |
 | `schemaVersion` | `1` |
-| `themeApi` | `1`, `2`, or `3` (see above) |
+| `themeApi` | `1`, `2`, `3` or `4` (see above) |
 | `id` | Stable lowercase author/theme identity, 2–64 letters, digits, dots or hyphens |
 | `name` | Display name, 1–48 characters |
 | `author` | Attribution, 1–80 characters |
@@ -229,3 +230,88 @@ Declare `"themeApi": 3` to use:
   - `mobile.layout` may replace `home` (and `asideWidth`) on phones; `nav` is top-level only.
 
 Packages may be up to 512 KB.
+
+## Theme API 4
+
+Declare `"themeApi": 4` to use the keys below. The client's docs/THEMES.md ("Theme API 4")
+describes how each renders, and the styling hooks and state attributes that came with them
+(`data-dest` on destinations, `data-chrome` on the root, series action states, the Play button's
+`data-state` and `data-episode`, `data-relation`, `data-expanded`, `data-season-label`, a tag's
+`data-rank`), which need no API declaration.
+
+- `presentation.mobile.rootSize` — the phone root font size in pixels, 14–18 (izumi's own is
+  14.5; use 16 for an app built on a 16 dp grid). Accepted only inside `mobile`. The design's font
+  scale still applies and the izumi mark keeps its size.
+- `presentation.shell.bottomNav` — `hide: "collapse"` (the bar stays in place and only reports its
+  state, for the stylesheet to fold it), `threshold` (8–160 pixels of scrolling in one direction
+  before the state flips, whole) and `idle` (0–5000 ms without scrolling before the chrome
+  returns, whole; 0 never).
+- Template fields `startYear` (the release year), `genre2`, `genre3` (the second and third genres)
+  and `episodesWatched` (a number; `when.atMost` compares it).
+- Template fields `durationLong` (`24 mins`, `1 hr 45 mins`), `scoreValue` (the bare score, `81`),
+  `completed` (`Completed` once the viewer has finished the series) and `airingSoon` (`Soon` once
+  the next episode is due but no newer one is known). All four are strings, tested for presence.
+- Template fields `starring` (the first three characters' names) and `creators` (every main studio,
+  else a provider's creator names), strings for credit lines.
+- Template field `kind`: `Series` (TV, TV short, ONA), `Movie` or `Special` (OVA, special, music
+  video), absent for any other format.
+- Artwork `posterHd` (also a `when` field): full-resolution portrait art, the TVDB poster where
+  the client looked it up, else the largest catalog cover.
+- `presentation.hero` (and `mobile.hero`): `limit` (1–15 slides, whole), `source` (`season`, the
+  default, or `trending`) and `transition` (`slide`, the default, or `fade`, a 650 ms cross-fade).
+  `art`: `banner` (the default) or `banner-cover`, which gives a template's `backdrop` (and izumi's
+  own desktop banner) the catalog banner, then key art, then the cover, never a trailer still.
+- `presentation.rows.byId` (and `mobile.rows.byId`): the Continue Watching row's own entry
+  (`continue` or its scoped id, not `rows.defaults`) may set `empty`: `hidden` (the default: the row
+  leaves Home while there is nothing to continue) or `shown` (the row stays with a `row.empty`
+  state, its line `row.empty.text` and a Browse link `row.empty.action`).
+- `layout.nav.top` may repeat a `bottom` destination, as a Home header shortcut.
+- `presentation.detail`:
+  - `buttons`: 0–3 of `play`, `list`, `download`, each once, in order — the phone series header's
+    buttons (`[]` shows none).
+  - `actionsLead`: a non-interactive template at the start of the phone actions row, bound to the
+    series facts plus `episodesWatched`, `episodesAired` and `episodeCount`.
+  - `factsKeys` and `infoKeys`: 1–20 fact keys, each once, in order — `format`, `episodes`,
+    `status`, `aired`, `season`, `duration`, `studio`, `source`, `country`, `score`, `members`,
+    `genres`, `progress`, `year`, `ended`, `favourites`, `author`, `romaji`, `english`, `native`. `factsKeys` drives the table,
+    cards and chips styles; `infoKeys` the phone Information block.
+  - `factsLabels`: a name per fact key from its own list — `format`: `type`, `format`; `episodes`:
+    `episodes`, `total-episodes`; `aired`: `aired`, `premiered`, `start-date`, `release-date`;
+    `ended`: `ended`, `end-date`; `year`: `year`, `release-year`; `duration`: `duration`, `runtime`,
+    `average-duration`; `studio`: `studio`, `studios`; `author`: `author`, `creator`; `source`:
+    `source`, `source-material`; `country`: `country`, `origin-country`; `score`: `score`,
+    `mean-score`, `rating`; `members`: `members`, `popularity`; `favourites`: `favourites`,
+    `favorites`; `progress`: `watched`, `progress`; `romaji`: `romaji`, `name-romaji`,
+    `romaji-title`; `english`: `english`, `name`, `english-title`; `native`: `native`,
+    `native-title`; `status`, `season`, `genres`: their own name.
+  - `factsFormat`: `score` (`percent`, `ten`, `ten-of`), `dates` (`numeric`, `short`, `long`),
+    `counts` (`compact`, `full`, `raw`), `duration` (`min`, `long`, `short`), `status` (`catalog`,
+    the default, or `plain`: Ongoing, Completed, Hiatus, Cancelled, nothing for an upcoming title)
+    and `episodes` (`total`, the default, `aired`, or `aired-of`: the aired count then " / " and the
+    planned total, or "?", while the title airs).
+  - `header` and `facts` templates may hold an `action` node with `action: "studio"` (the main
+    studio as a button that opens its page); the `header` template accepts no other action.
+  - `progress` (phones): `none` (the default) or `row`, a series progress row under the header
+    buttons. `actions` (phones): `row` (the default) or `expand`, which folds Save, Share and
+    Trailer behind More until its first tap.
+  - `sections.relations`: `recommended`, `separate` (the default) or `append` (the recommended
+    titles follow the related ones in Relations; `tabs` and `default` may not name `recommended`).
+  - `synopsis`: `more` (`none`, `expand`, `tab`) and `label` (`more`, `read-more`, `show-more`).
+  - `countdown` adds `words`, `full` and `date`; `countdownAt` (`info`, `episodes`, `both`);
+    `countdownWithin` (1–365 days, whole).
+  - `sections` adds the `information` section: `tabs` takes 1–6 entries, `labels.information` is
+    `information`, `details` or `show-details`, and `default` may name it only when `tabs` lists it.
+  - `art` adds `portrait` (key art, then the full-resolution portrait poster, never the banner);
+    `artFallback`: `wash` (the default) or `cover` (the cover itself, sharp, for a title without art).
+  - `bar` (phones): `home` (`true` or `false`, a Home link after Back), `title` (`text` or `logo`)
+    and `solidAt` (0.2–1, how far through the artwork's scroll the bar turns solid).
+  - `episodes.download`: `none` (the default) or `button`, a download button beside every episode.
+  - `episodes.seasonsScroll`: `active` (the default: a `chips` or `posters` season row opens
+    scrolled to the current season) or `start` (it opens at the first season).
+- `layout.home` blocks: a `tabbed-grid` may set `default`, the 0-based index of the tab open on
+  arrival (within its `tabs`); a `profile-header` button may set `art` (`true` or `false`): `true`
+  draws the banner of one of the viewer's own titles under its label. A tab's `role` may be
+  `recent` (on any API with layouts; newer clients fill it): the recently aired titles, newest
+  first, one per show.
+
+A phone `factsLabels`, `factsFormat`, `synopsis` and `bar` merge over the shared ones key by key.

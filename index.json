@@ -6,10 +6,10 @@
     {
       "id": "izumi.blossom",
       "name": "Blossom",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": "Izumi",
       "description": "Dantotsu look: pure black and pink, a profile banner with hub cards, ★ cover rails, bottom series tabs.",
-      "themeApi": 3,
+      "themeApi": 4,
       "tags": [
         "Phone",
         "Dark",
@@ -21,9 +21,9 @@
         "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/2.0.0.json",
-      "sha256": "a705a9759a0a37392a3e3d638953a2fb8a3714aebc9dac91ce1acbdbb80aaa3c",
-      "bytes": 35702,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/2.0.1.json",
+      "sha256": "ff4288a0604f78b490ac1b0d6d67c578a2356657bc501b6b286ddafb6a343199",
+      "bytes": 120584,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.blossom.png"
     },
     {
@@ -97,10 +97,10 @@
     {
       "id": "izumi.coral",
       "name": "Coral",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "author": "Izumi",
       "description": "Zangetsu look: near-black and coral, a glowing card hero, ★ poster rails, a floating dock, full-bleed series header.",
-      "themeApi": 3,
+      "themeApi": 4,
       "tags": [
         "Phone",
         "Dark",
@@ -112,9 +112,9 @@
         "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.1.json",
-      "sha256": "32c43c3392e4d20c074afafb4be8404d65caebc0f72ddcfa2d0e916dfe5fdf21",
-      "bytes": 44649,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.coral/2.0.2.json",
+      "sha256": "2e458fc91bbd309a2075592c02edf04689820a2d303663f8f2f29eb1e0a8388c",
+      "bytes": 145869,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.coral.png"
     },
     {
@@ -246,10 +246,10 @@
     {
       "id": "izumi.lavender",
       "name": "Lavender",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "author": "Izumi",
       "description": "anilili look: black and purple, genre chips over a full-bleed hero, segmented tabs, ★ score badges, pill tabs.",
-      "themeApi": 3,
+      "themeApi": 4,
       "tags": [
         "Phone",
         "Dark",
@@ -261,9 +261,9 @@
         "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.1.json",
-      "sha256": "17239cbc27229e93ec58bca3aee6d7c375a7086c9717365b1e07fb02efce162a",
-      "bytes": 58991,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.2.json",
+      "sha256": "33d4dce2d032497980a53751de653a81811f1b7a2606d5b92c8dc1f80b99f2d2",
+      "bytes": 165176,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
     },
     {
@@ -332,10 +332,10 @@
     {
       "id": "izumi.onyx",
       "name": "Onyx",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "author": "Izumi",
       "description": "Nuvio look: white on near-black, a full-bleed hero with a View details pill, a floating pill nav, stadium buttons.",
-      "themeApi": 3,
+      "themeApi": 4,
       "tags": [
         "Phone",
         "Dark",
@@ -347,9 +347,9 @@
         "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.1.json",
-      "sha256": "a2a1122dc7782af303d99d7ff6e1d77ffaec91e6f96199806d58fb5cc9d72b5f",
-      "bytes": 34697,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.onyx/2.0.2.json",
+      "sha256": "29ad1ad471339ece2a157619a9a501cadb82639efa8aa29cb724e1a263445183",
+      "bytes": 122392,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.onyx.png"
     },
     {
