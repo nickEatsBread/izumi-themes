@@ -14,7 +14,7 @@ const scalarRanges = { radius: [0, 2], fontScale: [.85, 1.2], backdropStrength: 
 function validatePackage(pkg, entry) {
   assert.equal(pkg.app, 'izumi'); assert.equal(pkg.kind, 'theme-package'); assert.equal(pkg.schemaVersion, 1)
   for (const key of ['id', 'version', 'themeApi']) assert.equal(pkg[key], entry[key], `Package ${key} does not match its listing`)
-  assert([1, 2, 3].includes(pkg.themeApi), 'Unsupported theme API')
+  assert([1, 2, 3, 4].includes(pkg.themeApi), 'Unsupported theme API')
   for (const key of ['name', 'author', 'description']) assert.equal(typeof pkg[key], 'string')
   assert(pkg.design && !Array.isArray(pkg.design))
   const keys = pkg.themeApi >= 3 ? [...contentKeys, 'css', 'fonts'] : contentKeys
@@ -49,7 +49,7 @@ const entries = []
 for (const filename of (await readdir(new URL('entries/', root))).filter(name => name.endsWith('.json')).sort()) {
   const entry = await parse(`entries/${filename}`)
   assert(/^[a-z0-9][a-z0-9.-]{1,63}$/.test(entry.id)); assert(/^[0-9]{1,6}\.[0-9]{1,6}\.[0-9]{1,6}$/.test(entry.version))
-  assert([1, 2, 3].includes(entry.themeApi), 'Unsupported theme API'); assert(Array.isArray(entry.tags) && entry.tags.length <= 12)
+  assert([1, 2, 3, 4].includes(entry.themeApi), 'Unsupported theme API'); assert(Array.isArray(entry.tags) && entry.tags.length <= 12)
   if (entry.platforms !== undefined) {
     assert(Array.isArray(entry.platforms) && entry.platforms.length >= 1 && entry.platforms.length <= 2 && new Set(entry.platforms).size === entry.platforms.length, 'Invalid platforms')
     for (const platform of entry.platforms) assert(['desktop', 'phone'].includes(platform), `Unknown platform: ${platform}`)
