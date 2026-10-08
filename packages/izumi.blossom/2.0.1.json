@@ -1,0 +1,736 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 4,
+  "id": "izumi.blossom",
+  "name": "Blossom",
+  "version": "2.0.1",
+  "author": "Izumi",
+  "description": "Dantotsu look: pure black and pink, a profile banner with hub cards, ★ cover rails, bottom series tabs.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "0 0% 93%",
+      "muted": "0 0% 11%",
+      "mutedForeground": "0 0% 54%",
+      "primary": "328 100% 84%",
+      "primaryForeground": "317 100% 19%",
+      "secondary": "0 0% 11%",
+      "secondaryForeground": "0 0% 93%",
+      "accent": "0 0% 13%",
+      "accentForeground": "0 0% 93%",
+      "border": "264 7% 29%",
+      "input": "0 0% 11%",
+      "ring": "328 100% 84%",
+      "card": "0 0% 11%",
+      "cardForeground": "0 0% 93%",
+      "theme": "328 100% 84%"
+    },
+    "radius": 1,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "poppins",
+      "heading": "poppins",
+      "display": "poppins"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "shell": {
+        "nav": "sidebar",
+        "compact": true,
+        "bottomNav": {
+          "style": "pill",
+          "labels": "active",
+          "indicator": "none",
+          "height": 56,
+          "iconSize": 24,
+          "radius": 40,
+          "background": "#222222F9",
+          "activeColor": "#FFAED9",
+          "inactiveColor": "#9C8D93",
+          "blur": false,
+          "border": false,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 102,
+          "gap": 12,
+          "spacing": 0,
+          "titleSize": 16,
+          "heading": {
+            "weight": 700,
+            "viewMore": "arrow"
+          }
+        },
+        "byId": {
+          "continue": {
+            "heading": {
+              "weight": 700,
+              "viewMore": "arrow"
+            },
+            "empty": "shown"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "part": "blossom.card",
+          "children": [
+            {
+              "type": "overlay",
+              "part": "blossom.cover",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "part": "blossom.art",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 16,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "blossom.score",
+                  "style": {
+                    "anchor": "bottom-end",
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "rating",
+                      "part": "blossom.score-value",
+                      "when": {
+                        "field": "rating"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "0.0",
+                      "part": "blossom.score-value",
+                      "when": {
+                        "field": "rating",
+                        "absent": true
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": " ",
+                      "part": "blossom.score-star"
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "blossom.airing",
+                  "when": {
+                    "field": "nextEpisode"
+                  },
+                  "style": {
+                    "anchor": "bottom-start"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": " ",
+                      "part": "blossom.ongoing",
+                      "when": {
+                        "field": "episodesAired",
+                        "atMost": 10000
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "blossom.title",
+              "style": {
+                "lines": 2
+              }
+            },
+            {
+              "type": "row",
+              "part": "blossom.progress",
+              "style": {
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "episodesWatched",
+                  "part": "blossom.user",
+                  "when": {
+                    "field": "episodesWatched"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "~",
+                  "part": "blossom.user",
+                  "when": {
+                    "field": "episodesWatched",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " | ",
+                  "part": "blossom.total"
+                },
+                {
+                  "type": "text",
+                  "field": "episodesAired",
+                  "part": "blossom.total",
+                  "when": {
+                    "field": "nextEpisode"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " | ",
+                  "part": "blossom.total",
+                  "when": {
+                    "field": "nextEpisode"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "episodeCount",
+                  "part": "blossom.total",
+                  "when": {
+                    "field": "episodeCount"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "~",
+                  "part": "blossom.total",
+                  "when": {
+                    "field": "episodeCount",
+                    "absent": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "blossom.card",
+          "children": [
+            {
+              "type": "overlay",
+              "part": "blossom.cover",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "part": "blossom.art",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 16,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "blossom.score",
+                  "style": {
+                    "anchor": "bottom-end",
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "rating",
+                      "part": "blossom.score-value",
+                      "when": {
+                        "field": "rating"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "0.0",
+                      "part": "blossom.score-value",
+                      "when": {
+                        "field": "rating",
+                        "absent": true
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": " ",
+                      "part": "blossom.score-star"
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "blossom.airing",
+                  "when": {
+                    "field": "nextEpisode"
+                  },
+                  "style": {
+                    "anchor": "bottom-start"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": " ",
+                      "part": "blossom.ongoing",
+                      "when": {
+                        "field": "episodesAired",
+                        "atMost": 10000
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "blossom.title",
+              "style": {
+                "lines": 2
+              }
+            },
+            {
+              "type": "row",
+              "part": "blossom.progress",
+              "style": {
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "episodesWatched",
+                  "part": "blossom.user",
+                  "when": {
+                    "field": "episodesWatched"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "~",
+                  "part": "blossom.user",
+                  "when": {
+                    "field": "episodesWatched",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " | ",
+                  "part": "blossom.total"
+                },
+                {
+                  "type": "text",
+                  "field": "episodesAired",
+                  "part": "blossom.total",
+                  "when": {
+                    "field": "nextEpisode"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " | ",
+                  "part": "blossom.total",
+                  "when": {
+                    "field": "nextEpisode"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "episodeCount",
+                  "part": "blossom.total",
+                  "when": {
+                    "field": "episodeCount"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "~",
+                  "part": "blossom.total",
+                  "when": {
+                    "field": "episodeCount",
+                    "absent": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "bottom",
+        "factsStyle": "table",
+        "countdown": "long",
+        "listButton": "full",
+        "header": {
+          "type": "text",
+          "field": "status",
+          "part": "blossom.status",
+          "when": {
+            "field": "status"
+          },
+          "style": {
+            "fontSize": 14,
+            "fontWeight": 700,
+            "color": "theme",
+            "opacity": 0.66
+          }
+        },
+        "factsKeys": [
+          "score",
+          "status",
+          "episodes",
+          "duration",
+          "format",
+          "source",
+          "studio",
+          "author",
+          "season",
+          "aired",
+          "ended",
+          "members",
+          "favourites"
+        ],
+        "factsLabels": {
+          "score": "mean-score",
+          "episodes": "total-episodes",
+          "duration": "average-duration",
+          "format": "format",
+          "aired": "start-date",
+          "ended": "end-date",
+          "members": "popularity",
+          "favourites": "favourites",
+          "romaji": "name-romaji",
+          "english": "name"
+        },
+        "factsFormat": {
+          "score": "ten-of",
+          "dates": "long",
+          "counts": "raw",
+          "duration": "long",
+          "episodes": "aired-of"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "block": "profile-header",
+            "buttons": [
+              {
+                "label": "Anime List",
+                "to": "library",
+                "art": true
+              },
+              {
+                "label": "Calendar",
+                "to": "schedule",
+                "art": true
+              }
+            ]
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "list"
+          },
+          {
+            "role": "recommendations"
+          },
+          {
+            "role": "trending"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "role": "popular"
+          }
+        ],
+        "nav": {
+          "home": 1,
+          "bottom": [
+            "search",
+            "library"
+          ],
+          "top": [
+            "search",
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "rootSize": 16,
+        "detail": {
+          "posterWidth": 108,
+          "bar": {
+            "home": true,
+            "solidAt": 0.54
+          },
+          "nav": "hidden",
+          "continue": "card",
+          "buttons": [
+            "list"
+          ],
+          "actionsLead": {
+            "type": "stack",
+            "part": "blossom.lead",
+            "children": [
+              {
+                "type": "text",
+                "text": "Watched ",
+                "when": {
+                  "field": "episodesWatched"
+                }
+              },
+              {
+                "type": "text",
+                "field": "episodesWatched",
+                "part": "blossom.lead-user",
+                "when": {
+                  "field": "episodesWatched"
+                }
+              },
+              {
+                "type": "text",
+                "text": " out of ",
+                "when": {
+                  "field": "episodesWatched"
+                }
+              },
+              {
+                "type": "text",
+                "text": "Total of ",
+                "when": {
+                  "field": "episodesWatched",
+                  "absent": true
+                }
+              },
+              {
+                "type": "text",
+                "field": "episodesAired",
+                "part": "blossom.lead-num",
+                "when": {
+                  "field": "nextEpisode"
+                }
+              },
+              {
+                "type": "text",
+                "text": " / ",
+                "when": {
+                  "field": "nextEpisode"
+                }
+              },
+              {
+                "type": "text",
+                "field": "episodeCount",
+                "part": "blossom.lead-num",
+                "when": {
+                  "field": "episodeCount"
+                }
+              },
+              {
+                "type": "text",
+                "text": "??",
+                "part": "blossom.lead-unknown",
+                "when": {
+                  "field": "episodeCount",
+                  "absent": true
+                }
+              }
+            ]
+          },
+          "countdown": "full",
+          "countdownAt": "both",
+          "countdownWithin": 28,
+          "sections": {
+            "tabs": [
+              "overview",
+              "episodes"
+            ],
+            "labels": {
+              "overview": "info",
+              "episodes": "watch"
+            },
+            "default": "overview",
+            "info": "overview"
+          },
+          "episodes": {
+            "placement": "tab",
+            "arrangement": "list",
+            "hover": "none",
+            "search": false,
+            "toolbar": "header",
+            "controls": [],
+            "paging": "ranges",
+            "pageSize": "auto",
+            "card": {
+              "type": "stack",
+              "part": "blossom.ep",
+              "children": [
+                {
+                  "type": "row",
+                  "part": "blossom.ep-head",
+                  "children": [
+                    {
+                      "type": "overlay",
+                      "part": "blossom.ep-thumb",
+                      "children": [
+                        {
+                          "type": "artwork",
+                          "artwork": "still",
+                          "part": "episode.still",
+                          "style": {
+                            "fit": "cover"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodeNo",
+                          "part": "episode.number",
+                          "style": {
+                            "anchor": "top-start"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": " ",
+                          "part": "blossom.ep-eye",
+                          "when": {
+                            "field": "watched"
+                          },
+                          "style": {
+                            "anchor": "bottom-start"
+                          }
+                        },
+                        {
+                          "type": "meter",
+                          "field": "progress",
+                          "part": "blossom.ep-progress",
+                          "when": {
+                            "field": "progress",
+                            "atMost": 100
+                          },
+                          "style": {
+                            "anchor": "bottom-start"
+                          }
+                        },
+                        {
+                          "type": "row",
+                          "part": "blossom.ep-rating",
+                          "when": {
+                            "field": "rating"
+                          },
+                          "style": {
+                            "anchor": "bottom-end"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "★ "
+                            },
+                            {
+                              "type": "text",
+                              "field": "rating"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "stack",
+                      "part": "blossom.ep-text",
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "filler",
+                          "part": "blossom.ep-filler",
+                          "when": {
+                            "field": "filler"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodeTitle",
+                          "part": "episode.title",
+                          "style": {
+                            "lines": 5
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "airDate",
+                          "part": "blossom.ep-date",
+                          "when": {
+                            "field": "airDate"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "blossom.ep-desc",
+                  "when": {
+                    "field": "description"
+                  },
+                  "style": {
+                    "lines": 3
+                  }
+                }
+              ]
+            },
+            "download": "button"
+          },
+          "factsKeys": [
+            "score",
+            "status",
+            "episodes",
+            "duration",
+            "format",
+            "source",
+            "studio",
+            "author",
+            "season",
+            "aired",
+            "ended",
+            "members",
+            "favourites",
+            "romaji",
+            "english"
+          ],
+          "artFallback": "cover"
+        }
+      }
+    },
+    "css": "/* Blossom: Dantotsu's look (docs/theme-references/dantotsu-phone-parity.md). AMOLED black, the Pink\n   seed, Poppins and 16 dp corners. Text metrics follow Dantotsu's Poppins v2 line boxes as the\n   1080x2400 / 420 dpi emulator draws them: a 12 sp line is 20.19 dp, 14 sp 23.62 dp, 16 sp 26.67 dp.\n   Icons are Material Symbols Rounded (Apache-2.0) masks. */\n\n/* ---- Poster card (cards.poster and cards.continue: Continue Watching is a poster row in Dantotsu).\n   item_media_compact.xml: a 102x154 cover with 16 dp corners, the score badge flush in the\n   bottom-right corner (only its top-left corner rounded, 20 dp), the airing dot flush in the\n   bottom-left corner, a 108 dp wide two-line title 6 dp under the cover and the \"~ | 12\" line. */\n[data-part=\"blossom.cover\"] { overflow: visible !important; }\n[data-part=\"blossom.art\"] { aspect-ratio: 102 / 154 !important; border-radius: 16px; background: #2a2c36; }\n[data-part=\"blossom.score\"] {\n  gap: 0; margin: 0; padding: 0 6px 0 8px; border-radius: 20px 0 16px 0;\n  background: #ffaed9; color: #610046;\n}\n[data-part=\"blossom.score-value\"] { margin-left: 2px; padding: 0.2px 0 1.8px; font: 700 12px/20.19px var(--ui-font); letter-spacing: 0; }\n[data-part=\"blossom.score-star\"] {\n  display: block; width: 12px; height: 12px; background: #610046;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M480-269%20314-169q-11%207-23%206t-21-8q-9-7-14-17.5t-2-23.5l44-189-147-127q-10-9-12.5-20.5T140-571q4-11%2012-18t22-9l194-17%2075-178q5-12%2015.5-18t21.5-6q11%200%2021.5%206t15.5%2018l75%20178%20194%2017q14%202%2022%209t12%2018q4%2011%201.5%2022.5T809-528L662-401l44%20189q3%2013-2%2023.5T690-171q-9%207-21%208t-23-6L480-269Z%22%2F%3E%3C%2Fsvg%3E) center / 12px 12px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M480-269%20314-169q-11%207-23%206t-21-8q-9-7-14-17.5t-2-23.5l44-189-147-127q-10-9-12.5-20.5T140-571q4-11%2012-18t22-9l194-17%2075-178q5-12%2015.5-18t21.5-6q11%200%2021.5%206t15.5%2018l75%20178%20194%2017q14%202%2022%209t12%2018q4%2011%201.5%2022.5T809-528L662-401l44%20189q3%2013-2%2023.5T690-171q-9%207-21%208t-23-6L480-269Z%22%2F%3E%3C%2Fsvg%3E) center / 12px 12px no-repeat;\n}\n[data-part=\"blossom.airing\"] { gap: 0; }\n[data-part=\"blossom.ongoing\"] { display: block; box-sizing: border-box; width: 16px; height: 16px; border: 2px solid #208358; border-radius: 8px; background: #6bf170; }\n/* Dantotsu drops the line spacing only between lines: two lines are 41.5 dp, one is 23.6 dp. The small\n   `top` offsets put the glyphs where Poppins v2 draws them on the device (measured against the emulator). */\n[data-part=\"blossom.title\"] { position: relative; top: 0.5px; margin: 6px -3px 4.17px; font: 400 14px/18.67px var(--ui-font); letter-spacing: 0; color: #eeeeee; }\n[data-part=\"blossom.progress\"] { position: relative; top: -1.4px; gap: 0; margin: 0 -3px 10px; white-space: pre; font: 400 14px/23.62px var(--ui-font); letter-spacing: 0; }\n/* The text runs 3 dp past the cover on each side where the card is the reference's 102 dp; in grids\n   that stretch the card to their cell (whose items clip their paint) it keeps to the cover. */\n[data-slot=\"search.results\"] :is([data-part=\"blossom.title\"], [data-part=\"blossom.progress\"]) { margin-inline: 0; }\n[data-part=\"blossom.user\"] { color: #dfbecd; }\n[data-part=\"blossom.total\"] { color: rgb(238 238 238 / 0.58); }\n\n/* Continue Watching resolves its source on tap: the wait shows on the cover as a primary ring on a\n   60 % veil (Dantotsu's ProgressBar colours) instead of izumi's white disc over the whole card. */\n[data-family=\"continue\"] > [data-part=\"card.overlay\"][data-state=\"resolving\"] {\n  inset: 0 0 auto; aspect-ratio: 102 / 154; height: auto; border-radius: 16px; background: rgb(0 0 0 / 0.6);\n}\n[data-family=\"continue\"] > [data-part=\"card.overlay\"][data-state=\"resolving\"] > span { width: 40px; height: 40px; background: none; color: #ffaed9; }\n[data-family=\"continue\"] > [data-part=\"card.overlay\"][data-state=\"resolving\"] svg { width: 40px; height: 40px; stroke-width: 2.5; }\n\n/* ---- Rows (fragment_home.xml): a 42.67 dp heading with the title at x 32 and a 24 dp arrow in a\n   40 dp box, then a 250 dp track whose first cover sits at x 26, 6 dp under the track top, 12 apart.\n   Row pitch 292.67 dp. A 12 dp fade on the edges (FadingEdgeRecyclerView). */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-weight: 700; letter-spacing: 0; color: #eeeeee; }\n@media (max-width: 640px) {\n  [data-slot=\"row\"] { margin-bottom: 0 !important; }\n  [data-slot=\"row\"] [data-part=\"row.header\"] { align-items: center; min-height: 42.67px; margin: 0; padding: 8px 16px 8px 32px; }\n  [data-slot=\"row\"] [data-part=\"row.title\"] { position: relative; top: 0.9px; font: 700 16px/26.67px var(--font-heading) !important; }\n  [data-slot=\"row\"] [data-part=\"row.more\"] { width: 40px; height: 40px; margin: -6.67px 0; padding: 8px; color: #cac4d0; translate: 3.4px 0; }\n  [data-slot=\"row\"] [data-part=\"row.more\"] > svg { display: none; }\n  [data-slot=\"row\"] [data-part=\"row.more\"]::before {\n    content: \"\"; display: block; width: 24px; height: 24px; background: currentColor;\n    -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M647-440H160v-80h487L423-744l57-56%20320%20320-320%20320-57-56%20224-224Z%22%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M647-440H160v-80h487L423-744l57-56%20320%20320-320%20320-57-56%20224-224Z%22%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat;\n  }\n  [data-slot=\"row\"] [data-part=\"row.track\"] {\n    align-items: flex-start; min-height: 250px; padding: 6px 26px 0 !important; scroll-padding-inline: 26px;\n    -webkit-mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);\n    mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);\n  }\n  /* Home ends with Dantotsu's 128 dp spacer (izumi already reserves the bar's 88). */\n  [data-slot=\"home\"] { padding-bottom: 40px; }\n\n  /* Continue Watching with nothing to continue (fragment_home.xml homeWatchingEmpty; design.json\n     rows.byId.continue.empty \"shown\"): the row keeps its heading and its 250 dp track holds, centred,\n     the 32 dp movie_filter glyph (colorControlNormal) and the 14 sp line, both at 0.58, then the\n     128 dp filled M3 button 12 dp lower (4 dp insets, 24 dp padding, 16 dp corners), whose\n     \"Browse Anime\" breaks onto two lines in its 80 dp. Dantotsu's wording; screen readers keep izumi's. */\n  [data-slot=\"row\"] [data-part=\"row.empty\"] {\n    flex: 0 0 calc(100% + 52px); box-sizing: border-box; height: 250px; min-height: 0; margin: -6px -26px 0; padding: 0;\n    gap: 0; justify-content: center; align-items: center; border: 0; border-radius: 0; background: none;\n  }\n  [data-slot=\"row\"] [data-part=\"row.empty\"]::before {\n    content: \"\"; flex: 0 0 32px; width: 32px; height: 32px; background: #d4c2c8; opacity: 0.58;\n    -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m342-362%2029%2062q3%206%209%206t9-6l29-62%2062-29q6-3%206-9t-6-9l-62-29-29-62q-3-6-9-6t-9%206l-29%2062-62%2029q-6%203-6%209t6%209l62%2029Zm252-52%2017%2035q3%206%209%206t9-6l17-35%2035-17q6-3%206-9t-6-9l-35-17-17-35q-3-6-9-6t-9%206l-17%2035-35%2017q-6%203-6%209t6%209l35%2017ZM160-800l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h120q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800Z%22%2F%3E%3C%2Fsvg%3E) center / 32px 32px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m342-362%2029%2062q3%206%209%206t9-6l29-62%2062-29q6-3%206-9t-6-9l-62-29-29-62q-3-6-9-6t-9%206l-29%2062-62%2029q-6%203-6%209t6%209l62%2029Zm252-52%2017%2035q3%206%209%206t9-6l17-35%2035-17q6-3%206-9t-6-9l-35-17-17-35q-3-6-9-6t-9%206l-17%2035-35%2017q-6%203-6%209t6%209l35%2017ZM160-800l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h120q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800Z%22%2F%3E%3C%2Fsvg%3E) center / 32px 32px no-repeat;\n  }\n  [data-slot=\"row\"] [data-part=\"row.empty.text\"] { margin: 0; font-size: 0; line-height: 0; color: rgb(235 224 226 / 0.58); }\n  [data-slot=\"row\"] [data-part=\"row.empty.text\"]::before { content: \"All caught up, when New?\" / \"\"; font: 400 14px/23.62px var(--ui-font); letter-spacing: 0; }\n  [data-slot=\"row\"] [data-part=\"row.empty.action\"] {\n    display: block; box-sizing: border-box; width: 128px; min-height: 40px; margin: 16px 0 4px; padding: 6px 24px;\n    border-radius: 16px; background: #ffaed9; font-size: 0; line-height: 0; text-align: center; color: #610046;\n  }\n  [data-slot=\"row\"] [data-part=\"row.empty.action\"]::before { content: \"Browse Anime\" / \"\"; font: 500 14px/23.62px var(--ui-font); letter-spacing: 0.1px; }\n}\n\n/* ---- Bottom navigation (item_navbar.xml + AnimatedBottomBar defaults): a 240x56 pill 32 dp above the\n   gesture inset, 6 dp padding, three 76 dp tabs. The active tab shows only its label (14 sp bold caps,\n   primary) over a 20x3 tertiary bar 6 dp above the pill edge; the others show only a 24 dp filled\n   glyph in colorOutline. It never hides on scroll. */\n[data-slot=\"nav.bottom\"] {\n  width: calc(var(--nav-items, 3) * 76px + 12px); min-width: 0; height: 56px; padding: 6px !important; gap: 0 !important;\n  bottom: calc(32px + env(safe-area-inset-bottom)) !important;\n  box-shadow: 0 4px 8px rgb(0 0 0 / 0.16) !important;\n}\n/* Three tabs make Dantotsu's 240 dp pill (3 x 76 + the 6 dp padding each side); the bar publishes its\n   destination count (--nav-items, Home included), so a bar with more destinations grows by 76 dp a tab. */\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"] { flex: 1 0 76px; width: 76px; height: 44px !important; padding: 0 !important; gap: 0; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item.icon\"] { width: 24px; height: 24px; padding: 0; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item.icon\"] > svg { display: none; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item.icon\"]::before {\n  content: \"\"; display: block; width: 24px; height: 24px; background: currentColor;\n  -webkit-mask: var(--blossom-glyph) center / 24px 24px no-repeat; mask: var(--blossom-glyph) center / 24px 24px no-repeat;\n}\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] { display: none; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item.label\"] { padding: 0 2px; font: 700 14px/23.62px var(--ui-font); letter-spacing: 0.27px; text-transform: uppercase; white-space: nowrap; }\n[data-slot=\"nav.bottom\"] [data-dest=\"search\"] [data-part=\"nav.item.label\"] { font-size: 0; line-height: 0; }\n[data-slot=\"nav.bottom\"] [data-dest=\"search\"] [data-part=\"nav.item.label\"]::before { content: \"Anime\" / \"\"; font-size: 14px; line-height: 23.62px; }\n[data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-active]::after {\n  content: \"\"; position: absolute; bottom: 0; left: calc(50% - 10px); width: 20px; height: 3px; background: #f3ba9c;\n}\n\n/* Glyph per destination (people reorder destinations, so never by position). The left tab is\n   Dantotsu's Anime tab (where it browses and searches), the right one its open-book tab. */\n[data-dest] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m160-800%2065%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h120q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-dest=\"home\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M160-200v-360q0-19%208.5-36t23.5-28l240-180q21-16%2048-16t48%2016l240%20180q15%2011%2023.5%2028t8.5%2036v360q0%2033-23.5%2056.5T720-120H600q-17%200-28.5-11.5T560-160v-200q0-17-11.5-28.5T520-400h-80q-17%200-28.5%2011.5T400-360v200q0%2017-11.5%2028.5T360-120H240q-33%200-56.5-23.5T160-200Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-dest=\"search\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m342-362%2029%2062q3%206%209%206t9-6l29-62%2062-29q6-3%206-9t-6-9l-62-29-29-62q-3-6-9-6t-9%206l-29%2062-62%2029q-6%203-6%209t6%209l62%2029Zm252-52%2017%2035q3%206%209%206t9-6l17-35%2035-17q6-3%206-9t-6-9l-35-17-17-35q-3-6-9-6t-9%206l-17%2035-35%2017q-6%203-6%209t6%209l35%2017ZM160-800l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h120q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-dest=\"library\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M520-278q44-21%2088.5-31.5T700-320q36%200%2070.5%206t69.5%2018v-396q-33-14-68.5-21t-71.5-7q-47%200-93%2012t-87%2036v394Zm-66.5%2093.5Q441-188%20430-194q-39-23-82-34.5T260-240q-42%200-82.5%2011T100-198q-21%2011-40.5-1T40-234v-482q0-11%205.5-21T62-752q47-23%2096.5-35.5T260-800q58%200%20113.5%2015T480-740q51-30%20106.5-45T700-800q52%200%20101.5%2012.5T898-752q11%205%2016.5%2015t5.5%2021v482q0%2023-19.5%2035t-40.5%201q-37-20-77.5-31T700-240q-45%200-88%2011.5T530-194q-11%206-23.5%209.5T480-181q-14%200-26.5-3.5Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-dest=\"schedule\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M200-80q-33%200-56.5-23.5T120-160v-560q0-33%2023.5-56.5T200-800h40v-40q0-17%2011.5-28.5T280-880q17%200%2028.5%2011.5T320-840v40h320v-40q0-17%2011.5-28.5T680-880q17%200%2028.5%2011.5T720-840v40h40q33%200%2056.5%2023.5T840-720v560q0%2033-23.5%2056.5T760-80H200Zm0-80h560v-400H200v400Zm280-240q-17%200-28.5-11.5T440-440q0-17%2011.5-28.5T480-480q17%200%2028.5%2011.5T520-440q0%2017-11.5%2028.5T480-400Zm-188.5-11.5Q280-423%20280-440t11.5-28.5Q303-480%20320-480t28.5%2011.5Q360-457%20360-440t-11.5%2028.5Q337-400%20320-400t-28.5-11.5ZM640-400q-17%200-28.5-11.5T600-440q0-17%2011.5-28.5T640-480q17%200%2028.5%2011.5T680-440q0%2017-11.5%2028.5T640-400ZM480-240q-17%200-28.5-11.5T440-280q0-17%2011.5-28.5T480-320q17%200%2028.5%2011.5T520-280q0%2017-11.5%2028.5T480-240Zm-188.5-11.5Q280-263%20280-280t11.5-28.5Q303-320%20320-320t28.5%2011.5Q360-297%20360-280t-11.5%2028.5Q337-240%20320-240t-28.5-11.5ZM640-240q-17%200-28.5-11.5T600-280q0-17%2011.5-28.5T640-320q17%200%2028.5%2011.5T680-280q0%2017-11.5%2028.5T640-240Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-dest=\"downloads\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M465-339.5q-7-2.5-13-8.5L308-492q-12-12-11.5-28t11.5-28q12-12%2028.5-12.5T365-549l75%2075v-286q0-17%2011.5-28.5T480-800q17%200%2028.5%2011.5T520-760v286l75-75q12-12%2028.5-11.5T652-548q11%2012%2011.5%2028T652-492L508-348q-6%206-13%208.5t-15%202.5q-8%200-15-2.5ZM240-160q-33%200-56.5-23.5T160-240v-80q0-17%2011.5-28.5T200-360q17%200%2028.5%2011.5T240-320v80h480v-80q0-17%2011.5-28.5T760-360q17%200%2028.5%2011.5T800-320v80q0%2033-23.5%2056.5T720-160H240Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-dest=\"settings\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M433-80q-27%200-46.5-18T363-142l-9-66q-13-5-24.5-12T307-235l-62%2026q-25%2011-50%202t-39-32l-47-82q-14-23-8-49t27-43l53-40q-1-7-1-13.5v-27q0-6.5%201-13.5l-53-40q-21-17-27-43t8-49l47-82q14-23%2039-32t50%202l62%2026q11-8%2023-15t24-12l9-66q4-26%2023.5-44t46.5-18h94q27%200%2046.5%2018t23.5%2044l9%2066q13%205%2024.5%2012t22.5%2015l62-26q25-11%2050-2t39%2032l47%2082q14%2023%208%2049t-27%2043l-53%2040q1%207%201%2013.5v27q0%206.5-2%2013.5l53%2040q21%2017%2027%2043t-8%2049l-48%2082q-14%2023-39%2032t-50-2l-60-26q-11%208-23%2015t-24%2012l-9%2066q-4%2026-23.5%2044T527-80h-94Zm49-260q58%200%2099-41t41-99q0-58-41-99t-99-41q-59%200-99.5%2041T342-480q0%2058%2040.5%2099t99.5%2041Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-dest=\"watch\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M40-272q0-34%2017.5-62.5T104-378q62-31%20126-46.5T360-440q66%200%20130%2015.5T616-378q29%2015%2046.5%2043.5T680-272v32q0%2033-23.5%2056.5T600-160H120q-33%200-56.5-23.5T40-240v-32Zm698%20112q11-18%2016.5-38.5T760-240v-40q0-44-24.5-84.5T666-434q51%206%2096%2020.5t84%2035.5q36%2020%2055%2044.5t19%2053.5v40q0%2033-23.5%2056.5T840-160H738ZM247-527q-47-47-47-113t47-113q47-47%20113-47t113%2047q47%2047%2047%20113t-47%20113q-47%2047-113%2047t-113-47Zm466%200q-47%2047-113%2047-11%200-28-2.5t-28-5.5q27-32%2041.5-71t14.5-81q0-42-14.5-81T544-792q14-5%2028-6.5t28-1.5q66%200%20113%2047t47%20113q0%2066-47%20113Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-dest=\"trakt\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m442-380%20166-106q18-12%2018-34t-18-34L442-660q-20-13-41-2t-21%2035v214q0%2024%2021%2035t41-2ZM160-200q-33%200-56.5-23.5T80-280v-480q0-33%2023.5-56.5T160-840h640q33%200%2056.5%2023.5T880-760v480q0%2033-23.5%2056.5T800-200H640v40q0%2017-11.5%2028.5T600-120H360q-17%200-28.5-11.5T320-160v-40H160Z%22%2F%3E%3C%2Fsvg%3E); }\n\n/* ---- Home header (fragment_home.xml). Dantotsu has no app bar: the profile row sits on the user's\n   banner. The izumi mark keeps its own size in a 48 dp strip at the top (the one geometric\n   allowance, so everything below runs 16 dp lower than Dantotsu's), the banner and its fade run\n   under the status bar, and the header icons become Dantotsu's 52 dp outlined circles at the\n   profile row's right edge. Settings lies over the avatar: tapping the avatar opens settings, as\n   in Dantotsu. Phones only. */\n@keyframes blossom-ken-burns { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.18) translate(-3%, -2%); } }\n@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {\n  :scope:not(.a11y-reduce-motion) [data-slot=\"block.profile-header\"] [data-part=\"block.banner\"] { animation: blossom-ken-burns 25s ease-in-out infinite alternate; }\n}\n@media (max-width: 640px) {\n  [data-slot=\"page\"]:has([data-slot=\"block.profile-header\"]) { --main-safe-top: 0px; }\n  [data-slot=\"page\"]:has([data-slot=\"block.profile-header\"]) [data-slot=\"home.header\"] {\n    position: absolute; inset: 0 0 auto; z-index: 5; height: calc(48px + env(safe-area-inset-top));\n    margin: 0; padding: env(safe-area-inset-top) 32px 0; pointer-events: none;\n  }\n  [data-slot=\"page\"]:has([data-slot=\"block.profile-header\"]) [data-slot=\"home.header\"] > :has(> [data-part=\"home.header.actions\"]) { height: 48px; }\n  [data-slot=\"page\"]:has([data-slot=\"block.profile-header\"]) [data-slot=\"home.header\"] > * > :not([data-part=\"home.header.actions\"]) { pointer-events: auto; }\n  [data-slot=\"page\"]:has([data-slot=\"block.profile-header\"]) [data-part=\"home.header.actions\"] {\n    position: absolute; top: calc(env(safe-area-inset-top) + 52px); right: 32px; flex-direction: row; gap: 10px; pointer-events: auto;\n  }\n  [data-part=\"home.header.action\"] {\n    width: 52px; height: 52px; margin: 0; border: 1px solid #49454f; border-radius: 26px; background: transparent !important; color: #eeeeee;\n  }\n  [data-part=\"home.header.action\"] > svg { display: none; }\n  [data-part=\"home.header.action\"]::before {\n    content: \"\"; display: block; width: 28.8px; height: 28.8px; background: currentColor;\n    -webkit-mask: var(--blossom-glyph) center / contain no-repeat; mask: var(--blossom-glyph) center / contain no-repeat;\n  }\n  [data-part=\"home.header.action\"][data-dest=\"search\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M380-320q-109%200-184.5-75.5T120-580q0-109%2075.5-184.5T380-840q109%200%20184.5%2075.5T640-580q0%2044-14%2083t-38%2069l224%20224q11%2011%2011%2028t-11%2028q-11%2011-28%2011t-28-11L532-372q-30%2024-69%2038t-83%2014Zm0-80q75%200%20127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75%200-127.5%2052.5T200-580q0%2075%2052.5%20127.5T380-400Z%22%2F%3E%3C%2Fsvg%3E); }\n  /* Settings is the right-most circle; with a profile header it lies over the avatar (the avatar\n     shows through; without a picture Dantotsu's 32 dp gear stands in). */\n  [data-part=\"home.header.action\"][data-dest=\"settings\"] { order: 9; }\n  [data-part=\"home.header.action\"][data-dest=\"settings\"]::before { width: 32px; height: 32px; }\n  [data-slot=\"page\"]:has([data-slot=\"block.profile-header\"] img[data-part=\"block.avatar\"]) [data-part=\"home.header.action\"][data-dest=\"settings\"] { border-color: transparent; }\n  [data-slot=\"page\"]:has([data-slot=\"block.profile-header\"] img[data-part=\"block.avatar\"]) [data-part=\"home.header.action\"][data-dest=\"settings\"]::before { visibility: hidden; }\n\n  /* Banner 232 + S (216 + the brand strip), crisp, drifting; the fade runs from 94 dp above the\n     page top to the block's end (linear_gradient_bg: #000 at the bottom, clear #1C1C1C at the top). */\n  [data-slot=\"block.profile-header\"] { margin: 0 !important; padding: 0 !important; }\n  [data-slot=\"block.profile-header\"] > :has(> [data-part=\"block.banner\"]) { border-radius: 0; background: transparent; }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.banner\"] { inset: 0 0 auto; height: calc(232px + env(safe-area-inset-top)); transform-origin: 50% 0; }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.scrim\"] {\n    inset: -94px 0 auto; height: calc(334px + env(safe-area-inset-top));\n    background: linear-gradient(to top, #000, rgb(28 28 28 / 0)) !important;\n  }\n  /* Profile row: padding 32 (+16), min 64; name and stats left, the 52 dp outlined avatar right. */\n  [data-slot=\"block.profile-header\"] [data-part=\"block.profile\"] {\n    align-items: flex-start; gap: 0; min-height: calc(env(safe-area-inset-top) + 144px);\n    padding: calc(env(safe-area-inset-top) + 48px) 32px 32px;\n  }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.avatar\"] {\n    order: 2; box-sizing: border-box; width: 52px; height: 52px; margin: 4px 0 0 10px;\n    border: 1px solid #49454f !important; background: transparent;\n  }\n  [data-slot=\"block.profile-header\"] span[data-part=\"block.avatar\"] { font-size: 0; }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.name\"] { margin-bottom: -4px; font: 700 16px/26.67px var(--ui-font); letter-spacing: 0; color: #eeeeee; }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.stat\"] {\n    display: flex !important; flex-direction: row-reverse; justify-content: flex-end; gap: 4px;\n    font: 400 12px/20.19px var(--ui-font); letter-spacing: 0;\n  }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.stat\"]::before { content: none !important; display: none; }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.stat.label\"] { color: rgb(238 238 238 / 0.58); text-transform: capitalize; }\n  /* Dantotsu's wording for the first line (\"Episodes Watched 26\"). */\n  [data-slot=\"block.profile-header\"] [data-part=\"block.stat\"][data-key=\"episodes\"] [data-part=\"block.stat.label\"] { font-size: 0; line-height: 0; }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.stat\"][data-key=\"episodes\"] [data-part=\"block.stat.label\"]::before { content: \"Episodes Watched\"; font-size: 12px; line-height: 20.19px; }\n  [data-slot=\"block.profile-header\"] [data-part=\"block.stat.value\"] { font-weight: 700; color: #ffaed9; }\n\n  /* Hub cards: 166x72 at x 32 / W-198, 16 dp corners, the 1 dp outlineVariant ring on the outlined\n     card's black fill, a 16 sp bold caps label straight over a 64x2 primary bar. Anime List sits 4 dp\n     lower than its neighbour (its 8 dp margins centre it in a 96 dp box), as in the app. */\n  [data-slot=\"block.profile-header\"] :has(> [data-part=\"button\"]) {\n    display: grid; grid-template-columns: repeat(2, minmax(0, 256px)); justify-content: space-between; align-items: start;\n    gap: 16px; padding: 8px 32px 16px; background: none;\n  }\n  [data-slot=\"block.profile-header\"] [data-part=\"button\"][data-dest=\"library\"] { margin: 4px 0 -4px; }\n}\n[data-slot=\"block.profile-header\"] [data-part=\"button\"] {\n  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;\n  box-sizing: border-box; height: 72px; padding: 0 12px; border: 1px solid #49454f; border-radius: 16px;\n  background: #000; backdrop-filter: none;\n  font: 700 16px/26.67px var(--ui-font); letter-spacing: 0; text-align: center; text-transform: uppercase; white-space: nowrap; color: #eeeeee;\n}\n[data-slot=\"block.profile-header\"] [data-part=\"button\"]::after { content: \"\"; display: block; width: 64px; height: 2px; background: #ffaed9; }\n/* Hub art (art: true): a banner from the viewer's own titles under 60 % black, label and bar on top. */\n[data-slot=\"block.profile-header\"] [data-part=\"button\"] { overflow: hidden; }\n[data-slot=\"block.profile-header\"] [data-part=\"button\"]::before { content: \"\"; position: absolute; inset: 0; z-index: 1; background: rgb(0 0 0 / 0.6); }\n[data-slot=\"block.profile-header\"] [data-part=\"button\"]:not(:has([data-part=\"block.button.art\"]))::before { content: none; }\n[data-slot=\"block.profile-header\"] [data-part=\"block.button.art\"] { z-index: 0; }\n[data-slot=\"block.profile-header\"] [data-part=\"button\"] > span { position: relative; z-index: 2; }\n[data-slot=\"block.profile-header\"] [data-part=\"button\"]::after { position: relative; z-index: 2; }\n[data-slot=\"block.profile-header\"] [data-part=\"block.name\"] { font-weight: 700; }\n\n/* ---- Search (activity_search.xml + item_search_header.xml): an outlined 28 dp-round field at x 24\n   (fill #000, 1 dp onSurface @0.38 ring, primary 2 dp when focused, 14 sp bold, the search glyph at\n   the end), the 36 dp tonal filter buttons (#1C1C1C, 18 dp round, 13 sp bold primary), and results in\n   screenWidth/120 columns with each 102 dp card 6 dp into its cell. Phones only. */\n@media (max-width: 640px) {\n  [data-part=\"search.filters\"] > [data-part=\"search.field\"] {\n    box-sizing: border-box; width: calc(100% - 16px); height: 50.67px; margin: 13.33px 8px 0; padding: 0 48px 0 16px;\n    border: 1px solid rgb(235 224 226 / 0.38); border-radius: 28px;\n    background: #000 url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20fill%3D%22%23D4C2C8%22%20d%3D%22M380-320q-109%200-184.5-75.5T120-580q0-109%2075.5-184.5T380-840q109%200%20184.5%2075.5T640-580q0%2044-14%2083t-38%2069l224%20224q11%2011%2011%2028t-11%2028q-11%2011-28%2011t-28-11L532-372q-30%2024-69%2038t-83%2014Zm0-80q75%200%20127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75%200-127.5%2052.5T200-580q0%2075%2052.5%20127.5T380-400Z%22%2F%3E%3C%2Fsvg%3E) right 12px center / 24px 24px no-repeat;\n    font: 700 14px/23.62px var(--ui-font); letter-spacing: 0; color: #eeeeee;\n  }\n  [data-part=\"search.filters\"] > [data-part=\"search.field\"]:focus { border: 2px solid #ffaed9; padding-left: 15px; }\n  [data-part=\"search.filters\"] > [data-part=\"search.field\"]::placeholder { color: #d4c2c8; opacity: 1; }\n  [data-part=\"search.filters\"] > :has([data-part=\"search.filter\"]) { gap: 8px; padding-inline: 24px; }\n  [data-part=\"search.filter\"] {\n    flex: 0 0 auto; height: 36px; min-height: 36px; padding: 0 12px; border: 0; border-radius: 18px;\n    background: #1c1c1c; font: 700 13px/21.9px var(--ui-font); letter-spacing: 0; color: #ffaed9;\n  }\n  [data-part=\"search.filter\"] :is(span, svg) { color: #ffaed9 !important; }\n  [data-part=\"search.grid\"] { column-gap: 0 !important; row-gap: 0 !important; }\n  [data-slot=\"search.results\"] [data-part=\"card\"] { width: 102px !important; margin: 0 0 0 6px; padding-top: 6px; }\n  [data-slot=\"search.results\"] :is([data-part=\"blossom.title\"], [data-part=\"blossom.progress\"]) { margin-inline: -3px; }\n}\n/* ---- Loading rows (MediaAdaptor skeleton binding + skeleton_*.xml): a #2A2C36 102x154 cover with\n   16 dp corners, a 108x12 title bar (6 dp corners) and a 54x8 #232530 stats bar, no shimmer.\n   Continue Watching loads the same poster placeholders. */\n@media (max-width: 640px) {\n  [data-slot=\"row\"] [data-part=\"row.skeleton\"] {\n    flex: 0 0 102px; width: 102px !important; height: 154px; aspect-ratio: auto !important; overflow: visible;\n    border-radius: 16px; background: #2a2c36;\n  }\n  [data-slot=\"row\"] [data-part=\"row.skeleton\"]::before {\n    inset: auto; left: -3px; top: 164px; width: 108px; height: 12px; transform: none; animation: none;\n    border-radius: 6px; background: #2a2c36;\n  }\n  [data-slot=\"row\"] [data-part=\"row.skeleton\"]::after {\n    content: \"\"; position: absolute; left: -3px; top: 184px; width: 54px; height: 8px; border-radius: 4px; background: #232530;\n  }\n}\n/* ---- Motion (Functions.kt setSlideIn / setAnimation): cards slide in from their own width with a\n   1.1 overshoot over 750 ms while fading in over 500 ms, each 25 % (187 ms) after the previous, and\n   pop from scale 0 over 150 ms. Off under reduced motion. */\n@keyframes blossom-slide-in { from { translate: 100% 0; } to { translate: 0 0; } }\n@keyframes blossom-fade-in { from { opacity: 0; } to { opacity: 1; } }\n@keyframes blossom-card-pop { from { scale: 0; } to { scale: 1; } }\n@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {\n  :scope:not(.a11y-reduce-motion) [data-slot=\"row\"] [data-part=\"row.track\"] > :has(> [data-part=\"card\"]) {\n    animation: blossom-slide-in 750ms cubic-bezier(.3, 1.25, .6, 1) both, blossom-fade-in 500ms ease-in-out both, blossom-card-pop 150ms cubic-bezier(.3, 1.35, .6, 1) both;\n  }\n  :scope:not(.a11y-reduce-motion) [data-slot=\"row\"] [data-part=\"row.track\"] > :has(> [data-part=\"card\"]):nth-child(2) { animation-delay: 187ms; }\n  :scope:not(.a11y-reduce-motion) [data-slot=\"row\"] [data-part=\"row.track\"] > :has(> [data-part=\"card\"]):nth-child(3) { animation-delay: 375ms; }\n  :scope:not(.a11y-reduce-motion) [data-slot=\"row\"] [data-part=\"row.track\"] > :has(> [data-part=\"card\"]):nth-child(4) { animation-delay: 562ms; }\n  :scope:not(.a11y-reduce-motion) [data-slot=\"row\"] [data-part=\"row.track\"] > :has(> [data-part=\"card\"]):nth-child(n+5) { animation-delay: 750ms; }\n}\n\n/* ============================================================================================\n   Series page (activity_media.xml, fragment_media_info.xml, item_media_source.xml,\n   item_episode_list.xml). Phone rules are scoped to [data-variant=\"phone\"]; desktop keeps izumi's\n   own series layout with the Blossom card, button and facts styling below.\n   Geometry is in dp with the status bar inset S added where Dantotsu adds it: banner 384 + S, the\n   108x160 cover 64 dp above the banner's end, the outlined list button flush with it, the 60 dp\n   access row, and the Info / Watch content starting 64 dp under the banner.\n   ============================================================================================ */\n\n/* ---- Both layouts ----\n   Bold text carries a little tracking: Dantotsu's Poppins Bold sets wider than izumi's at the same\n   size (measured glyph runs on the emulator: \"Sousou no Frieren\" 150.1 vs 144.8 dp, \"FINISHED\" 64.8 vs\n   61.7, \"ADD TO LIST\" 88.8 vs 84.2, \"INFO\" 33.1 vs 32.0), so each bold role gets the spacing that\n   closes its own gap (caps more than mixed case; 16 sp caps such as the hub labels already match). */\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 16px; }\n[data-slot=\"detail\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-part=\"detail.list-button\"][data-variant=\"full\"] {\n  height: 48px; border: 1px solid #eeeeee; border-radius: 16px; background: transparent;\n  font: 700 14px/23.62px var(--ui-font); letter-spacing: 0.55px; text-transform: uppercase; color: #dfbecd;\n}\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"][data-variant=\"table\"] { max-width: 560px; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"] { font-weight: 500; color: rgb(238 238 238 / 0.58); }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { font-weight: 700; text-align: end; color: #eeeeee; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"]:is([data-key=\"score\"], [data-key=\"studio\"], [data-key=\"author\"]) [data-part=\"fact.value\"] { color: #ffaed9; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.suffix\"] { color: #eeeeee; }\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"]:is([data-key=\"status\"], [data-key=\"format\"], [data-key=\"season\"]) [data-part=\"fact.value\"] { text-transform: uppercase; }\n/* End Date always has its row (MediaInfoFragment.kt: `media.endDate?.toString() ?: \"??\"`); izumi leaves\n   the fact out while a title airs, so the row is drawn after Start Date: \"End Date\" in the label column\n   (closing Start Date's row) and \"??\" in the value column (opening the next fact's). */\n[data-part=\"detail.facts\"][data-variant=\"table\"]:not(:has([data-part=\"fact\"][data-key=\"ended\"])) [data-part=\"fact\"][data-key=\"aired\"]::after {\n  content: \"End Date\"; grid-column: 1; font-weight: 500; white-space: nowrap; color: rgb(238 238 238 / 0.58);\n}\n[data-part=\"detail.facts\"][data-variant=\"table\"]:not(:has([data-part=\"fact\"][data-key=\"ended\"])) [data-part=\"fact\"][data-key=\"aired\"] + [data-part=\"fact\"]::before {\n  content: \"??\"; grid-column: 2; font-weight: 700; letter-spacing: 0.25px; text-align: end; white-space: nowrap; color: #eeeeee;\n}\n/* Total Episodes while airing (MediaInfoFragment.kt:303-306): \"{aired} | {total ?: ~}\". izumi's\n   factsFormat.episodes \"aired-of\" gives the aired count and a fact.suffix \" / 26\" (\" / ?\" without a\n   total). The value lays out as a row, Dantotsu's \" | \" follows the count, and the suffix slides back\n   under it by its \" / \" (15.42 dp of bold Poppins at this size, measured) with that part clipped, so\n   only the total shows. With no catalog total (the actions-row lead then shows its \"??\") the suffix\n   reads Dantotsu's \"~\". */\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"][data-key=\"episodes\"] [data-part=\"fact.value\"]:has(> [data-part=\"fact.suffix\"]) {\n  display: flex; justify-content: flex-end;\n}\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"][data-key=\"episodes\"] [data-part=\"fact.value\"]:has(> [data-part=\"fact.suffix\"])::after {\n  content: \" | \"; order: 1; white-space: pre; word-spacing: 1.2px;\n}\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"][data-key=\"episodes\"] [data-part=\"fact.suffix\"] {\n  order: 2; margin-left: -15.42px; clip-path: inset(0 0 0 14px);\n}\n[data-slot=\"detail\"]:has([data-part=\"blossom.lead-unknown\"]) [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"][data-key=\"episodes\"] [data-part=\"fact.suffix\"] {\n  margin-left: 0; clip-path: none; font-size: 0; line-height: 0; letter-spacing: 0; word-spacing: 0;\n}\n[data-slot=\"detail\"]:has([data-part=\"blossom.lead-unknown\"]) [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"][data-key=\"episodes\"] [data-part=\"fact.suffix\"]::before {\n  content: \"~\"; font-size: 14px; line-height: 23.52px; letter-spacing: 0.25px;\n}\n\n/* ---- Bar (activity_media.xml mediaClose + mediaTitle): the round 32 dp Close button 16 dp from the\n   top-right corner (+S), #1C1C1C with a 24 dp close glyph, always over everything. The bar itself\n   stays clear: the black under the collapsed title is the pinned access strip (see \"Collapse\"), and\n   only the status-bar band turns black once the header has collapsed. It lets taps through to the\n   strip under it. ---- */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.bar\"] {\n  z-index: 32; height: calc(64px + env(safe-area-inset-top)); padding: env(safe-area-inset-top) 16px 0 !important; gap: 0;\n  border: 0 !important; background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; color: #eeeeee;\n  pointer-events: none;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.bar.scrim\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.back\"] {\n  pointer-events: auto; order: 2; display: grid; place-items: center; width: 32px; height: 32px; margin: 0 0 0 auto; border-radius: 16px; background: #1c1c1c; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.back\"] > svg { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.back\"]::before {\n  content: \"\"; width: 24px; height: 24px; background: currentColor;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M480-424%20284-228q-11%2011-28%2011t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11%2028-11t28%2011l196%20196%20196-196q11-11%2028-11t28%2011q11%2011%2011%2028t-11%2028L536-480l196%20196q11%2011%2011%2028t-11%2028q-11%2011-28%2011t-28-11L480-424Z%22%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M480-424%20284-228q-11%2011-28%2011t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11%2028-11t28%2011l196%20196%20196-196q11-11%2028-11t28%2011q11%2011%2011%2028t-11%2028L536-480l196%20196q11%2011%2011%2028t-11%2028q-11%2011-28%2011t-28-11L480-424Z%22%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.bar.title\"] {\n  order: 1; margin: 0 16px 0 48px; font: 700 16px/26.67px var(--ui-font); letter-spacing: 0.33px; color: #eeeeee;\n}\n/* The round Home button top-left (activity_media.xml: 32 dp #1C1C1C, 16 dp in (+S), the 20 dp round home\n   glyph) is izumi's Home link (detail.bar.home). It stays over everything, collapsed or not. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.home\"] {\n  pointer-events: auto; position: absolute; top: calc(16px + env(safe-area-inset-top)); left: 16px; z-index: 1;\n  display: grid; place-items: center; width: 32px; height: 32px; margin: 0; padding: 0; border-radius: 16px; background: #1c1c1c; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.home\"] > svg { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.home\"]::before {\n  content: \"\"; width: 20px; height: 20px; background: currentColor;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M160-200v-360q0-19%208.5-36t23.5-28l240-180q21-16%2048-16t48%2016l240%20180q15%2011%2023.5%2028t8.5%2036v360q0%2033-23.5%2056.5T720-120H600q-17%200-28.5-11.5T560-160v-200q0-17-11.5-28.5T520-400h-80q-17%200-28.5%2011.5T400-360v200q0%2017-11.5%2028.5T360-120H240q-33%200-56.5-23.5T160-200Z%22%2F%3E%3C%2Fsvg%3E) center / 20px 20px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M160-200v-360q0-19%208.5-36t23.5-28l240-180q21-16%2048-16t48%2016l240%20180q15%2011%2023.5%2028t8.5%2036v360q0%2033-23.5%2056.5T720-120H600q-17%200-28.5-11.5T560-160v-200q0-17-11.5-28.5T520-400h-80q-17%200-28.5%2011.5T400-360v200q0%2017-11.5%2028.5T360-120H240q-33%200-56.5-23.5T160-200Z%22%2F%3E%3C%2Fsvg%3E) center / 20px 20px no-repeat;\n}\n\n/* ---- Banner: 384 + S, crisp, centre-cropped, drifting (Ken Burns); linear_gradient_bg over its whole\n   height (#000 at the bottom, clear at the top) and the same drawable flipped at 0.66 over the top\n   48 dp. A title without a banner (or key art) shows its sharp cover there, as Dantotsu does\n   (banner ?: cover): design.json `artFallback: \"cover\"`. The bar turns solid at 45 % of the 384 dp\n   collapse (172.8 dp of scroll, MediaDetailsActivity.kt onOffsetChanged, percent = 45) through\n   design.json `bar.solidAt: 0.54` (0.54 x (384 + S - (64 + S)) = 172.8). ---- */\n@keyframes blossom-ken-burns-banner { from { transform: scale(1.02) translate(0, 0); } to { transform: scale(1.16) translate(-3%, -2%); } }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] {\n  height: calc(384px + env(safe-area-inset-top)); max-height: none; min-height: 0; background-color: #000;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] > :is([data-part=\"detail.backdrop\"], span) {\n  position: absolute !important; inset: 0 !important; width: 100%; height: 100% !important;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] [data-part=\"detail.backdrop\"] {\n  object-position: 50% 50% !important; filter: none;\n}\n/* izumi's own fade (detail.banner.fade) becomes Dantotsu's contentScrim: black over the whole band,\n   shown as the collapse ends (see \"Collapse\"). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.banner.fade\"] {\n  display: block; position: absolute; inset: 0; z-index: 2; height: auto; pointer-events: none;\n  background: #000 !important; opacity: 0;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"]::after {\n  content: \"\"; position: absolute; inset: 0; z-index: 1; pointer-events: none;\n  background-image: linear-gradient(to top, #000, rgb(28 28 28 / 0));\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"]::before {\n  content: \"\"; position: absolute; inset: 0 0 auto; z-index: 1; height: 48px; pointer-events: none;\n  background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.66), rgb(28 28 28 / 0));\n}\n\n/* ---- Header column: 32 dp insets. The cover row is pulled 224 dp up into the banner (cover top at\n   banner end - 224), the list button follows 16 dp under it and ends with the banner, the 60 dp\n   access row follows, and the tabs' content starts 4 dp lower (banner end + 64). ---- */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.content\"] {\n  display: flex; flex-direction: column; gap: 0; padding-inline: 32px;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.head\"] { margin-top: -224px; gap: 16px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.poster\"] {\n  width: 108px !important; height: 160px; aspect-ratio: auto; object-fit: cover; border-radius: 16px; box-shadow: none;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] {\n  font: 700 16px/26.67px var(--ui-font); letter-spacing: 0.33px; -webkit-line-clamp: 4; color: #ebe0e2; text-shadow: none;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.header\"] { margin-top: 0; }\n[data-part=\"blossom.status\"] {\n  display: block; padding-top: 4px; font: 700 14px/23.62px var(--ui-font) !important; letter-spacing: 0.44px;\n  text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.buttons\"] { position: relative; z-index: 10; margin-top: 16px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.list-button\"][data-variant=\"full\"] { margin: 0; padding: 8px; }\n\n/* Access row (mediaAccessContainer): 60 dp, \"Total of 28\" / \"Watched 3 out of 12\" (16 sp, two lines\n   at most, -8 sp between them) then 48 dp icon boxes with 8 dp padding, so 32 dp glyphs, #EEEEEE.\n   Save plays Dantotsu's heart (filled once saved), Share its share; izumi's Trailer and More keep\n   their places after them in the same style. */\n/* The access row is Dantotsu's 64 dp strip (mediaTitleContainer): black, full width, the 60 dp row at\n   its top. It scrolls up with the page and stays pinned under the status bar once the header has\n   collapsed (the AppBarLayout's unscrolled child). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] {\n  position: sticky; top: env(safe-area-inset-top); z-index: 31; box-sizing: border-box; height: 64px; margin: 0 -32px; padding: 0 32px 4px;\n  gap: 0; align-items: center; background: #000;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.lead\"] { align-self: center; }\n[data-part=\"blossom.lead\"] {\n  display: -webkit-box !important; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;\n  padding: 3px 0 5px; font: 400 16px/18.67px var(--ui-font); letter-spacing: 0; color: #ebe0e2;\n}\n[data-part=\"blossom.lead\"] > * { display: inline; }\n[data-part=\"blossom.lead-user\"] { font-weight: 700; color: #dfbecd; }\n[data-part=\"blossom.lead-num\"], [data-part=\"blossom.lead-unknown\"] { font-weight: 700; color: #ebe0e2; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action] {\n  display: grid; place-items: center; flex: 0 0 48px; width: 48px; height: 48px; padding: 8px; gap: 0;\n  border-radius: 0; background: transparent; font-size: 0; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action] > svg { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action]::before {\n  content: \"\"; width: 32px; height: 32px; background: currentColor;\n  -webkit-mask: var(--blossom-glyph) center / 32px 32px no-repeat; mask: var(--blossom-glyph) center / 32px 32px no-repeat;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action=\"save\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M451.5-152q-14.5-5-25.5-16l-69-63q-106-97-191.5-192.5T80-634q0-94%2063-157t157-63q53%200%20100%2022.5t80%2061.5q33-39%2080-61.5T660-854q94%200%20157%2063t63%20157q0%20115-85%20211T602-230l-68%2062q-11%2011-25.5%2016t-28.5%205q-14%200-28.5-5ZM442-690q-29-41-62-62.5T300-774q-60%200-100%2040t-40%20100q0%2052%2037%20110.5T285.5-410q51.5%2055%20106%20103t88.5%2079q34-31%2088.5-79t106-103Q726-465%20763-523.5T800-634q0-60-40-100t-100-40q-47%200-80%2021.5T518-690q-7%2010-17%2015t-21%205q-11%200-21-5t-17-15Zm38%20189Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action=\"save\"][data-state=\"saved\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M451.5-152q-14.5-5-25.5-16l-69-63q-106-97-191.5-192.5T80-634q0-94%2063-157t157-63q53%200%20100%2022.5t80%2061.5q33-39%2080-61.5T660-854q94%200%20157%2063t63%20157q0%20115-85%20211T602-230l-68%2062q-11%2011-25.5%2016t-28.5%205q-14%200-28.5-5Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action=\"share\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M680-80q-50%200-85-35t-35-85q0-6%203-28L282-392q-16%2015-37%2023.5t-45%208.5q-50%200-85-35t-35-85q0-50%2035-85t85-35q24%200%2045%208.5t37%2023.5l281-164q-2-7-2.5-13.5T560-760q0-50%2035-85t85-35q50%200%2085%2035t35%2085q0%2050-35%2085t-85%2035q-24%200-45-8.5T598-672L317-508q2%207%202.5%2013.5t.5%2014.5q0%208-.5%2014.5T317-452l281%20164q16-15%2037-23.5t45-8.5q50%200%2085%2035t35%2085q0%2050-35%2085t-85%2035Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action=\"trailer\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m411-320%20223-143q9-6%209-17t-9-17L411-640q-10-7-20.5-1T380-623v286q0%2012%2010.5%2018t20.5-1ZM160-160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800h640q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action=\"trailer\"] { order: 1; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > :is([data-action=\"save\"], [data-action=\"share\"]) { order: 2; }\n/* izumi's More (the list editor and tracker links) ends the row in the same 48 dp box; its menu drops\n   from under it, right-aligned with it, wherever the strip is (scrolling with it, or pinned). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.actions\"] > [data-action=\"more\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M240-400q-33%200-56.5-23.5T160-480q0-33%2023.5-56.5T240-560q33%200%2056.5%2023.5T320-480q0%2033-23.5%2056.5T240-400Zm240%200q-33%200-56.5-23.5T400-480q0-33%2023.5-56.5T480-560q33%200%2056.5%2023.5T560-480q0%2033-23.5%2056.5T480-400Zm240%200q-33%200-56.5-23.5T640-480q0-33%2023.5-56.5T720-560q33%200%2056.5%2023.5T800-480q0%2033-23.5%2056.5T720-400Z%22%2F%3E%3C%2Fsvg%3E); order: 3; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.menu\"] {\n  position: absolute !important; top: 56px !important; right: 32px !important; bottom: auto !important; left: auto !important; z-index: 50;\n  order: 4; width: 224px; margin: 0 !important; padding: 8px; border: 1px solid #49454f !important; border-radius: 16px !important;\n  background: #1c1c1c !important; box-shadow: 0 4px 8px rgb(0 0 0 / 0.16);\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.menu\"] > button {\n  min-height: 48px; padding: 0 12px; border-radius: 12px; font: 700 14px/23.62px var(--ui-font); letter-spacing: 0.35px; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.content\"] > :has(> [data-part=\"tabs\"]) { margin-top: 0; }\n\n/* ---- Collapse (MediaDetailsActivity.kt:603-645, activity_media.xml:16-22): past 45 % of the 384 dp\n   range (izumi's bar state, see the banner) the cover, the title block, the list button and the\n   access row slide out to the right (200 ms) and the title takes the strip: 16 sp bold from x 64 on\n   black, riding with the strip until it pins under the status bar. The banner moves at half the\n   scroll speed (parallax 0.5) and fades to black as the collapse ends (contentScrim). The Home and\n   Close circles stay put; More leaves with the row, as the list button does (both come back on the\n   way up). The slides run only with motion allowed; the swap always happens. ---- */\n[data-slot=\"detail\"][data-variant=\"phone\"] { overflow-x: clip; }\n[data-slot=\"detail\"][data-variant=\"phone\"]:has(> [data-slot=\"detail.bar\"][data-solid]) :is(\n  [data-part=\"detail.poster\"], [data-part=\"detail.head\"] > :not([data-part=\"detail.poster\"]), [data-part=\"detail.buttons\"],\n  [data-part=\"detail.actions\"] > :is([data-part=\"detail.lead\"], [data-action=\"save\"], [data-action=\"share\"], [data-action=\"trailer\"], [data-action=\"more\"], [data-part=\"detail.menu\"])\n) { translate: 100vw 0; }\n@keyframes blossom-strip-title { from { translate: 0 384px; } to { translate: 0 0; } }\n@keyframes blossom-title-in { from { transform: translateX(-100vw); } to { transform: none; } }\n@keyframes blossom-parallax { from { translate: 0 0; } to { translate: 0 192px; } }\n@keyframes blossom-scrim { from { opacity: 0; } to { opacity: 1; } }\n@supports (animation-timeline: scroll()) {\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.bar.title\"] {\n    animation: blossom-strip-title linear both; animation-timeline: scroll(root); animation-range: 0px 384px;\n  }\n  /* contentScrim: shown once less than 2 S of the band is left (scrimVisibleHeightTrigger), here over\n     the last 40 dp of scroll; the status-bar band stays black from then on. */\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.bar\"]::after {\n    content: \"\"; position: absolute; inset: 0 0 auto; z-index: -1; height: env(safe-area-inset-top); background: #000;\n  }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.banner.fade\"],\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.bar\"]::after {\n    animation: blossom-scrim linear both; animation-timeline: scroll(root);\n    animation-range: calc(344px - env(safe-area-inset-top)) calc(384px - env(safe-area-inset-top));\n  }\n}\n@supports not (animation-timeline: scroll()) {\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.bar\"][data-solid] { background: #000 !important; }\n}\n\n/* ---- Page tab bar (activity_media.xml mediaBottomBar, AnimatedBottomBar defaults): 64 dp on black\n   (+ the gesture inset), equal tabs; the active one shows only its label (14 sp bold caps,\n   colorPrimary) under a 3 dp full-width indicator on the top edge; the others only a 24 dp glyph in\n   textColorPrimary (#E6E0E9). ---- */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"][data-variant=\"bottom\"] {\n  height: calc(64px + env(safe-area-inset-bottom)); border-top: 0; background: #000; backdrop-filter: none; -webkit-backdrop-filter: none;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"][data-variant=\"bottom\"] [data-part=\"tab\"] {\n  position: relative; height: 64px; padding: 0; white-space: nowrap;\n  font: 700 14px/23.62px var(--ui-font); letter-spacing: 0.3px; text-transform: uppercase; color: #ffaed9;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"][data-variant=\"bottom\"] [data-part=\"tab\"]:not([data-active]) { font-size: 0; color: #e6e0e9; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"][data-variant=\"bottom\"] [data-part=\"tab\"]:not([data-active])::after {\n  content: \"\"; position: absolute; top: 20px; left: calc(50% - 12px); width: 24px; height: 24px; background: currentColor;\n  -webkit-mask: var(--blossom-glyph) center / 24px 24px no-repeat; mask: var(--blossom-glyph) center / 24px 24px no-repeat;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tab\"][data-tab=\"overview\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M508.5-291.5Q520-303%20520-320v-160q0-17-11.5-28.5T480-520q-17%200-28.5%2011.5T440-480v160q0%2017%2011.5%2028.5T480-280q17%200%2028.5-11.5Zm0-320Q520-623%20520-640t-11.5-28.5Q497-680%20480-680t-28.5%2011.5Q440-657%20440-640t11.5%2028.5Q463-600%20480-600t28.5-11.5ZM480-80q-83%200-156-31.5T197-197q-54-54-85.5-127T80-480q0-83%2031.5-156T197-763q54-54%20127-85.5T480-880q83%200%20156%2031.5T763-763q54%2054%2085.5%20127T880-480q0%2083-31.5%20156T763-197q-54%2054-127%2085.5T480-80Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tab\"][data-tab=\"episodes\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m342-362%2029%2062q3%206%209%206t9-6l29-62%2062-29q6-3%206-9t-6-9l-62-29-29-62q-3-6-9-6t-9%206l-29%2062-62%2029q-6%203-6%209t6%209l62%2029Zm252-52%2017%2035q3%206%209%206t9-6l17-35%2035-17q6-3%206-9t-6-9l-35-17-17-35q-3-6-9-6t-9%206l-17%2035-35%2017q-6%203-6%209t6%209l35%2017ZM160-800l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h120q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tab\"]:is([data-tab=\"relations\"], [data-tab=\"recommended\"]) { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m160-800%2065%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h120q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tab\"][data-tab=\"characters\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M40-272q0-34%2017.5-62.5T104-378q62-31%20126-46.5T360-440q66%200%20130%2015.5T616-378q29%2015%2046.5%2043.5T680-272v32q0%2033-23.5%2056.5T600-160H120q-33%200-56.5-23.5T40-240v-32Zm698%20112q11-18%2016.5-38.5T760-240v-40q0-44-24.5-84.5T666-434q51%206%2096%2020.5t84%2035.5q36%2020%2055%2044.5t19%2053.5v40q0%2033-23.5%2056.5T840-160H738ZM247-527q-47-47-47-113t47-113q47-47%20113-47t113%2047q47%2047%2047%20113t-47%20113q-47%2047-113%2047t-113-47Zm466%200q-47%2047-113%2047-11%200-28-2.5t-28-5.5q27-32%2041.5-71t14.5-81q0-42-14.5-81T544-792q14-5%2028-6.5t28-1.5q66%200%20113%2047t47%20113q0%2066-47%20113Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"][data-variant=\"bottom\"] [data-part=\"tab\"][data-active]::before {\n  content: \"\"; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 0 0 3px 3px; background: #ffaed9;\n}\n\n/* ---- Info tab (fragment_media_info.xml), in Dantotsu's order: the countdown, the facts table,\n   Synopsis, Synonyms, Genres, Tags, then the Relations / Characters / Staff / Recommended rows.\n   izumi's Information grid repeats the facts table, so it is left out. ---- */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.overview\"] { display: flex; flex-direction: column; margin-top: 0; }\n/* izumi's own spacing goes (zero specificity, so each block's margin below still applies). */\n:where([data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.overview\"]) > *,\n:where([data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.overview\"] > :has(> [data-part=\"detail.facts\"])) > * { margin: 0 !important; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.overview\"] > :has(> [data-part=\"detail.facts\"]) { display: contents; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.countdown\"] { order: 1; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.facts\"] { order: 2; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.synopsis\"] { order: 3; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.synopsis.more\"] { order: 4; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.synonyms\"] { order: 5; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] { order: 6; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] { order: 7; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.info\"] { display: none; }\n/* izumi's release-timing line (\"SUB Fri 04:00 PM · DUB …\"): Dantotsu has nothing between the access row\n   and the countdown or the facts, so it goes with its margin. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.airing.wrap\"] { display: none !important; }\n\n/* Countdown (item_count_down.xml): centred, 8 dp padding; \"EPISODE 13 WILL BE RELEASED IN\" 14 sp bold\n   caps in fg @0.58, then \"4 DAYS 19 HRS 43 MINS 53 SECS\" 16 sp bold caps. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.countdown\"] {\n  align-self: center; width: auto; max-width: 100%; margin: 0 !important; padding: 8px; border-radius: 0; background: transparent;\n  font: 700 14px/23.62px var(--ui-font); letter-spacing: 0; text-align: center; text-transform: uppercase; color: rgb(238 238 238 / 0.38);\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.countdown.label\"] { display: block; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.countdown.time\"] { display: block; font: 700 16px/26.67px var(--ui-font); color: #eeeeee; }\n\n/* Facts (TableLayout, whose rows take their content's height: 23.52 dp a row on the 420 dpi screen),\n   16 dp padding, then the 16 dp spacer; 14 sp, the label synthetic-bold (Poppins Regular thickened,\n   about Medium) at 0.58, the value bold at the end; \"9.1\" in colorPrimary then \" / 10\". */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.facts\"][data-variant=\"table\"] {\n  max-width: none; margin: 0 !important; padding: 16px 0; row-gap: 0; column-gap: 16px; font-size: 14px; line-height: 23.52px;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.facts\"][data-variant=\"table\"] :is([data-part=\"fact.label\"], [data-part=\"fact.value\"]) {\n  font-size: 14px; line-height: 23.52px; letter-spacing: 0;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { letter-spacing: 0.25px; }\n/* \" / 10\": Dantotsu's bold space is 1.2 dp wider than izumi's (ink gaps 5.7 / 5.0 dp around the slash\n   against 4.5 / 3.8). */\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.suffix\"] { white-space: pre; word-spacing: 1.2px; }\n/* Name Romaji / Name (fragment_media_info.xml after the TableLayout): 16 dp down, each a label over its\n   value, the value bold #EEEEEE after Dantotsu's tab indent (23 dp), lines wrapping, 23.5 dp pitch. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"]:is([data-key=\"romaji\"], [data-key=\"english\"]) > * {\n  grid-column: 1 / -1; min-width: 0; overflow: visible; white-space: normal; text-overflow: clip; text-align: start;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"][data-key=\"romaji\"] > [data-part=\"fact.label\"] { margin-top: 16px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"]:is([data-key=\"romaji\"], [data-key=\"english\"]) > [data-part=\"fact.value\"] {\n  position: relative; top: 1.5px; text-indent: 23px; letter-spacing: 0.38px; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"][data-key=\"english\"] > [data-part=\"fact.value\"] { padding-bottom: 1.4px; }\n\n/* Synopsis: \"Synopsis\" 16 sp bold, 16 dp, then 14 sp #EEEEEE in five lines with Dantotsu's tab indent;\n   a tap opens the whole text (izumi's own behaviour, as in Dantotsu). */\n[data-slot=\"detail\"][data-variant=\"phone\"] button[data-part=\"detail.synopsis\"] {\n  position: relative; margin: 0 0 16px !important; padding: 43.1px 0 0; font: 400 14px/22.86px var(--ui-font); letter-spacing: 0;\n  text-indent: 23px; color: #eeeeee; -webkit-line-clamp: 5;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] button[data-part=\"detail.synopsis\"][data-expanded] { -webkit-line-clamp: unset; }\n[data-slot=\"detail\"][data-variant=\"phone\"] button[data-part=\"detail.synopsis\"]::before {\n  content: \"Synopsis\"; position: absolute; top: 0; left: 0; text-indent: 0; font: 700 16px/26.67px var(--ui-font); letter-spacing: 0.15px; color: #eeeeee;\n}\n\n/* Block headings inside Overview: Dantotsu's names, 16 sp bold, 8 dp above. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.block-title\"] {\n  margin: 8px 0 0 !important; font-size: 0 !important; line-height: 0;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.block-title\"]::before {\n  display: block; font: 700 16px/26.67px var(--ui-font); letter-spacing: 0.15px; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.synonyms\"] [data-part=\"detail.block-title\"]::before { content: \"Synonyms\"; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] [data-part=\"detail.block-title\"]::before { content: \"Tags\"; }\n/* Synonyms (MediaInfoFragment.kt synonyms chip group): the tags' sideways line of outlined 32 dp assist\n   chips from x 32, one per title, 16 dp apart, without izumi's \" · \" separators. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.synonyms\"] { padding-bottom: 8px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.synonyms\"] > :has(> [data-part=\"chip\"]) {\n  display: flex; flex-wrap: nowrap; gap: 16px; margin: 3px -32px 6.5px; padding: 4px 32px;\n  overflow-x: auto; overflow-y: hidden; scrollbar-width: none; white-space: nowrap;\n  font: 700 14px/23.62px var(--ui-font); letter-spacing: 0.22px; color: #ebe0e2;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.synonyms\"] [data-part=\"chip\"]::before { content: none !important; }\n\n/* Genres (activity_genre.xml + item_genre.xml): \"Genres\" 16 sp bold 16 dp down, then screenWidth/156\n   columns of 46 dp tiles 16 dp apart from x 24, 16 dp corners, the outlined card's 1 dp ring on\n   black, the name 14 sp bold caps #EEEEEE centred. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] {\n  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 0 -8px !important; padding: 0 0 8px; overflow: visible;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"]::before {\n  content: \"Genres\"; grid-column: 1 / -1; margin: 16px 8px -8px; font: 700 16px/26.67px var(--ui-font); letter-spacing: 0.15px; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.genres\"] > [data-part=\"chip\"] {\n  display: grid; place-items: center; height: 46px; min-width: 0; padding: 0 12px; border: 1px solid #49454f; border-radius: 16px;\n  background: #000; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;\n  font: 700 14px/23.62px var(--ui-font); letter-spacing: 0; text-transform: uppercase; color: #eeeeee;\n}\n\n/* Tags (item_title_chipgroup.xml + item_chip.xml): one sideways line of 32 dp assist chips from\n   x 32, 8 dp corners, a 1 dp primaryContainer ring on black, 14 sp bold, 16 dp apart. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] { padding-bottom: 8px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] > :has(> [data-part=\"chip\"]) {\n  flex-wrap: nowrap; gap: 16px; margin: 3px -32px 6.5px; padding: 4px 32px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-part=\"detail.tags\"], [data-part=\"detail.synonyms\"]) [data-part=\"chip\"] {\n  flex: 0 0 auto; display: inline-flex; align-items: center; box-sizing: border-box; height: 32px; min-height: 32px; padding: 0 16px;\n  border: 1px solid #890064; border-radius: 8px;\n  background: #000; white-space: nowrap; font: 700 14px/23.62px var(--ui-font); letter-spacing: 0.22px; color: #ebe0e2;\n}\n/* \"Travel : 96%\" (AnilistQueries.kt: name + \" : \" + rank + \"%\"). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] [data-part=\"chip.meta\"] { display: inline !important; white-space: pre; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] [data-part=\"chip.meta\"]::before { content: \" : \"; }\n/* A spoiler tag still hidden reads as Dantotsu's masked chip (HideSpoilerTags, MediaInfoFragment.kt:744-756):\n   the visibility_off glyph and \"Spoiler\" at 0.75; a tap reveals it in place, as in the app. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] button[data-part=\"chip\"]:not([data-active]) { gap: 8px; padding-left: 8px; opacity: 0.75; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] button[data-part=\"chip\"]:not([data-active]) > span { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] button[data-part=\"chip\"]:not([data-active])::before {\n  content: \"\"; flex: 0 0 18px; height: 18px; background: currentColor;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8%2034.5-12t37.5-4q75%200%20127.5%2052.5T660-500q0%2020-4%2037.5T644-428Zm128%20126-58-56q38-29%2067.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29%200-57%204t-55%2012l-62-62q41-17%2084-25.5t90-8.5q151%200%20269%2083.5T920-500q-23%2059-60.5%20109.5T772-302Zm20%20246L624-222q-35%2011-70.5%2016.5T480-200q-151%200-269-83.5T40-500q21-53%2053-98.5t73-81.5L56-792l56-56%20736%20736-56%2056ZM222-624q-29%2026-53%2057t-41%2067q50%20101%20143.5%20160.5T480-280q20%200%2039-2.5t39-5.5l-36-38q-11%203-21%204.5t-21%201.5q-75%200-127.5-52.5T300-500q0-11%201.5-21t4.5-21l-84-82Zm319%2093Zm-151%2075Z%22%2F%3E%3C%2Fsvg%3E) center / 18px 18px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8%2034.5-12t37.5-4q75%200%20127.5%2052.5T660-500q0%2020-4%2037.5T644-428Zm128%20126-58-56q38-29%2067.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29%200-57%204t-55%2012l-62-62q41-17%2084-25.5t90-8.5q151%200%20269%2083.5T920-500q-23%2059-60.5%20109.5T772-302Zm20%20246L624-222q-35%2011-70.5%2016.5T480-200q-151%200-269-83.5T40-500q21-53%2053-98.5t73-81.5L56-792l56-56%20736%20736-56%2056ZM222-624q-29%2026-53%2057t-41%2067q50%20101%20143.5%20160.5T480-280q20%200%2039-2.5t39-5.5l-36-38q-11%203-21%204.5t-21%201.5q-75%200-127.5-52.5T300-500q0-11%201.5-21t4.5-21l-84-82Zm319%2093Zm-151%2075Z%22%2F%3E%3C%2Fsvg%3E) center / 18px 18px no-repeat;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.tags\"] button[data-part=\"chip\"]:not([data-active])::after { content: \"Spoiler\"; }\n\n/* ---- Relations, Characters, Staff, Recommended (item_title_recycler.xml): Home-style rows. The\n   16 sp bold title at x 32 in a 42.67 dp heading; the first card at x 26, 12 dp apart, 6 dp under\n   the heading. Relations print their type between the cover and the title (itemCompactType:\n   18 dp glyph + 12 sp italic caps at 0.58). Characters and staff use the 102x154 cover, the name\n   under it and the role in 12 sp italic caps at the end (item_character.xml). ---- */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.section\"] { margin-top: 0 !important; }\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-part=\"detail.section-title\"], [data-part=\"detail.heading\"]) {\n  margin: 0 !important; padding: 8px 0; font: 700 16px/26.67px var(--ui-font); letter-spacing: 0.15px; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.section\"][data-section=\"characters\"] > [data-part=\"detail.section-title\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.section\"] > :not([data-part=\"detail.section-title\"]) { margin-top: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-slot=\"detail.characters\"], [data-slot=\"detail.staff\"]) { margin-top: 0 !important; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.characters\"] [data-part=\"detail.heading\"] { font-size: 0; line-height: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.characters\"] [data-part=\"detail.heading\"]::before { content: \"Characters\"; display: block; font-size: 16px; line-height: 26.67px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-slot=\"detail.relations\"], [data-slot=\"detail.recommended\"], [data-slot=\"detail.characters\"] > [data-part=\"detail.track\"], [data-slot=\"detail.staff\"] > [data-part=\"detail.track\"]) {\n  display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 12px; margin: 0 -32px !important; padding: 6px 26px 0;\n  overflow-x: auto; overflow-y: hidden; scrollbar-width: none; scroll-padding-inline: 26px;\n  -webkit-mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);\n  mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-slot=\"detail.relations\"] > [data-part=\"relation\"], [data-slot=\"detail.recommended\"] > *) { flex: 0 0 102px; width: 102px; min-width: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"relation\"] { position: relative; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"relation.type\"] {\n  position: absolute; top: 160px; left: -2px; right: -2px; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 4px;\n  height: 20.19px; margin: 0; overflow: hidden; white-space: nowrap;\n  font: italic 400 12px/20.19px var(--ui-font); letter-spacing: 0; text-transform: uppercase; color: rgb(238 238 238 / 0.58);\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"relation.type\"]::before {\n  content: \"\"; flex: 0 0 18px; height: 18px; background: rgb(238 238 238 / 0.58);\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m342-362%2029%2062q3%206%209%206t9-6l29-62%2062-29q6-3%206-9t-6-9l-62-29-29-62q-3-6-9-6t-9%206l-29%2062-62%2029q-6%203-6%209t6%209l62%2029Zm252-52%2017%2035q3%206%209%206t9-6l17-35%2035-17q6-3%206-9t-6-9l-35-17-17-35q-3-6-9-6t-9%206l-17%2035-35%2017q-6%203-6%209t6%209l35%2017ZM160-800l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h120q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800Z%22%2F%3E%3C%2Fsvg%3E) center / 18px 18px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m342-362%2029%2062q3%206%209%206t9-6l29-62%2062-29q6-3%206-9t-6-9l-62-29-29-62q-3-6-9-6t-9%206l-29%2062-62%2029q-6%203-6%209t6%209l62%2029Zm252-52%2017%2035q3%206%209%206t9-6l17-35%2035-17q6-3%206-9t-6-9l-35-17-17-35q-3-6-9-6t-9%206l-17%2035-35%2017q-6%203-6%209t6%209l35%2017ZM160-800l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h80l65%20130q7%2014%2020%2022t28%208q30%200%2046-25.5t2-52.5l-41-82h120q33%200%2056.5%2023.5T880-720v480q0%2033-23.5%2056.5T800-160H160q-33%200-56.5-23.5T80-240v-480q0-33%2023.5-56.5T160-800Z%22%2F%3E%3C%2Fsvg%3E) center / 18px 18px no-repeat;\n}\n/* A manga relation (a light novel and a one-shot are manga to AniList) gets the open book\n   (ic_round_import_contacts), an anime one movie_filter (MediaAdaptor.kt:170-184), by data-media. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"relation\"]:is([data-media=\"manga\"], [data-media=\"novel\"], [data-media=\"one-shot\"]) [data-part=\"relation.type\"]::before {\n  -webkit-mask-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M520-278q44-21%2088.5-31.5T700-320q36%200%2070.5%206t69.5%2018v-396q-33-14-68.5-21t-71.5-7q-47%200-93%2012t-87%2036v394Zm-66.5%2093.5Q441-188%20430-194q-39-23-82-34.5T260-240q-42%200-82.5%2011T100-198q-21%2011-40.5-1T40-234v-482q0-11%205.5-21T62-752q47-23%2096.5-35.5T260-800q58%200%20113.5%2015T480-740q51-30%20106.5-45T700-800q52%200%20101.5%2012.5T898-752q11%205%2016.5%2015t5.5%2021v482q0%2023-19.5%2035t-40.5%201q-37-20-77.5-31T700-240q-45%200-88%2011.5T530-194q-11%206-23.5%209.5T480-181q-14%200-26.5-3.5Z%22%2F%3E%3C%2Fsvg%3E); mask-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M520-278q44-21%2088.5-31.5T700-320q36%200%2070.5%206t69.5%2018v-396q-33-14-68.5-21t-71.5-7q-47%200-93%2012t-87%2036v394Zm-66.5%2093.5Q441-188%20430-194q-39-23-82-34.5T260-240q-42%200-82.5%2011T100-198q-21%2011-40.5-1T40-234v-482q0-11%205.5-21T62-752q47-23%2096.5-35.5T260-800q58%200%20113.5%2015T480-740q51-30%20106.5-45T700-800q52%200%20101.5%2012.5T898-752q11%205%2016.5%2015t5.5%2021v482q0%2023-19.5%2035t-40.5%201q-37-20-77.5-31T700-240q-45%200-88%2011.5T530-194q-11%206-23.5%209.5T480-181q-14%200-26.5-3.5Z%22%2F%3E%3C%2Fsvg%3E);\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"relation\"] [data-part=\"blossom.title\"] { margin-top: 30.19px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-slot=\"detail.characters\"], [data-slot=\"detail.staff\"]) [data-part=\"person\"] {\n  flex: 0 0 102px; display: flex; flex-direction: column; align-items: stretch; gap: 0; width: 102px; min-width: 0; margin-bottom: 8px; padding: 0;\n  overflow: visible; border: 0; border-radius: 0; background: transparent;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-slot=\"detail.characters\"], [data-slot=\"detail.staff\"]) [data-part=\"person.photo\"] {\n  width: 102px; height: 154px; aspect-ratio: auto; border-radius: 16px; object-fit: cover; background: #2a2c36;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-slot=\"detail.characters\"], [data-slot=\"detail.staff\"]) [data-part=\"person\"] > :has(> [data-part=\"person.name\"]) { padding: 0; min-width: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-slot=\"detail.characters\"], [data-slot=\"detail.staff\"]) [data-part=\"person.name\"] {\n  margin-top: 0; padding-left: 2px; overflow: hidden; white-space: nowrap; text-overflow: clip; font: 400 14px/23.62px var(--ui-font); letter-spacing: 0; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-slot=\"detail.characters\"], [data-slot=\"detail.staff\"]) [data-part=\"person.role\"] {\n  display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; direction: rtl; text-align: right;\n  font: italic 400 12px/20.19px var(--ui-font); letter-spacing: 0; text-transform: uppercase; color: rgb(238 238 238 / 0.58);\n  -webkit-line-clamp: unset;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.characters\"] [data-part=\"person.voice\"] { display: none; }\n\n/* ---- Watch tab (item_media_source.xml): the countdown first, then \"Episodes\" 16 sp bold with the\n   24 dp Options glyph (izumi's overflow menu) in a 40 dp box and no count, the Continue card, the\n   range chips, then the episode cards. ---- */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] { padding-top: 16px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] > :has(> [data-slot=\"episodes.toolbar\"]) { display: flex; flex-direction: column; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] [data-part=\"detail.countdown\"] { order: -1; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"episodes.toolbar\"] { min-height: 40px; margin-bottom: 0; gap: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.heading\"] { font: 700 16px/26.67px var(--ui-font); letter-spacing: 0; color: #eeeeee; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.count\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.more\"] {\n  display: grid; place-items: center; width: 40px; height: 40px; margin-right: 0; padding: 8px; border: 0; border-radius: 0; background: transparent; color: #ebe0e2;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.more\"] > svg { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.more\"]::before {\n  content: \"\"; width: 24px; height: 24px; background: currentColor;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M149-191q-26%200-44.5-18.5T86-254q0-26%2018.5-44.5T149-317h662q26%200%2044.5%2018.5T874-254q0%2026-18.5%2044.5T811-191H149Zm0-226q-26%200-44.5-18.5T86-480q0-26%2018.5-44.5T149-543h662q26%200%2044.5%2018.5T874-480q0%2026-18.5%2044.5T811-417H149Zm0-226q-26%200-44.5-18.5T86-706q0-26%2018.5-44.5T149-769h662q26%200%2044.5%2018.5T874-706q0%2026-18.5%2044.5T811-643H149Z%22%2F%3E%3C%2Fsvg%3E) center / 20px 20px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M149-191q-26%200-44.5-18.5T86-254q0-26%2018.5-44.5T149-317h662q26%200%2044.5%2018.5T874-254q0%2026-18.5%2044.5T811-191H149Zm0-226q-26%200-44.5-18.5T86-480q0-26%2018.5-44.5T149-543h662q26%200%2044.5%2018.5T874-480q0%2026-18.5%2044.5T811-417H149Zm0-226q-26%200-44.5-18.5T86-706q0-26%2018.5-44.5T149-769h662q26%200%2044.5%2018.5T874-706q0%2026-18.5%2044.5T811-643H149Z%22%2F%3E%3C%2Fsvg%3E) center / 20px 20px no-repeat;\n}\n\n/* Continue card (sourceContinue): 80 dp, 16 dp corners, 8 dp margins, the episode still under 60 %\n   black, the text centred in 14 sp bold #EEEEEE with the 24 dp play glyph at its end, and a 2 dp\n   colorPrimary progress line on the bottom edge. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.continue\"] { height: 80px; margin: 8px 0 16px; border-radius: 16px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.continue\"] > span:nth-of-type(2) { gap: 0; padding: 0 16px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] :is([data-part=\"episode.continue.label\"], [data-part=\"episode.continue.title\"]) {\n  text-align: center; font: 700 14px/23.62px var(--ui-font); letter-spacing: 0; color: #eeeeee;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.continue\"] svg { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.continue\"] > span:nth-of-type(2)::after {\n  content: \"\"; flex: 0 0 24px; height: 24px; background: #eeeeee;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M320-273v-414q0-17%2012-28.5t28-11.5q5%200%2010.5%201.5T381-721l326%20207q9%206%2013.5%2015t4.5%2019q0%2010-4.5%2019T707-446L381-239q-5%203-10.5%204.5T360-233q-16%200-28-11.5T320-273Z%22%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M320-273v-414q0-17%2012-28.5t28-11.5q5%200%2010.5%201.5T381-721l326%20207q9%206%2013.5%2015t4.5%2019q0%2010-4.5%2019T707-446L381-239q-5%203-10.5%204.5T360-233q-16%200-28-11.5T320-273Z%22%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.continue\"] > span:last-child:not(:nth-of-type(2)) { height: 2px; background: transparent; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.continue\"] > span:last-child:not(:nth-of-type(2)) > span { background: #ffaed9; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.continue\"][data-filler] > span:first-of-type { background: linear-gradient(rgb(255 107 8 / 0.16), rgb(255 107 8 / 0.16)), rgb(0 0 0 / 0.6); }\n\n/* Range chips (mediaWatchChipScroll): 32 dp, 8 dp corners, a 1 dp primaryContainer ring; #000 with\n   #858585 text, the current one #B3AEAD with black text; 16 dp apart from x 32. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.ranges\"] { gap: 16px; margin: 4px -32px 4px; padding: 0 32px; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.ranges\"] [data-part=\"chip\"] {\n  height: 32px; padding: 0 16px; border: 1px solid #890064; border-radius: 8px; background: #000;\n  font: 700 14px/23.62px var(--ui-font); letter-spacing: 0; color: #858585;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.ranges\"] [data-part=\"chip\"][data-active] { background: #b3aead; color: #000; }\n\n/* Episode cards (item_episode_list.xml, List layout): #1C1C1C, 16 dp corners, 16 dp apart; the 164 dp\n   still on black (109 dp, or the row's height) with the #EBE0E2 number notch, the eye once watched,\n   the 2 dp progress and the \"★ 8.2\" chip; the 14 sp bold title (15 sp lines, five at most), the\n   11 sp date at 0.6; the synopsis in three 16 sp lines at 0.58 inside 16 dp. Watched cards sit under\n   a 33 % black veil, fillers under Dantotsu's orange tint. The 48 dp column at the end of the head row\n   holds the episode's own download button (design.json `episodes.download: \"button\"`). */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episodes.grid\"] { gap: 16px; margin-top: 16px; padding-inline: 0; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"template\"] {\n  position: relative; overflow: hidden; border-radius: 16px; background: #1c1c1c;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"template\"][data-filler]::before {\n  content: \"\"; position: absolute; inset: 0; z-index: 0; background: rgb(255 107 8 / 0.16); pointer-events: none;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"template\"][data-state=\"watched\"]::after {\n  content: \"\"; position: absolute; inset: 0; z-index: 5; background: rgb(0 0 0 / 0.33); pointer-events: none;\n}\n[data-part=\"blossom.ep-head\"] { flex-wrap: nowrap !important; align-items: stretch; }\n[data-part=\"blossom.ep-thumb\"] {\n  flex: 0 0 164px; width: 164px; min-height: 109px; overflow: hidden; border-radius: 16px; background: #000; place-items: center;\n}\n[data-part=\"blossom.ep-thumb\"] > [data-part=\"episode.still\"] { width: 164px !important; height: 109px; align-self: center; }\n[data-part=\"blossom.ep-thumb\"] > [data-part=\"episode.number\"] {\n  padding: 1px 8px 0 6px; border-radius: 0 0 16px 0; background: #ebe0e2; color: #000;\n  font: 700 20px/33.33px var(--ui-font); letter-spacing: 0;\n}\n[data-part=\"blossom.ep-eye\"] {\n  width: 24px; height: 24px; margin: 0 0 8px 8px; background: #eeeeee;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M607.5-372.5Q660-425%20660-500t-52.5-127.5Q555-680%20480-680t-127.5%2052.5Q300-575%20300-500t52.5%20127.5Q405-320%20480-320t127.5-52.5Zm-204-51Q372-455%20372-500t31.5-76.5Q435-608%20480-608t76.5%2031.5Q588-545%20588-500t-31.5%2076.5Q525-392%20480-392t-76.5-31.5ZM235.5-272Q125-344%2061-462q-5-9-7.5-18.5T51-500q0-10%202.5-19.5T61-538q64-118%20174.5-190T480-800q134%200%20244.5%2072T899-538q5%209%207.5%2018.5T909-500q0%2010-2.5%2019.5T899-462q-64%20118-174.5%20190T480-200q-134%200-244.5-72Z%22%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M607.5-372.5Q660-425%20660-500t-52.5-127.5Q555-680%20480-680t-127.5%2052.5Q300-575%20300-500t52.5%20127.5Q405-320%20480-320t127.5-52.5Zm-204-51Q372-455%20372-500t31.5-76.5Q435-608%20480-608t76.5%2031.5Q588-545%20588-500t-31.5%2076.5Q525-392%20480-392t-76.5-31.5ZM235.5-272Q125-344%2061-462q-5-9-7.5-18.5T51-500q0-10%202.5-19.5T61-538q64-118%20174.5-190T480-800q134%200%20244.5%2072T899-538q5%209%207.5%2018.5T909-500q0%2010-2.5%2019.5T899-462q-64%20118-174.5%20190T480-200q-134%200-244.5-72Z%22%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat;\n}\n[data-part=\"blossom.ep-progress\"] { width: 164px !important; height: 2px; min-height: 2px !important; border-radius: 0; background: rgb(255 255 255 / 0.5); }\n[data-part=\"blossom.ep-progress\"] > span { background: #ffaed9; }\n[data-part=\"blossom.ep-rating\"] {\n  margin: 4px; padding: 2px 4px; gap: 0; border-radius: 6px; background: rgb(0 0 0 / 0.7);\n  font: 700 10px/16.4px var(--ui-font); letter-spacing: 0; color: #fff;\n}\n[data-part=\"blossom.ep-text\"] { flex: 1 1 0; justify-content: center; min-width: 0; min-height: 92px; margin: 8px 48px 8px 0; }\n[data-part=\"blossom.ep-filler\"] { font: italic 700 14px/15px var(--ui-font); letter-spacing: 0; text-align: center; color: #eeeeee; }\n[data-part=\"blossom.ep\"] [data-part=\"episode.title\"] { margin-left: 4px; font: 700 14px/15px var(--ui-font); letter-spacing: 0; color: #eeeeee; }\n[data-part=\"blossom.ep-date\"] { margin: 2px 0 0 4px; font: 400 11px/18.04px var(--ui-font); letter-spacing: 0; color: rgb(238 238 238 / 0.6); }\n[data-part=\"blossom.ep-desc\"] { margin: 16px; font: 400 14px/16px var(--ui-font); letter-spacing: 0; color: rgb(238 238 238 / 0.58); }\n\n/* Download button (itemDownload: a 48 dp transparent ImageButton centred on the 109 dp head row, a 24 dp\n   glyph in colorOnBackground): ic_download_24, the turning ic_sync while queued or downloading (with\n   izumi's percentage under it, standing in for the status line), ic_circle_check once saved. A press\n   queues the episode, or opens Downloads once it is queued or saved. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"template\"] > [data-part=\"episode.download\"] {\n  position: absolute; top: 30.5px; right: 0; z-index: 2; display: grid; place-items: center; width: 48px; height: 48px; padding: 0;\n  border-radius: 24px; background: transparent; color: #ebe0e2;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.download\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M16.59%209H15V4c0-.55-.45-1-1-1h-4c-.55%200-1%20.45-1%201v5H7.41c-.89%200-1.34%201.08-.71%201.71l4.59%204.59c.39.39%201.02.39%201.41%200l4.59-4.59c.63-.63.19-1.71-.7-1.71zM5%2019c0%20.55.45%201%201%201h12c.55%200%201-.45%201-1s-.45-1-1-1H6c-.55%200-1%20.45-1%201z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.download\"] > svg { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.download\"]::before {\n  content: \"\"; width: 24px; height: 24px; background: currentColor;\n  -webkit-mask: var(--blossom-glyph) center / 24px 24px no-repeat; mask: var(--blossom-glyph) center / 24px 24px no-repeat;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.download\"]:is([data-state=\"queued\"], [data-state=\"progress\"]) { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22M160-160v-80h110l-16-14q-52-46-73-105t-21-119q0-111%2066.5-197.5T400-790v84q-72%2026-116%2088.5T240-478q0%2045%2017%2087.5t53%2078.5l10%2010v-98h80v240H160Zm400-10v-84q72-26%20116-88.5T720-482q0-45-17-87.5T650-648l-10-10v98h-80v-240h240v80H690l16%2014q49%2049%2071.5%20106.5T800-482q0%20111-66.5%20197.5T560-170Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.download\"][data-state=\"done\"] { --blossom-glyph: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20d%3D%22m424-296%20282-282-56-56-226%20226-114-114-56%2056%20170%20170Zm56%20216q-83%200-156-31.5T197-197q-54-54-85.5-127T80-480q0-83%2031.5-156T197-763q54-54%20127-85.5T480-880q83%200%20156%2031.5T763-763q54%2054%2085.5%20127T880-480q0%2083-31.5%20156T763-197q-54%2054-127%2085.5T480-80Zm0-80q134%200%20227-93t93-227q0-134-93-227t-227-93q-134%200-227%2093t-93%20227q0%20134%2093%20227t227%2093Zm0-320Z%22%2F%3E%3C%2Fsvg%3E); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.download\"][data-state=\"progress\"] > span {\n  position: absolute; top: 40px; left: 0; right: 0; text-align: center; font: 700 10px/16.4px var(--ui-font); letter-spacing: 0; color: rgb(238 238 238 / 0.6);\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.download\"]:disabled { opacity: 0.38; }\n\n/* Numbers layout = the reference's Compact: four columns of 64 dp tiles. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.episodes\"] div:has(> [data-part=\"episode\"][data-variant=\"number\"]) {\n  grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;\n}\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"number\"] { height: 64px; border-radius: 16px; font: 700 16px/26.67px var(--ui-font); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"number\"][data-filler] { background: rgb(255 107 8 / 0.16); }\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode\"][data-variant=\"number\"][data-state=\"watched\"] { background: #1c1c1c; opacity: 0.6; }\n\n/* ---- Motion: the Info / Watch swap zooms the page in from 1.3 (ZoomOutPageTransformer), the active\n   tab's label and indicator pop in with the bar's overshoot; banners drift (Ken Burns). ---- */\n@keyframes blossom-page-zoom { 0% { transform: scale(1.3); opacity: 0; } 61% { transform: scale(0.98); } 100% { transform: scale(1); opacity: 1; } }\n@keyframes blossom-indicator { from { transform: scaleX(0); } to { transform: scaleX(1); } }\n@keyframes blossom-tab-label { from { transform: translateY(20px); opacity: 0; } to { transform: none; opacity: 1; } }\n@keyframes blossom-sync { to { rotate: -360deg; } }\n@media (prefers-reduced-motion: no-preference) {\n  :scope:not(.a11y-reduce-motion) [data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] [data-part=\"detail.backdrop\"] {\n    animation: blossom-ken-burns-banner 25s ease-in-out infinite alternate;\n  }\n  :scope:not(.a11y-reduce-motion) [data-slot=\"detail\"][data-variant=\"phone\"] :is(\n    [data-part=\"detail.poster\"], [data-part=\"detail.head\"] > :not([data-part=\"detail.poster\"]), [data-part=\"detail.buttons\"],\n    [data-part=\"detail.actions\"] > :is([data-part=\"detail.lead\"], [data-action=\"save\"], [data-action=\"share\"], [data-action=\"trailer\"], [data-action=\"more\"], [data-part=\"detail.menu\"])\n  ) { transition: translate 200ms ease-in-out; }\n  /* Both tabs' bodies (izumi builds them anew on every switch). */\n  :scope:not(.a11y-reduce-motion) [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"] ~ * {\n    transform-origin: 50% 0; animation: blossom-page-zoom 300ms ease-out;\n  }\n  :scope:not(.a11y-reduce-motion) [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"][data-variant=\"bottom\"] [data-part=\"tab\"][data-active] { animation: blossom-tab-label 400ms cubic-bezier(.3, 1.35, .6, 1); }\n  :scope:not(.a11y-reduce-motion) [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"tabs\"][data-variant=\"bottom\"] [data-part=\"tab\"][data-active]::before { animation: blossom-indicator 400ms cubic-bezier(.3, 1.35, .6, 1); }\n  /* The sync glyph turns while the episode is queued or downloading (EpisodeAdapters startOrContinueRotation). */\n  :scope:not(.a11y-reduce-motion) [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"episode.download\"]:is([data-state=\"queued\"], [data-state=\"progress\"])::before { animation: blossom-sync 1s linear infinite; }\n  @supports (animation-timeline: scroll()) {\n    :scope:not(.a11y-reduce-motion) [data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] [data-part=\"detail.backdrop\"] {\n      animation: blossom-ken-burns-banner 25s ease-in-out infinite alternate, blossom-parallax linear both;\n      animation-timeline: auto, scroll(root); animation-range: normal, 0px 384px;\n    }\n    :scope:not(.a11y-reduce-motion) [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.bar.title\"] {\n      animation: blossom-strip-title linear both, blossom-title-in 200ms ease-in-out both;\n      animation-timeline: scroll(root), auto; animation-range: 0px 384px, normal;\n    }\n  }\n}\n\n/* ---- Loading (MediaDetailsActivity + fragment_media_info.xml mediaInfoProgressBar): the header is drawn\n   at once from the tapped card (banner, cover, title, status, list button, totals) and the tab's body\n   is the platform's indeterminate ring (a 40 dp ring in a 48 dp box) in colorPrimary, 32 dp under the content top, until the record\n   arrives. ---- */\n@keyframes blossom-spin { to { transform: rotate(360deg); } }\n[data-slot=\"detail\"][data-variant=\"phone\"][data-pending] [data-part=\"detail.content\"] > :has(> [data-part=\"tabs\"]) > :not([data-part=\"tabs\"]) { display: none; }\n[data-slot=\"detail\"][data-variant=\"phone\"][data-pending] [data-part=\"detail.content\"] > :has(> [data-part=\"tabs\"])::after {\n  content: \"\"; display: block; box-sizing: border-box; width: 40px; height: 40px; margin: 36px auto;\n  border: 3.5px solid #ffaed9; border-right-color: transparent; border-bottom-color: transparent; border-radius: 50%;\n  animation: blossom-spin 1s linear infinite;\n}\n"
+  }
+}

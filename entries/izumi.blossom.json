@@ -1,10 +1,10 @@
 {
   "id": "izumi.blossom",
   "name": "Blossom",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Izumi",
   "description": "Dantotsu look: pure black and pink, a profile banner with hub cards, ★ cover rails, bottom series tabs.",
-  "themeApi": 3,
+  "themeApi": 4,
   "tags": [
     "Phone",
     "Dark",
@@ -16,8 +16,8 @@
     "desktop"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/2.0.0.json",
-  "sha256": "a705a9759a0a37392a3e3d638953a2fb8a3714aebc9dac91ce1acbdbb80aaa3c",
-  "bytes": 35702,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.blossom/2.0.1.json",
+  "sha256": "ff4288a0604f78b490ac1b0d6d67c578a2356657bc501b6b286ddafb6a343199",
+  "bytes": 120584,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.blossom.png"
 }
