@@ -1,0 +1,1333 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.saffron",
+  "name": "Saffron",
+  "version": "1.0.1",
+  "author": "Izumi",
+  "description": "Crunchyroll look: black and orange DM Sans, a key-art carousel with title logos, a Categories menu and episode grids.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "0 0% 100%",
+      "muted": "0 0% 15%",
+      "mutedForeground": "0 0% 55%",
+      "primary": "22 100% 52%",
+      "primaryForeground": "0 0% 0%",
+      "secondary": "0 0% 15%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "0 0% 8%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 20%",
+      "input": "0 0% 15%",
+      "ring": "22 100% 52%",
+      "card": "0 0% 8%",
+      "cardForeground": "0 0% 100%",
+      "theme": "22 100% 52%"
+    },
+    "radius": 0,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "dm-sans",
+      "heading": "dm-sans",
+      "display": "dm-sans"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "cardPreview": "none",
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "text",
+          "search": "icon",
+          "menu": "none",
+          "brand": "start",
+          "categories": true
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "line",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#272727",
+          "activeColor": "#FF640A",
+          "inactiveColor": "#BBBBBB",
+          "blur": false,
+          "border": false,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "scale": "wide",
+        "bleed": 162,
+        "height": 70,
+        "mobileHeight": 72,
+        "rotate": true,
+        "interval": 10,
+        "indicator": {
+          "style": "bars",
+          "position": "start",
+          "color": "#FF640A",
+          "past": "empty"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "saffron.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "keyart",
+              "part": "saffron.art",
+              "when": {
+                "field": "keyart"
+              },
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "part": "saffron.art",
+              "when": {
+                "field": "keyart",
+                "absent": true
+              },
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "saffron.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 0,
+                "padding": 64,
+                "width": 44
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "logo",
+                  "part": "saffron.logo",
+                  "when": {
+                    "field": "logo"
+                  },
+                  "style": {
+                    "fit": "contain",
+                    "maxWidth": 342,
+                    "aspect": "2 / 1"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 34,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title",
+                  "when": {
+                    "field": "logo",
+                    "absent": true
+                  },
+                  "part": "saffron.title"
+                },
+                {
+                  "type": "row",
+                  "part": "saffron.meta",
+                  "style": {
+                    "gap": 0,
+                    "align": "center",
+                    "wrap": "wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700
+                      },
+                      "field": "ageRating",
+                      "when": {
+                        "field": "ageRating"
+                      },
+                      "part": "saffron.age"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 400
+                      },
+                      "text": " ",
+                      "part": "saffron.sep",
+                      "when": {
+                        "field": "audio"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#8C8C8C"
+                      },
+                      "field": "audio",
+                      "when": {
+                        "field": "audio"
+                      },
+                      "part": "saffron.audio"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 400
+                      },
+                      "text": " ",
+                      "part": "saffron.sep",
+                      "when": {
+                        "field": "genre"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#8C8C8C"
+                      },
+                      "field": "genre",
+                      "when": {
+                        "field": "genre"
+                      },
+                      "part": "saffron.genre"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#8C8C8C"
+                      },
+                      "text": ",",
+                      "when": {
+                        "field": "genre2"
+                      },
+                      "part": "saffron.comma"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#8C8C8C"
+                      },
+                      "field": "genre2",
+                      "when": {
+                        "field": "genre2"
+                      },
+                      "part": "saffron.genre"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#8C8C8C"
+                      },
+                      "text": ",",
+                      "when": {
+                        "field": "genre3"
+                      },
+                      "part": "saffron.comma"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "color": "#8C8C8C"
+                      },
+                      "field": "genre3",
+                      "when": {
+                        "field": "genre3"
+                      },
+                      "part": "saffron.genre"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 400,
+                    "lines": 4,
+                    "color": "#BBBBBB"
+                  },
+                  "field": "description",
+                  "part": "saffron.synopsis"
+                },
+                {
+                  "type": "row",
+                  "part": "saffron.actions",
+                  "style": {
+                    "gap": 10,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "START WATCHING",
+                      "part": "saffron.play",
+                      "style": {
+                        "minHeight": 40,
+                        "fontSize": 14,
+                        "fontWeight": 700,
+                        "color": "#000000",
+                        "background": "#FF640A"
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "list",
+                      "icon": "bookmark",
+                      "part": "saffron.more",
+                      "style": {
+                        "minHeight": 40,
+                        "fontSize": 24,
+                        "fontWeight": 700,
+                        "color": "#FF640A",
+                        "background": "transparent"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 238,
+          "gap": 30,
+          "titleSize": 28,
+          "heading": {
+            "weight": 700,
+            "viewMore": "text"
+          },
+          "spacing": 48
+        },
+        "byId": {
+          "continue": {
+            "width": 238
+          },
+          "popular": {
+            "title": "Popular"
+          },
+          "upcoming": {
+            "title": "Coming Soon"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "part": "saffron.card",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "saffron.poster",
+              "style": {
+                "aspect": "2 / 3"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover",
+                    "radius": 0
+                  }
+                },
+                {
+                  "type": "stack",
+                  "part": "saffron.hover",
+                  "style": {
+                    "anchor": "fill",
+                    "gap": 6,
+                    "padding": 12,
+                    "align": "start"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 700,
+                        "lines": 3,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "title"
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "gap": 4,
+                        "align": "center"
+                      },
+                      "when": {
+                        "field": "score"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14,
+                            "fontWeight": 400,
+                            "color": "#BBBBBB"
+                          },
+                          "field": "score"
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 400,
+                            "color": "#BBBBBB"
+                          },
+                          "text": "★"
+                        },
+                        {
+                          "type": "row",
+                          "when": {
+                            "field": "members"
+                          },
+                          "style": {
+                            "gap": 0
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "style": {
+                                "fontSize": 14,
+                                "fontWeight": 400,
+                                "color": "#BBBBBB"
+                              },
+                              "text": "("
+                            },
+                            {
+                              "type": "text",
+                              "style": {
+                                "fontSize": 14,
+                                "fontWeight": 400,
+                                "color": "#BBBBBB"
+                              },
+                              "field": "members",
+                              "part": "saffron.members"
+                            },
+                            {
+                              "type": "text",
+                              "style": {
+                                "fontSize": 14,
+                                "fontWeight": 400,
+                                "color": "#BBBBBB"
+                              },
+                              "text": ")"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "gap": 4
+                      },
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14,
+                            "fontWeight": 700,
+                            "color": "#8C8C8C"
+                          },
+                          "field": "episodeCount"
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 14,
+                            "fontWeight": 700,
+                            "color": "#8C8C8C"
+                          },
+                          "text": "Episodes"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400,
+                        "lines": 6,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "description",
+                      "part": "saffron.hover-synopsis"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 700,
+                "lines": 2,
+                "color": "#FFFFFF"
+              },
+              "field": "title",
+              "part": "saffron.card-title"
+            },
+            {
+              "type": "text",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lines": 1,
+                "color": "#8C8C8C"
+              },
+              "field": "format",
+              "when": {
+                "field": "format"
+              },
+              "part": "saffron.card-meta"
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "saffron.cw",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "saffron.cw-art",
+              "style": {
+                "aspect": "16 / 9"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover",
+                    "radius": 0
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "saffron.cw-bar",
+                  "when": {
+                    "field": "timeLeft"
+                  },
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "anchor": "bottom-end",
+                    "color": "#FFFFFF"
+                  },
+                  "field": "timeLeft",
+                  "when": {
+                    "field": "timeLeft"
+                  },
+                  "part": "saffron.cw-left"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "style": {
+                "fontSize": 10,
+                "fontWeight": 700,
+                "lines": 1,
+                "color": "#8C8C8C"
+              },
+              "field": "title",
+              "part": "saffron.cw-series"
+            },
+            {
+              "type": "row",
+              "part": "saffron.cw-ep",
+              "style": {
+                "gap": 0
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "episodeNumber"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  },
+                  "text": " - ",
+                  "when": {
+                    "field": "episodeTitle"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "episodeTitle",
+                  "when": {
+                    "field": "episodeTitle"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "overlay",
+        "art": "keyart",
+        "title": "logo",
+        "header": {
+          "type": "stack",
+          "part": "saffron.detail-head",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "row",
+              "part": "saffron.detail-meta",
+              "style": {
+                "gap": 0,
+                "align": "center",
+                "wrap": "wrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 700
+                  },
+                  "field": "ageRating",
+                  "when": {
+                    "field": "ageRating"
+                  },
+                  "part": "saffron.age"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 400
+                  },
+                  "text": " ",
+                  "part": "saffron.sep",
+                  "when": {
+                    "field": "audio"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "color": "#BBBBBB"
+                  },
+                  "field": "audio",
+                  "when": {
+                    "field": "audio"
+                  },
+                  "part": "saffron.audio"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 400
+                  },
+                  "text": " ",
+                  "part": "saffron.sep",
+                  "when": {
+                    "field": "genre"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "color": "#BBBBBB"
+                  },
+                  "field": "genre",
+                  "when": {
+                    "field": "genre"
+                  },
+                  "part": "saffron.genre"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "color": "#BBBBBB"
+                  },
+                  "text": ",",
+                  "when": {
+                    "field": "genre2"
+                  },
+                  "part": "saffron.comma"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "color": "#BBBBBB"
+                  },
+                  "field": "genre2",
+                  "when": {
+                    "field": "genre2"
+                  },
+                  "part": "saffron.genre"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "color": "#BBBBBB"
+                  },
+                  "text": ",",
+                  "when": {
+                    "field": "genre3"
+                  },
+                  "part": "saffron.comma"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "color": "#BBBBBB"
+                  },
+                  "field": "genre3",
+                  "when": {
+                    "field": "genre3"
+                  },
+                  "part": "saffron.genre"
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "saffron.detail-rating",
+              "when": {
+                "field": "rating"
+              },
+              "style": {
+                "gap": 0,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "saffron.stars",
+                  "style": {
+                    "gap": 0,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "star",
+                      "part": "saffron.star",
+                      "style": {
+                        "fontSize": 28,
+                        "fontWeight": 400,
+                        "color": "#BBBBBB"
+                      }
+                    },
+                    {
+                      "type": "icon",
+                      "icon": "star",
+                      "part": "saffron.star",
+                      "style": {
+                        "fontSize": 28,
+                        "fontWeight": 400,
+                        "color": "#BBBBBB"
+                      }
+                    },
+                    {
+                      "type": "icon",
+                      "icon": "star",
+                      "part": "saffron.star",
+                      "style": {
+                        "fontSize": 28,
+                        "fontWeight": 400,
+                        "color": "#BBBBBB"
+                      }
+                    },
+                    {
+                      "type": "icon",
+                      "icon": "star",
+                      "part": "saffron.star",
+                      "style": {
+                        "fontSize": 28,
+                        "fontWeight": 400,
+                        "color": "#BBBBBB"
+                      }
+                    },
+                    {
+                      "type": "icon",
+                      "icon": "star",
+                      "part": "saffron.star",
+                      "style": {
+                        "fontSize": 28,
+                        "fontWeight": 400,
+                        "color": "#BBBBBB"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "color": "#BBBBBB"
+                  },
+                  "text": "Average Rating:",
+                  "part": "saffron.avg-label"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "rating",
+                  "part": "saffron.avg"
+                },
+                {
+                  "type": "row",
+                  "when": {
+                    "field": "members"
+                  },
+                  "part": "saffron.avg-count",
+                  "style": {
+                    "gap": 0
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      },
+                      "text": "("
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "members",
+                      "part": "saffron.members"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      },
+                      "text": ")"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon",
+                  "icon": "chevron-down",
+                  "part": "saffron.avg-caret",
+                  "style": {
+                    "fontSize": 24,
+                    "fontWeight": 400,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "sections": {
+          "mode": "stack",
+          "tabs": [
+            "recommended",
+            "relations",
+            "characters",
+            "overview"
+          ],
+          "labels": {
+            "recommended": "more-like-this",
+            "overview": "details"
+          }
+        },
+        "tabs": "underline",
+        "factsStyle": "table",
+        "countdown": "compact",
+        "episodes": {
+          "placement": "below",
+          "arrangement": "grid",
+          "hover": "none",
+          "card": {
+            "type": "stack",
+            "part": "saffron.ep",
+            "style": {
+              "gap": 0
+            },
+            "children": [
+              {
+                "type": "overlay",
+                "part": "saffron.ep-art",
+                "style": {
+                  "aspect": "16 / 9"
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "style": {
+                      "anchor": "fill",
+                      "fit": "cover",
+                      "radius": 0
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "anchor": "bottom-end",
+                      "color": "#FFFFFF"
+                    },
+                    "field": "duration",
+                    "when": {
+                      "field": "duration"
+                    },
+                    "part": "saffron.ep-duration"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "style": {
+                  "fontSize": 10,
+                  "fontWeight": 700,
+                  "lines": 1,
+                  "color": "#8C8C8C"
+                },
+                "field": "title",
+                "part": "saffron.cw-series"
+              },
+              {
+                "type": "row",
+                "part": "saffron.cw-ep",
+                "style": {
+                  "gap": 0
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 16,
+                      "fontWeight": 700,
+                      "color": "#FFFFFF"
+                    },
+                    "field": "episodeNumber"
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 16,
+                      "fontWeight": 700,
+                      "color": "#FFFFFF"
+                    },
+                    "text": " - ",
+                    "when": {
+                      "field": "episodeTitle"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 16,
+                      "fontWeight": 700,
+                      "color": "#FFFFFF"
+                    },
+                    "field": "episodeTitle",
+                    "when": {
+                      "field": "episodeTitle"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "order": "flip",
+          "toolbar": "header",
+          "controls": [
+            "sort"
+          ],
+          "seasons": "dropdown"
+        }
+      },
+      "player": {
+        "layout": "full"
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "trending"
+          },
+          {
+            "role": "upcoming"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "role": "newest"
+          },
+          {
+            "role": "popular"
+          },
+          {
+            "role": "movies"
+          }
+        ],
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "search",
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "saffron.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "poster",
+                "part": "saffron.art",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "saffron.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "center",
+                  "gap": 0,
+                  "padding": 20,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "saffron.logo",
+                    "when": {
+                      "field": "logo"
+                    },
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 342,
+                      "aspect": "2 / 1"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 24,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FFFFFF",
+                      "textAlign": "center"
+                    },
+                    "field": "title",
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    },
+                    "part": "saffron.title"
+                  },
+                  {
+                    "type": "row",
+                    "part": "saffron.meta",
+                    "style": {
+                      "gap": 0,
+                      "align": "center",
+                      "wrap": "wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 700
+                        },
+                        "field": "ageRating",
+                        "when": {
+                          "field": "ageRating"
+                        },
+                        "part": "saffron.age"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 400
+                        },
+                        "text": " ",
+                        "part": "saffron.sep",
+                        "when": {
+                          "field": "audio"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "#8C8C8C"
+                        },
+                        "field": "audio",
+                        "when": {
+                          "field": "audio"
+                        },
+                        "part": "saffron.audio"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 400
+                        },
+                        "text": " ",
+                        "part": "saffron.sep",
+                        "when": {
+                          "field": "genre"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "#8C8C8C"
+                        },
+                        "field": "genre",
+                        "when": {
+                          "field": "genre"
+                        },
+                        "part": "saffron.genre"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "#8C8C8C"
+                        },
+                        "text": ",",
+                        "when": {
+                          "field": "genre2"
+                        },
+                        "part": "saffron.comma"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "#8C8C8C"
+                        },
+                        "field": "genre2",
+                        "when": {
+                          "field": "genre2"
+                        },
+                        "part": "saffron.genre"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "#8C8C8C"
+                        },
+                        "text": ",",
+                        "when": {
+                          "field": "genre3"
+                        },
+                        "part": "saffron.comma"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 400,
+                          "color": "#8C8C8C"
+                        },
+                        "field": "genre3",
+                        "when": {
+                          "field": "genre3"
+                        },
+                        "part": "saffron.genre"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "part": "saffron.actions",
+                    "style": {
+                      "gap": 10,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "START WATCHING",
+                        "part": "saffron.play",
+                        "style": {
+                          "minHeight": 40,
+                          "fontSize": 14,
+                          "fontWeight": 700,
+                          "color": "#000000",
+                          "background": "#FF640A"
+                        }
+                      },
+                      {
+                        "type": "action",
+                        "action": "list",
+                        "icon": "bookmark",
+                        "part": "saffron.more",
+                        "style": {
+                          "minHeight": 40,
+                          "fontSize": 24,
+                          "fontWeight": 700,
+                          "color": "#FF640A",
+                          "background": "transparent"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "indicator": {
+            "style": "bars",
+            "position": "center",
+            "color": "#FF640A",
+            "past": "empty"
+          }
+        },
+        "rows": {
+          "defaults": {
+            "width": 170,
+            "gap": 10,
+            "titleSize": 22,
+            "spacing": 32
+          },
+          "byId": {
+            "continue": {
+              "width": 240
+            }
+          }
+        },
+        "rootSize": 16
+      }
+    },
+    "css": "/* Saffron — the Crunchyroll look (docs/theme-references/crunchyroll.md, tmp/parity/saffron/measure.md):\n   black, DM Sans, one orange, square corners. Numbers are the reference site's own CSS at 1440×900. */\n\n/* ── Header: the #272727 bar of 16 px #BBB text tiles; hover and the current page turn white on #151515.\n   The row is the site's 60 px header; izumi's 32 px window band stays above it, as a browser's own chrome. ── */\n:scope { --theme-top-row: 60px; }\n[data-slot=\"nav.top\"] { gap: 0 !important; background: #272727 !important; border: 0 !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { height: 60px; padding: 0 16px; border-radius: 0 !important; background: transparent; color: #bbb !important; font-size: 16px; font-weight: 400; line-height: 22px; transition: background-color 0.1s cubic-bezier(0, 0, 0.25, 1); }\n[data-slot=\"nav.top\"] > a[data-part=\"nav.item\"]:first-of-type { margin-left: 14px; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover, [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { background: #151515 !important; color: #fff !important; }\n/* Categories ▾: a filled 24 px dropdown caret, tile padding 0 12 0 16. */\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-variant=\"menu\"] { padding: 0 12px 0 16px; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-variant=\"menu\"] svg { display: none; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-variant=\"menu\"]::after { content: \"\"; width: 0; height: 0; margin: 0 7px 0 11px; border-top: 5px solid currentColor; border-right: 5px solid transparent; border-left: 5px solid transparent; }\n/* Right-hand icons: 52 px tiles with 24 px #BBB glyphs, as the search / watchlist / account tiles. */\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"] { width: 52px !important; height: 60px !important; border-radius: 0 !important; background: transparent !important; color: #bbb !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"]:hover, [data-slot=\"nav.top\"] > [data-part=\"nav.action\"][data-active] { background: #151515 !important; color: #fff !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"] svg { width: 24px; height: 24px; }\n\n/* Categories: a #151515 panel — browse links on the left, then GENRES over three columns. */\n[data-slot=\"nav.categories\"] { border: 0 !important; border-radius: 0 !important; background: #151515 !important; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important; }\n[data-slot=\"nav.categories\"] > div { border-color: #272727 !important; }\n[data-part=\"nav.categories.link\"] { display: flex; align-items: center; min-height: 44px; padding: 12px 16px !important; line-height: 20px !important; border-radius: 0 !important; color: #f2f2f2 !important; font-size: 16px !important; }\n[data-part=\"nav.categories.link\"][data-variant=\"genre\"] { width: 200px !important; color: #bbb !important; font-size: 14px !important; }\n[data-part=\"nav.categories.link\"]:hover { background: #272727 !important; color: #fff !important; }\n[data-part=\"nav.categories.heading\"] { padding: 13px 16px !important; color: #8c8c8c !important; font-size: 12px !important; font-weight: 700 !important; letter-spacing: -0.36px !important; text-transform: uppercase; }\n\n/* ── Home hero (hero-container + hero-content-card): 16:9 key art that fades to black at the bottom and from\n   the left. The copy sits in a 20:7 box (500 px min, up to 100vh − min(350 px, 40vh)); the slide markers\n   56 px under it, the rows 72 px under it, the art running on under the first row. ── */\n[data-part=\"saffron.hero\"]::after {\n  background: linear-gradient(rgba(0, 0, 0, 0) 50%, #000 100%), linear-gradient(to right, rgba(0, 0, 0, 0.85) 0, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 55%) !important;\n}\n/* --saffron-under is the art below the box; the rows start 72 px (markers) + the feed's row gap (48 px,\n   96 px from 1440) below the box, which izumi's bleed (rows pulled up by bleed − 24 px) has to equal. */\n@media (min-width: 641px) {\n  [data-slot=\"home.hero\"][data-variant=\"template\"] { --saffron-box: clamp(300px, 35vw, calc(100vh - 300px)); --saffron-under: calc(56.25vw - var(--saffron-box)); --hero-bleed: calc(var(--saffron-under) - 96px) !important; }\n  [data-part=\"saffron.info\"] { padding-bottom: var(--saffron-under) !important; }\n  [data-slot=\"home.hero\"] [data-part=\"hero.indicator\"] { bottom: calc(var(--saffron-under) - 64px) !important; }\n  [data-slot=\"home.hero\"] [data-part=\"hero.edge\"] { top: calc((var(--saffron-box) + 72px) / 2) !important; }\n}\n@media (min-width: 1024px) {\n  [data-slot=\"home.hero\"][data-variant=\"template\"] { --saffron-box: clamp(360px, 35vw, calc(100vh - 300px)); }\n  /* The copy column is four of the twelve 30 px-gutter columns inside the 64 px gutters. */\n  [data-part=\"saffron.info\"] { width: calc((100% - 458px) / 3 + 218px) !important; }\n}\n@media (min-width: 1440px) {\n  [data-slot=\"home.hero\"][data-variant=\"template\"] { --saffron-box: clamp(500px, 35vw, calc(100vh - min(350px, 40vh))); --hero-bleed: calc(var(--saffron-under) - 144px) !important; }\n}\n@media (min-width: 641px) {\n  /* The logo box is three columns wide at 15:8, bottom-left aligned. */\n  [data-part=\"saffron.logo\"] { width: calc(75% - 7.5px) !important; max-width: none !important; max-height: 320px; aspect-ratio: 15 / 8 !important; }\n  [data-part=\"saffron.synopsis\"] { width: 100%; margin-bottom: 32px; line-height: 22px; }\n}\n[data-part=\"saffron.logo\"] img { object-position: left bottom; }\n[data-part=\"saffron.title\"] { margin-bottom: 12px; letter-spacing: -1.02px; line-height: 40px; text-shadow: none !important; }\n[data-part=\"saffron.meta\"] { max-height: 20px; margin: 20px 0 8px; overflow: hidden; line-height: 20px; }\n[data-part=\"saffron.age\"] { height: 20px; padding: 0 6px; border-radius: 2px; background: #4a4e58; color: #dadada; line-height: 20px; }\n/* ◆ separators: a 4 px square turned 45°, 4 px either side, in the line's colour. */\n[data-part=\"saffron.sep\"] { width: 4px; height: 4px; margin: 0 4px; background: #8c8c8c; font-size: 0 !important; line-height: 0; transform: rotate(45deg); }\n[data-part=\"saffron.sep\"]:first-child { display: none; }\n[data-part=\"saffron.comma\"] { margin-right: 4px; }\n[data-part=\"saffron.play\"] { height: 40px; padding: 0 16px !important; gap: 4px !important; border-radius: 0 !important; line-height: 20px; text-transform: uppercase; }\n[data-part=\"saffron.play\"] svg { width: 24px; height: 24px; fill: none; }\n[data-part=\"saffron.more\"] { width: 40px; height: 40px; padding: 0 !important; justify-content: center; border-radius: 0 !important; box-shadow: inset 0 0 0 2px #ff640a; }\n\n/* Slide markers: 24×8 pills at 50% white, the current one 48 wide with the orange loader; 8 px apart. */\n[data-slot=\"home.hero\"] [data-part=\"hero.indicator\"] { gap: 8px !important; left: 64px !important; }\n[data-part=\"hero.dot.track\"] { width: 24px !important; height: 8px !important; border-radius: 4px !important; background: rgba(255, 255, 255, 0.5) !important; transition: width 0.3s; }\n[data-part=\"hero.dot\"][data-active] [data-part=\"hero.dot.track\"] { width: 48px !important; }\n[data-part=\"hero.dot\"]:not([data-active]):hover [data-part=\"hero.dot.track\"] { background: rgba(255, 100, 10, 0.7) !important; }\n[data-part=\"hero.dot.fill\"] { border-radius: 4px; }\n/* Arrows: bare 46 px white chevrons in 64×100 hit areas at both edges, half-white on hover. */\n[data-slot=\"home.hero\"] [data-part=\"hero.edge\"] { height: 100px !important; color: #fff; }\n[data-slot=\"home.hero\"] [data-part=\"hero.edge\"] > span { width: 46px !important; height: 46px !important; border: 0 !important; background: transparent !important; box-shadow: none !important; opacity: 1 !important; transform: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }\n[data-slot=\"home.hero\"] [data-part=\"hero.edge\"] svg { width: 46px; height: 46px; stroke-width: 2.25; }\n[data-slot=\"home.hero\"] [data-part=\"hero.edge\"]:hover { color: rgba(255, 255, 255, 0.5); }\n\n/* ── Rows (feed-header): 28/36 bold headings with −3% tracking, 16 px above the cards; grey VIEW ALL ›. ── */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-weight: 700; letter-spacing: -0.84px; color: #fff; }\n@media (min-width: 641px) { [data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 28px !important; line-height: 36px; } }\n@media (max-width: 640px) { [data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 22px !important; line-height: 28px; letter-spacing: -0.66px; } }\n[data-part=\"row.header\"] { padding-bottom: 8px !important; }\n[data-part=\"row.more\"] { flex-shrink: 0; gap: 0 !important; color: #8c8c8c !important; font-size: 14px; font-weight: 700; line-height: 20px; text-transform: uppercase; white-space: nowrap; opacity: 1 !important; }\n[data-part=\"row.more\"]:hover { color: #fff !important; }\n[data-part=\"row.more\"] svg { width: 24px; height: 24px; margin-left: 6px; }\n@media (max-width: 640px) { [data-part=\"row.more\"] { font-size: 12px; } }\n/* The page gutter is 64 px on desktop; the carousel clips 12 px past it, so five cards show and none peeks. */\n@media (min-width: 1024px) {\n  [data-part=\"row.header\"], [data-part=\"row.track\"] { padding-left: 64px !important; padding-right: 64px !important; }\n  [data-part=\"row.track\"] { clip-path: inset(0 52px); }\n  /* Carousel arrows: bare 40 px #F2F2F2 chevrons in the gutter beside the cards, #272727 behind on hover. */\n  [data-part=\"row.step\"] { width: 40px !important; height: 40px !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; color: #f2f2f2 !important; }\n  [data-part=\"row.step\"][data-dir=\"previous\"] { left: 24px !important; }\n  [data-part=\"row.step\"][data-dir=\"next\"] { right: 24px !important; left: auto !important; }\n  [data-part=\"row.step\"]:hover { background: #272727 !important; color: #fff !important; }\n  [data-part=\"row.step\"] svg { width: 40px; height: 40px; stroke-width: 1.5; }\n}\n\n/* ── Poster cards (browse-card): square art, the title 12 px under it, the grey line 8 px under that. ── */\n[data-part=\"saffron.poster\"] img { transform: none !important; }\n[data-part=\"saffron.card-title\"] { margin-top: 12px; letter-spacing: -0.42px; line-height: 20px; }\n[data-part=\"saffron.card-meta\"] { margin-top: 8px; line-height: 17.5px; }\n/* Hover (browse-card-hover): a #151515 sheet 8 px larger than the card, the art at 5% under it. */\n[data-part=\"saffron.hover\"] { padding: 4px !important; gap: 0 !important; background: rgba(21, 21, 21, 0.95); box-shadow: 0 0 0 8px #151515; opacity: 0; transition: opacity 0.15s; }\n[data-part=\"saffron.hover\"] > :first-child { margin-bottom: 12px; letter-spacing: -0.42px; line-height: 20px; }\n[data-part=\"saffron.hover\"] > :nth-child(2) { margin-bottom: 4px; line-height: 20px; }\n[data-part=\"saffron.hover\"] > :nth-child(3) { margin-bottom: 8px; line-height: 20px; }\n[data-part=\"saffron.hover-synopsis\"] { line-height: 20px; }\n[data-part=\"saffron.poster\"] { overflow: visible !important; }\n/* The sheet covers the whole card: the art plus a one-line title and the grey line (12 + 20 + 8 + 18). */\n[data-part=\"saffron.hover\"] { align-self: start; height: calc(100% + 58px) !important; }\n[data-part=\"card\"]:hover [data-part=\"saffron.hover\"], [data-part=\"card\"]:focus-within [data-part=\"saffron.hover\"] { opacity: 1; z-index: 2; }\n\n/* ── Continue Watching (playable-card): 16:9 still, 4 px orange progress on rgba(0,0,0,.6), the \"21m left\"\n   chip 4 px in from the corner, then the series name and \"E1 - Title\" 12 px under the still. ── */\n[data-part=\"saffron.cw-bar\"] { min-height: 4px !important; height: 4px !important; border-radius: 0 !important; background: rgba(0, 0, 0, 0.6) !important; }\n[data-part=\"saffron.cw-bar\"] > span { border-radius: 0 !important; background: #ff640a !important; }\n[data-part=\"saffron.cw-left\"], [data-part=\"saffron.ep-duration\"] { margin: 0 4px 4px 0; padding: 3px 5px; background: rgba(0, 0, 0, 0.6); letter-spacing: -0.42px; line-height: 20px; }\n[data-part=\"saffron.cw-left\"] { margin-bottom: 8px; }\n[data-part=\"saffron.cw-series\"] { margin-top: 12px; padding-bottom: 5px; text-transform: uppercase; letter-spacing: -0.3px; line-height: 16px; }\n[data-part=\"saffron.cw-ep\"] { display: block !important; max-height: 44px; margin-top: 4px; overflow: hidden; line-height: 22px; letter-spacing: -0.48px; }\n[data-part=\"saffron.cw-ep\"] > * { display: inline !important; }\n[data-part=\"saffron.cw\"] { padding-bottom: 36px; }\n\n/* ── Series page (series-hero): key art min(16:9, box + 208 px) high; the copy bottom-aligned in a box of\n   clamp(39.6875vw − 288 px, 2:1, 100vh − 400 px); the synopsis 60 px under the buttons over six columns;\n   a 2 px #272727 rule under it. ── */\n[data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"] {\n  --saffron-g: clamp(calc(39.6875vw - 288px), 50vw, calc(100vh - 400px));\n  --saffron-a: min(56.25vw, calc(var(--saffron-g) + 208px));\n  min-height: 0 !important; height: var(--saffron-a);\n}\n/* The site's fade in izumi's two scrims: the top-right and left layers on the side scrim (now full width),\n   the bottom one on the bottom scrim beneath it. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.scrim\"][data-dir=\"bottom\"] { background-image: linear-gradient(rgba(0, 0, 0, 0) 45%, #000 85%) !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.scrim\"][data-dir=\"left\"] { width: 100% !important; background-image: linear-gradient(252deg, rgba(0, 0, 0, 0.55) 5%, rgba(0, 0, 0, 0) 20%), linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 55%) !important; }\n[data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"]::before {\n  content: \"\"; position: absolute; z-index: 2; top: calc(var(--saffron-g) + 196px); right: 64px; left: 64px; height: 2px; background: #272727;\n}\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.backdrop\"] { object-position: right top !important; }\n[data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"] [data-part=\"detail.body\"] {\n  min-height: 0 !important; height: 100%; max-width: none !important; justify-content: flex-end !important; gap: 0 !important;\n  padding: 0 64px calc(var(--saffron-a) - var(--saffron-g)) !important;\n}\n[data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"] [data-part=\"detail.body\"] > * { max-width: calc((100vw - 458px) * 5 / 12 + 120px); }\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.alt-title\"],\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.studio\"],\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.meta\"] { display: none !important; }\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.title\"] { order: 1; font-size: 34px !important; font-weight: 700 !important; letter-spacing: -1.02px; line-height: 40px !important; text-shadow: none !important; filter: none !important; }\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.header\"] { order: 2; margin-top: 20px; }\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.rating\"] { order: 3; margin-top: 12px !important; }\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.actions\"] { order: 4; margin-top: 32px; gap: 10px !important; }\n[data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"] {\n  position: absolute; top: calc(var(--saffron-g) + 60px); left: 64px; width: calc((100vw - 458px) / 2 + 150px); max-width: none !important;\n  -webkit-line-clamp: 4 !important; color: #fff !important; font-size: 16px !important; line-height: 22px !important;\n  -webkit-mask-image: linear-gradient(#000 66px, rgba(0, 0, 0, 0.15) 88px); mask-image: linear-gradient(#000 66px, rgba(0, 0, 0, 0.15) 88px);\n}\n[data-part=\"detail.logo\"] { max-width: 342px !important; max-height: 182px !important; object-position: left bottom; }\n[data-part=\"saffron.detail-meta\"] { max-height: 20px; overflow: hidden; line-height: 20px; }\n[data-part=\"saffron.detail-meta\"] [data-part=\"saffron.sep\"] { background: #bbb; }\n[data-part=\"saffron.detail-meta\"] [data-part=\"saffron.genre\"] { text-decoration: underline 1px; text-underline-offset: 2px; }\n/* ★★★★★ | Average Rating: 8.6 (184K) ▾ — 28 px #BBB stars, a 1×20 #414141 rule 8 px either side. */\n[data-part=\"saffron.stars\"]::after { content: \"\"; width: 1px; height: 20px; margin: 0 8px; background: #414141; }\n[data-part=\"saffron.star\"] svg { fill: currentColor; stroke-width: 1; }\n[data-part=\"saffron.avg-label\"] { margin-right: 4px; letter-spacing: -0.42px; line-height: 20px; }\n[data-part=\"saffron.avg\"], [data-part=\"saffron.avg-count\"] { letter-spacing: -0.42px; line-height: 20px; text-transform: uppercase; }\n[data-part=\"saffron.avg-count\"] { margin-left: 4px; }\n[data-part=\"saffron.avg-caret\"] { width: 24px; height: 24px; margin-left: 4px; }\n[data-part=\"saffron.avg-caret\"] svg { display: none; }\n[data-part=\"saffron.avg-caret\"]::after { content: \"\"; border-top: 5px solid currentColor; border-right: 5px solid transparent; border-left: 5px solid transparent; }\n/* START WATCHING E1 (CONTINUE WATCHING E3 once started), the bookmark square with the inset orange ring. */\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { height: 40px; padding: 0 16px !important; gap: 4px !important; border-radius: 0 !important; background: #ff640a !important; color: #000 !important; font-size: 0 !important; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] svg { width: 24px; height: 24px; fill: none; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"]::after { content: \"Start watching E\" attr(data-episode); font-size: 14px; font-weight: 700; line-height: 20px; text-transform: uppercase; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"][data-state=\"resume\"]::after { content: \"Continue watching E\" attr(data-episode); }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"secondary\"] { width: 40px !important; height: 40px !important; border-radius: 0 !important; background: transparent !important; box-shadow: inset 0 0 0 2px #ff640a; color: #ff640a !important; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"secondary\"] svg { width: 24px; height: 24px; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { color: #fff; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { background: #ff640a; }\n\n/* ── Episodes (erc-season-with-navigation): the 64 px gutter, the season dropdown and the grey controls in a\n   44 px row 12 px above a five-column grid of playable cards with 30 px gutters. ── */\n@media (min-width: 641px) {\n  [data-slot=\"detail.episodes\"], [data-slot=\"detail.section\"] { padding-left: 32px; padding-right: 32px; }\n  [data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"] ~ div [data-slot=\"detail.episodes\"] { margin-top: 48px; }\n  [data-part=\"episodes.grid\"] { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; gap: 30px !important; }\n}\n[data-part=\"saffron.ep-art\"] img { transform: none !important; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"template\"] { border-radius: 0 !important; background: transparent !important; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"template\"]:hover [data-part=\"saffron.cw-ep\"] { color: #fff; text-decoration: underline; text-underline-offset: 3px; }\n[data-part=\"saffron.ep\"] { padding-bottom: 36px; }\n[data-slot=\"episodes.toolbar\"] { min-height: 44px; margin-bottom: 12px !important; column-gap: 0 !important; }\n[data-part=\"episodes.heading\"] { font-size: 18px !important; font-weight: 700 !important; letter-spacing: -0.54px; line-height: 24px; }\n[data-part=\"episodes.count\"] { color: #8c8c8c !important; }\n[data-part=\"episodes.sort\"], [data-part=\"episodes.more\"] { display: inline-flex !important; align-items: center; height: 44px !important; width: auto !important; gap: 8px; padding: 10px 12px 10px 8px !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; color: #8c8c8c !important; font-size: 14px !important; font-weight: 700 !important; line-height: 20px; text-transform: uppercase; }\n[data-part=\"episodes.sort\"] svg, [data-part=\"episodes.more\"] svg { width: 24px; height: 24px; }\n[data-part=\"episodes.sort\"]:hover, [data-part=\"episodes.more\"]:hover { color: #fff !important; }\n[data-part=\"episodes.more\"]::after { content: \"Options\"; }\n[data-part=\"episodes.menu\"] { border: 0 !important; border-radius: 0 !important; background: #23252b !important; }\n/* The season dropdown: a filled caret, 5 px, then the 18/24 bold season name. */\n[data-part=\"season.toggle\"] { height: 44px; gap: 5px !important; padding: 10px 8px 10px 0 !important; font-size: 18px !important; font-weight: 700 !important; letter-spacing: -0.54px; line-height: 24px; }\n[data-part=\"season.toggle\"] svg { display: none; }\n[data-part=\"season.toggle\"]::before { content: \"\"; flex: none; width: 0; height: 0; margin: 0 7px; border-top: 5px solid currentColor; border-right: 5px solid transparent; border-left: 5px solid transparent; }\n\n/* Below the episodes: More like this, related titles, cast and details, 60 px apart under 20/26 headings. */\n[data-slot=\"detail.section\"] { margin-top: 60px !important; }\n[data-part=\"detail.section-title\"] { margin: 0 0 24px !important; color: #fff; font-size: 20px !important; font-weight: 700 !important; line-height: 26px; letter-spacing: -0.6px; }\n@media (min-width: 641px) {\n  [data-slot=\"detail.recommended\"], [data-slot=\"detail.relations\"] { display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 30px !important; }\n  [data-slot=\"detail.recommended\"] > *, [data-slot=\"detail.relations\"] > *, [data-part=\"relation\"] > div { width: auto !important; min-width: 0; }\n}\n\n/* ── Search (search-field + browse grid): a #151515 band with the 34 px field over a 2 px orange rule,\n   880 px wide and centred; the results six 150 px posters a row with 30 px gutters in a 1050 px column. ── */\n@media (min-width: 641px) {\n  [data-slot=\"search\"] { padding-top: 32px !important; }\n  [data-part=\"search.filters\"] { flex-wrap: wrap !important; row-gap: 56px !important; max-width: 1050px; margin: 0 auto; }\n  [data-part=\"search.field\"] {\n    flex: 0 0 min(880px, 100%) !important; height: 50px !important; margin: 0 calc((100% - min(880px, 100%)) / 2) !important; padding: 2px 4px !important;\n    border: 0 !important; border-bottom: 2px solid #ff640a !important; border-radius: 0 !important; background: #151515 !important;\n    box-shadow: 0 0 0 100vmax #151515 !important; clip-path: inset(-32px -100vmax);\n    color: #fff; font-size: 34px !important; font-weight: 500; line-height: 44px;\n  }\n  [data-part=\"search.field\"]::placeholder { color: #8c8c8c; }\n  [data-part=\"search.field\"] + * { margin-left: auto; }\n  [data-slot=\"search.results\"], [data-slot=\"search\"] [data-part=\"search.grid\"] { max-width: 1050px; margin-right: auto; margin-left: auto; }\n  [data-slot=\"search\"] [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important; gap: 30px !important; }\n}\n[data-part=\"search.filter\"] { height: 44px; gap: 8px !important; padding: 10px 12px 10px 8px !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; color: #8c8c8c !important; font-size: 14px !important; font-weight: 700 !important; line-height: 20px; text-transform: uppercase; }\n[data-part=\"search.filter\"]:hover, [data-part=\"search.filter\"][data-active] { color: #fff !important; }\n\n/* ── Phone (≤ 640 px): the 60 px #272727 bar, 20 px gutters, 22/28 headings 12 px above the cards. ── */\n@media (max-width: 640px) {\n  [data-slot=\"home.header\"] { display: grid; align-content: center; box-sizing: border-box; min-height: 60px; padding-top: 0 !important; padding-bottom: 0 !important; background: #272727 !important; }\n  [data-part=\"row.header\"], [data-part=\"row.track\"] { padding-left: 20px !important; padding-right: 20px !important; }\n  [data-part=\"row.track\"] { scroll-padding-inline: 20px !important; }\n  [data-part=\"row.header\"] { padding-bottom: 4px !important; }\n  /* Phone hero: 2:3 art; the copy centred at the bottom of a 1:1.15 box; markers 32 px under it, centred;\n     the rows 96 px under it, over the bottom of the art. */\n  [data-slot=\"home.hero\"][data-variant=\"template\"] { height: 150vw !important; margin-bottom: calc(96px - 35vw) !important; }\n  [data-slot=\"home.hero\"] ~ * { position: relative; }\n  [data-slot=\"home.hero\"] [data-part=\"saffron.hero\"]::after { background: linear-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 65%, #000 90%) !important; }\n  [data-part=\"saffron.info\"] { padding: 20px 20px 35vw !important; }\n  [data-slot=\"home.hero\"] [data-part=\"hero.indicator\"] { right: 0 !important; bottom: calc(35vw - 40px) !important; left: 0 !important; justify-content: center; }\n  [data-part=\"saffron.logo\"] { width: calc((100% - 110px) / 2 + 50px) !important; max-width: none !important; aspect-ratio: 15 / 8 !important; }\n  [data-part=\"saffron.logo\"] img { object-position: center bottom; }\n  [data-part=\"saffron.title\"] { line-height: 30px; letter-spacing: -0.72px; }\n  [data-part=\"saffron.meta\"] { justify-content: center; margin: 12px 0 20px; }\n}\n\n/* ── Phone series page (series-container, 2:3 art): the copy centred from 75% of the width down, then a\n   full-width orange button; the synopsis on black; episodes as 151×85 rows 12 px apart. ── */\n[data-slot=\"detail\"][data-layout=\"overlay\"] [data-part=\"detail.synopsis\"] { order: 5; }\n@media (max-width: 640px) {\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-slot=\"detail.banner\"] { height: auto !important; min-height: 0 !important; overflow: visible !important; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.backdrop\"], [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.banner.fade\"] { bottom: auto !important; height: 150vw !important; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.banner.fade\"] { background: linear-gradient(204deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 20%), linear-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 65%, #000 90%) !important; }\n  [data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"phone\"] [data-part=\"detail.body\"] { min-height: 0 !important; justify-content: flex-start !important; align-items: center !important; gap: 0 !important; padding: 75vw 20px 0 !important; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.content\"] { padding-left: 20px !important; padding-right: 20px !important; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.title\"] { font-size: 24px !important; line-height: 30px !important; letter-spacing: -0.72px; text-align: center; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.logo\"] { margin: 0 auto; object-position: center bottom !important; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.header\"] { margin-top: 12px; text-align: center; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"saffron.detail-meta\"], [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"saffron.detail-rating\"] { justify-content: center; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"saffron.detail-meta\"] { max-height: 40px; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"saffron.avg-label\"] { display: none; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.body\"] > [data-part=\"button\"][data-variant=\"primary\"] { order: 4; width: 100% !important; margin-top: 20px; justify-content: center; }\n  [data-slot=\"detail\"][data-variant=\"phone\"] [data-part=\"detail.synopsis\"] { align-self: stretch; margin-top: 40px; color: #fff !important; font-size: 14px !important; line-height: 20px !important; text-align: left; }\n  [data-slot=\"detail.episodes\"] [data-part=\"saffron.ep\"] { display: flow-root !important; height: 85px; padding: 0 !important; }\n  [data-slot=\"detail.episodes\"] [data-part=\"saffron.ep-art\"] { float: left; width: 151px; height: 85px; margin-right: 12px; }\n  [data-slot=\"detail.episodes\"] [data-part=\"saffron.cw-ep\"] { max-height: 40px; line-height: 20px; }\n  [data-slot=\"detail.episodes\"] [data-part=\"saffron.cw-ep\"] * { font-size: 14px !important; }\n  [data-part=\"episodes.grid\"] { gap: 12px !important; }\n}\n"
+  }
+}

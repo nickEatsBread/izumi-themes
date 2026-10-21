@@ -5,10 +5,10 @@
   "release": {
     "id": "izumi.frost",
     "name": "Frost",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "author": "Izumi",
     "description": "MKissa look: pure black in Inter, a labelled side rail, big poster cards with episode footers, orange ranks.",
-    "themeApi": 3,
+    "themeApi": 5,
     "tags": [
       "Dark",
       "Site",
@@ -20,9 +20,9 @@
       "phone"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.frost/2.0.1.json",
-    "sha256": "82ae9e5e1109d1d733a0bfa5535b4c6ddec113dff2205dd87f7002e1a2326f19",
-    "bytes": 16634,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.frost/2.0.2.json",
+    "sha256": "cff557a22de9ec77af676951267dbd63dd03d17b74a65aae6eed5d47bf9e6bc6",
+    "bytes": 56356,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.frost.png"
   }
 }

@@ -1,0 +1,1307 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.iris",
+  "name": "Iris",
+  "version": "1.0.3",
+  "author": "Izumi",
+  "description": "Senshi look: near-black and purple, a full-bleed hero under a clear header, overlay poster rails, medal-ranked trending.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "240 6.25% 6.27%",
+      "foreground": "0 0% 100%",
+      "muted": "240 5.9% 10%",
+      "mutedForeground": "0 0% 64%",
+      "primary": "271.5 81.3% 55.9%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "240 5.9% 10%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "240 5.9% 10%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 16%",
+      "input": "240 5.9% 10%",
+      "ring": "271.5 81.3% 55.9%",
+      "card": "240 5.9% 10%",
+      "cardForeground": "0 0% 100%",
+      "theme": "270.7 91% 65.1%"
+    },
+    "radius": 0.5,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "system",
+      "heading": "system",
+      "display": "system"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "both",
+          "search": "field-center",
+          "menu": "none",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#0F0F11",
+          "activeColor": "#A855F7",
+          "inactiveColor": "#A3A3A3",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 75,
+        "mobileHeight": 50,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "none"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "iris.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "iris.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 0,
+                "padding": 64
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 48,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title",
+                  "part": "iris.title"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lines": 4,
+                    "color": "#D4D4D4"
+                  },
+                  "field": "description",
+                  "part": "iris.synopsis"
+                },
+                {
+                  "type": "row",
+                  "part": "iris.actions",
+                  "style": {
+                    "gap": 12,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "PLAY",
+                      "part": "iris.play",
+                      "style": {
+                        "minHeight": 48,
+                        "radius": 8,
+                        "fontSize": 16,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF",
+                        "background": "#9333EA"
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "list",
+                      "icon": "bookmark",
+                      "part": "iris.save",
+                      "style": {
+                        "minHeight": 48,
+                        "radius": 8,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "iris.pager",
+              "when": {
+                "field": "slides"
+              },
+              "style": {
+                "anchor": "bottom-end",
+                "gap": 12,
+                "align": "center",
+                "padding": 24
+              },
+              "children": [
+                {
+                  "type": "action",
+                  "action": "previous",
+                  "icon": "chevron-left",
+                  "part": "iris.prev",
+                  "style": {
+                    "minHeight": 48,
+                    "radius": 80,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "iris.count",
+                  "style": {
+                    "gap": 4,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500,
+                        "color": "#E5E5E5"
+                      },
+                      "field": "slide"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500,
+                        "color": "#E5E5E5"
+                      },
+                      "text": "/"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500,
+                        "color": "#E5E5E5"
+                      },
+                      "field": "slides"
+                    }
+                  ]
+                },
+                {
+                  "type": "action",
+                  "action": "next",
+                  "icon": "chevron-right",
+                  "part": "iris.next",
+                  "style": {
+                    "minHeight": 48,
+                    "radius": 80,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 200,
+          "gap": 16,
+          "titleSize": 30,
+          "heading": {
+            "weight": 700,
+            "viewMore": "text"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 320,
+            "gap": 16,
+            "heading": {
+              "weight": 700,
+              "viewMore": "text"
+            }
+          },
+          "recent": {
+            "width": 180,
+            "gap": 16,
+            "title": "Latest Episodes"
+          },
+          "newest": {
+            "width": 200,
+            "gap": 16,
+            "card": {
+              "type": "overlay",
+              "part": "iris.card",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "stack",
+                  "part": "iris.caption",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "gap": 6,
+                    "padding": 12,
+                    "width": 100
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 600,
+                        "lines": 1,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "title",
+                      "part": "iris.card-title"
+                    },
+                    {
+                      "type": "row",
+                      "part": "iris.chips",
+                      "style": {
+                        "gap": 6,
+                        "align": "center",
+                        "wrap": "nowrap"
+                      },
+                      "children": [
+                        {
+                          "type": "row",
+                          "part": "iris.chip",
+                          "when": {
+                            "field": "episodesAired"
+                          },
+                          "style": {
+                            "gap": 4,
+                            "align": "center",
+                            "radius": 6,
+                            "background": "#9333EA"
+                          },
+                          "children": [
+                            {
+                              "type": "icon",
+                              "icon": "captions",
+                              "style": {
+                                "color": "#FFFFFF"
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "style": {
+                                "fontSize": 10,
+                                "fontWeight": 700,
+                                "color": "#FFFFFF"
+                              },
+                              "field": "episodesAired"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 10,
+                            "fontWeight": 500,
+                            "color": "#A3A3A3"
+                          },
+                          "field": "format",
+                          "part": "iris.chip-format",
+                          "when": {
+                            "field": "format"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "title": "Recently Added"
+          },
+          "upcoming": {
+            "width": 200,
+            "gap": 16,
+            "card": {
+              "type": "overlay",
+              "part": "iris.card",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "stack",
+                  "part": "iris.caption",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "gap": 6,
+                    "padding": 12,
+                    "width": 100
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 600,
+                        "lines": 1,
+                        "color": "#FFFFFF"
+                      },
+                      "field": "title",
+                      "part": "iris.card-title"
+                    },
+                    {
+                      "type": "row",
+                      "part": "iris.chips",
+                      "style": {
+                        "gap": 8,
+                        "align": "center",
+                        "wrap": "nowrap"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 10,
+                            "fontWeight": 700,
+                            "color": "#FFFFFF",
+                            "radius": 6,
+                            "background": "#F97316"
+                          },
+                          "text": "Upcoming",
+                          "part": "iris.chip-upcoming"
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 10,
+                            "fontWeight": 500,
+                            "color": "#A3A3A3"
+                          },
+                          "field": "format",
+                          "part": "iris.chip-format",
+                          "when": {
+                            "field": "format"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "title": "Upcoming Anime"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "overlay",
+          "part": "iris.card",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "part": "iris.ep",
+              "when": {
+                "field": "episodesAired"
+              },
+              "style": {
+                "anchor": "top-end",
+                "gap": 3,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  },
+                  "text": "EP"
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "episodesAired"
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "iris.caption",
+              "style": {
+                "anchor": "bottom-start",
+                "gap": 4,
+                "padding": 12,
+                "width": 100
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "lines": 1,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title",
+                  "part": "iris.card-title"
+                },
+                {
+                  "type": "row",
+                  "part": "iris.card-meta",
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#A3A3A3"
+                      },
+                      "field": "format",
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#A3A3A3"
+                      },
+                      "text": "·",
+                      "when": {
+                        "field": "year"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#A3A3A3"
+                      },
+                      "field": "year",
+                      "when": {
+                        "field": "year"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "overlay",
+          "part": "iris.cw",
+          "style": {
+            "aspect": "16 / 9",
+            "radius": 12
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "iris.cw-info",
+              "style": {
+                "anchor": "bottom-start",
+                "width": 100,
+                "gap": 4,
+                "padding": 16,
+                "align": "start"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 700,
+                    "lines": 1,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title",
+                  "part": "iris.cw-title"
+                },
+                {
+                  "type": "row",
+                  "part": "iris.cw-meta",
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#D4D4D4"
+                      },
+                      "field": "timeLeft",
+                      "when": {
+                        "field": "timeLeft"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#D4D4D4"
+                      },
+                      "text": "•",
+                      "when": {
+                        "field": "timeLeft"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#D4D4D4"
+                      },
+                      "text": "Episode"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#D4D4D4"
+                      },
+                      "field": "episodeNo"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "meter",
+              "field": "progress",
+              "part": "iris.cw-bar",
+              "style": {
+                "anchor": "bottom-start"
+              }
+            }
+          ]
+        },
+        "ranked": {
+          "type": "row",
+          "part": "iris.rank-row",
+          "style": {
+            "gap": 16,
+            "align": "center",
+            "wrap": "nowrap"
+          },
+          "children": [
+            {
+              "type": "text",
+              "style": {
+                "fontSize": 20,
+                "fontWeight": 900,
+                "color": "#525252",
+                "textAlign": "center"
+              },
+              "field": "rankPosition",
+              "part": "iris.rank"
+            },
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "part": "iris.rank-art",
+              "style": {
+                "fit": "cover",
+                "radius": 8
+              }
+            },
+            {
+              "type": "stack",
+              "part": "iris.rank-info",
+              "style": {
+                "gap": 4,
+                "grow": 1
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 700,
+                    "lines": 1,
+                    "color": "#E5E5E5"
+                  },
+                  "field": "title",
+                  "part": "iris.rank-title"
+                },
+                {
+                  "type": "row",
+                  "part": "iris.rank-meta",
+                  "style": {
+                    "gap": 8,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 900,
+                        "color": "#737373"
+                      },
+                      "field": "format",
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "style": {
+                        "gap": 3,
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 10,
+                            "fontWeight": 900,
+                            "color": "#737373"
+                          },
+                          "text": "•"
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 10,
+                            "fontWeight": 900,
+                            "color": "#737373"
+                          },
+                          "field": "episodeCount"
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 10,
+                            "fontWeight": 900,
+                            "color": "#737373"
+                          },
+                          "text": "EPS"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "search": {
+          "type": "overlay",
+          "part": "iris.card",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "style": {
+                "aspect": "2 / 3",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "iris.caption",
+              "style": {
+                "anchor": "bottom-start",
+                "gap": 6,
+                "padding": 12,
+                "width": 100
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "lines": 1,
+                    "color": "#FFFFFF"
+                  },
+                  "field": "title",
+                  "part": "iris.card-title"
+                },
+                {
+                  "type": "row",
+                  "part": "iris.chips",
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "iris.chip",
+                      "when": {
+                        "field": "episodesAired"
+                      },
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 6,
+                        "background": "#9333EA"
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "captions",
+                          "style": {
+                            "color": "#FFFFFF"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "style": {
+                            "fontSize": 10,
+                            "fontWeight": 700,
+                            "color": "#FFFFFF"
+                          },
+                          "field": "episodesAired"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 500,
+                        "color": "#A3A3A3"
+                      },
+                      "field": "format",
+                      "part": "iris.chip-format",
+                      "when": {
+                        "field": "format"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "pills",
+        "factsStyle": "table",
+        "countdown": "compact"
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "recent"
+          },
+          {
+            "role": "newest"
+          },
+          {
+            "role": "upcoming"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "Trending",
+            "tabs": [
+              {
+                "label": "Today",
+                "role": "trending"
+              }
+            ],
+            "limit": 10
+          },
+          {
+            "block": "airing-today",
+            "area": "aside",
+            "title": "Release Schedule",
+            "limit": 10,
+            "more": false
+          }
+        ],
+        "asideWidth": 352,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "settings"
+          ]
+        },
+        "asideGap": 0
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "iris.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "iris.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 0,
+                  "padding": 16,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "style": {
+                      "fontSize": 24,
+                      "fontWeight": 700,
+                      "lines": 3,
+                      "color": "#FFFFFF"
+                    },
+                    "field": "title",
+                    "part": "iris.title"
+                  },
+                  {
+                    "type": "row",
+                    "part": "iris.actions",
+                    "style": {
+                      "gap": 12,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "PLAY",
+                        "part": "iris.play",
+                        "style": {
+                          "minHeight": 40,
+                          "radius": 8,
+                          "fontSize": 14,
+                          "fontWeight": 700,
+                          "color": "#FFFFFF",
+                          "background": "#9333EA"
+                        }
+                      },
+                      {
+                        "type": "action",
+                        "action": "list",
+                        "icon": "bookmark",
+                        "part": "iris.save",
+                        "style": {
+                          "minHeight": 40,
+                          "radius": 8,
+                          "color": "#FFFFFF"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "row",
+                "part": "iris.pager",
+                "when": {
+                  "field": "slides"
+                },
+                "style": {
+                  "anchor": "bottom-end",
+                  "gap": 8,
+                  "align": "center",
+                  "padding": 16
+                },
+                "children": [
+                  {
+                    "type": "action",
+                    "action": "previous",
+                    "icon": "chevron-left",
+                    "part": "iris.prev",
+                    "style": {
+                      "minHeight": 40,
+                      "radius": 80,
+                      "color": "#FFFFFF"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "iris.count",
+                    "style": {
+                      "gap": 4,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 500,
+                          "color": "#E5E5E5"
+                        },
+                        "field": "slide"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 500,
+                          "color": "#E5E5E5"
+                        },
+                        "text": "/"
+                      },
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 500,
+                          "color": "#E5E5E5"
+                        },
+                        "field": "slides"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "action",
+                    "action": "next",
+                    "icon": "chevron-right",
+                    "part": "iris.next",
+                    "style": {
+                      "minHeight": 40,
+                      "radius": 80,
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "role": "recent"
+            },
+            {
+              "role": "newest"
+            },
+            {
+              "role": "upcoming"
+            },
+            {
+              "block": "ranked-list",
+              "title": "Trending",
+              "tabs": [
+                {
+                  "label": "Today",
+                  "role": "trending"
+                }
+              ],
+              "limit": 10
+            }
+          ]
+        },
+        "rows": {
+          "defaults": {
+            "width": 180,
+            "gap": 12,
+            "titleSize": 20
+          },
+          "byId": {
+            "continue": {
+              "width": 260,
+              "gap": 16,
+              "heading": {
+                "weight": 700,
+                "viewMore": "text"
+              }
+            },
+            "recent": {
+              "width": 140,
+              "gap": 12,
+              "title": "Latest Episodes"
+            },
+            "newest": {
+              "width": 180,
+              "gap": 12,
+              "card": {
+                "type": "overlay",
+                "part": "iris.card",
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "poster",
+                    "style": {
+                      "aspect": "2 / 3",
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "stack",
+                    "part": "iris.caption",
+                    "style": {
+                      "anchor": "bottom-start",
+                      "gap": 6,
+                      "padding": 12,
+                      "width": 100
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 600,
+                          "lines": 1,
+                          "color": "#FFFFFF"
+                        },
+                        "field": "title",
+                        "part": "iris.card-title"
+                      },
+                      {
+                        "type": "row",
+                        "part": "iris.chips",
+                        "style": {
+                          "gap": 6,
+                          "align": "center",
+                          "wrap": "nowrap"
+                        },
+                        "children": [
+                          {
+                            "type": "row",
+                            "part": "iris.chip",
+                            "when": {
+                              "field": "episodesAired"
+                            },
+                            "style": {
+                              "gap": 4,
+                              "align": "center",
+                              "radius": 6,
+                              "background": "#9333EA"
+                            },
+                            "children": [
+                              {
+                                "type": "icon",
+                                "icon": "captions",
+                                "style": {
+                                  "color": "#FFFFFF"
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "style": {
+                                  "fontSize": 10,
+                                  "fontWeight": 700,
+                                  "color": "#FFFFFF"
+                                },
+                                "field": "episodesAired"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 10,
+                              "fontWeight": 500,
+                              "color": "#A3A3A3"
+                            },
+                            "field": "format",
+                            "part": "iris.chip-format",
+                            "when": {
+                              "field": "format"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "Recently Added"
+            },
+            "upcoming": {
+              "width": 180,
+              "gap": 12,
+              "card": {
+                "type": "overlay",
+                "part": "iris.card",
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "poster",
+                    "style": {
+                      "aspect": "2 / 3",
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "stack",
+                    "part": "iris.caption",
+                    "style": {
+                      "anchor": "bottom-start",
+                      "gap": 6,
+                      "padding": 12,
+                      "width": 100
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "style": {
+                          "fontSize": 14,
+                          "fontWeight": 600,
+                          "lines": 1,
+                          "color": "#FFFFFF"
+                        },
+                        "field": "title",
+                        "part": "iris.card-title"
+                      },
+                      {
+                        "type": "row",
+                        "part": "iris.chips",
+                        "style": {
+                          "gap": 8,
+                          "align": "center",
+                          "wrap": "nowrap"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 10,
+                              "fontWeight": 700,
+                              "color": "#FFFFFF",
+                              "radius": 6,
+                              "background": "#F97316"
+                            },
+                            "text": "Upcoming",
+                            "part": "iris.chip-upcoming"
+                          },
+                          {
+                            "type": "text",
+                            "style": {
+                              "fontSize": 10,
+                              "fontWeight": 500,
+                              "color": "#A3A3A3"
+                            },
+                            "field": "format",
+                            "part": "iris.chip-format",
+                            "when": {
+                              "field": "format"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "Upcoming Anime"
+            }
+          }
+        }
+      }
+    },
+    "css": "/* Iris — the Senshi look (docs/theme-references/senshi.md; numbers in tmp/parity/iris/measure.md).\n   #0F0F11 page, system sans, purple-600 actions, purple-400 accents, #18181B surfaces with white/5 hairlines. */\n\n/* ── Header: 80px (the 32px titlebar band + a 48px row), clear at the top of a page; once scrolled\n   #0F0F11 at 80% with a 24px blur, a white/5 hairline and shadow-sm (300ms ease-out, as the site). ── */\n@media (min-width: 641px) { :scope { --theme-top-row: 48px; } }\n[data-slot=\"nav.top\"] { padding-left: 24px !important; padding-right: 32px !important; background: transparent !important; border: 0 !important; border-bottom: 1px solid transparent !important; box-shadow: none !important; transition: background-color 300ms ease-out, border-color 300ms ease-out, box-shadow 300ms ease-out; }\n[data-slot=\"nav.top\"][data-scrolled] { background: rgba(15, 15, 17, 0.8) !important; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom-color: rgba(255, 255, 255, 0.05) !important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important; }\n/* Search: right after the brand (16px gap + 32px margin), flex-1 up to 576px, 40px tall, #18181B, r12. */\n[data-slot=\"nav.top\"] > div:has([data-part=\"search.field\"]) { order: 2; flex: 1 1 auto; max-width: 576px; margin: 0 44px; padding: 0 !important; }\n[data-slot=\"nav.top\"] > div:has([data-part=\"search.field\"]) form { max-width: none !important; }\n[data-slot=\"nav.top\"] > div:has([data-part=\"search.field\"]) form > svg { left: 16px !important; width: 16px; height: 16px; color: #737373 !important; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 40px !important; padding: 10px 12px 10px 44px !important; border: 1px solid rgba(255, 255, 255, 0.05) !important; border-radius: 12px !important; background: #18181b !important; font-size: 14px !important; font-weight: 500; color: #fff; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]::placeholder { color: #737373; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]:hover { border-color: rgba(255, 255, 255, 0.1) !important; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]:focus { border-color: rgba(168, 85, 247, 0.5) !important; }\n/* Links: 14/700 neutral-400, 8px 12px, r8, 16px purple-400/70 icons, 4px apart. */\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { order: 3; height: 36px !important; padding: 8px 12px !important; gap: 8px !important; border-radius: 8px !important; color: #a3a3a3 !important; font-size: 14px !important; font-weight: 700 !important; line-height: 20px; background: transparent !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover, [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { color: #fff !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover { background: rgba(255, 255, 255, 0.05) !important; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item.icon\"], [data-slot=\"nav.top\"] [data-part=\"nav.item.icon\"] svg { width: 16px !important; height: 16px !important; color: rgba(192, 132, 252, 0.7) !important; }\n/* Right cluster: 40px r12 neutral-400 icon buttons, 8px apart, 24px after the links. */\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"] { order: 4; width: 40px; height: 40px; border-radius: 12px !important; color: #a3a3a3 !important; margin-left: 4px; }\n[data-slot=\"nav.top\"] > div:has([data-part=\"search.field\"]) + [data-part=\"nav.action\"] { margin-left: 20px; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"]:hover { color: #fff !important; background: rgba(255, 255, 255, 0.05) !important; }\n\n/* Live results: the field's width, #18181B, 16px corners, 72px rows with a 40×56 poster, purple-400 title. */\n[data-part=\"search.suggestions\"] { margin-top: 17px !important; padding: 8px !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; border-radius: 16px !important; background: #18181b !important; box-shadow: none !important; }\n[data-part=\"search.suggestion\"] { min-height: 72px; padding: 8px !important; border-radius: 12px !important; gap: 12px !important; }\n[data-part=\"search.suggestion\"]:hover, [data-part=\"search.suggestion\"][data-active] { background: rgba(255, 255, 255, 0.05) !important; }\n[data-part=\"search.suggestion.poster\"] { width: 40px !important; height: 56px !important; border-radius: 8px !important; }\n[data-part=\"search.suggestion.title\"] { color: #c084fc; font-size: 14px !important; font-weight: 600 !important; }\n[data-part=\"search.suggestion.meta\"] { margin-top: 2px; font-size: 11px !important; color: #a1a1aa !important; }\n[data-part=\"search.suggestion.all\"] { display: none !important; }\n\n/* ── Hero: 75vh under the bar, art with one left-to-right neutral-950 fade, copy bottom-left. ── */\n@media (min-width: 641px) { [data-slot=\"home.hero\"] { margin-bottom: 48px !important; } }\n[data-part=\"iris.hero\"]::after { content: \"\"; position: absolute; inset: 0; z-index: 1; background-image: linear-gradient(to right, rgb(10, 10, 10), rgba(10, 10, 10, 0.7), rgba(0, 0, 0, 0)); pointer-events: none; }\n[data-part=\"iris.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"iris.info\"] { width: 672px !important; max-width: 100%; padding-bottom: 112px !important; }\n[data-part=\"iris.title\"] { line-height: 48px !important; margin-bottom: 8px; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1)); }\n[data-part=\"iris.synopsis\"] { line-height: 22.75px !important; padding-right: 8px; margin-bottom: 16px; }\n[data-part=\"iris.play\"] { padding: 12px 24px !important; gap: 8px !important; line-height: 24px; }\n[data-part=\"iris.play\"]:hover { background: #7e22ce !important; }\n[data-part=\"iris.play\"] svg, [data-part=\"iris.save\"] svg, [data-part=\"iris.prev\"] svg, [data-part=\"iris.next\"] svg { display: none !important; }\n[data-part=\"iris.play\"]::before, [data-part=\"iris.save\"]::before, [data-part=\"iris.prev\"]::before, [data-part=\"iris.next\"]::before { content: \"\"; flex: none; background: currentColor; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-position: center; mask-position: center; }\n[data-part=\"iris.play\"]::before { width: 12px; height: 16px; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20384%20512%27%3E%3Cpath%20d%3D%27M73%2039c-14.8-9.1-33.4-9.4-48.5-.9S0%2062.6%200%2080L0%20432c0%2017.4%209.4%2033.4%2024.5%2041.9s33.7%208.1%2048.5-.9L361%20297c14.3-8.7%2023-24.2%2023-41s-8.7-32.2-23-41L73%2039z%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20384%20512%27%3E%3Cpath%20d%3D%27M73%2039c-14.8-9.1-33.4-9.4-48.5-.9S0%2062.6%200%2080L0%20432c0%2017.4%209.4%2033.4%2024.5%2041.9s33.7%208.1%2048.5-.9L361%20297c14.3-8.7%2023-24.2%2023-41s-8.7-32.2-23-41L73%2039z%27%2F%3E%3C%2Fsvg%3E\"); }\n[data-part=\"iris.save\"] { width: 43px; padding: 14px !important; justify-content: center; background: rgba(255, 255, 255, 0.1) !important; }\n[data-part=\"iris.save\"]:hover { background: rgba(255, 255, 255, 0.2) !important; }\n[data-part=\"iris.save\"]::before { width: 15px; height: 20px; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20384%20512%27%3E%3Cpath%20d%3D%27M0%2048V487.7C0%20501.1%2010.9%20512%2024.3%20512c5%200%209.9-1.5%2014-4.4L192%20400%20345.7%20507.6c4.1%202.9%209%204.4%2014%204.4c13.4%200%2024.3-10.9%2024.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5%200%200%2021.5%200%2048z%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20384%20512%27%3E%3Cpath%20d%3D%27M0%2048V487.7C0%20501.1%2010.9%20512%2024.3%20512c5%200%209.9-1.5%2014-4.4L192%20400%20345.7%20507.6c4.1%202.9%209%204.4%2014%204.4c13.4%200%2024.3-10.9%2024.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5%200%200%2021.5%200%2048z%27%2F%3E%3C%2Fsvg%3E\"); }\n[data-part=\"iris.prev\"], [data-part=\"iris.next\"] { width: 34px; height: 48px; padding: 12px !important; justify-content: center; border-radius: 9999px !important; background: rgba(0, 0, 0, 0.5) !important; }\n[data-part=\"iris.prev\"]:hover, [data-part=\"iris.next\"]:hover { background: rgba(0, 0, 0, 0.7) !important; }\n[data-part=\"iris.prev\"]::before, [data-part=\"iris.next\"]::before { width: 10px; height: 16px; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20320%20512%27%3E%3Cpath%20d%3D%27M9.4%20233.4c-12.5%2012.5-12.5%2032.8%200%2045.3l192%20192c12.5%2012.5%2032.8%2012.5%2045.3%200s12.5-32.8%200-45.3L77.3%20256%20246.6%2086.6c12.5-12.5%2012.5-32.8%200-45.3s-32.8-12.5-45.3%200l-192%20192z%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20320%20512%27%3E%3Cpath%20d%3D%27M9.4%20233.4c-12.5%2012.5-12.5%2032.8%200%2045.3l192%20192c12.5%2012.5%2032.8%2012.5%2045.3%200s12.5-32.8%200-45.3L77.3%20256%20246.6%2086.6c12.5-12.5%2012.5-32.8%200-45.3s-32.8-12.5-45.3%200l-192%20192z%27%2F%3E%3C%2Fsvg%3E\"); }\n[data-part=\"iris.next\"]::before { transform: scaleX(-1); }\n[data-part=\"iris.count\"] > * { line-height: 24px; }\n\n/* ── Rows: 48px apart, heading 24px above a track that starts 4px in and clips at the column. ── */\n[data-slot=\"home.main\"] [data-slot=\"row\"] { margin-bottom: 48px !important; }\n[data-part=\"row.header\"] { margin-bottom: 24px !important; align-items: center !important; }\n[data-slot=\"home.main\"] [data-part=\"row.track\"] { margin: 0 32px; padding-left: 4px !important; padding-right: 4px !important; padding-bottom: 24px !important; }\n[data-part=\"row.title\"] { position: relative; display: inline-flex !important; align-items: center; gap: 12px; overflow: visible !important; font-size: 30px !important; line-height: 36px; font-weight: 700 !important; color: #c084fc; }\n[data-part=\"row.title\"]::before { content: \"\"; flex: none; background: currentColor; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-position: center; mask-position: center; }\n[data-part=\"row.more\"] { opacity: 1 !important; font-size: 0 !important; }\n[data-part=\"row.more\"] svg { display: none; }\n[data-part=\"row.more\"]::before { content: \"View All\"; font-size: 14px; line-height: 20px; font-weight: 500; color: #c084fc; }\n[data-part=\"row.more\"]:hover::before { text-decoration: underline; }\n/* Row arrows (row.step), centred on the track. Latest Episodes: 40px black/80 rounds with a white/10\n   hairline and shadow-lg, 16px outside the track, lucide chevrons, purple-600 on hover. Continue Watching:\n   the same at the track edge, neutral-300, white on hover. Recently Added / Upcoming: black/60 at 80%\n   opacity, no hairline, at the track edge, Font Awesome chevrons 10×16. */\n[data-part=\"row.step\"] { width: 40px !important; height: 40px !important; top: 50% !important; opacity: 1 !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; background: rgba(0, 0, 0, 0.8) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important; color: #fff !important; }\n[data-part=\"row.step\"]:hover { background: #9333ea !important; }\n[data-part=\"row.step\"][data-dir=\"previous\"] { left: 16px !important; }\n[data-part=\"row.step\"][data-dir=\"next\"] { right: 16px !important; }\n[data-slot=\"row\"]:not([data-role=\"recent\"]) [data-part=\"row.step\"][data-dir=\"previous\"] { left: 32px !important; }\n[data-slot=\"row\"]:not([data-role=\"recent\"]) [data-part=\"row.step\"][data-dir=\"next\"] { right: 32px !important; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.step\"] { color: #d4d4d4 !important; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.step\"]:hover { background: #fff !important; color: #000 !important; }\n[data-slot=\"row\"]:not([data-role=\"recent\"]):not([data-role=\"continue\"]) [data-part=\"row.step\"] { border: 0 !important; box-shadow: none !important; background: rgba(0, 0, 0, 0.6) !important; opacity: 0.8 !important; }\n[data-slot=\"row\"]:not([data-role=\"recent\"]):not([data-role=\"continue\"]) [data-part=\"row.step\"]:hover { background: rgba(0, 0, 0, 0.8) !important; opacity: 1 !important; }\n[data-slot=\"row\"]:not([data-role=\"recent\"]):not([data-role=\"continue\"]) [data-part=\"row.step\"] svg { display: none; }\n[data-slot=\"row\"]:not([data-role=\"recent\"]):not([data-role=\"continue\"]) [data-part=\"row.step\"]::before { content: \"\"; width: 10px; height: 16px; background: currentColor; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20320%20512%27%3E%3Cpath%20d%3D%27M9.4%20233.4c-12.5%2012.5-12.5%2032.8%200%2045.3l192%20192c12.5%2012.5%2032.8%2012.5%2045.3%200s12.5-32.8%200-45.3L77.3%20256%20246.6%2086.6c12.5-12.5%2012.5-32.8%200-45.3s-32.8-12.5-45.3%200l-192%20192z%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20320%20512%27%3E%3Cpath%20d%3D%27M9.4%20233.4c-12.5%2012.5-12.5%2032.8%200%2045.3l192%20192c12.5%2012.5%2032.8%2012.5%2045.3%200s12.5-32.8%200-45.3L77.3%20256%20246.6%2086.6c12.5-12.5%2012.5-32.8%200-45.3s-32.8-12.5-45.3%200l-192%20192z%27%2F%3E%3C%2Fsvg%3E\"); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }\n[data-slot=\"row\"]:not([data-role=\"recent\"]):not([data-role=\"continue\"]) [data-part=\"row.step\"][data-dir=\"next\"]::before { transform: scaleX(-1); }\n/* Latest Episodes (the recent row): white, tracking-tight, a 40px purple/10 tile with a 20px TV icon; VIEW ALL 10/900. */\n[data-slot=\"row\"][data-role=\"recent\"] [data-part=\"row.title\"] { color: #fff; letter-spacing: -0.75px; }\n[data-slot=\"row\"][data-role=\"recent\"] [data-part=\"row.title\"]::before { width: 40px; height: 40px; border-radius: 12px; background: rgba(168, 85, 247, 0.1); -webkit-mask-image: none; mask-image: none; }\n[data-slot=\"row\"][data-role=\"recent\"] [data-part=\"row.title\"]::after { content: \"\"; position: absolute; left: 10px; top: 50%; width: 20px; height: 20px; margin-top: -10px; background: #c084fc; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m17%202-5%205-5-5%27%2F%3E%3Crect%20width%3D%2720%27%20height%3D%2715%27%20x%3D%272%27%20y%3D%277%27%20rx%3D%272%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m17%202-5%205-5-5%27%2F%3E%3Crect%20width%3D%2720%27%20height%3D%2715%27%20x%3D%272%27%20y%3D%277%27%20rx%3D%272%27%2F%3E%3C%2Fsvg%3E\"); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }\n[data-slot=\"row\"][data-role=\"recent\"] [data-part=\"row.more\"]::before { content: \"View All\"; padding: 0 12px; font-size: 10px; line-height: 15px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: #a3a3a3; }\n/* Recently Added / Upcoming Anime (newest, upcoming): purple-400 with a 30px glyph 12px before it. */\n[data-slot=\"row\"][data-role=\"newest\"] [data-part=\"row.title\"]::before { width: 26px; height: 30px; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20448%20512%27%3E%3Cpath%20d%3D%27M256%2080c0-17.7-14.3-32-32-32s-32%2014.3-32%2032l0%20144L48%20224c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032l144%200%200%20144c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32l0-144%20144%200c17.7%200%2032-14.3%2032-32s-14.3-32-32-32l-144%200%200-144z%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20448%20512%27%3E%3Cpath%20d%3D%27M256%2080c0-17.7-14.3-32-32-32s-32%2014.3-32%2032l0%20144L48%20224c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032l144%200%200%20144c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32l0-144%20144%200c17.7%200%2032-14.3%2032-32s-14.3-32-32-32l-144%200%200-144z%27%2F%3E%3C%2Fsvg%3E\"); }\n[data-slot=\"row\"][data-role=\"upcoming\"] [data-part=\"row.title\"]::before, [data-slot=\"row\"][data-role=\"popular\"] [data-part=\"row.title\"]::before { width: 30px; height: 30px; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M156.6%20384.9L125.7%20354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9%207-20.5%2011.8-33.8L24%20288c-8.6%200-16.6-4.6-20.9-12.1s-4.2-16.7%20.2-24.1l52.5-88.5c13-21.9%2036.5-35.3%2061.9-35.3l82.3%200c2.4-4%204.8-7.7%207.2-11.3C289.1-4.1%20411.1-8.1%20483.9%205.3c11.6%202.1%2020.6%2011.2%2022.8%2022.8c13.4%2072.9%209.3%20194.8-111.4%20276.7c-3.5%202.4-7.3%204.8-11.3%207.2l0%2082.3c0%2025.4-13.4%2049-35.3%2061.9l-88.5%2052.5c-7.4%204.4-16.6%204.5-24.1%20.2s-12.1-12.2-12.1-20.9l0-107.2c-14.1%204.9-26.4%208.9-35.7%2011.9c-11.2%203.6-23.4%20.5-31.8-7.8zM384%20168a40%2040%200%201%200%200-80%2040%2040%200%201%200%200%2080z%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M156.6%20384.9L125.7%20354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9%207-20.5%2011.8-33.8L24%20288c-8.6%200-16.6-4.6-20.9-12.1s-4.2-16.7%20.2-24.1l52.5-88.5c13-21.9%2036.5-35.3%2061.9-35.3l82.3%200c2.4-4%204.8-7.7%207.2-11.3C289.1-4.1%20411.1-8.1%20483.9%205.3c11.6%202.1%2020.6%2011.2%2022.8%2022.8c13.4%2072.9%209.3%20194.8-111.4%20276.7c-3.5%202.4-7.3%204.8-11.3%207.2l0%2082.3c0%2025.4-13.4%2049-35.3%2061.9l-88.5%2052.5c-7.4%204.4-16.6%204.5-24.1%20.2s-12.1-12.2-12.1-20.9l0-107.2c-14.1%204.9-26.4%208.9-35.7%2011.9c-11.2%203.6-23.4%20.5-31.8-7.8zM384%20168a40%2040%200%201%200%200-80%2040%2040%200%201%200%200%2080z%27%2F%3E%3C%2Fsvg%3E\"); }\n/* Continue Watching: 24px white tracking-tight after a 6×24 white pill, 20px above the track; View All neutral-400. */\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.header\"] { margin-bottom: 20px !important; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.title\"] { font-size: 24px !important; line-height: 32px; color: #fff; letter-spacing: -0.6px; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.title\"]::before { width: 6px; height: 24px; border-radius: 9999px; background: #fff; -webkit-mask-image: none; mask-image: none; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.more\"]::before { color: #a3a3a3; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.track\"] { padding-bottom: 16px !important; }\n\n/* ── Poster cards: a #18181B card with a white/5 hairline, r12, the art under a black/90→black/40→clear\n   fade, an \"EP n\" chip top-right and the caption bottom-left. ── */\n[data-part=\"iris.card\"] { overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; background: #18181b; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); transition: transform 250ms; }\n[data-part=\"iris.card\"]:hover { transform: translateY(-4px); }\n[data-part=\"iris.card\"]::after { content: \"\"; position: absolute; inset: 0; background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)); pointer-events: none; }\n[data-part=\"iris.caption\"], [data-part=\"iris.ep\"] { z-index: 1; }\n[data-part=\"iris.card-title\"] { line-height: 20px; filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06)); }\n[data-part=\"iris.card-meta\"] > * { line-height: 16px; }\n[data-part=\"iris.ep\"] { margin: 8px; padding: 4px 8px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }\n[data-part=\"iris.ep\"] > * { line-height: 15px; }\n[data-part=\"iris.ep\"]::before { content: \"\"; width: 12px; height: 12px; margin-right: 3px; background: #60a5fa; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m5%208%206%206%27%2F%3E%3Cpath%20d%3D%27m4%2014%206-6%202-3%27%2F%3E%3Cpath%20d%3D%27M2%205h12%27%2F%3E%3Cpath%20d%3D%27M7%202h1%27%2F%3E%3Cpath%20d%3D%27m22%2022-5-10-5%2010%27%2F%3E%3Cpath%20d%3D%27M14%2018h6%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m5%208%206%206%27%2F%3E%3Cpath%20d%3D%27m4%2014%206-6%202-3%27%2F%3E%3Cpath%20d%3D%27M2%205h12%27%2F%3E%3Cpath%20d%3D%27M7%202h1%27%2F%3E%3Cpath%20d%3D%27m22%2022-5-10-5%2010%27%2F%3E%3Cpath%20d%3D%27M14%2018h6%27%2F%3E%3C%2Fsvg%3E\"); -webkit-mask-size: contain; mask-size: contain; }\n[data-part=\"iris.chip\"] { padding: 2px 6px; background: rgba(147, 51, 234, 0.8) !important; }\n[data-part=\"iris.chip\"] > * { line-height: 15px; }\n[data-part=\"iris.chip\"] svg { width: 10px; height: 10px; }\n[data-part=\"iris.chip-format\"] { margin-left: 2px; line-height: 15px; text-transform: uppercase; }\n[data-part=\"iris.chip-upcoming\"] { padding: 2px 8px; line-height: 15px; letter-spacing: 0.5px; text-transform: uppercase; background: rgba(249, 115, 22, 0.8) !important; }\n\n/* Continue Watching: a 320×180 card (#171717, white/5 hairline, r12), the art at 80%, title 16/700,\n   \"time • Episode n\" 12/600 neutral-300, a 4px white/20 bar with a purple-500 fill. */\n[data-part=\"iris.cw\"] { overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); background: #171717; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); }\n[data-part=\"iris.cw\"] img { opacity: 0.8; transition: opacity 300ms, transform 500ms; }\n[data-part=\"iris.cw\"]:hover img { opacity: 1; }\n[data-part=\"iris.cw-info\"] { z-index: 2; padding-bottom: 12px !important; background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)); }\n[data-part=\"iris.cw-title\"] { line-height: 20px; }\n[data-part=\"iris.cw-meta\"] > * { line-height: 16px; }\n[data-part=\"iris.cw-bar\"] { z-index: 3; height: 4px !important; background: rgba(255, 255, 255, 0.2) !important; }\n[data-part=\"iris.cw-bar\"] > * { background: #a855f7 !important; }\n\n/* ── Trending: 18/700 heading after a 20px purple-500 trend icon; 80px entries (8px padding, r12,\n   bleeding 8px out) with medal-coloured 20/900 ranks, 48×64 covers and 10/900 tracked meta. ── */\n[data-slot=\"block.ranked-list\"] [data-part=\"block.title\"] { display: inline-flex !important; align-items: center; gap: 8px; font-size: 18px !important; line-height: 28px !important; font-weight: 700 !important; letter-spacing: -0.45px; color: #fff; padding: 1px 0 !important; margin-bottom: 16px !important; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.title\"]::before { content: \"\"; width: 20px; height: 20px; flex: none; background: #a855f7; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M16%207h6v6%27%2F%3E%3Cpath%20d%3D%27m22%207-8.5%208.5-5-5L2%2017%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M16%207h6v6%27%2F%3E%3Cpath%20d%3D%27m22%207-8.5%208.5-5-5L2%2017%27%2F%3E%3C%2Fsvg%3E\"); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }\n[data-slot=\"block.ranked-list\"] li + li { margin-top: 4px !important; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"] { padding: 8px !important; margin: 0 -8px; border-radius: 12px !important; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"]:hover { background: rgba(255, 255, 255, 0.05) !important; }\n[data-part=\"iris.rank\"] { flex: none; width: 24px; line-height: 28px; }\n[data-slot=\"block.ranked-list\"] li:nth-child(1) [data-part=\"iris.rank\"] { color: #facc15 !important; }\n[data-slot=\"block.ranked-list\"] li:nth-child(2) [data-part=\"iris.rank\"] { color: #d4d4d4 !important; }\n[data-slot=\"block.ranked-list\"] li:nth-child(3) [data-part=\"iris.rank\"] { color: #d97706 !important; }\n[data-part=\"iris.rank-art\"] { flex: none; width: 48px !important; height: 64px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }\n[data-part=\"iris.rank-info\"] { min-width: 0; }\n[data-part=\"iris.rank-title\"] { line-height: 17.5px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"]:hover [data-part=\"iris.rank-title\"] { color: #c084fc !important; }\n[data-part=\"iris.rank-meta\"] * { line-height: 15px; letter-spacing: 1px; text-transform: uppercase; }\n\n/* Release Schedule (airing-today): the same 18/700 heading after a calendar icon, 32px under Trending;\n   47px rows: a 48px mono purple-400/80 time, the title 14/600, an \"EPISODE n\" chip in white/5. */\n[data-slot=\"block.airing-today\"] { margin-top: 32px; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.title\"] { display: inline-flex !important; align-items: center; gap: 8px; font-size: 18px !important; line-height: 28px !important; font-weight: 700 !important; letter-spacing: -0.45px; color: #fff; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.title\"]::before { content: \"\"; width: 20px; height: 20px; flex: none; background: #a855f7; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M8%202v4%27%2F%3E%3Cpath%20d%3D%27M16%202v4%27%2F%3E%3Crect%20width%3D%2718%27%20height%3D%2718%27%20x%3D%273%27%20y%3D%274%27%20rx%3D%272%27%2F%3E%3Cpath%20d%3D%27M3%2010h18%27%2F%3E%3Cpath%20d%3D%27M8%2014h.01%27%2F%3E%3Cpath%20d%3D%27M12%2014h.01%27%2F%3E%3Cpath%20d%3D%27M16%2014h.01%27%2F%3E%3Cpath%20d%3D%27M8%2018h.01%27%2F%3E%3Cpath%20d%3D%27M12%2018h.01%27%2F%3E%3Cpath%20d%3D%27M16%2018h.01%27%2F%3E%3C%2Fsvg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M8%202v4%27%2F%3E%3Cpath%20d%3D%27M16%202v4%27%2F%3E%3Crect%20width%3D%2718%27%20height%3D%2718%27%20x%3D%273%27%20y%3D%274%27%20rx%3D%272%27%2F%3E%3Cpath%20d%3D%27M3%2010h18%27%2F%3E%3Cpath%20d%3D%27M8%2014h.01%27%2F%3E%3Cpath%20d%3D%27M12%2014h.01%27%2F%3E%3Cpath%20d%3D%27M16%2014h.01%27%2F%3E%3Cpath%20d%3D%27M8%2018h.01%27%2F%3E%3Cpath%20d%3D%27M12%2018h.01%27%2F%3E%3Cpath%20d%3D%27M16%2018h.01%27%2F%3E%3C%2Fsvg%3E\"); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }\n[data-slot=\"block.airing-today\"] ul { gap: 0 !important; margin-top: 8px; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.item\"] { gap: 16px !important; margin: 0 -8px; padding: 12px 8px !important; border-radius: 12px !important; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.item\"]:hover { background: rgba(255, 255, 255, 0.05) !important; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.item\"]::after { content: attr(title); flex: none; padding: 4px 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #737373; font-size: 10px; line-height: 15px; font-weight: 900; text-transform: uppercase; }\n[data-part=\"airing.poster\"] { display: none !important; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.item\"] > div:has([data-part=\"airing.title\"]) { display: flex; align-items: center; gap: 16px; }\n[data-part=\"airing.title\"] { flex: 1; min-width: 0; font-size: 14px !important; line-height: 20px; font-weight: 600 !important; color: #e5e5e5; }\n[data-part=\"airing.time\"] { order: -1; flex: none; min-width: 48px; white-space: nowrap; margin: 0 !important; justify-content: flex-start !important; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px !important; line-height: 16px; font-weight: 700; color: rgba(192, 132, 252, 0.8) !important; }\n[data-part=\"airing.time\"] svg { display: none; }\n\n/* ── Search (the reference's /browse): 48px 32px page padding under the bar, a 30/36 tracking-tight\n   heading, a 44px filter bar (320px field, equal-width #18181B/80 pickers 10px apart), a 6-column grid\n   16px apart 32px below. ── */\n@media (min-width: 641px) {\n  [data-slot=\"search\"] { padding-top: 48px !important; }\n  [data-slot=\"search\"] [data-part=\"search.title\"]:not([data-variant]) { position: static !important; width: auto !important; height: auto !important; margin: 0 0 24px !important; overflow: visible !important; clip: auto !important; white-space: normal !important; font-size: 30px; line-height: 36px; font-weight: 700; letter-spacing: -0.75px; color: #fff; }\n  [data-part=\"search.filters\"] { gap: 10px !important; align-items: center; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] [data-part=\"search.field\"] { flex: none; width: 320px !important; height: 44px !important; margin-right: 2px; padding: 0 16px 0 40px !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; border-radius: 12px !important; background: rgba(24, 24, 27, 0.8) !important; font-size: 12px !important; font-weight: 600; background-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23737373%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m21%2021-4.34-4.34%27%2F%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%278%27%2F%3E%3C%2Fsvg%3E\") !important; background-repeat: no-repeat !important; background-position: 14px center !important; background-size: 16px 16px !important; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] form > svg, [data-slot=\"search\"] [data-part=\"search.filters\"] div:has(> [data-part=\"search.field\"]) > svg { left: 14px !important; width: 16px; height: 16px; color: #737373 !important; }\n  [data-part=\"search.filters\"] div:has(> [data-part=\"search.filter\"]) { flex: 1 1 0 !important; width: auto !important; min-width: 0; }\n  [data-part=\"search.filter\"] { width: 100% !important; min-width: 0 !important; height: 44px !important; justify-content: space-between; padding: 0 14px !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; border-radius: 12px !important; background: rgba(24, 24, 27, 0.8) !important; color: #d4d4d4 !important; font-size: 12px !important; font-weight: 700 !important; }\n  [data-part=\"search.filter\"]:hover { color: #fff !important; }\n  [data-part=\"search.filter\"][data-active] { border-color: rgba(168, 85, 247, 0.5) !important; color: #fff !important; }\n  [data-part=\"search.filter\"][data-filter=\"advanced\"] { flex: none !important; width: auto !important; margin-left: 2px; padding: 0 16px !important; justify-content: center; }\n  [data-part=\"search.filter\"][data-filter=\"clear\"] { flex: none !important; width: auto !important; padding: 0 8px !important; border-color: transparent !important; background: transparent !important; color: #a3a3a3 !important; }\n  [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; gap: 16px !important; margin-top: 32px; }\n}\n\n/* ── Series page ── */\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { background: #9333ea; color: #fff; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 8px; background: #9333ea; color: #fff; }\n\n/* ── Phone (≤640px): a 64px sticky bar, the 50vh hero 16px in, 16px gutters, 20/28 headings. ── */\n@media (max-width: 640px) {\n  [data-slot=\"home.header\"] { position: sticky; top: 0; z-index: 40; height: 64px; padding: 12px 16px !important; align-items: center; background: rgba(15, 15, 17, 0.8); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }\n  [data-part=\"home.header.action\"] { width: 40px !important; height: 40px !important; border-radius: 12px !important; color: #a3a3a3 !important; }\n  [data-slot=\"home.hero\"] { margin-bottom: 32px !important; }\n  [data-part=\"iris.info\"] { width: 100% !important; padding-bottom: 48px !important; }\n  [data-part=\"iris.title\"] { line-height: 32px !important; }\n  [data-part=\"iris.play\"] { padding: 10px 16px !important; line-height: 20px; }\n  [data-part=\"iris.play\"]::before { width: 10.5px; height: 14px; }\n  [data-part=\"iris.save\"] { width: 38px; padding: 12px !important; }\n  [data-part=\"iris.save\"]::before { width: 13.5px; height: 18px; }\n  [data-part=\"iris.prev\"], [data-part=\"iris.next\"] { width: 26px; height: 40px; padding: 8px !important; }\n  [data-part=\"iris.count\"] > * { line-height: 20px; }\n  [data-slot=\"home.main\"] [data-part=\"row.track\"] { margin: 0 16px; }\n  [data-part=\"row.title\"], [data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.title\"] { font-size: 20px !important; line-height: 28px; }\n  [data-slot=\"row\"][data-role=\"continue\"] [data-part=\"row.title\"] { letter-spacing: -0.5px; }\n  [data-part=\"iris.cw-title\"] { font-size: 14px !important; }\n  [data-part=\"iris.cw-meta\"] > * { font-size: 11px !important; }\n}\n"
+  }
+}

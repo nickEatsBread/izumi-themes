@@ -1,0 +1,600 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.slate",
+  "name": "Slate",
+  "version": "1.0.2",
+  "author": "Izumi",
+  "description": "AniZone look: slate and rose in Figtree, text-link top bar, a newest poster row, episode stills, tag cards.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "217 33% 17%",
+      "foreground": "213 27% 84%",
+      "muted": "217 19% 27%",
+      "mutedForeground": "215 20% 65%",
+      "primary": "350 89% 60%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "217 19% 27%",
+      "secondaryForeground": "210 40% 96%",
+      "accent": "217 19% 27%",
+      "accentForeground": "210 40% 96%",
+      "border": "217 19% 27%",
+      "input": "222 47% 11%",
+      "ring": "350 89% 60%",
+      "card": "222 47% 11%",
+      "cardForeground": "210 40% 96%",
+      "theme": "350 89% 60%"
+    },
+    "radius": 0.5,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "figtree",
+      "heading": "figtree",
+      "display": "figtree"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "text",
+          "search": "field-end",
+          "menu": "none",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 20,
+          "background": "#1F2937",
+          "activeColor": "#0EA5E9E6",
+          "inactiveColor": "#CBD5E1",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 210.5,
+          "gap": 20,
+          "spacing": 48,
+          "titleSize": 30,
+          "heading": {
+            "weight": 400,
+            "viewMore": "hidden"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 216,
+            "gap": 16
+          },
+          "newest": {
+            "width": 210.5,
+            "gap": 20,
+            "title": "Latest Anime"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 12
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "part": "slate.poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 8,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "style": {
+                "fontSize": 16,
+                "fontWeight": 400,
+                "lines": 2,
+                "color": "#FFFFFF"
+              },
+              "part": "slate.poster.title"
+            }
+          ]
+        },
+        "search": {
+          "type": "overlay",
+          "part": "slate.result",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "part": "slate.result.art"
+            },
+            {
+              "type": "stack",
+              "part": "slate.result.body",
+              "style": {
+                "gap": 8
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "slate.result.title",
+                  "style": {
+                    "lines": 1
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "slate.result.meta",
+                  "style": {
+                    "wrap": "nowrap",
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "startYear",
+                      "when": {
+                        "field": "startYear"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodeCount"
+                        },
+                        {
+                          "type": "text",
+                          "text": " Eps"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "field": "status",
+                      "when": {
+                        "field": "status"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "slate.result.tags",
+                  "style": {
+                    "gap": 8,
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "genre",
+                      "part": "slate.tag",
+                      "when": {
+                        "field": "genre"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "genre2",
+                      "part": "slate.tag",
+                      "when": {
+                        "field": "genre2"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "genre3",
+                      "part": "slate.tag",
+                      "when": {
+                        "field": "genre3"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "bannerHidden": true,
+        "posterWidth": 284,
+        "tabs": "underline",
+        "factsStyle": "template",
+        "countdown": "none",
+        "facts": {
+          "type": "row",
+          "part": "slate.facts",
+          "style": {
+            "gap": 24,
+            "align": "center",
+            "wrap": "wrap"
+          },
+          "children": [
+            {
+              "type": "row",
+              "part": "slate.fact",
+              "style": {
+                "gap": 6,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "format",
+                  "part": "slate.fact.icon",
+                  "style": {
+                    "fontSize": 16
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "format"
+                }
+              ],
+              "when": {
+                "field": "format"
+              }
+            },
+            {
+              "type": "row",
+              "part": "slate.fact",
+              "style": {
+                "gap": 6,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "status",
+                  "part": "slate.fact.icon",
+                  "style": {
+                    "fontSize": 16
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "status"
+                }
+              ],
+              "when": {
+                "field": "status"
+              }
+            },
+            {
+              "type": "row",
+              "part": "slate.fact",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "episodes",
+                  "part": "slate.fact.icon",
+                  "style": {
+                    "fontSize": 16
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "episodeCount"
+                },
+                {
+                  "type": "text",
+                  "text": "Episodes"
+                }
+              ],
+              "when": {
+                "field": "episodeCount"
+              }
+            },
+            {
+              "type": "row",
+              "part": "slate.fact",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "season",
+                  "part": "slate.fact.icon",
+                  "style": {
+                    "fontSize": 16
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "startYear"
+                }
+              ],
+              "when": {
+                "field": "startYear"
+              }
+            }
+          ]
+        },
+        "factsFormat": {
+          "status": "plain"
+        },
+        "sections": {
+          "mode": "stack",
+          "tabs": [
+            "episodes",
+            "relations",
+            "characters",
+            "recommended"
+          ],
+          "unlisted": "hidden"
+        },
+        "episodes": {
+          "arrangement": "list",
+          "search": "field",
+          "order": "tabs",
+          "controls": [
+            "search",
+            "sort"
+          ],
+          "hover": "none",
+          "card": {
+            "type": "overlay",
+            "part": "slate.ep",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "still",
+                "part": "slate.ep.still"
+              },
+              {
+                "type": "stack",
+                "part": "slate.ep.body",
+                "style": {
+                  "gap": 6
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "part": "slate.ep.title",
+                    "style": {
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Episode "
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeNo"
+                      },
+                      {
+                        "type": "text",
+                        "text": " : ",
+                        "when": {
+                          "field": "episodeName"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeName",
+                        "when": {
+                          "field": "episodeName"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "description",
+                    "part": "slate.ep.summary",
+                    "style": {
+                      "lines": 1
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "slate.ep.meta",
+                    "style": {
+                      "gap": 8,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "row",
+                        "style": {
+                          "gap": 4,
+                          "align": "center"
+                        },
+                        "when": {
+                          "field": "duration"
+                        },
+                        "children": [
+                          {
+                            "type": "icon",
+                            "icon": "duration",
+                            "style": {
+                              "fontSize": 12
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "field": "duration"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "row",
+                        "style": {
+                          "gap": 4,
+                          "align": "center"
+                        },
+                        "when": {
+                          "field": "airDate"
+                        },
+                        "children": [
+                          {
+                            "type": "icon",
+                            "icon": "season",
+                            "style": {
+                              "fontSize": 12
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "field": "airDate"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "continue"
+          },
+          {
+            "role": "newest"
+          },
+          {
+            "block": "latest-episodes",
+            "title": "Latest Episodes",
+            "columns": 4,
+            "pageSize": 12,
+            "pagination": "none",
+            "caption": "below"
+          },
+          {
+            "block": "genre-chips",
+            "area": "aside",
+            "title": "Top Tags",
+            "genres": "top",
+            "all": false
+          }
+        ],
+        "asideWidth": 320,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library",
+            "downloads"
+          ],
+          "top": [
+            "settings"
+          ]
+        },
+        "asideGap": 32,
+        "asideStart": 2
+      },
+      "mobile": {
+        "rootSize": 16,
+        "rows": {
+          "defaults": {
+            "width": 156.2,
+            "gap": 12,
+            "spacing": 32,
+            "titleSize": 20,
+            "heading": {
+              "weight": 400,
+              "viewMore": "hidden"
+            }
+          },
+          "byId": {
+            "continue": {
+              "width": 171,
+              "gap": 16
+            },
+            "newest": {
+              "width": 156.2,
+              "gap": 12,
+              "title": "Latest Anime"
+            }
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "continue"
+            },
+            {
+              "role": "newest"
+            },
+            {
+              "block": "latest-episodes",
+              "title": "Latest Episodes",
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "none",
+              "caption": "below"
+            },
+            {
+              "block": "genre-chips",
+              "title": "Top Tags",
+              "genres": "top",
+              "all": false
+            }
+          ]
+        }
+      },
+      "cardPreview": "none"
+    },
+    "css": "/* Slate: the AniZone look (docs/theme-references/anizone.md; measured 2026-10-21 in tmp/parity/slate/measure.md).\n   Tailwind slate-800 page, Figtree 16/24, slate-300 text, slate-100 headings, rose-500 accent. */\n\n/* The bar's row is the site's whole 67 px bar (12 px padding round a 42 px row + the 1 px hairline);\n   izumi keeps its 32 px titlebar band above it (Game mode drops the band, so the bar is exactly 67). */\n:scope { --theme-top-row: 67px; }\n\n/* Top bar: gray-800/50 with a 40 px blur and a gray-700/40 hairline; text links 16 px, 8×16 padding, radius 8. */\n[data-slot=\"nav.top\"] { padding-left: 16px !important; padding-right: 16px !important; background: rgba(31, 41, 55, 0.5) !important; backdrop-filter: blur(40px); border-bottom: 1px solid rgba(55, 65, 81, 0.4) !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { height: 40px; margin-left: 4px; padding: 8px 16px !important; gap: 0; border-radius: 8px; color: #cbd5e1 !important; background: transparent !important; font-size: 16px !important; font-weight: 400 !important; line-height: 24px; transition: color .3s ease-in-out, background-color .3s ease-in-out; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover, [data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:focus-visible { background: rgba(55, 65, 81, 0.9) !important; color: #fff !important; }\n/* The current destination is the rose-500/90 pill (the site's home square and its active link). */\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { background: rgba(244, 63, 94, 0.9) !important; color: #fff !important; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item.label\"] { line-height: 24px; }\n/* Search: a 198×42 pill, slate-900/30 on a gray-700/40 hairline, no icon and no placeholder text. */\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { width: 198px !important; height: 42px !important; padding: 8px 12px !important; border: 1px solid rgba(55, 65, 81, 0.4) !important; border-radius: 9999px !important; background: rgba(15, 23, 42, 0.3) !important; color: #cbd5e1; font-size: 16px !important; line-height: 24px; box-shadow: none !important; transition: background-color .3s ease-in-out; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]:hover, [data-slot=\"nav.top\"] [data-part=\"search.field\"]:focus { background: rgba(15, 23, 42, 0.5) !important; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]::placeholder { color: transparent; }\n[data-slot=\"nav.top\"] :has(> [data-part=\"search.field\"]) { width: 198px !important; }\n[data-slot=\"nav.top\"] :has(> [data-part=\"search.field\"]) > svg { display: none; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"] { width: 40px; height: 42px; border-radius: 8px; color: #cbd5e1 !important; background: transparent !important; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"]:hover { background: rgba(55, 65, 81, 0.9) !important; color: #fff !important; }\n\n/* Page: Tailwind's lg:container (1024/1280/1536 steps) with px-4, 48 px under the bar (pt-12). */\n@media (min-width: 641px) { [data-slot=\"home\"] { padding-top: 48px !important; } }\n@media (min-width: 1024px) { [data-slot=\"home\"] { max-width: 1024px; margin-inline: auto !important; } }\n@media (min-width: 1280px) { [data-slot=\"home\"] { max-width: 1280px; } }\n@media (min-width: 1536px) { [data-slot=\"home\"] { max-width: 1536px; } }\n@media (min-width: 641px) {\n  [data-slot=\"home\"] [data-part=\"row.header\"] { padding-left: 16px !important; padding-right: 16px !important; margin-bottom: 16px !important; }\n  [data-slot=\"home\"] [data-part=\"row.track\"] { padding-left: 16px !important; padding-right: 16px !important; padding-bottom: 24px !important; }\n  [data-slot=\"home\"] [data-slot=\"block.latest-episodes\"] { padding: 0 0 0 16px !important; margin-bottom: 48px; }\n  [data-slot=\"home\"] [data-slot=\"block.genre-chips\"] { padding: 0 16px 0 0 !important; }\n}\n\n/* Headings: text-3xl (30/36), weight 400, slate-100, 16 px under; centred on phones. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 30px !important; line-height: 36px !important; font-weight: 400 !important; color: #f1f5f9; letter-spacing: 0; }\n[data-part=\"block.title\"] { margin-bottom: 16px !important; }\n\n/* Latest Anime: 5:7 posters (rounded-lg, gray-700 well, drop-shadow-lg), the title 12 px under, the row\n   fading 5 % at either edge (custom-fade). */\n[data-part=\"slate.poster\"] { aspect-ratio: 5 / 7 !important; background: #374151; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1)); }\n[data-part=\"slate.poster.title\"] { transition: color .3s ease-in-out; }\n[data-part=\"card\"]:hover [data-part=\"slate.poster.title\"] { color: #fcd34d !important; }\n[data-slot=\"home\"] [data-slot=\"row\"][data-role=\"newest\"] [data-part=\"row.track\"] { mask-image: linear-gradient(to right, transparent 16px, #000 calc(16px + (100% - 32px) * 0.05), #000 calc(100% - 16px - (100% - 32px) * 0.05), transparent calc(100% - 16px)); }\n\n/* Latest Episodes: 4 columns, 16 px gaps, 16:9 stills on gray-700 with drop-shadow-lg, the runtime chip\n   6 px from the bottom right (black/70, radius 6, 12/16), the title 16/24 white 12 px under, the episode\n   line 14 px white; the item keeps the reference's height (its date row and pb-6). */\n[data-slot=\"block.latest-episodes\"] :has(> [data-part=\"block.item\"]) { column-gap: 16px !important; row-gap: 16px !important; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] { padding-bottom: 52px; }\n[data-slot=\"block.latest-episodes\"] :has(> [data-part=\"episode.still\"]) { border-radius: 8px; background: #374151 !important; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1)); }\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.still\"] img { transition: opacity .3s; transform: none !important; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.number\"] { top: auto !important; left: auto !important; right: 6px !important; bottom: 6px !important; padding: 4px 6px !important; border-radius: 6px !important; background: rgba(0, 0, 0, 0.7) !important; color: #fff; font-size: 12px !important; line-height: 16px !important; font-weight: 400 !important; text-shadow: none !important; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.title\"] { margin-top: 12px !important; font-size: 16px !important; line-height: 24px !important; font-weight: 400 !important; color: #fff !important; text-decoration: none !important; transition: color .3s; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.title\"]:hover { color: #fcd34d !important; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.meta\"] { font-size: 14px !important; line-height: 24px !important; color: #fff !important; }\n\n/* Top Tags: 56 px slate-900 cards (radius 8, drop-shadow-lg), 8 px apart, 16/24 white text at 16 px\n   padding and a 16 px white chevron at the end. */\n[data-slot=\"block.genre-chips\"] [data-part=\"chips.track\"] { display: grid !important; gap: 8px !important; }\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: 56px;\n  padding: 16px !important;\n  border-radius: 8px !important;\n  background: #0f172a !important;\n  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));\n  color: #fff !important;\n  font-size: 16px !important;\n  line-height: 24px;\n  font-weight: 400 !important;\n  transition: color .3s ease-in-out;\n}\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"]::after { content: \"\"; flex: none; width: 16px; height: 16px; margin-left: 16px; background-color: currentColor; mask-image: url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2016%2016%27%3E%3Cpath%20d=%27M5%201.5L11.5%208L5%2014.5%27%20fill=%27none%27%20stroke=%27black%27%20stroke-width=%272.4%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27/%3E%3C/svg%3E); mask-size: 16px 16px; }\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"]:hover { color: #fcd34d !important; }\n\n/* Continue Watching: AniZone has no such row, so it takes the site's own episode card (216×121.5 at\n   this width): a 16:9 still on gray-700 with drop-shadow-lg, the episode chip bottom-right, the title\n   16/24 white 12 px under and the episode line 14 px. */\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.art\"] { border-radius: 8px !important; background: #374151 !important; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1)); }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.episode\"] { top: auto !important; left: auto !important; right: 6px; bottom: 6px; padding: 4px 6px !important; border-radius: 6px !important; background: rgba(0, 0, 0, 0.7) !important; color: #fff; font-size: 12px !important; line-height: 16px; font-weight: 400 !important; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.overlay\"]:not([data-state=\"resolving\"]) { opacity: 0 !important; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.title\"] { margin-top: 12px; font-size: 16px !important; font-weight: 400 !important; line-height: 24px; color: #fff; }\n[data-slot=\"row\"][data-role=\"continue\"] [data-part=\"card.meta\"] { font-size: 14px !important; line-height: 24px; color: #fff !important; }\n\n/* Series page (desktop): no banner; the lg:container with px-4 and pt-12; a 284×400 poster (rounded-md,\n   gray-700, drop-shadow-lg) with the Start Watching button 32 px under it, and beside it (24 px gap) the\n   title 30/36, the icon facts line 16/24 and the synopsis 18/28 in slate-100, 24 px apart. */\n@media (min-width: 641px) {\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] { max-width: 1280px; margin-inline: auto; padding: 48px 16px !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] :has(> [data-part=\"detail.poster\"]) { position: relative; column-gap: 24px !important; gap: 24px !important; min-height: 488px; align-items: flex-start; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.poster\"] { width: 284px !important; height: 400px !important; aspect-ratio: auto !important; object-fit: cover; border-radius: 6px !important; background: #374151; box-shadow: none !important; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1)); }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.alt-title\"] { display: none; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { margin: 0 0 20px !important; font-size: 30px !important; line-height: 36px !important; font-weight: 400 !important; color: #f1f5f9; letter-spacing: 0; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"] { margin-bottom: 24px !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"] { display: block !important; max-width: none !important; margin: 0 0 24px !important; overflow: visible !important; -webkit-line-clamp: unset !important; font-size: 18px !important; line-height: 28px !important; color: #f1f5f9 !important; }\n  /* Start Watching: under the poster, 284×56, a 2 px cyan-500→blue-500 gradient frame around gray-900, 18/28 semibold white. */\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] [data-action=\"play\"] { position: absolute; left: 0; top: 432px; width: 284px; height: 56px !important; gap: 8px; padding: 12px 20px 12px 14px !important; border: 2px solid transparent !important; border-radius: 8px !important; background: linear-gradient(#111827, #111827) padding-box, linear-gradient(to bottom right, #06b6d4, #3b82f6) border-box !important; color: #fff !important; font-size: 18px !important; line-height: 28px; font-weight: 600 !important; box-shadow: none !important; transition: background .3s ease-in-out; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] [data-action=\"play\"]:hover { background: linear-gradient(rgba(17, 24, 39, 0), rgba(17, 24, 39, 0)) padding-box, linear-gradient(to bottom right, #06b6d4, #3b82f6) border-box !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] [data-action=\"play\"] svg { width: 12px; height: 16px; fill: currentColor; }\n}\n/* The label reads \"Start Watching\" before the series is started (izumi says Play). */\n[data-slot=\"detail\"][data-variant] [data-part=\"detail.actions\"] [data-action=\"play\"][data-state=\"start\"], [data-slot=\"detail\"] [data-action=\"play\"][data-state=\"start\"] { font-size: 0 !important; gap: 0 !important; }\n[data-slot=\"detail\"] [data-action=\"play\"][data-state=\"start\"]::after { content: \"Start Watching\"; margin-left: 8px; font-size: 18px; line-height: 28px; }\n/* Phones keep their own Play placement but take the same Start Watching skin. */\n[data-slot=\"detail\"][data-variant=\"phone\"] [data-action=\"play\"] { min-height: 56px; border: 2px solid transparent !important; border-radius: 8px !important; background: linear-gradient(#111827, #111827) padding-box, linear-gradient(to bottom right, #06b6d4, #3b82f6) border-box !important; color: #fff !important; font-weight: 600 !important; box-shadow: none !important; }\n/* The facts line: icon + text items 24 px apart, 16/24 slate-100. */\n[data-part=\"slate.facts\"] { column-gap: 24px !important; row-gap: 8px !important; color: #f1f5f9; font-size: 16px; line-height: 24px; }\n[data-part=\"slate.fact.icon\"] { color: #f1f5f9; }\n/* izumi's own actions (Save, list, share, trackers) stay, drawn like the site's toolbar controls. */\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] [data-part=\"button\"]:not([data-action=\"play\"]), [data-slot=\"detail\"] [data-part=\"detail.actions\"] [data-part=\"detail.list-button\"], [data-slot=\"detail\"] [data-part=\"detail.actions\"] > button:not([data-part]) { height: 46px; border: 1px solid #334155 !important; border-radius: 8px !important; background: #0f172a !important; color: #cbd5e1 !important; font-weight: 400 !important; box-shadow: none !important; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] [data-part=\"button\"]:not([data-action=\"play\"]):hover, [data-slot=\"detail\"] [data-part=\"detail.actions\"] [data-part=\"detail.list-button\"]:hover { color: #fff !important; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > button:not([data-part]) { width: 46px; }\n\n/* Sections (Episodes first): heading text-2xl 24/32 slate-100, 16 px under, 48 px between blocks. */\n[data-slot=\"detail\"] [data-slot=\"detail.section\"] { margin-top: 48px !important; }\n[data-slot=\"detail\"] [data-part=\"detail.section-title\"] { margin-bottom: 16px !important; font-size: 24px !important; line-height: 32px !important; font-weight: 400 !important; color: #f1f5f9 !important; text-transform: none !important; letter-spacing: 0 !important; }\n/* Toolbar: a 384×46 search field and a slate-900 segmented box at the end (bg slate-900, slate-700 border, 4 px inset, the active option slate-700). */\n[data-slot=\"episodes.toolbar\"] { min-height: 46px; margin-bottom: 12px !important; gap: 16px !important; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.search\"] { flex: 0 0 384px !important; width: 384px !important; max-width: 100%; height: 46px; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.search\"] > svg { display: none; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"input\"] { height: 46px !important; padding: 10px 16px !important; border: 1px solid #334155 !important; border-radius: 8px !important; background: #0f172a !important; color: #cbd5e1; font-size: 16px !important; line-height: 24px; box-shadow: none !important; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"input\"]::placeholder { color: rgba(226, 232, 240, 0.5); }\n[data-slot=\"episodes.toolbar\"] > :has(> [data-part=\"episodes.more\"]) { margin-left: 0 !important; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.sort\"] { margin-left: auto; height: 46px; padding: 4px !important; gap: 4px; border: 1px solid #334155 !important; border-radius: 8px !important; background: #0f172a !important; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.sort\"] > button { height: 36px; padding: 0 12px !important; border-radius: 6px !important; background: transparent !important; color: #94a3b8 !important; font-size: 16px !important; font-weight: 400 !important; box-shadow: none !important; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.sort\"] > button:hover { color: #e2e8f0 !important; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.sort\"] > button[data-active] { background: #334155 !important; color: #fff !important; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.more\"] { width: 46px !important; height: 46px !important; border: 1px solid #334155 !important; border-radius: 8px !important; background: #0f172a !important; color: #94a3b8 !important; }\n/* Episode rows: 101 px slate-900 cards (radius 8, drop-shadow-lg), 16 px apart; a 240 px still at 25 %\n   fading into the card under 16×20 padded text: \"Episode N : Title\" 16/24, the summary 14 px, the\n   meta 12/16 with 12 px icons, 6 px apart, all slate-300. */\n[data-slot=\"detail.episodes\"] [data-part=\"episodes.grid\"] { gap: 16px !important; padding: 0 !important; }\n[data-slot=\"detail.episodes\"] [data-part=\"episodes.grid\"] > * { padding: 0 !important; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-variant=\"template\"] { height: 101px; border-radius: 8px !important; background: #0f172a !important; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1)); transform: none !important; }\n[data-part=\"slate.ep\"] { position: relative; height: 101px; }\n[data-part=\"slate.ep.still\"] { justify-self: start; width: 240px !important; height: 101px !important; aspect-ratio: auto !important; border-radius: 0 !important; background: #374151; mask-image: linear-gradient(to right, #000, transparent); }\n[data-part=\"slate.ep.still\"] img { width: 100%; height: 100%; object-fit: cover; opacity: 0.25; transform: none !important; transition: opacity .3s ease-in-out; }\n[data-part=\"episode\"]:hover [data-part=\"slate.ep.still\"] img { opacity: 0.5; }\n[data-part=\"slate.ep.body\"] { align-self: start; min-width: 0; padding: 16px 20px; color: #cbd5e1; }\n[data-part=\"slate.ep.title\"] { min-width: 0; overflow: hidden; font-size: 16px; line-height: 24px; white-space: nowrap; text-overflow: ellipsis; transition: color .3s ease-in-out; }\n[data-part=\"episode\"]:hover [data-part=\"slate.ep.title\"] { color: #fcd34d; }\n[data-part=\"slate.ep.summary\"] { height: 17px; overflow: hidden; font-size: 14px; line-height: 20px; }\n[data-part=\"slate.ep.meta\"] { font-size: 12px; line-height: 16px; }\n\n/* Phones (390 wide): px-4, the headings text-xl 20/28 centred with 16 px under, 32 px between sections,\n   5:7 posters 156 wide 12 px apart, 2-column episode stills 16 px apart, Top Tags last, and the\n   bottom bar gray-800 with a gray-700 top line, 20 px icons over 14/20 labels, the active tab sky-500/90. */\n@media (max-width: 640px) {\n  [data-slot=\"home\"] { padding-top: 48px !important; }\n  [data-slot=\"home\"] [data-part=\"row.header\"] { justify-content: center; padding-left: 16px !important; padding-right: 16px !important; margin-bottom: 16px !important; }\n  [data-slot=\"home\"] [data-part=\"row.track\"] { padding-left: 16px !important; padding-right: 16px !important; padding-bottom: 24px !important; }\n  [data-part=\"row.title\"], [data-part=\"block.title\"] { width: 100%; font-size: 20px !important; line-height: 28px !important; text-align: center; }\n  [data-slot=\"home\"] [data-slot=\"block.latest-episodes\"], [data-slot=\"home\"] [data-slot=\"block.genre-chips\"] { padding: 0 16px !important; margin-bottom: 32px !important; }\n  [data-slot=\"block.latest-episodes\"] [data-part=\"card.meta\"] { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }\n  [data-slot=\"nav.bottom\"] { border-top: 1px solid #374151 !important; backdrop-filter: none !important; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item\"] { justify-content: center; gap: 4px; padding: 8px 0 !important; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item.icon\"] { height: 20px; padding: 0 !important; background: transparent !important; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item.label\"] { margin: 0 !important; font-size: 14px !important; line-height: 20px !important; font-weight: 400 !important; letter-spacing: 0 !important; }\n}\n\n/* Search (the site's Anime Index, list view): the container with pt-12, the heading 30/36, a 384×46\n   field at the start and the filters at the end drawn as the site's selects (46 tall, slate-900,\n   slate-700 border, radius 8), then one column of 104 px slate-900 rows 16 px apart: title 16/24\n   white, the facts 12/16 with dots, genre pills (gray-600, 12 px, 4×8 padding, full radius), and the\n   cover at 25 % in a 320 px box at the end fading into the row. */\n@media (min-width: 641px) {\n  [data-slot=\"search\"] { max-width: 1280px; margin-inline: auto !important; padding: 48px 16px !important; }\n  [data-slot=\"search\"] [data-part=\"search.title\"] { position: static !important; width: auto !important; height: auto !important; margin: 0 0 16px !important; overflow: visible !important; clip: auto !important; clip-path: none !important; white-space: normal !important; font-size: 30px !important; line-height: 36px !important; font-weight: 400 !important; color: #f1f5f9 !important; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] { gap: 16px !important; margin-bottom: 16px; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] > [data-part=\"search.field\"] { flex: 0 0 384px !important; width: 384px !important; margin-right: auto; }\n}\n[data-slot=\"search\"] [data-part=\"search.filters\"] > [data-part=\"search.field\"] { height: 46px !important; padding: 10px 16px !important; border: 1px solid #334155 !important; border-radius: 8px !important; background: #0f172a !important; color: #cbd5e1; font-size: 16px !important; line-height: 24px; box-shadow: none !important; }\n[data-slot=\"search\"] [data-part=\"search.field\"]::placeholder { color: rgba(226, 232, 240, 0.5); }\n[data-slot=\"search\"] [data-part=\"search.filter\"] { height: 46px !important; padding: 10px 12px 10px 16px !important; border: 1px solid #334155 !important; border-radius: 8px !important; background: #0f172a !important; color: #cbd5e1 !important; font-size: 16px !important; font-weight: 400 !important; box-shadow: none !important; }\n[data-slot=\"search\"] [data-part=\"search.filter\"][data-active] { color: #fff !important; border-color: #64748b !important; }\n[data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: minmax(0, 1fr) !important; gap: 16px !important; }\n[data-part=\"card\"][data-family=\"search\"] a { display: block; height: 104px; overflow: hidden; border-radius: 8px; background: #0f172a; filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1)); }\n[data-part=\"slate.result\"] { height: 104px; }\n[data-part=\"slate.result.art\"] { justify-self: end; width: 320px !important; height: 104px !important; border-radius: 0 !important; background: #334155; mask-image: linear-gradient(to left, #000, transparent); }\n[data-part=\"slate.result.art\"] img { width: 100%; height: 100%; object-fit: cover; opacity: 0.25; transform: none !important; }\n[data-part=\"slate.result.body\"] { align-self: start; min-width: 0; padding: 12px 16px; }\n[data-part=\"slate.result.title\"] { height: 24px; overflow: hidden; color: #fff; font-size: 16px; line-height: 24px; white-space: nowrap; text-overflow: ellipsis; transition: color .3s ease-in-out; }\n[data-part=\"card\"][data-family=\"search\"] a:hover [data-part=\"slate.result.title\"] { color: #fcd34d; }\n[data-part=\"slate.result.meta\"] { height: 16px; color: #cbd5e1; font-size: 12px; line-height: 16px; }\n[data-part=\"slate.result.meta\"] > *:not(:last-child)::after { content: \"•\"; margin: 0 4px; }\n[data-part=\"slate.result.tags\"] { height: 24px; overflow: hidden; }\n[data-part=\"slate.tag\"] { flex: none; padding: 4px 8px; border-radius: 9999px; background: #4b5563; color: #fff; font-size: 12px; line-height: 16px; }\n"
+  }
+}

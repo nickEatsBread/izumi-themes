@@ -1,0 +1,520 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.marigold",
+  "name": "Marigold",
+  "version": "1.0.2",
+  "author": "Izumi",
+  "description": "KickAssAnime look: black and Material yellow in Roboto, a pinned side menu, year-chip poster grid, today's releases.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 6%",
+      "foreground": "0 0% 100%",
+      "muted": "0 0% 15.3%",
+      "mutedForeground": "0 0% 70%",
+      "primary": "49 98% 60%",
+      "primaryForeground": "0 0% 13%",
+      "secondary": "0 0% 15.3%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "0 0% 15.3%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 18%",
+      "input": "0 0% 11.8%",
+      "ring": "49 98% 60%",
+      "card": "0 0% 11.8%",
+      "cardForeground": "0 0% 100%",
+      "theme": "49 98% 60%"
+    },
+    "radius": 0.25,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "roboto",
+      "heading": "roboto",
+      "display": "roboto"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "both",
+          "search": "field-center",
+          "menu": "side",
+          "sideWidth": 260,
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#101010",
+          "activeColor": "#FDD835",
+          "inactiveColor": "#B3B3B3",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 123,
+          "gap": 24,
+          "titleSize": 24,
+          "heading": {
+            "weight": 700,
+            "viewMore": "text"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 123,
+            "gap": 24
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "part": "kaa.card",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "kaa.art",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 4,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "text",
+                  "part": "kaa.year",
+                  "field": "startYear",
+                  "when": {
+                    "field": "startYear"
+                  },
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 700,
+                    "anchor": "top-end",
+                    "color": "#212121"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "part": "kaa.title",
+              "field": "title",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FFFFFF"
+              }
+            },
+            {
+              "type": "row",
+              "part": "kaa.chips",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 400
+                  },
+                  "part": "kaa.tv",
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "kaa.chip",
+                  "when": {
+                    "field": "episodesAired"
+                  },
+                  "style": {
+                    "gap": 2,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 400
+                      },
+                      "text": "EP"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 400
+                      },
+                      "field": "episodesAired"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "kaa.card",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "kaa.art",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 4,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "kaa.bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "part": "kaa.title",
+              "field": "title",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FFFFFF"
+              }
+            },
+            {
+              "type": "row",
+              "part": "kaa.chips",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "kaa.chip",
+                  "style": {
+                    "gap": 2,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 400
+                      },
+                      "text": "EP"
+                    },
+                    {
+                      "type": "text",
+                      "style": {
+                        "fontSize": 10,
+                        "fontWeight": 400
+                      },
+                      "field": "episodeNo"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "search": {
+          "type": "stack",
+          "part": "kaa.card",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "kaa.art",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "aspect": "2 / 3",
+                    "radius": 4,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "text",
+                  "part": "kaa.corner",
+                  "field": "startYear",
+                  "when": {
+                    "field": "startYear"
+                  },
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 700,
+                    "anchor": "top-end",
+                    "color": "#212121"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "part": "kaa.title",
+              "field": "title",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FFFFFF"
+              }
+            },
+            {
+              "type": "row",
+              "part": "kaa.chips",
+              "style": {
+                "gap": 4,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 400
+                  },
+                  "part": "kaa.tv",
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  }
+                },
+                {
+                  "type": "text",
+                  "style": {
+                    "fontSize": 10,
+                    "fontWeight": 400
+                  },
+                  "part": "kaa.chip",
+                  "field": "status",
+                  "when": {
+                    "field": "status"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "posterWidth": 264,
+        "coverAlign": "end",
+        "cta": "large",
+        "art": "keyart",
+        "tabs": "underline",
+        "factsStyle": "chips",
+        "factsKeys": [
+          "format",
+          "status",
+          "year"
+        ],
+        "countdown": "compact",
+        "countdownAt": "episodes",
+        "header": {
+          "type": "row",
+          "part": "kaa.genres",
+          "style": {
+            "gap": 4,
+            "wrap": "wrap"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "genre",
+              "part": "kaa.genre",
+              "when": {
+                "field": "genre"
+              },
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 400
+              }
+            },
+            {
+              "type": "text",
+              "field": "genre2",
+              "part": "kaa.genre",
+              "when": {
+                "field": "genre2"
+              },
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 400
+              }
+            },
+            {
+              "type": "text",
+              "field": "genre3",
+              "part": "kaa.genre",
+              "when": {
+                "field": "genre3"
+              },
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 400
+              }
+            }
+          ]
+        },
+        "sections": {
+          "mode": "stack",
+          "tabs": [
+            "overview",
+            "episodes",
+            "relations",
+            "characters",
+            "recommended"
+          ],
+          "info": "overview"
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "title": "Latest Update",
+            "tabs": [
+              {
+                "label": "ALL",
+                "role": "newest"
+              },
+              {
+                "label": "TRENDING",
+                "role": "trending"
+              },
+              {
+                "label": "POPULAR",
+                "role": "popular"
+              }
+            ],
+            "columns": 6,
+            "pageSize": 36,
+            "pagination": "arrows"
+          },
+          {
+            "block": "airing-today",
+            "area": "aside",
+            "title": "Today Releases",
+            "limit": 15,
+            "clock": true,
+            "more": true
+          }
+        ],
+        "asideWidth": 286,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "search",
+            "settings"
+          ]
+        },
+        "asideGap": 24
+      },
+      "mobile": {
+        "layout": {
+          "home": [
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "title": "Latest Update",
+              "tabs": [
+                {
+                  "label": "ALL",
+                  "role": "newest"
+                },
+                {
+                  "label": "TRENDING",
+                  "role": "trending"
+                },
+                {
+                  "label": "POPULAR",
+                  "role": "popular"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 36,
+              "pagination": "arrows"
+            }
+          ]
+        },
+        "rootSize": 16
+      }
+    },
+    "css": "/* Marigold — the KickAssAnime look (docs/theme-references/kickassanime.md): a Vuetify dark app in Roboto,\n   page #0F0F0F, bar and menu #101010, cards #1E1E1E, Material yellow #FDD835 with #212121 text on it,\n   4 px corners and Material elevation shadows. Numbers are from the live site (tmp/parity/marigold/measure.md). */\n\n/* App bar: a 64 px row (under izumi's 32 px titlebar band), #101010 with the Material elevation-4 shadow, no hairline. */\n:scope { --theme-top-row: 64px; }\n[data-slot=\"nav.top\"] { border-bottom: 0 !important; background: #101010 !important; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"nav.top\"] [data-part=\"nav.menu\"] { width: 48px; height: 48px; margin-left: -8px; border-radius: 50%; color: #fff; }\n[data-slot=\"nav.top\"] [data-part=\"nav.menu\"]:hover { background: rgba(255, 255, 255, 0.08); }\n[data-slot=\"nav.top\"] [data-part=\"nav.menu\"] svg { width: 24px; height: 24px; }\n/* The search field: 444 × 38, #1E1E1E, 4 px corners, a 16 px \"Search\" in 70 % white, the magnifier at the end. */\n[data-slot=\"nav.top\"] form:has(> [data-part=\"search.field\"]) { max-width: 444px; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 38px; padding: 0 48px 0 12px; border: 0; border-radius: 4px; background: #1e1e1e; color: #fff; font-size: 16px; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]::placeholder { color: rgba(255, 255, 255, 0.7); }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]:focus { background: #1e1e1e; }\n[data-slot=\"nav.top\"] svg:has(+ [data-part=\"search.field\"]) { left: auto; right: 12px; width: 24px; height: 24px; color: #fff; }\n/* The signed-out account button reads like the site's LOGIN: 36 px yellow, 14 px/500 spaced capitals. */\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"][data-action=\"account\"] { height: 36px; width: auto; min-width: 64px; margin-left: 8px; padding: 0 16px; border-radius: 4px; background: #fdd835 !important; color: #212121 !important; font-size: 14px; font-weight: 500; letter-spacing: 1.25px; text-transform: uppercase; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"][data-action=\"account\"]:not(:has(img)) > :not([data-part]) { display: none; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"][data-action=\"account\"]:not(:has(img)) [data-part=\"nav.action.label\"] { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: nowrap; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"][data-action=\"account\"]:has(img) { padding: 0 6px; }\n\n/* The menu pinned down the left: a #101010 card 12 px in from the page edges, then 212 × 44 rows\n   8 px apart, a 24 px icon and a 16 px label. The site marks no row as the current page. */\n[data-slot=\"nav.panel\"] { gap: 8px; padding: 24px; border: 0; background: transparent; }\n[data-slot=\"nav.panel\"]::before { content: \"\"; position: fixed; z-index: -1; top: calc(var(--theme-top-bar, 4.75rem) + 12px); bottom: 12px; left: 12px; width: calc(var(--theme-side-width, 260px) - 24px); border-radius: 4px; background: #101010; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 5px 0 rgba(0, 0, 0, 0.24), 0 1px 10px 0 rgba(0, 0, 0, 0.22); pointer-events: none; }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item\"] { height: 44px; gap: 16px; padding: 0 8px; border-radius: 4px; background: transparent; color: #fff; font-size: 16px; font-weight: 400; line-height: 19.2px; }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item\"]:hover { background: rgba(255, 255, 255, 0.08); }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item.icon\"] { width: 24px; color: #fff; }\n[data-slot=\"nav.panel\"] [data-part=\"nav.item.icon\"] svg { width: 24px; height: 24px; }\n\n/* Home: the page starts 12 px under the bar; the main column runs 12 px from the menu to 24 px short\n   of the side card. */\n@media (min-width: 641px) { [data-slot=\"home\"] { padding-top: 12px; } }\n@media (max-width: 640px) { [data-slot=\"home\"] { padding-top: 20px; } }\n[data-slot=\"home.main\"] > [data-block] { padding-left: 12px !important; padding-right: 12px !important; }\n@media (min-width: 641px) { [data-slot=\"home.main\"] > [data-block] { padding-right: 0 !important; } }\n[data-slot=\"home.main\"] [data-slot=\"row\"] [data-part=\"row.header\"] { padding-left: 12px !important; padding-right: 0 !important; }\n[data-slot=\"home.main\"] [data-slot=\"row\"] [data-part=\"row.track\"] { padding-left: 12px !important; padding-right: 0 !important; scroll-padding-left: 12px; }\n\n/* Headings: 24 px/36 px bold. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { color: #fff; font-size: 24px; font-weight: 700; line-height: 36px; }\n[data-part=\"row.more\"] { color: #fdd835; font-size: 12px; font-weight: 500; letter-spacing: 1.07px; text-transform: uppercase; }\n\n/* Latest Update: the heading, the ALL / … text tabs and PREV / NEXT share one row; the grid is\n   6 × 123 px posters 24 px apart, 12 px under it. */\n[data-slot=\"block.tabbed-grid\"] { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; padding-top: 4px; margin-bottom: 32px; }\n[data-slot=\"block.tabbed-grid\"] > * { grid-column: 1 / -1; }\n[data-slot=\"block.tabbed-grid\"] > [data-part=\"block.title\"] { grid-row: 1; grid-column: 1; margin: 0; }\n[data-slot=\"block.tabbed-grid\"] > div:has(> [data-part=\"tabs\"]) { grid-row: 1; grid-column: 2; }\n[data-slot=\"block.tabbed-grid\"] > [data-part=\"pagination\"] { grid-row: 1; grid-column: 3; margin: 0 0 0 4px; gap: 4px; flex-wrap: nowrap; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"block.grid\"] { margin-top: 12px; column-gap: 24px; row-gap: 24px; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { margin: 0; gap: 0; padding: 0; border: 0; background: transparent; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { height: 28px; padding: 0 12.44px; border-radius: 4px; background: transparent; color: #fff; font-size: 12px; font-weight: 500; line-height: 18px; letter-spacing: 1.07143px; text-transform: uppercase; box-shadow: none; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"]:hover { background: rgba(255, 255, 255, 0.08); }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { color: #fdd835; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n/* The pager is the site's PREV / NEXT pair (arrow paging): #272727 raised buttons, the disabled one flat. */\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"] { display: inline-flex; width: auto; height: 28px; align-items: center; justify-content: center; gap: 8px; padding: 0 12.44px; border-radius: 4px; background: #272727; color: #fff; font-size: 12px; font-weight: 500; line-height: 18px; letter-spacing: 1.07143px; text-transform: uppercase; opacity: 1; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"][data-dir=\"previous\"] { padding-left: 8.44px; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"][data-dir=\"next\"] { padding-right: 8.44px; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"][data-dir=\"previous\"]::after { content: \"Prev\"; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"][data-dir=\"next\"]::before { content: \"Next\"; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"] svg { width: 18px; height: 18px; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"]:disabled { background: rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.3); box-shadow: none; }\n\n/* Poster cards: 123 × 186 art on #1E1E1E with the elevation-2 shadow, the yellow year chip flush\n   right 5 px down, the title 8 px under the art (14 px/22 px, 500, one line), then 16 px outlined\n   chips 4 px under it: the format in yellow, the episode in white on a 12 % hairline. */\n[data-part=\"kaa.art\"] { border-radius: 4px; background: #1e1e1e; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-part=\"kaa.art\"] > :first-child { aspect-ratio: 123 / 186 !important; }\n[data-part=\"kaa.year\"] { height: 16px; margin: 5px 0 0 !important; padding: 0 12px; border-radius: 4px; background: #fdd835; line-height: 16px; box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }\n[data-part=\"kaa.title\"] { margin-top: 8px; line-height: 22px; letter-spacing: 0.1px; word-break: break-all; }\n[data-part=\"kaa.chips\"] { height: 16px; margin-top: 4px; }\n[data-part=\"kaa.tv\"], [data-part=\"kaa.chip\"] { display: inline-flex; box-sizing: border-box; height: 16px; align-items: center; padding: 0 8px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 4px; color: #fff; line-height: 14px; }\n[data-part=\"kaa.chip\"] > * { line-height: 14px; }\n[data-part=\"kaa.tv\"] { border-color: #fdd835; color: #fdd835; text-transform: uppercase; }\n[data-part=\"kaa.bar\"] { height: 3px !important; background: rgba(0, 0, 0, 0.6) !important; }\n[data-part=\"kaa.bar\"] > * { background: #fdd835 !important; }\n\n/* Today Releases: a #1E1E1E card 270 px wide with the elevation-2 shadow; a 64 px title bar (20 px/500\n   and a yellow MORE), the date and live clock in 14 px spaced capitals, then 65 px rows of a 40 × 57\n   poster, the title and the airing time right-aligned behind a yellow tick. */\n[data-slot=\"home.aside\"] [data-slot=\"block.airing-today\"] { margin: 0 16px 16px 0; padding: 0 0 16px !important; border-radius: 4px; background: #1e1e1e; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"block.airing-today\"] > :first-child { height: 64px; margin: 0; padding: 16px; align-items: center; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.title\"] { font-size: 20px; font-weight: 500; line-height: 32px; letter-spacing: 0.25px; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.more\"] { display: inline-flex; height: 28px; align-items: center; padding: 0 12.44px; border-radius: 4px; color: #fdd835; font-size: 12px; font-weight: 500; line-height: 28px; letter-spacing: 1.07143px; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.more\"]:hover { background: rgba(253, 216, 53, 0.08); text-decoration: none; }\n[data-part=\"block.clock\"] { margin: 0 16px 8px; color: rgba(255, 255, 255, 0.7); font-size: 14px; font-weight: 500; line-height: 36px; letter-spacing: 1.25px; }\n[data-slot=\"block.airing-today\"] ul { gap: 0; padding: 0 16px; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.item\"] { height: 65px; gap: 12px; padding: 0 12px; border-radius: 0; }\n[data-slot=\"block.airing-today\"] [data-part=\"block.item\"]:hover { background: rgba(255, 255, 255, 0.08); }\n[data-part=\"airing.poster\"] { width: 40px; height: 57px; border-radius: 4px; }\n[data-part=\"airing.title\"] { margin-bottom: 2px; color: #fff; font-size: 14px; font-weight: 500; line-height: 16.8px; letter-spacing: 0.1px; }\n[data-part=\"airing.time\"] { margin-top: 0; gap: 8px; color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 14.4px; letter-spacing: 0.4px; }\n[data-part=\"block.item\"][data-aired] [data-part=\"airing.time\"] svg { color: #fdd835; }\n\n/* Series page (desktop): one 16:9 card at the page's width holding the artwork under a fade to #121212,\n   the 264 × 377 poster 12 px in and 24 px up from its bottom-left corner, and beside it the title\n   (20 px/500), outlined genre chips, the \"TV • Releasing • 2026\" line and a full-width yellow\n   WATCH NOW with an outlined list button. Every section below is a #101010 card with a 20 px title. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] { height: auto !important; aspect-ratio: 16 / 9; margin: 12px 16px 0 12px; border-radius: 4px; overflow: hidden; background: #1e1e1e; opacity: 1 !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] > div { top: 0; left: 0; width: 100%; height: 100%; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.slide\"] { opacity: 1 !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.scrim\"] { background-image: linear-gradient(180deg, transparent -50%, #121212) !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.scrim\"] + [data-part=\"hero.scrim\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] { margin-top: -401px !important; padding: 0 16px 64px 12px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-part=\"detail.poster\"]) { gap: 24px; margin-bottom: 40px; padding: 0 12px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.poster\"] { aspect-ratio: 264 / 377; border-radius: 4px; background: #1e1e1e; object-fit: cover; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-part=\"detail.title\"]) { padding: 4px 16px 16px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-slot=\"detail\"] [data-part=\"detail.title\"] { margin: 0; color: #fff; font-size: 20px; font-weight: 500; line-height: 32px; letter-spacing: 0.25px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { margin-bottom: 4px; }\n[data-slot=\"detail\"] [data-part=\"detail.header\"] { margin: 0; }\n[data-part=\"kaa.genre\"] { display: inline-flex; box-sizing: border-box; height: 24px; align-items: center; margin-bottom: 4px; padding: 0 8px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 4px; color: #fff; line-height: 20px; letter-spacing: 0.1px; }\n/* The facts are the one meta line: format • status • year in 14 px/500 at 70 % white. */\n[data-slot=\"detail\"] [data-part=\"detail.facts\"][data-variant=\"chips\"] { gap: 8px; margin: 0; }\n[data-slot=\"detail\"] [data-part=\"detail.facts\"][data-variant=\"chips\"] [data-part=\"fact\"] { gap: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: rgba(255, 255, 255, 0.7); font-size: 14px; font-weight: 500; line-height: 22px; letter-spacing: 0.1px; }\n[data-slot=\"detail\"] [data-part=\"detail.facts\"][data-variant=\"chips\"] [data-part=\"fact\"] + [data-part=\"fact\"]::before { content: \"\\2022\"; margin-right: 8px; }\n[data-slot=\"detail\"] [data-part=\"detail.facts\"][data-variant=\"chips\"] [data-part=\"fact.label\"] { display: none; }\n[data-slot=\"detail\"] [data-part=\"detail.facts\"][data-variant=\"chips\"] [data-part=\"fact.value\"] { color: inherit; font: inherit; }\n/* WATCH NOW fills the row beside a 196 px outlined list button; the other actions follow as text buttons. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] { gap: 8px; margin-top: 12px; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > * { order: -1; height: 28px; min-width: 28px; padding: 0 12.44px; border: 0; border-radius: 4px; background: transparent; color: #fff; font-size: 12px; font-weight: 500; line-height: 22px; letter-spacing: 1.07143px; text-transform: uppercase; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > *:hover { background: rgba(255, 255, 255, 0.08); }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > * svg { width: 18px; height: 18px; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"] { order: 0; flex: 0 0 calc(100% - 204px); justify-content: center; gap: 8px; background: #fdd835; color: #212121; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"]:hover { background: #fdd835; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"] svg { display: none; }\n[data-slot=\"detail\"] [data-part=\"detail.list-button\"] { order: 1; width: 196px; justify-content: center; gap: 8px; border: 1px solid #fff; }\n[data-slot=\"detail\"] [data-part=\"detail.list-button\"] svg:last-child:not(:first-child) { display: none; }\n@media (prefers-reduced-motion: no-preference) { [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"] { animation: kaa-pulse 1s infinite; } }\n@keyframes kaa-pulse { 0% { box-shadow: 0 0 0 0 #fdd835; } to { box-shadow: 0 0 0 10px rgba(253, 216, 53, 0); } }\n/* Sections as cards. */\n[data-slot=\"detail\"] [data-slot=\"detail.section\"] { margin-top: 16px; padding: 0 16px 16px; border-radius: 4px; background: #101010; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"detail\"] [data-slot=\"detail.section\"]:first-child { margin-top: 0; }\n[data-slot=\"detail\"] [data-part=\"detail.section-title\"] { margin: 0; padding: 16px 0 8px; color: #fff; font-size: 20px; font-weight: 500; line-height: 32px; letter-spacing: 0.25px; }\n[data-slot=\"detail.section\"][data-section=\"overview\"] > div { max-width: none; }\n[data-slot=\"detail.section\"][data-section=\"overview\"] [data-part=\"detail.synopsis\"] { color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 20px; letter-spacing: 0.4px; }\n[data-slot=\"detail.section\"][data-section=\"overview\"] [data-part=\"fact.label\"] { color: #fff; font-size: 14px; font-weight: 500; line-height: 22px; letter-spacing: 0.1px; }\n[data-slot=\"detail.section\"][data-section=\"overview\"] [data-part=\"fact.value\"] { color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 20px; letter-spacing: 0.4px; }\n[data-slot=\"detail.section\"] h2:not([data-part]) { color: #fff; font-size: 14px; font-weight: 500; line-height: 22px; letter-spacing: 0.1px; }\n/* Chips are the site's outlined label chips: 24 px, 12 px text, a 12 % hairline, 4 px corners. */\n[data-slot=\"detail\"] [data-part=\"chip\"] { height: 24px; padding: 0 8px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 4px; background: transparent; color: #fff; font-size: 12px; font-weight: 400; line-height: 22px; letter-spacing: 0.1px; }\n[data-slot=\"detail\"] [data-part=\"chip\"][data-active] { border-color: #fdd835; color: #fdd835; }\n\n/* Episodes: the countdown as a 14 px meta line; the order switch as the site's EN | JP toggle (#272727\n   halves on a 12 % hairline, the chosen one in yellow); the search field like the bar's; cards on\n   #1E1E1E with 4 px corners and the episode number as the yellow poster chip. */\n[data-slot=\"detail\"] [data-part=\"detail.countdown\"] { color: rgba(255, 255, 255, 0.7); font-size: 14px; font-weight: 500; line-height: 22px; letter-spacing: 0.1px; }\n[data-slot=\"detail\"] [data-part=\"detail.countdown.time\"] { color: #fff; }\n[data-part=\"episodes.sort\"] { gap: 0; padding: 0; border-radius: 4px; background: #1e1e1e; }\n[data-part=\"episodes.sort\"] > button { height: 28px; padding: 0 12.44px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 0; background: #272727; color: #fff; opacity: 0.8; font-size: 12px; font-weight: 500; line-height: 18px; letter-spacing: 1.07143px; text-transform: uppercase; }\n[data-part=\"episodes.sort\"] > button:first-child { border-radius: 4px 0 0 4px; }\n[data-part=\"episodes.sort\"] > button:last-child { border-radius: 0 4px 4px 0; }\n[data-part=\"episodes.sort\"] > button[data-active] { background: #272727; color: #fdd835; opacity: 1; }\n[data-slot=\"episodes.toolbar\"] { align-items: center; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"input\"] { height: 38px; border: 0; border-radius: 4px; background: #1e1e1e; color: #fff; font-size: 16px; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"episodes.toolbar\"] [data-part=\"input\"]::placeholder { color: rgba(255, 255, 255, 0.7); }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.download\"] { height: 28px; padding: 0 12.44px; border-radius: 4px; background: transparent; color: #fff; font-size: 12px; font-weight: 500; letter-spacing: 1.07143px; text-transform: uppercase; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.download\"]:hover { background: rgba(255, 255, 255, 0.08); }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"] { border-radius: 4px; background: #1e1e1e; box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"] > div:last-child { background: #1e1e1e; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode.number\"] { height: 16px; padding: 0 12px; border-radius: 4px; background: #fdd835; color: #212121; font-size: 10px; font-weight: 700; line-height: 16px; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode.title\"] { font-size: 14px; font-weight: 500; line-height: 22px; letter-spacing: 0.1px; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode.meta\"] { color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 20px; letter-spacing: 0.4px; }\n\n/* Phones: the 56 px #101010 app bar; Latest Update over a second row of the tabs and two 50 px\n   arrow-only PREV / NEXT buttons; two 171 px columns 24 px apart inside 12 px margins. */\n[data-slot=\"home.header\"] { min-height: 56px; padding: 4px 4px 4px 16px; background: #101010; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12); }\n[data-part=\"home.header.action\"] { width: 48px; height: 48px; color: #fff; }\n[data-part=\"home.header.action\"] svg { width: 24px; height: 24px; }\n@media (max-width: 640px) {\n  [data-slot=\"block.tabbed-grid\"] { grid-template-columns: minmax(0, 1fr) auto; }\n  [data-slot=\"block.tabbed-grid\"] > [data-part=\"block.title\"] { grid-column: 1 / -1; }\n  [data-slot=\"block.tabbed-grid\"] > div:has(> [data-part=\"tabs\"]) { grid-row: 2; grid-column: 1; margin-top: 8px; }\n  [data-slot=\"block.tabbed-grid\"] > [data-part=\"pagination\"] { grid-row: 2; grid-column: 2; margin-top: 8px; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { margin: 0; padding: 0; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"] { width: 50px; padding: 0; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"][data-dir=\"previous\"]::after,\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"][data-dir=\"next\"]::before { content: none; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"] svg { width: 24px; height: 24px; }\n}\n\n/* Search: an outlined 40 px query field across the page, the filters as a row of equal 14 px text\n   buttons, then six 172 px columns 24 px apart. Search cards put the year in the art's top-right\n   corner (square except the bottom-left) and the status as a white chip after the format. */\n@media (min-width: 641px) { [data-slot=\"search\"] { padding-top: 12px !important; padding-left: 12px !important; padding-right: 16px !important; } }\n[data-slot=\"search\"] [data-part=\"search.filters\"] { flex-wrap: wrap; align-items: center; gap: 24px 8px; }\n[data-slot=\"search\"] [data-part=\"search.field\"] { flex: 0 0 100%; width: 100%; max-width: none; height: 40px; padding: 0 12px; border: 1px solid rgba(255, 255, 255, 0.24); border-radius: 4px; background: transparent; color: #fff; font-size: 16px; }\n[data-slot=\"search\"] [data-part=\"search.field\"]:hover { border-color: #fff; }\n[data-slot=\"search\"] [data-part=\"search.field\"]:focus { border: 2px solid #fdd835; background: transparent; }\n[data-slot=\"search\"] [data-part=\"search.field\"]::placeholder { color: rgba(255, 255, 255, 0.7); }\n[data-slot=\"search\"] [data-part=\"search.filters\"] > :not([data-part]) { flex: 1 1 auto; min-width: 0; gap: 8px; }\n[data-slot=\"search\"] [data-part=\"search.filters\"] div:has(> [data-part=\"search.filter\"]) { flex: 1 1 auto; gap: 8px; }\n[data-slot=\"search\"] [data-part=\"search.filter\"] { flex: 1 1 auto; height: 36px; justify-content: center; gap: 8px; padding: 0 16px; border: 0; border-radius: 4px; background: transparent; color: #fff; font-size: 14px; font-weight: 500; line-height: 21px; letter-spacing: 1.25px; text-transform: uppercase; white-space: nowrap; }\n[data-slot=\"search\"] [data-part=\"search.filter\"] * { color: inherit; }\n[data-slot=\"search\"] [data-part=\"search.filter\"] span { max-width: none; overflow: visible; }\n[data-slot=\"search\"] [data-part=\"search.filter\"][data-label]:not([data-active]) > span { display: none; }\n[data-slot=\"search\"] [data-part=\"search.filter\"][data-label]:not([data-active])::before { content: attr(data-label); }\n[data-slot=\"search\"] [data-part=\"search.filter\"][data-label] > svg:last-child { display: none; }\n[data-slot=\"search\"] [data-part=\"search.filter\"]:hover { background: rgba(255, 255, 255, 0.08); }\n[data-slot=\"search\"] [data-part=\"search.filter\"][data-active] { color: #fdd835; }\n[data-slot=\"search\"] [data-part=\"search.filter\"] svg { width: 18px; height: 18px; }\n[data-part=\"search.grid\"][data-variant=\"grid\"] { column-gap: 24px !important; row-gap: 24px !important; }\n@media (min-width: 641px) { [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; } }\n[data-part=\"kaa.corner\"] { height: 16px; padding: 0 6px; border-radius: 0 0 0 4px; background: #fdd835; line-height: 16px; box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }\n"
+  }
+}

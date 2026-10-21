@@ -1,10 +1,10 @@
 {
   "id": "izumi.spotlight",
   "name": "Spotlight",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "author": "Izumi",
-  "description": "Anikoto look: navy and sky blue in Nunito, a split hero with Play now, poster grid with sub counts, Top anime aside.",
-  "themeApi": 3,
+  "description": "Anikoto look: navy and sky blue in Nunito, a full-width hero with Play now, sub-count posters, Top anime aside.",
+  "themeApi": 5,
   "tags": [
     "Dark",
     "Site",
@@ -16,8 +16,8 @@
     "phone"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/2.0.2.json",
-  "sha256": "774a6c9e28b9d18e93bea00177dc5aa5225c5713ddc52537f2bd935b9ef37939",
-  "bytes": 25277,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.spotlight/2.0.3.json",
+  "sha256": "00cbc5675f16289b95aa7db6a06c1b30a53c4fe6e3c6b3446b1fae21bd463856",
+  "bytes": 66840,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.spotlight.png"
 }

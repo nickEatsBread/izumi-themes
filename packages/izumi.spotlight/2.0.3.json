@@ -1,0 +1,1079 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.spotlight",
+  "name": "Spotlight",
+  "version": "2.0.3",
+  "author": "Izumi",
+  "description": "Anikoto look: navy and sky blue in Nunito, a full-width hero with Play now, sub-count posters, Top anime aside.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "211 51% 9%",
+      "foreground": "0 0% 87%",
+      "muted": "215 40% 16%",
+      "mutedForeground": "212 25% 60%",
+      "primary": "197 70% 49%",
+      "primaryForeground": "0 0% 97%",
+      "secondary": "214 41% 13%",
+      "secondaryForeground": "0 0% 87%",
+      "accent": "215 40% 16%",
+      "accentForeground": "0 0% 87%",
+      "border": "214 37% 19%",
+      "input": "214 40% 10%",
+      "ring": "197 70% 49%",
+      "card": "214 41% 13%",
+      "cardForeground": "0 0% 87%",
+      "theme": "197 70% 49%"
+    },
+    "radius": 0.375,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "nunito",
+      "heading": "nunito",
+      "display": "nunito"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "both",
+          "search": "field-center",
+          "menu": "drawer",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#142030",
+          "activeColor": "#26A3D6",
+          "inactiveColor": "#8097B2",
+          "blur": false,
+          "border": false,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 57,
+        "mobileHeight": 42,
+        "rotate": true,
+        "interval": 8,
+        "art": "banner-cover",
+        "indicator": {
+          "style": "none"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "spot.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "part": "spot.art",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "spot.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 0
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "spot.sub",
+                  "style": {
+                    "gap": 0,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "when": {
+                    "field": "slide"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "#",
+                      "style": {
+                        "fontSize": 14.4,
+                        "fontWeight": 600
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "slide",
+                      "style": {
+                        "fontSize": 14.4,
+                        "fontWeight": 600
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "Spotlight",
+                      "part": "spot.sub-label",
+                      "style": {
+                        "fontSize": 14.4,
+                        "fontWeight": 600
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "spot.title",
+                  "style": {
+                    "fontSize": 43.2,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "color": "#FFFFFF"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "spot.detail",
+                  "style": {
+                    "gap": 14,
+                    "align": "center",
+                    "wrap": "wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "part": "spot.it-format",
+                      "when": {
+                        "field": "format"
+                      },
+                      "style": {
+                        "fontSize": 13.2,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "startYear",
+                      "part": "spot.it-date",
+                      "when": {
+                        "field": "startYear"
+                      },
+                      "style": {
+                        "fontSize": 13.2,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "rating",
+                      "part": "spot.it-score",
+                      "when": {
+                        "field": "rating"
+                      },
+                      "style": {
+                        "fontSize": 13.2,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "spot.it-eps",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "wrap": "nowrap"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodeCount",
+                          "style": {
+                            "fontSize": 13.2,
+                            "fontWeight": 400
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": "eps",
+                          "style": {
+                            "fontSize": 13.2,
+                            "fontWeight": 400
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "spot.synopsis",
+                  "style": {
+                    "fontSize": 13.8,
+                    "fontWeight": 400,
+                    "lines": 2
+                  }
+                },
+                {
+                  "type": "action",
+                  "action": "play",
+                  "text": "Watch now",
+                  "part": "spot.play",
+                  "style": {
+                    "radius": 6,
+                    "fontSize": 15,
+                    "fontWeight": 700,
+                    "color": "#FFFFFF",
+                    "background": "primary"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "spot.nav",
+              "style": {
+                "anchor": "bottom-end",
+                "gap": 4
+              },
+              "children": [
+                {
+                  "type": "action",
+                  "action": "previous",
+                  "icon": "chevron-left",
+                  "part": "spot.prev",
+                  "style": {
+                    "fontSize": 19.2
+                  }
+                },
+                {
+                  "type": "action",
+                  "action": "next",
+                  "icon": "chevron-right",
+                  "part": "spot.next",
+                  "style": {
+                    "fontSize": 19.2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 158,
+          "gap": 20,
+          "titleSize": 24,
+          "heading": {
+            "weight": 600,
+            "viewMore": "text"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 158,
+            "gap": 20,
+            "titleSize": 24
+          },
+          "season": {
+            "layout": "grid",
+            "width": 158,
+            "gap": 20,
+            "titleSize": 24,
+            "heading": {
+              "weight": 600,
+              "viewMore": "text"
+            }
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "part": "spot.card",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "spot.poster",
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "spot.meta",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "gap": 0,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "spot.sub",
+                      "when": {
+                        "field": "episodesAired"
+                      },
+                      "style": {
+                        "gap": 0,
+                        "align": "center",
+                        "wrap": "nowrap"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodesAired",
+                          "style": {
+                            "fontSize": 10.8,
+                            "fontWeight": 600
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeCount",
+                      "part": "spot.total",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "style": {
+                        "fontSize": 10.8,
+                        "fontWeight": 600
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "part": "spot.format",
+                      "when": {
+                        "field": "format"
+                      },
+                      "style": {
+                        "fontSize": 10.8,
+                        "fontWeight": 600
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "spot.name",
+              "style": {
+                "fontSize": 14.4,
+                "fontWeight": 500,
+                "lines": 2
+              }
+            },
+            {
+              "type": "row",
+              "part": "spot.line",
+              "style": {
+                "gap": 0,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "format",
+                  "when": {
+                    "field": "format"
+                  },
+                  "style": {
+                    "fontSize": 11.4,
+                    "fontWeight": 400
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "spot.line-eps",
+                  "when": {
+                    "field": "episodeCount"
+                  },
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "episodeCount",
+                      "style": {
+                        "fontSize": 11.4,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "Eps",
+                      "style": {
+                        "fontSize": 11.4,
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "year",
+                  "part": "spot.line-year",
+                  "when": {
+                    "field": "year"
+                  },
+                  "style": {
+                    "fontSize": 11.4,
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "spotlight.cw",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "spotlight.cw-art",
+              "style": {
+                "aspect": "2 / 3"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "spotlight.cw-ep",
+                  "style": {
+                    "anchor": "top-start",
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EP",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeNo",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 600,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "spotlight.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "spotlight.cw-title",
+              "style": {
+                "fontSize": 16,
+                "fontWeight": 500,
+                "color": "#A0B1C5",
+                "lines": 1
+              }
+            }
+          ]
+        },
+        "ranked": {
+          "type": "row",
+          "part": "spot.rk",
+          "style": {
+            "gap": 10,
+            "align": "center",
+            "wrap": "nowrap"
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "part": "spot.rk-bg",
+              "when": {
+                "field": "rankPosition",
+                "atMost": 1
+              },
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "text",
+              "field": "rankPosition",
+              "part": "spot.rk-n",
+              "style": {
+                "fontSize": 15,
+                "fontWeight": 800
+              }
+            },
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "part": "spot.rk-poster",
+              "style": {
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "spot.rk-tx",
+              "style": {
+                "gap": 0
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": "#1 Most watched",
+                  "part": "spot.rk-label",
+                  "when": {
+                    "field": "rankPosition",
+                    "atMost": 1
+                  },
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 800
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "spot.rk-name",
+                  "style": {
+                    "fontSize": 13.8,
+                    "fontWeight": 600,
+                    "lines": 1
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "spot.rk-meta",
+                  "style": {
+                    "gap": 0,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "spot.sub",
+                      "when": {
+                        "field": "episodesAired"
+                      },
+                      "style": {
+                        "gap": 0,
+                        "align": "center",
+                        "wrap": "nowrap"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodesAired",
+                          "style": {
+                            "fontSize": 10.8,
+                            "fontWeight": 600
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "part": "spot.rk-format",
+                      "when": {
+                        "field": "format"
+                      },
+                      "style": {
+                        "fontSize": 10.8,
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "underline",
+        "factsStyle": "table",
+        "countdown": "compact",
+        "posterWidth": 147,
+        "factsKeys": [
+          "format",
+          "season",
+          "aired",
+          "status",
+          "genres",
+          "score",
+          "duration",
+          "episodes",
+          "studio",
+          "source"
+        ],
+        "factsLabels": {
+          "format": "type",
+          "studio": "studios"
+        },
+        "factsFormat": {
+          "score": "ten",
+          "dates": "short"
+        },
+        "header": {
+          "type": "row",
+          "part": "spot.dmeta",
+          "style": {
+            "gap": 10,
+            "align": "center",
+            "wrap": "nowrap"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "ageRating",
+              "part": "spot.drate",
+              "when": {
+                "field": "ageRating"
+              },
+              "style": {
+                "fontSize": 10,
+                "fontWeight": 600
+              }
+            },
+            {
+              "type": "text",
+              "text": "HD",
+              "part": "spot.dhd",
+              "style": {
+                "fontSize": 10,
+                "fontWeight": 700
+              }
+            },
+            {
+              "type": "row",
+              "part": "spot.dcc"
+            }
+          ]
+        },
+        "sections": {
+          "mode": "stack",
+          "tabs": [
+            "episodes",
+            "relations",
+            "recommended",
+            "characters"
+          ],
+          "unlisted": "hidden",
+          "labels": {
+            "relations": "related"
+          }
+        },
+        "episodes": {
+          "arrangement": "list",
+          "paging": "dropdown",
+          "search": "field",
+          "controls": [
+            "search"
+          ],
+          "card": {
+            "type": "row",
+            "part": "spot.ep",
+            "style": {
+              "gap": 0,
+              "align": "center",
+              "wrap": "nowrap"
+            },
+            "children": [
+              {
+                "type": "text",
+                "field": "episodeNo",
+                "part": "spot.ep-no",
+                "style": {
+                  "fontSize": 12,
+                  "fontWeight": 400
+                }
+              },
+              {
+                "type": "text",
+                "field": "episodeName",
+                "part": "spot.ep-name",
+                "when": {
+                  "field": "episodeName"
+                },
+                "style": {
+                  "fontSize": 12,
+                  "fontWeight": 400,
+                  "lines": 1
+                }
+              },
+              {
+                "type": "text",
+                "field": "episodeTitle",
+                "part": "spot.ep-name",
+                "when": {
+                  "field": "episodeName",
+                  "absent": true
+                },
+                "style": {
+                  "fontSize": 12,
+                  "fontWeight": 400,
+                  "lines": 1
+                }
+              }
+            ]
+          }
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "title": "Latest Episode",
+            "tabs": [
+              {
+                "label": "All",
+                "role": "recent"
+              },
+              {
+                "label": "New",
+                "role": "newest"
+              },
+              {
+                "label": "Trending",
+                "role": "trending"
+              },
+              {
+                "label": "Popular",
+                "role": "popular"
+              }
+            ],
+            "columns": 6,
+            "pageSize": 12,
+            "pagination": "arrows"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "Top anime",
+            "tabs": [
+              {
+                "label": "Today",
+                "role": "trending"
+              },
+              {
+                "label": "Season",
+                "role": "season"
+              },
+              {
+                "label": "All time",
+                "role": "popular"
+              }
+            ],
+            "limit": 9
+          }
+        ],
+        "asideWidth": 346,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "watch",
+            "settings"
+          ]
+        },
+        "asideGap": 20
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "spot.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "part": "spot.art",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "spot.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 0
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "part": "spot.sub",
+                    "style": {
+                      "gap": 0,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
+                    "when": {
+                      "field": "slide"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "#",
+                        "style": {
+                          "fontSize": 14.4,
+                          "fontWeight": 600
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "slide",
+                        "style": {
+                          "fontSize": 14.4,
+                          "fontWeight": 600
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "Spotlight",
+                        "part": "spot.sub-label",
+                        "style": {
+                          "fontSize": 14.4,
+                          "fontWeight": 600
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "spot.title",
+                    "style": {
+                      "fontSize": 26.4,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "spot.detail",
+                    "style": {
+                      "gap": 14,
+                      "align": "center",
+                      "wrap": "wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "format",
+                        "part": "spot.it-format",
+                        "when": {
+                          "field": "format"
+                        },
+                        "style": {
+                          "fontSize": 13.2,
+                          "fontWeight": 400
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "startYear",
+                        "part": "spot.it-date",
+                        "when": {
+                          "field": "startYear"
+                        },
+                        "style": {
+                          "fontSize": 13.2,
+                          "fontWeight": 400
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "rating",
+                        "part": "spot.it-score",
+                        "when": {
+                          "field": "rating"
+                        },
+                        "style": {
+                          "fontSize": 13.2,
+                          "fontWeight": 400
+                        }
+                      },
+                      {
+                        "type": "row",
+                        "part": "spot.it-eps",
+                        "when": {
+                          "field": "episodeCount"
+                        },
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "wrap": "nowrap"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "field": "episodeCount",
+                            "style": {
+                              "fontSize": 13.2,
+                              "fontWeight": 400
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "text": "eps",
+                            "style": {
+                              "fontSize": 13.2,
+                              "fontWeight": 400
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "action",
+                    "action": "play",
+                    "text": "Watch now",
+                    "part": "spot.play",
+                    "style": {
+                      "radius": 6,
+                      "fontSize": 13.8,
+                      "fontWeight": 700,
+                      "color": "#FFFFFF",
+                      "background": "primary"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "title": "Latest Episode",
+              "tabs": [
+                {
+                  "label": "All",
+                  "role": "recent"
+                },
+                {
+                  "label": "New",
+                  "role": "newest"
+                },
+                {
+                  "label": "Trending",
+                  "role": "trending"
+                },
+                {
+                  "label": "Popular",
+                  "role": "popular"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "arrows"
+            },
+            {
+              "role": "season"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Spotlight — the Anikoto look (docs/theme-references/anikoto.md): navy #0b1622, one sky-blue accent, Nunito. */\n\n/* Header: a 60 px #142030 bar row with no rule under it, the 581 px search field after the brand, 13.2 px links. */\n:scope { --theme-top-row: 60px; }\n[data-slot=\"nav.top\"] { background: #142030 !important; border-bottom-color: transparent !important; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { order: 3; gap: 6px; padding: 0 10px; color: #a0b1c5; font-size: 13.2px; font-weight: 600; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover { background: transparent; color: #26a3d6; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { color: #26a3d6; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item.icon\"] svg { width: 16px; height: 16px; }\n[data-slot=\"nav.top\"] > div:has([data-part=\"search.field\"]) { order: 2; flex: 0 1 581px; margin: 0 auto 0 38px; padding: 0; }\n[data-slot=\"nav.top\"] > div:has([data-part=\"search.field\"]) > form { width: 100%; max-width: none; }\n[data-slot=\"nav.top\"] > button:not([data-part]), [data-slot=\"nav.top\"] > a:not([data-part]), [data-slot=\"nav.top\"] > [data-part=\"nav.action\"] { order: 4; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 36px; border: 0; border-radius: 6px; background: #101925; color: #a0b1c5; font-size: 13.2px; font-weight: 500; }\n/* The account control is the blue \"Sign in\" button at the end of the bar (label, then the icon). */\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"][data-action=\"account\"] { display: flex !important; flex-direction: row-reverse; gap: 6px; width: auto !important; height: 35px !important; margin-left: 6px; padding: 0 20px !important; border: 1px solid #26a3d6; border-radius: 6px !important; background: #26a3d6 !important; color: #fff !important; font-size: 15px; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"][data-action=\"account\"] > span:not([data-part]) { width: auto; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"][data-action=\"account\"] svg { width: 18px; height: 18px; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"][data-action=\"account\"] [data-part=\"nav.action.label\"] { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: nowrap; font-size: 15px; font-weight: 400; line-height: 35px; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.action\"]:not([data-action=\"account\"]) { color: #a0b1c5; }\n\n/* Hero: full width, 510 px under the bar, the art fading into the page from the left and the bottom. */\n[data-slot=\"home.hero\"] { width: auto !important; height: 510px !important; margin: 0 0 30px !important; border-radius: 0 !important; background: #0b1622; }\n[data-part=\"spot.hero\"] { height: 100%; }\n[data-part=\"spot.art\"] img { object-position: 70% 50%; }\n[data-part=\"spot.hero\"]::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  z-index: 1;\n  background-image: linear-gradient(90deg, #0b1622 0%, rgba(11, 22, 34, 0.95) 26%, rgba(11, 22, 34, 0.55) 46%, rgba(11, 22, 34, 0.12) 68%, rgba(11, 22, 34, 0) 82%), linear-gradient(0deg, #0b1622 0%, rgba(11, 22, 34, 0) 45%, rgba(11, 22, 34, 0.4) 100%);\n  pointer-events: none;\n}\n[data-part=\"spot.hero\"] > :not(:first-child) { z-index: 2; }\n[data-part=\"spot.info\"] { width: 656px; padding: 0 40px 50px !important; color: #a0b1c5; }\n[data-part=\"spot.info\"] > [data-part=\"spot.sub\"] { margin-bottom: 8px; color: #26a3d6; line-height: 21.6px; }\n[data-part=\"spot.sub-label\"] { margin-left: 4px; }\n[data-part=\"spot.title\"] { margin-bottom: 8px; line-height: 1.15 !important; }\n[data-part=\"spot.detail\"] { margin-bottom: 12px; color: #a0b1c5; line-height: 19.8px; }\n[data-part=\"spot.detail\"] > * { display: inline-flex; align-items: center; }\n[data-part=\"spot.detail\"] > *::before { content: \"\"; flex: none; width: 11.88px; height: 11.88px; margin-right: 5px; opacity: 0.6; background-color: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }\n[data-part=\"spot.it-format\"]::before { -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNOCAwYTggOCAwIDEgMCAwIDE2QTggOCAwIDAgMCA4IDB6TTYuMiA0LjZ2Ni44TDExLjYgOHoiLz48L3N2Zz4=); mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNOCAwYTggOCAwIDEgMCAwIDE2QTggOCAwIDAgMCA4IDB6TTYuMiA0LjZ2Ni44TDExLjYgOHoiLz48L3N2Zz4=); }\n[data-part=\"spot.it-date\"]::before { -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNCAwaDJ2MS41aDRWMGgydjEuNWgyLjVBMS41IDEuNSAwIDAgMSAxNiAzdjExLjVhMS41IDEuNSAwIDAgMS0xLjUgMS41aC0xM0ExLjUgMS41IDAgMCAxIDAgMTQuNVYzYTEuNSAxLjUgMCAwIDEgMS41LTEuNUg0ek0xLjggNnY4LjJoMTIuNFY2eiIvPjwvc3ZnPg==); mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNCAwaDJ2MS41aDRWMGgydjEuNWgyLjVBMS41IDEuNSAwIDAgMSAxNiAzdjExLjVhMS41IDEuNSAwIDAgMS0xLjUgMS41aC0xM0ExLjUgMS41IDAgMCAxIDAgMTQuNVYzYTEuNSAxLjUgMCAwIDEgMS41LTEuNUg0ek0xLjggNnY4LjJoMTIuNFY2eiIvPjwvc3ZnPg==); }\n[data-part=\"spot.it-score\"]::before { opacity: 1 !important; background-color: #e0a458 !important; -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTggLjRsMi4zNSA0Ljg1IDUuMy43NS0zLjg1IDMuNy45MiA1LjNMOCAxMi41IDMuMjggMTVsLjkyLTUuM0wuMzUgNmw1LjMtLjc1eiIvPjwvc3ZnPg==); mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTggLjRsMi4zNSA0Ljg1IDUuMy43NS0zLjg1IDMuNy45MiA1LjNMOCAxMi41IDMuMjggMTVsLjkyLTUuM0wuMzUgNmw1LjMtLjc1eiIvPjwvc3ZnPg==); }\n[data-part=\"spot.it-eps\"]::before { -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMCAxLjVoMTZ2MTNIMHpNMS41IDN2MmgyVjN6bTAgNHYyaDJWN3ptMCA0djJoMnYtMnptMTEtOHYyaDJWM3ptMCA0djJoMlY3em0wIDR2Mmgydi0yek01IDN2MTBoNlYzeiIvPjwvc3ZnPg==); mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMCAxLjVoMTZ2MTNIMHpNMS41IDN2MmgyVjN6bTAgNHYyaDJWN3ptMCA0djJoMnYtMnptMTEtOHYyaDJWM3ptMCA0djJoMlY3em0wIDR2Mmgydi0yek01IDN2MTBoNlYzeiIvPjwvc3ZnPg==); }\n[data-part=\"spot.synopsis\"] { margin-bottom: 18px; color: #a0b1c5; font-weight: 300 !important; line-height: 22.08px; }\n[data-part=\"spot.play\"] { min-height: 0 !important; height: 37.7px; padding: 0 21.6px !important; gap: 5px !important; border: 1px solid #26a3d6; line-height: 22.5px; }\n[data-part=\"spot.play\"] svg { width: 12px; height: 12px; fill: currentColor; }\n[data-part=\"spot.nav\"] { right: 30px !important; bottom: 50px !important; left: auto !important; padding: 0 !important; }\n[data-part=\"spot.prev\"], [data-part=\"spot.next\"] { display: grid !important; place-items: center; width: 40px; min-width: 0 !important; height: 40px; min-height: 0 !important; padding: 0 !important; border: 0 !important; border-radius: 5px !important; background: #142030 !important; color: #a0b1c5 !important; opacity: 0.75; box-shadow: none !important; }\n[data-part=\"spot.prev\"]:hover, [data-part=\"spot.next\"]:hover { opacity: 1; }\n/* The site pages the hero only with these two buttons; izumi's hover edge arrows would sit on top of them. */\n[data-slot=\"home.hero\"] [data-part=\"hero.edge\"] { display: none !important; }\n\n/* Columns: 10 px page gutters, a 336 px aside 20 px from the main column. */\n[data-slot=\"home.main\"] [data-block] { padding-left: 10px !important; padding-right: 10px !important; margin-bottom: 40px !important; }\n[data-slot=\"home.aside\"] [data-block] { padding-right: 10px !important; }\n[data-slot=\"home.main\"] [data-part=\"row.header\"] { padding-left: 10px !important; padding-right: 10px !important; margin-bottom: 15px; }\n[data-slot=\"home.main\"] [data-part=\"row.track\"] { padding-left: 10px !important; padding-right: 10px !important; }\n[data-slot=\"home.main\"] [data-slot=\"row\"] { margin-bottom: 40px; }\n\n/* Section headings: 24 px / 600 #ddd on a 36 px line; \"View more\" in #515f75. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-size: 24px !important; font-weight: 600 !important; line-height: 36px !important; color: #ddd; }\n[data-part=\"row.more\"] { color: #515f75; font-size: 13.2px; font-weight: 400; }\n[data-part=\"row.more\"]:hover { color: #26a3d6; }\n\n/* Latest Episode: the text tabs and the page arrows share the heading's line. */\n[data-slot=\"block.tabbed-grid\"] { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; }\n[data-slot=\"block.tabbed-grid\"] > [data-part=\"block.title\"] { grid-column: 1; grid-row: 1; margin: 0 0 15px; }\n[data-slot=\"block.tabbed-grid\"] > div[data-nav-row]:not([data-nav-row-items]) { grid-column: 2; grid-row: 1; margin-bottom: 15px; }\n[data-slot=\"block.tabbed-grid\"] > [data-part=\"pagination\"] { grid-column: 3; grid-row: 1; margin: 0 0 15px 8px; gap: 0; }\n[data-slot=\"block.tabbed-grid\"] > div[data-nav-row-items] { grid-column: 1 / -1; grid-row: 2; column-gap: 20px !important; row-gap: 20px !important; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { margin: 0; padding: 0; gap: 8px; border: 0; background: transparent; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { padding: 0 3px; border: 0; background: transparent; color: #515f75; font-size: 14.4px; font-weight: 400; line-height: 21.6px; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"]:hover, [data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { color: #26a3d6; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"] { display: grid; place-items: center; width: 19px; height: 26px; padding: 0; border-radius: 0; background: transparent !important; color: #a0b1c5; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"]:disabled { opacity: 0.4; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"] svg { width: 14px; height: 14px; }\n\n/* Poster cards: 158 x 221 posters with 5 px corners, a 24 px navy meta bar over their foot (a skewed blue\n   sub count with a CC mark, the total on slate, the format at the end), the title in 14.4 px slate-blue. */\n[data-part=\"spot.poster\"] { aspect-ratio: 158 / 221.4; border-radius: 5px; overflow: hidden; }\n[data-part=\"spot.poster\"] img { border-radius: 0 0 6px 6px; }\n[data-part=\"spot.meta\"] { width: 100%; height: 24px; padding: 0 5px; background: #19273b; color: #a0b1c5; line-height: 24px; }\n[data-part=\"spot.meta\"] > [data-part=\"spot.sub\"], [data-part=\"spot.rk-meta\"] > [data-part=\"spot.sub\"], [data-part=\"spot.total\"] { position: relative; isolation: isolate; height: 15.47px; margin-right: 4px; padding: 0 3px; color: rgba(255, 255, 255, 0.8); line-height: 15.48px; }\n[data-part=\"spot.meta\"] > [data-part=\"spot.sub\"], [data-part=\"spot.rk-meta\"] > [data-part=\"spot.sub\"] { padding-left: 4px; }\n[data-part=\"spot.meta\"] > [data-part=\"spot.sub\"]::after, [data-part=\"spot.rk-meta\"] > [data-part=\"spot.sub\"]::after, [data-part=\"spot.total\"]::after { content: \"\"; position: absolute; inset: 0; z-index: -1; border-radius: 1.5px; background: #0084b9; transform: skewX(-15deg); }\n[data-part=\"spot.total\"] { color: rgba(255, 255, 255, 0.6); }\n[data-part=\"spot.total\"]::after { background: #2a3f5c; }\n[data-part=\"spot.meta\"] > [data-part=\"spot.sub\"]::before, [data-part=\"spot.rk-meta\"] > [data-part=\"spot.sub\"]::before { content: \"\"; width: 12.375px; height: 12.375px; margin-right: 3px; opacity: 0.7; background-color: currentColor; -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMiAyaDEyYTIgMiAwIDAgMSAyIDJ2OGEyIDIgMCAwIDEtMiAySDJhMiAyIDAgMCAxLTItMlY0YTIgMiAwIDAgMSAyLTJ6bTQuOSA0LjNBMi40IDIuNCAwIDAgMCAzIDhhMi40IDIuNCAwIDAgMCAzLjkgMS43bC0uOC0uOUExLjIgMS4yIDAgMCAxIDQuMyA4YTEuMiAxLjIgMCAwIDEgMS44LS44em02IDBBMi40IDIuNCAwIDAgMCA5IDhhMi40IDIuNCAwIDAgMCAzLjkgMS43bC0uOC0uOUExLjIgMS4yIDAgMCAxIDEwLjMgOGExLjIgMS4yIDAgMCAxIDEuOC0uOHoiLz48L3N2Zz4=) center / contain no-repeat; mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMiAyaDEyYTIgMiAwIDAgMSAyIDJ2OGEyIDIgMCAwIDEtMiAySDJhMiAyIDAgMCAxLTItMlY0YTIgMiAwIDAgMSAyLTJ6bTQuOSA0LjNBMi40IDIuNCAwIDAgMCAzIDhhMi40IDIuNCAwIDAgMCAzLjkgMS43bC0uOC0uOUExLjIgMS4yIDAgMCAxIDQuMyA4YTEuMiAxLjIgMCAwIDEgMS44LS44em02IDBBMi40IDIuNCAwIDAgMCA5IDhhMi40IDIuNCAwIDAgMCAzLjkgMS43bC0uOC0uOUExLjIgMS4yIDAgMCAxIDEwLjMgOGExLjIgMS4yIDAgMCAxIDEuOC0uOHoiLz48L3N2Zz4=) center / contain no-repeat; }\n[data-part=\"spot.format\"] { margin-left: auto; color: #a0b1c5; }\n[data-part=\"spot.name\"] { min-height: 36px; margin: 10.8px 0 9px; color: #a0b1c5; line-height: 18px; }\n[data-part=\"card\"]:hover [data-part=\"spot.name\"] { color: #26a3d6; }\n\n/* Top anime aside: the title and a segmented #142030 range switch on one line; a lead card for #1, then\n   62 px rows with small coloured ranks, 36 x 50 posters and 13.8 px titles (the API 5 ranked card template). */\n[data-slot=\"block.ranked-list\"] { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 8px; }\n[data-slot=\"block.ranked-list\"] > [data-part=\"block.title\"] { margin: 0; padding-left: 5px; }\n[data-slot=\"block.ranked-list\"] > ol { grid-column: 1 / -1; margin-top: 15px; }\n[data-slot=\"block.ranked-list\"] > ol > li { margin: 0 0 2px !important; }\n[data-slot=\"block.ranked-list\"] > ol > li:first-child { margin-bottom: 8px !important; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tabs\"] { margin: 0; gap: 2px; padding: 3px; border-radius: 5px; background: #142030; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"] { height: 22px; padding: 2px 8px; border-radius: 3px; background: transparent; color: #8097b2; font-size: 12px; font-weight: 600; line-height: 18px; box-shadow: none; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"][data-active] { background: #26a3d6; color: #eee; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"] { border-radius: 5px; }\n[data-part=\"spot.rk\"] { position: relative; isolation: isolate; padding: 6px; border-radius: 5px; overflow: hidden; }\n[data-part=\"spot.rk-n\"] { flex: none; width: 22px; color: #515f75; line-height: 22.5px; text-align: center; }\n[data-slot=\"block.ranked-list\"] li:nth-child(2) [data-part=\"spot.rk-n\"] { color: #bd4c60; }\n[data-slot=\"block.ranked-list\"] li:nth-child(3) [data-part=\"spot.rk-n\"] { color: #ab8445; }\n[data-part=\"spot.rk-poster\"] { flex: none; width: 36px !important; height: 50px; border-radius: 3px; overflow: hidden; }\n[data-part=\"spot.rk-poster\"] img { width: 100%; height: 100%; object-fit: cover; }\n[data-part=\"spot.rk-tx\"] { flex: 1 1 auto; min-width: 0; }\n[data-part=\"spot.rk-name\"] { margin-bottom: 2px; color: #a0b1c5; line-height: 17.94px !important; }\n[data-part=\"spot.rk-meta\"] { color: #515f75; line-height: 16.2px; }\n[data-part=\"spot.rk-format\"] { margin-left: 6px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"]:hover [data-part=\"spot.rk-name\"] { color: #26a3d6; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"spot.rk\"] { align-items: flex-end !important; min-height: 150px; gap: 12px !important; padding: 12px; background: #142030; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"spot.rk\"]::after { content: \"\"; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(0deg, #0b1622 0px, rgba(11, 22, 34, 0.35) 60%, rgba(11, 22, 34, 0.1) 100%); pointer-events: none; }\n[data-part=\"spot.rk-bg\"] { z-index: -1; inset: -20px !important; width: auto !important; height: auto !important; filter: blur(14px) brightness(0.55); }\n[data-part=\"spot.rk-bg\"] img { width: 100%; height: 100%; object-fit: cover; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"spot.rk-n\"] { display: none; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"spot.rk-poster\"] { width: 76px !important; height: 106px; border-radius: 4px; }\n[data-part=\"spot.rk-label\"] { margin-bottom: 2px; color: #26a3d6; line-height: 18px; text-transform: uppercase; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"spot.rk-name\"] { margin-bottom: 4px; color: #fff; font-size: 17.4px !important; font-weight: 700 !important; line-height: 22.62px !important; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"spot.rk-meta\"] { padding-bottom: 2px; color: #a0b1c5; line-height: 17.1px; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"spot.rk-meta\"] :is(span, div) { font-size: 11.4px !important; }\n[data-slot=\"block.ranked-list\"] li:first-child [data-part=\"spot.rk-format\"] { font-weight: 300 !important; }\n\n/* Series page (desktop): the site's watch layout. A 1100 px main column holds the artwork in the\n   player's 597 px box, the episode box and the info block; a 300 px aside holds Related, then\n   Recommended from the info block down. Cast follows the info block in the main column. */\n[data-slot=\"detail\"][data-variant=\"desktop\"][data-layout=\"stack\"] { display: grid; grid-template-columns: minmax(0, 1fr) 300px; grid-template-rows: auto auto auto auto 1fr; column-gap: 20px; align-items: start; padding: 10px 10px 64px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"][data-layout=\"stack\"] > div:has(> [data-slot=\"detail.banner\"]) { grid-column: 1; grid-row: 1; }\n[data-slot=\"detail\"][data-variant=\"desktop\"][data-layout=\"stack\"] > [data-part=\"detail.content\"] { display: contents; }\n[data-slot=\"detail\"][data-variant=\"desktop\"][data-layout=\"stack\"] > [data-part=\"detail.content\"] > div:has([data-part=\"detail.title\"]) { grid-column: 1; grid-row: 3; align-items: flex-start; gap: 15px; margin: 30px 0 0; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.section\"] { margin-top: 0; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.section\"][data-section=\"episodes\"] { grid-column: 1; grid-row: 2; margin-top: 10px; border-radius: 5px; background: #050a0f; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.section\"][data-section=\"relations\"] { grid-column: 2; grid-row: 1 / 4; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.section\"][data-section=\"recommended\"] { grid-column: 2; grid-row: 4 / 6; margin-top: 20px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.section\"][data-section=\"characters\"] { grid-column: 1; grid-row: 4; margin-top: 40px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.section-title\"] { margin: 0 0 15px; color: #ddd; font-size: 24px; font-weight: 600; line-height: 36px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-section=\"episodes\"] > [data-part=\"detail.section-title\"] { display: none; }\n\n/* The artwork in the player box: 597 px, square corners, no scrim. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] { height: 597px !important; margin: 0 !important; overflow: hidden; background: #000; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] > div:first-child { left: 0 !important; width: 100% !important; height: 100% !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.scrim\"] { display: none; }\n\n/* Episode box: #050a0f, a 45 px head of small #142030 controls, then 40 px rows (number, title),\n   striped #0d141e / #111b29; the episode Play opens is the blue row with a play mark. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"episodes.toolbar\"] { gap: 5px; margin: 0; padding: 10px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"episodes.toolbar\"] button, [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"episodes.toolbar\"] input { height: 23.75px !important; min-height: 0 !important; padding: 3px 9.6px !important; border: 1px solid #142030 !important; border-radius: 2.4px !important; background: #142030 !important; color: #8097b2 !important; font-size: 10.5px !important; font-weight: 400 !important; line-height: 15.75px !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"episodes.toolbar\"] input { width: 152px !important; border-color: #20334d !important; background: #172537 !important; color: #a0b1c5 !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"episodes.toolbar\"] svg { width: 10px; height: 10px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"episodes.search\"] { flex: 0 0 auto !important; width: auto !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"episodes.search\"] > svg { display: none; }\n[data-slot=\"detail\"] [data-part=\"episodes.grid\"] { gap: 0 !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"episodes.grid\"] { padding: 0 10px 10px !important; }\n[data-slot=\"detail\"] [data-part=\"episodes.grid\"] [data-part=\"episode\"] { height: 40px; min-height: 0; padding: 0; border: 1px solid #111b29; border-radius: 0; background: #0d141e; color: #8097b2; box-shadow: none; transform: none !important; }\n[data-slot=\"detail\"] [data-part=\"episodes.grid\"] > :nth-child(even) [data-part=\"episode\"] { background: #111b29; }\n[data-slot=\"detail\"] [data-part=\"episodes.grid\"] [data-part=\"episode\"]:hover { color: #26a3d6; }\n[data-slot=\"detail\"] [data-part=\"episodes.grid\"] [data-part=\"episode\"][data-next] { border-color: #26a3d6; background: #26a3d6; color: #eee; }\n[data-part=\"spot.ep\"] { height: 38px; padding-right: 38px; }\n[data-part=\"spot.ep-no\"] { flex: none; width: 38px; font-weight: 700 !important; text-align: center; }\n[data-part=\"spot.ep-name\"] { min-width: 0; flex: 1; }\n[data-part=\"episode\"][data-next] [data-part=\"spot.ep\"]::after { content: \"\"; position: absolute; top: 14px; right: 14px; width: 10px; height: 10px; background-color: currentColor; -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTMgMS41djEzTDE0IDh6Ii8+PC9zdmc+) center / contain no-repeat; mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTMgMS41djEzTDE0IDh6Ii8+PC9zdmc+) center / contain no-repeat; }\n\n/* Info block: a 147 x 206 poster (7.2 px corners), the 26.4 px title, italic other names, a small\n   meta row, the synopsis in 12 px, then the facts as two columns of \"Label: value\". */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.poster\"] { width: 147px !important; height: 205.6px !important; object-fit: cover; border-radius: 7.2px; box-shadow: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-part=\"detail.title\"]) { display: flex; flex-direction: column; align-items: flex-start; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { order: 1; margin: 0; color: #ddd; font-size: 26.4px; font-weight: 500; line-height: 31.68px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.alt-title\"] { order: 2; margin-bottom: 6px; color: #8097b2; font-size: 12px; font-style: italic; line-height: 18px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.header\"] { order: 3; margin: 0 0 12px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"] { order: 4; max-width: 572px; margin-bottom: 12px; color: #8097b2; font-size: 12px; line-height: 19.2px; -webkit-line-clamp: 2; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"] { order: 5; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.countdown\"] { order: 6; margin: 12px 0 0; color: #8097b2; font-size: 12px; font-weight: 400; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.countdown.time\"] { color: #26a3d6; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] { order: 7; margin-top: 14px; gap: 4px; }\n[data-part=\"spot.dmeta\"] { height: 15.2px; color: #a0b1c5; opacity: 0.7; }\n[data-part=\"spot.drate\"] { padding: 0 2.6px; border: 1px solid #a0b1c5; border-radius: 2.6px; font-size: 8.58px !important; line-height: 12.87px; }\n[data-part=\"spot.dhd\"] { padding: 0 2.6px; border-radius: 1.7px; background: #a0b1c5; color: #0b1622; font-size: 8.58px !important; line-height: 12.87px; }\n[data-part=\"spot.dcc\"] { width: 17px; height: 15.2px; background-color: currentColor; -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMiAyaDEyYTIgMiAwIDAgMSAyIDJ2OGEyIDIgMCAwIDEtMiAySDJhMiAyIDAgMCAxLTItMlY0YTIgMiAwIDAgMSAyLTJ6bTQuOSA0LjNBMi40IDIuNCAwIDAgMCAzIDhhMi40IDIuNCAwIDAgMCAzLjkgMS43bC0uOC0uOUExLjIgMS4yIDAgMCAxIDQuMyA4YTEuMiAxLjIgMCAwIDEgMS44LS44em02IDBBMi40IDIuNCAwIDAgMCA5IDhhMi40IDIuNCAwIDAgMCAzLjkgMS43bC0uOC0uOUExLjIgMS4yIDAgMCAxIDEwLjMgOGExLjIgMS4yIDAgMCAxIDEuOC0uOHoiLz48L3N2Zz4=) center / contain no-repeat; mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMiAyaDEyYTIgMiAwIDAgMSAyIDJ2OGEyIDIgMCAwIDEtMiAySDJhMiAyIDAgMCAxLTItMlY0YTIgMiAwIDAgMSAyLTJ6bTQuOSA0LjNBMi40IDIuNCAwIDAgMCAzIDhhMi40IDIuNCAwIDAgMCAzLjkgMS43bC0uOC0uOUExLjIgMS4yIDAgMCAxIDQuMyA4YTEuMiAxLjIgMCAwIDEgMS44LS44em02IDBBMi40IDIuNCAwIDAgMCA5IDhhMi40IDIuNCAwIDAgMCAzLjkgMS43bC0uOC0uOUExLjIgMS4yIDAgMCAxIDEwLjMgOGExLjIgMS4yIDAgMCAxIDEuOC0uOHoiLz48L3N2Zz4=) center / contain no-repeat; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"][data-variant=\"table\"] { display: grid !important; grid-template-columns: 248px 229px; grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 12px; row-gap: 0 !important; max-width: none; font-size: 12px !important; line-height: 18px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"] { display: block !important; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"], [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { display: inline; color: #8097b2; font-weight: 400; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"]::after { content: \": \"; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { color: #a0b1c5; }\n[data-part=\"detail.facts\"] a { color: #26a3d6; }\n\n/* Actions: Play is the blue \"Watch now\" button; the rest are plain 12 px control links. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] > button, [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] > [data-part=\"detail.action\"] { height: 33.6px; min-height: 0; padding: 0 8px; border: 0; border-radius: 5px; background: transparent; color: #a0b1c5; font-size: 12px; font-weight: 400; box-shadow: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] > button:hover { color: #26a3d6; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] svg { width: 13px; height: 13px; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { height: 37.7px !important; padding: 0 21.6px !important; border: 1px solid #26a3d6 !important; border-radius: 6px !important; background: #26a3d6 !important; color: #fff !important; font-size: 15px !important; font-weight: 700 !important; text-transform: none; }\n\n/* Related and Recommended: 300 x 91 rows on #142030 with 5 px corners, a 70 x 91 poster, the title in\n   14.4 px and a dim \"TV / 12 Eps / 2026\" line. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.relations\"], [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.recommended\"] { display: flex !important; flex-direction: column; flex-wrap: nowrap !important; gap: 10px !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.relations\"] > *, [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.recommended\"] > * { position: relative; width: 300px !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.relations\"] [data-part=\"card\"], [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.recommended\"] [data-part=\"card\"] { width: 300px !important; overflow: hidden; border-radius: 5px; background: #142030; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] :is([data-slot=\"detail.relations\"], [data-slot=\"detail.recommended\"]) [data-part=\"spot.card\"] { justify-content: center; height: 91px; padding-left: 85px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] :is([data-slot=\"detail.relations\"], [data-slot=\"detail.recommended\"]) [data-part=\"spot.poster\"] { position: absolute !important; top: 0; left: 0; width: 70px; height: 91px; aspect-ratio: auto; border-radius: 0; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] :is([data-slot=\"detail.relations\"], [data-slot=\"detail.recommended\"]) [data-part=\"spot.meta\"] { display: none !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] :is([data-slot=\"detail.relations\"], [data-slot=\"detail.recommended\"]) [data-part=\"spot.name\"] { flex: none; min-height: 0; margin: 0 10px 6px 0; line-height: 16.8px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] :is([data-slot=\"detail.relations\"], [data-slot=\"detail.recommended\"]) [data-part=\"spot.line\"] { display: flex !important; flex: none; margin-right: 10px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.relations\"] [data-part=\"relation.type\"] { display: none; }\n[data-part=\"spot.line\"] { display: none !important; color: #515f75; line-height: 17.1px; }\n[data-part=\"spot.line\"] > * + *::before { content: \"/\"; margin: 0 8px 0 5px; opacity: 0.1; }\n\n/* Search: the \"Filter\" page. A 24 px heading, the field and filters as a grid of 158 x 31 controls on\n   the card columns (#142030 dropdowns, the field on #172537), then the results on the 158 px card grid. */\n[data-part=\"search.title\"]:not([data-variant]) { position: static; width: auto; height: auto; margin: 0 0 15px; overflow: visible; clip: auto; white-space: normal; color: #ddd; font-size: 24px; font-weight: 600; line-height: 36px; }\n[data-part=\"search.title\"][data-variant] { color: #ddd; font-size: 24px; font-weight: 600; line-height: 36px; }\n[data-slot=\"search.results\"] { margin-top: 29px; }\n[data-part=\"search.grid\"] { gap: 20px !important; }\n[data-part=\"search.filters\"] [data-part=\"search.field\"], [data-part=\"search.filter\"] { height: 30.8px !important; min-height: 0 !important; padding: 4.5px 10.8px !important; border: 1px solid #142030 !important; border-radius: 5px !important; background: #142030 !important; color: #8097b2 !important; font-size: 13.2px !important; font-weight: 400 !important; line-height: 19.8px !important; box-shadow: none !important; }\n[data-part=\"search.filters\"] [data-part=\"search.field\"] { border-color: #20334d !important; background: #172537 !important; color: #a0b1c5 !important; }\n[data-part=\"search.filter\"][data-active] { color: #26a3d6 !important; }\n@media (min-width: 641px) {\n  [data-slot=\"search\"] { padding: 46px 10px 32px !important; }\n  [data-part=\"search.filters\"] { display: grid !important; grid-template-columns: repeat(6, 158px); gap: 10px 20px !important; }\n  [data-part=\"search.filters\"] > div:not([data-part]) { display: contents; }\n  [data-part=\"search.filters\"] > div > div { width: auto !important; }\n  [data-part=\"search.filters\"] [data-part=\"search.field\"], [data-part=\"search.filter\"] { width: 100% !important; min-width: 0 !important; justify-content: space-between; }\n  [data-part=\"search.filter\"]:is([data-filter=\"advanced\"], [data-filter=\"clear\"]) { justify-content: center; }\n  [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)) !important; }\n}\n\n/* Continue Watching: portrait resume cards on the same 158 px grid, the episode on a dark chip and a\n   progress line in the site blue along the foot. */\n[data-part=\"spotlight.cw-art\"] { aspect-ratio: 158 / 221.4 !important; border-radius: 5px; overflow: hidden; }\n[data-part=\"spotlight.cw-ep\"] { margin: 8px !important; padding: 2px 6px; border-radius: 4px; background: rgba(0, 0, 0, 0.7); }\n[data-part=\"spotlight.cw-bar\"] { height: 4px !important; background: rgba(0, 0, 0, 0.6) !important; }\n[data-part=\"spotlight.cw-bar\"] > * { background: #26a3d6 !important; }\n[data-part=\"spotlight.cw-title\"] { margin-top: 2.8px; color: #a0b1c5; font-size: 14.4px !important; line-height: 18px; }\n\n/* Phones: the 55 px #142030 header, a 296 px hero (no synopsis) with the copy 15 px in and the art\n   fading up from the foot, the tabs on their own line under the heading. */\n@media (max-width: 640px) {\n  [data-slot=\"home.header\"] { background: #142030; }\n  [data-slot=\"home.hero\"] { height: 296px !important; margin: 0 0 30px !important; }\n  [data-part=\"spot.art\"] img { object-position: 50% 28%; }\n  [data-part=\"spot.hero\"]::after { background-image: linear-gradient(0deg, #0b1622 0px, rgba(11, 22, 34, 0.92) 30%, rgba(11, 22, 34, 0.28) 62%, rgba(11, 22, 34, 0.5) 100%), linear-gradient(90deg, #0b1622 0px, rgba(11, 22, 34, 0.7) 42%, rgba(11, 22, 34, 0.12) 100%); }\n  [data-part=\"spot.info\"] { width: 100%; padding: 0 15px 24px !important; }\n  [data-part=\"spot.info\"] > [data-part=\"spot.sub\"] { margin-bottom: 4px; line-height: 19.8px; }\n  [data-part=\"spot.info\"] > [data-part=\"spot.sub\"] > * { font-size: 13.2px !important; }\n  [data-part=\"spot.title\"] { margin-bottom: 6px; line-height: 31.68px !important; }\n  [data-part=\"spot.detail\"] { gap: 4px 10px !important; margin-bottom: 10px; line-height: 18.9px; }\n  [data-part=\"spot.detail\"] :is(span, div) { font-size: 12.6px !important; }\n  [data-part=\"spot.detail\"] > *::before { width: 11.34px; height: 11.34px; }\n  [data-part=\"spot.play\"] { height: 34.7px; padding: 0 16.8px !important; line-height: 20.7px; }\n  [data-slot=\"block.tabbed-grid\"] > [data-part=\"block.title\"] { margin-bottom: 0; }\n  [data-slot=\"block.tabbed-grid\"] > div[data-nav-row]:not([data-nav-row-items]) { grid-column: 1 / -1; grid-row: 2; justify-self: start; margin-bottom: 15px; }\n  [data-slot=\"block.tabbed-grid\"] > [data-part=\"pagination\"] { grid-column: 2 / -1; grid-row: 1; margin-bottom: 0; }\n  [data-slot=\"block.tabbed-grid\"] > div[data-nav-row-items] { grid-row: 3; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { gap: 1.8px; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { padding: 1.2px 3.8px; line-height: 21.6px; }\n}\n"
+  }
+}
