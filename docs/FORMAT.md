@@ -3,11 +3,11 @@
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
 
-`themeApi` is `1`, `2`, `3` or `4`. API 1 is the original key set and every API 1 package stays
+`themeApi` is `1`, `2`, `3`, `4` or `5`. API 1 is the original key set and every API 1 package stays
 valid on every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions):
 the bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
-layout and the `mobile` block. API 3 and API 4 add the keys under [Theme API 3](#theme-api-3) and
-[Theme API 4](#theme-api-4). A client that only knows an older API refuses a newer package with
+layout and the `mobile` block. API 3, API 4 and API 5 add the keys under [Theme API 3](#theme-api-3),
+[Theme API 4](#theme-api-4) and [Theme API 5](#theme-api-5). A client that only knows an older API refuses a newer package with
 "requires a different theme API"; the gallery lists it as "Needs a newer izumi" instead of a
 half-rendered layout. Declare the lowest API a package actually uses.
 
@@ -20,7 +20,7 @@ A package is one UTF-8 JSON document, at most 512,000 bytes. Required envelope f
 | `app` | `izumi` |
 | `kind` | `theme-package` |
 | `schemaVersion` | `1` |
-| `themeApi` | `1`, `2`, `3` or `4` (see above) |
+| `themeApi` | `1`, `2`, `3`, `4` or `5` (see above) |
 | `id` | Stable lowercase author/theme identity, 2–64 letters, digits, dots or hyphens |
 | `name` | Display name, 1–48 characters |
 | `author` | Attribution, 1–80 characters |
@@ -315,3 +315,19 @@ describes how each renders, and the styling hooks and state attributes that came
   first, one per show.
 
 A phone `factsLabels`, `factsFormat`, `synopsis` and `bar` merge over the shared ones key by key.
+
+## Theme API 5
+
+Declare `"themeApi": 5` to use the values below; the client's docs/THEMES.md ("Theme API 5") describes
+how each renders. The hooks that came with them (`page-step`, `block.grid`, `hero.edge`, `nav.action`,
+`nav.action.label`, `nav.item.indicator`) need no API declaration.
+
+- `cards.ranked`: a card template for each entry of a `ranked-list` block, bound like a poster card
+  plus `rankPosition` and `rank`.
+- Icons `star`, `chevron-left`, `chevron-right`, `chevron-down`, `captions`, `mic` and `list`.
+- Template style `aspect: "3 / 4"` and `fontSize` down to 8.
+- Block `pagination: "arrows"` on `tabbed-grid` and `latest-episodes`: previous and next arrows only,
+  on every page.
+- Display field `airDateLong`: an episode's air date in words, in the viewer's locale.
+- `rows.byId.<id>.title` (1–60 characters): the row's own heading text, wherever the row shows. Not in
+  `rows.defaults`.
