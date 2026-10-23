@@ -66,7 +66,7 @@
     {
       "id": "izumi.booth",
       "name": "Booth",
-      "version": "2.0.2",
+      "version": "2.0.3",
       "author": "Izumi",
       "description": "Miruro look: near-black and lavender in Geist, a card hero with a gradient title, a tabbed grid and a Top Airing aside.",
       "themeApi": 5,
@@ -81,9 +81,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/2.0.2.json",
-      "sha256": "5b29d1f23cfc2ba0820f36b8cc1d04f689b69e1174c222e766775bc26c988d72",
-      "bytes": 73698,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/2.0.3.json",
+      "sha256": "58aaafe9e39289c4f089b8d62f4cdccd02fd072af8a885cdb0c1f867608dc1ef",
+      "bytes": 73914,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.booth/desktop-home.jpg",
       "screenshots": [
         {
@@ -653,7 +653,7 @@
     {
       "id": "izumi.lavender",
       "name": "Lavender",
-      "version": "2.0.3",
+      "version": "2.0.4",
       "author": "Izumi",
       "description": "anilili look: black and purple, genre chips over a full-bleed hero, segmented tabs, ★ score badges, pill tabs.",
       "themeApi": 5,
@@ -668,9 +668,9 @@
         "desktop"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.3.json",
-      "sha256": "d8a24751918fd284b2936040e8dab63e8d944f1aada908ce6bb4839e383be94f",
-      "bytes": 184627,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.4.json",
+      "sha256": "ef4800ebf321821e8e1fd01ecf6649fe093b6a12aacaf51578d323bfd76d5204",
+      "bytes": 184847,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/phone-home.jpg",
       "screenshots": [
         {
@@ -768,7 +768,7 @@
     {
       "id": "izumi.marigold",
       "name": "Marigold",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": "Izumi",
       "description": "KickAssAnime look: black and Material yellow in Roboto, a pinned side menu, year-chip poster grid, today's releases.",
       "themeApi": 5,
@@ -783,9 +783,9 @@
         "phone"
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marigold/1.0.2.json",
-      "sha256": "23fa7b581d86018d83113f1dd493a7b55d4987066a81704ffa911726e0cb90f9",
-      "bytes": 39327,
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marigold/1.0.3.json",
+      "sha256": "d071211d3ab5b08615defc4a7ee3f9d61908cc7914bdd34b56385afc0dfeca6a",
+      "bytes": 39517,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marigold/desktop-home.jpg",
       "screenshots": [
         {

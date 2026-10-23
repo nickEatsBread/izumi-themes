@@ -1,0 +1,1575 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.booth",
+  "name": "Booth",
+  "version": "2.0.3",
+  "author": "Izumi",
+  "description": "Miruro look: near-black and lavender in Geist, a card hero with a gradient title, a tabbed grid and a Top Airing aside.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 3%",
+      "foreground": "0 0% 91%",
+      "muted": "0 0% 8%",
+      "mutedForeground": "0 0% 41%",
+      "primary": "249 100% 83%",
+      "primaryForeground": "249 30% 12%",
+      "secondary": "0 0% 8%",
+      "secondaryForeground": "0 0% 91%",
+      "accent": "0 0% 8%",
+      "accentForeground": "0 0% 91%",
+      "border": "0 0% 13%",
+      "input": "0 0% 8%",
+      "ring": "249 100% 83%",
+      "card": "0 0% 5%",
+      "cardForeground": "0 0% 91%",
+      "theme": "249 100% 83%"
+    },
+    "radius": 0.5,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "geist",
+      "heading": "geist",
+      "display": "geist"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "icons",
+          "search": "field-center",
+          "menu": "drawer",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "none",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#0E0E0E",
+          "activeColor": "#B5A8FF",
+          "inactiveColor": "#696969",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 53,
+        "mobileHeight": 49,
+        "rotate": true,
+        "interval": 8,
+        "indicator": {
+          "style": "none"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "booth.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "part": "booth.badge",
+              "when": {
+                "field": "airingIn"
+              },
+              "style": {
+                "anchor": "top-start",
+                "gap": 5.6,
+                "align": "center",
+                "radius": 8,
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "duration",
+                  "style": {
+                    "fontSize": 14
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "booth.words",
+                  "style": {
+                    "gap": 3.78,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EP",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 600
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "nextEpisode",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 600
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "airingIn",
+                      "part": "booth.countdown",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 600
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "booth.pager",
+              "when": {
+                "field": "slides"
+              },
+              "style": {
+                "anchor": "top-end",
+                "gap": 8,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "action",
+                  "action": "previous",
+                  "part": "booth.prev",
+                  "style": {
+                    "radius": 8,
+                    "fontSize": 20,
+                    "fontWeight": 400,
+                    "color": "foreground"
+                  },
+                  "icon": "chevron-left"
+                },
+                {
+                  "type": "row",
+                  "part": "booth.fraction",
+                  "style": {
+                    "gap": 3.78,
+                    "align": "center",
+                    "justify": "center",
+                    "radius": 8,
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "slide",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 600
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "/",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 600
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "slides",
+                      "style": {
+                        "fontSize": 10.4,
+                        "fontWeight": 600
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "action",
+                  "action": "next",
+                  "part": "booth.next",
+                  "style": {
+                    "radius": 8,
+                    "fontSize": 20,
+                    "fontWeight": 400,
+                    "color": "foreground"
+                  },
+                  "icon": "chevron-right"
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "booth.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "stretch",
+                "gap": 4,
+                "padding": 8,
+                "textAlign": "center"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "booth.facts",
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "justify": "center",
+                    "wrap": "wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "format",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          }
+                        }
+                      ],
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "captions",
+                          "style": {
+                            "fontSize": 14.4
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodesAired",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          }
+                        }
+                      ],
+                      "when": {
+                        "field": "episodesAired"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "star",
+                          "style": {
+                            "fontSize": 14.4
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "scoreValue",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          }
+                        }
+                      ],
+                      "when": {
+                        "field": "scoreValue"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "booth.pill",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "radius": 16
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "duration",
+                          "style": {
+                            "fontSize": 14.4
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "durationLong",
+                          "style": {
+                            "fontSize": 14.4,
+                            "fontWeight": 500
+                          }
+                        }
+                      ],
+                      "when": {
+                        "field": "durationLong"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "booth.title",
+                  "style": {
+                    "fontSize": 40,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "textAlign": "center"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "booth.synopsis",
+                  "style": {
+                    "fontSize": 14.4,
+                    "fontWeight": 400,
+                    "lines": 3,
+                    "color": "muted-foreground",
+                    "textAlign": "center"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "booth.corner",
+              "style": {
+                "anchor": "bottom-end",
+                "gap": 16,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "action",
+                  "action": "details",
+                  "icon": "info",
+                  "text": "DETAILS",
+                  "part": "booth.details",
+                  "style": {
+                    "minHeight": 47,
+                    "radius": 32,
+                    "fontSize": 16,
+                    "fontWeight": 700,
+                    "color": "foreground"
+                  }
+                },
+                {
+                  "type": "action",
+                  "action": "play",
+                  "text": "WATCH NOW",
+                  "part": "booth.watch",
+                  "style": {
+                    "minHeight": 47,
+                    "radius": 32,
+                    "fontSize": 16,
+                    "fontWeight": 700,
+                    "color": "foreground"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 174,
+          "gap": 16,
+          "titleSize": 18,
+          "heading": {
+            "weight": 700,
+            "viewMore": "arrow"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 377,
+            "gap": 20,
+            "titleSize": 24,
+            "title": "Watch History"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "style": {
+            "gap": 4
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "part": "booth.poster",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 8,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "part": "booth.name",
+              "style": {
+                "gap": 6.4,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "booth.airing",
+                  "when": {
+                    "field": "airingIn"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " ",
+                  "part": "booth.finished",
+                  "when": {
+                    "field": "airingIn",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "style": {
+                    "fontSize": 13.28,
+                    "fontWeight": 700,
+                    "lines": 1,
+                    "shrink": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "style": {
+                "gap": 8,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "booth.detail",
+                  "when": {
+                    "field": "format"
+                  },
+                  "style": {
+                    "gap": 3.2,
+                    "align": "center",
+                    "radius": 8
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "muted-foreground"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "booth.detail",
+                  "when": {
+                    "field": "startYear"
+                  },
+                  "style": {
+                    "gap": 3.2,
+                    "align": "center",
+                    "radius": 8
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "startYear",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "muted-foreground"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "booth.detail",
+                  "when": {
+                    "field": "episodesAired"
+                  },
+                  "style": {
+                    "gap": 3.2,
+                    "align": "center",
+                    "radius": 8
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "captions",
+                      "style": {
+                        "fontSize": 12
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodesAired",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "muted-foreground"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "booth.detail",
+                  "when": {
+                    "field": "scoreValue"
+                  },
+                  "style": {
+                    "gap": 3.2,
+                    "align": "center",
+                    "radius": 8
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "star",
+                      "style": {
+                        "fontSize": 12
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "scoreValue",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 700,
+                        "color": "muted-foreground"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "booth.cw",
+          "style": {
+            "gap": 8
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "booth.cw-art",
+              "style": {
+                "aspect": "16 / 9",
+                "radius": 8
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "booth.cw-ep",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EP",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeNo",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 700,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "booth.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "booth.cw-title",
+              "style": {
+                "fontSize": 13,
+                "fontWeight": 500,
+                "color": "#E8E8E8",
+                "lines": 1
+              }
+            }
+          ]
+        },
+        "ranked": {
+          "type": "overlay",
+          "part": "booth.rk",
+          "style": {
+            "radius": 8
+          },
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "part": "booth.rk-banner",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "row",
+              "part": "booth.rk-row",
+              "style": {
+                "gap": 8,
+                "align": "center",
+                "wrap": "nowrap"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "part": "booth.rk-cover",
+                  "style": {
+                    "radius": 8,
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "stack",
+                  "part": "booth.rk-content",
+                  "style": {
+                    "shrink": 1
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "booth.rk-name",
+                      "style": {
+                        "gap": 8,
+                        "align": "center",
+                        "padding": 8,
+                        "wrap": "nowrap"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": " ",
+                          "part": "booth.airing",
+                          "when": {
+                            "field": "airingIn"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": " ",
+                          "part": "booth.finished",
+                          "when": {
+                            "field": "airingIn",
+                            "absent": true
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "title",
+                          "style": {
+                            "fontSize": 16,
+                            "fontWeight": 400,
+                            "lines": 2,
+                            "shrink": 1
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "part": "booth.rk-facts",
+                      "style": {
+                        "gap": 4,
+                        "align": "center",
+                        "wrap": "nowrap"
+                      },
+                      "children": [
+                        {
+                          "type": "row",
+                          "part": "booth.rk-chip",
+                          "when": {
+                            "field": "format"
+                          },
+                          "style": {
+                            "gap": 2.4,
+                            "align": "center",
+                            "radius": 8
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "field": "format",
+                              "style": {
+                                "fontSize": 12,
+                                "fontWeight": 500,
+                                "color": "muted-foreground"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "part": "booth.rk-chip",
+                          "when": {
+                            "field": "startYear"
+                          },
+                          "style": {
+                            "gap": 2.4,
+                            "align": "center",
+                            "radius": 8
+                          },
+                          "children": [
+                            {
+                              "type": "icon",
+                              "icon": "season",
+                              "style": {
+                                "fontSize": 12
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "field": "startYear",
+                              "style": {
+                                "fontSize": 12,
+                                "fontWeight": 500,
+                                "color": "muted-foreground"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "part": "booth.rk-chip",
+                          "when": {
+                            "field": "episodesAired"
+                          },
+                          "style": {
+                            "gap": 2.4,
+                            "align": "center",
+                            "radius": 8
+                          },
+                          "children": [
+                            {
+                              "type": "icon",
+                              "icon": "captions",
+                              "style": {
+                                "fontSize": 12
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "field": "episodesAired",
+                              "style": {
+                                "fontSize": 12,
+                                "fontWeight": 500,
+                                "color": "muted-foreground"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "part": "booth.rk-chip",
+                          "when": {
+                            "field": "scoreValue"
+                          },
+                          "style": {
+                            "gap": 2.4,
+                            "align": "center",
+                            "radius": 8
+                          },
+                          "children": [
+                            {
+                              "type": "icon",
+                              "icon": "star",
+                              "style": {
+                                "fontSize": 12
+                              }
+                            },
+                            {
+                              "type": "text",
+                              "field": "scoreValue",
+                              "style": {
+                                "fontSize": 12,
+                                "fontWeight": 500,
+                                "color": "muted-foreground"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "bar",
+        "factsStyle": "table",
+        "countdown": "none",
+        "header": {
+          "type": "row",
+          "style": {
+            "gap": 8,
+            "align": "center",
+            "wrap": "wrap"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "format",
+              "part": "booth.tag",
+              "when": {
+                "field": "format"
+              },
+              "style": {
+                "fontSize": 12.8,
+                "fontWeight": 600,
+                "radius": 8
+              }
+            },
+            {
+              "type": "text",
+              "field": "startYear",
+              "part": "booth.tag",
+              "when": {
+                "field": "startYear"
+              },
+              "style": {
+                "fontSize": 12.8,
+                "fontWeight": 600,
+                "radius": 8
+              }
+            },
+            {
+              "type": "text",
+              "field": "status",
+              "part": "booth.tag",
+              "when": {
+                "field": "status"
+              },
+              "style": {
+                "fontSize": 12.8,
+                "fontWeight": 600,
+                "radius": 8
+              }
+            },
+            {
+              "type": "text",
+              "field": "score",
+              "part": "booth.tag",
+              "when": {
+                "field": "score"
+              },
+              "style": {
+                "fontSize": 12.8,
+                "fontWeight": 600,
+                "radius": 8
+              }
+            }
+          ]
+        },
+        "column": "poster",
+        "posterWidth": 224,
+        "sections": {
+          "tabs": [
+            "overview",
+            "characters",
+            "episodes"
+          ],
+          "default": "overview",
+          "labels": {
+            "overview": "overview",
+            "characters": "characters"
+          },
+          "info": "overview"
+        },
+        "factsKeys": [
+          "episodes",
+          "aired",
+          "ended",
+          "country",
+          "romaji",
+          "native",
+          "studio"
+        ],
+        "factsLabels": {
+          "aired": "start-date",
+          "ended": "end-date",
+          "studio": "studios"
+        },
+        "factsFormat": {
+          "dates": "long"
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "block": "genre-chips",
+            "genres": "top",
+            "all": false
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "tabs": [
+              {
+                "label": "NEWEST",
+                "role": "newest"
+              },
+              {
+                "label": "POPULAR",
+                "role": "popular"
+              },
+              {
+                "label": "TOP RATED",
+                "role": "rated"
+              }
+            ],
+            "columns": 5,
+            "pageSize": 12,
+            "pagination": "numbers"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "TOP AIRING",
+            "tabs": [
+              {
+                "label": "TOP AIRING",
+                "role": "trending"
+              }
+            ],
+            "limit": 5
+          }
+        ],
+        "asideWidth": 394,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "watch",
+            "settings"
+          ]
+        },
+        "asideStart": 2,
+        "asideGap": 24
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "booth.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "row",
+                "part": "booth.badge",
+                "when": {
+                  "field": "airingIn"
+                },
+                "style": {
+                  "anchor": "top-start",
+                  "gap": 5.6,
+                  "align": "center",
+                  "radius": 8,
+                  "wrap": "nowrap"
+                },
+                "children": [
+                  {
+                    "type": "icon",
+                    "icon": "duration",
+                    "style": {
+                      "fontSize": 14
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "booth.words",
+                    "style": {
+                      "gap": 3.78,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "EP",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 600
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "nextEpisode",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 600
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "airingIn",
+                        "part": "booth.countdown",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 600
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "row",
+                "part": "booth.pager",
+                "when": {
+                  "field": "slides"
+                },
+                "style": {
+                  "anchor": "top-end",
+                  "gap": 8,
+                  "align": "center",
+                  "wrap": "nowrap"
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "part": "booth.fraction",
+                    "style": {
+                      "gap": 3.78,
+                      "align": "center",
+                      "justify": "center",
+                      "radius": 8,
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "slide",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 600
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "/",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 600
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "slides",
+                        "style": {
+                          "fontSize": 10.4,
+                          "fontWeight": 600
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "part": "booth.mbottom",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "stretch",
+                  "gap": 5.2
+                },
+                "children": [
+                  {
+                    "type": "stack",
+                    "part": "booth.minfo",
+                    "style": {
+                      "align": "stretch",
+                      "gap": 4,
+                      "padding": 8,
+                      "textAlign": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "row",
+                        "part": "booth.facts",
+                        "style": {
+                          "gap": 4,
+                          "align": "center",
+                          "justify": "center",
+                          "wrap": "wrap"
+                        },
+                        "children": [
+                          {
+                            "type": "row",
+                            "part": "booth.pill",
+                            "style": {
+                              "gap": 4,
+                              "align": "center",
+                              "radius": 16
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "field": "format",
+                                "style": {
+                                  "fontSize": 12,
+                                  "fontWeight": 500
+                                }
+                              }
+                            ],
+                            "when": {
+                              "field": "format"
+                            }
+                          },
+                          {
+                            "type": "row",
+                            "part": "booth.pill",
+                            "style": {
+                              "gap": 4,
+                              "align": "center",
+                              "radius": 16
+                            },
+                            "children": [
+                              {
+                                "type": "icon",
+                                "icon": "star",
+                                "style": {
+                                  "fontSize": 12
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "field": "scoreValue",
+                                "style": {
+                                  "fontSize": 12,
+                                  "fontWeight": 500
+                                }
+                              }
+                            ],
+                            "when": {
+                              "field": "scoreValue"
+                            }
+                          },
+                          {
+                            "type": "row",
+                            "part": "booth.pill",
+                            "style": {
+                              "gap": 4,
+                              "align": "center",
+                              "radius": 16
+                            },
+                            "children": [
+                              {
+                                "type": "icon",
+                                "icon": "duration",
+                                "style": {
+                                  "fontSize": 12
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "field": "durationLong",
+                                "style": {
+                                  "fontSize": 12,
+                                  "fontWeight": 500
+                                }
+                              }
+                            ],
+                            "when": {
+                              "field": "durationLong"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "field": "title",
+                        "part": "booth.title",
+                        "style": {
+                          "fontSize": 22.4,
+                          "fontWeight": 700,
+                          "lines": 3,
+                          "textAlign": "center"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "part": "booth.mactions",
+                    "style": {
+                      "gap": 8,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "action",
+                        "action": "details",
+                        "icon": "info",
+                        "text": "DETAILS",
+                        "part": "booth.details",
+                        "style": {
+                          "minHeight": 38.8,
+                          "radius": 32,
+                          "fontSize": 11.2,
+                          "fontWeight": 700,
+                          "color": "foreground",
+                          "grow": 1
+                        }
+                      },
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "WATCH NOW",
+                        "part": "booth.watch",
+                        "style": {
+                          "minHeight": 38.8,
+                          "radius": 32,
+                          "fontSize": 11.2,
+                          "fontWeight": 700,
+                          "color": "foreground",
+                          "grow": 1
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "block": "genre-chips",
+              "genres": "top",
+              "all": false
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "tabbed-grid",
+              "tabs": [
+                {
+                  "label": "NEWEST",
+                  "role": "newest"
+                },
+                {
+                  "label": "POPULAR",
+                  "role": "popular"
+                },
+                {
+                  "label": "TOP RATED",
+                  "role": "rated"
+                }
+              ],
+              "columns": 3,
+              "pageSize": 12,
+              "pagination": "numbers"
+            }
+          ]
+        },
+        "cards": {
+          "poster": {
+            "type": "stack",
+            "style": {
+              "gap": 4
+            },
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "poster",
+                "part": "booth.poster",
+                "style": {
+                  "aspect": "2 / 3",
+                  "radius": 8,
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "row",
+                "part": "booth.name",
+                "style": {
+                  "gap": 6.4,
+                  "align": "center",
+                  "wrap": "nowrap"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "part": "booth.airing",
+                    "when": {
+                      "field": "airingIn"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "part": "booth.finished",
+                    "when": {
+                      "field": "airingIn",
+                      "absent": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "style": {
+                      "fontSize": 11.2,
+                      "fontWeight": 700,
+                      "lines": 1,
+                      "shrink": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "row",
+                "style": {
+                  "gap": 8,
+                  "align": "center",
+                  "wrap": "nowrap"
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "part": "booth.detail",
+                    "when": {
+                      "field": "format"
+                    },
+                    "style": {
+                      "gap": 3.2,
+                      "align": "center",
+                      "radius": 8
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "format",
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 700,
+                          "color": "muted-foreground"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "part": "booth.detail",
+                    "when": {
+                      "field": "startYear"
+                    },
+                    "style": {
+                      "gap": 3.2,
+                      "align": "center",
+                      "radius": 8
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "startYear",
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 700,
+                          "color": "muted-foreground"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "part": "booth.detail",
+                    "when": {
+                      "field": "episodesAired"
+                    },
+                    "style": {
+                      "gap": 3.2,
+                      "align": "center",
+                      "radius": 8
+                    },
+                    "children": [
+                      {
+                        "type": "icon",
+                        "icon": "captions",
+                        "style": {
+                          "fontSize": 10
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodesAired",
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 700,
+                          "color": "muted-foreground"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "part": "booth.detail",
+                    "when": {
+                      "field": "scoreValue"
+                    },
+                    "style": {
+                      "gap": 3.2,
+                      "align": "center",
+                      "radius": 8
+                    },
+                    "children": [
+                      {
+                        "type": "icon",
+                        "icon": "star",
+                        "style": {
+                          "fontSize": 10
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "scoreValue",
+                        "style": {
+                          "fontSize": 10,
+                          "fontWeight": 700,
+                          "color": "muted-foreground"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "css": "/* Booth — the Miruro look (docs/theme-references/miruro.md, tmp/parity/booth/measure.md): #080808 page,\n   #0E0E0E panels, #141414 controls, Geist, one lavender accent, 8 px corners, hairline borders, glass. */\n\n/* ── Top bar: #0E0E0E with a hairline under it, 40 px squares, a centred 463 × 42 search field. The row is\n   the site's whole 62.6 px bar (9.6 + 42.4 + 9.6 + hairline), under izumi's 32 px title-bar band. ── */\n:scope { --theme-top-row: 62.6px; }\n[data-slot=\"nav.top\"] { background: #0e0e0e !important; border-bottom: 1px solid rgba(245, 245, 245, 0.1) !important; padding-left: 9.6px !important; padding-right: 9.6px !important; }\n/* Destinations live in the drawer; the bar keeps the menu, the wordmark, search and the account controls. */\n[data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { display: none; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.menu\"],\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"] { width: 40.4px; height: 40.4px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #141414; color: #e8e8e8; }\n[data-slot=\"nav.top\"] > [data-part=\"nav.menu\"] svg { width: 19.2px; height: 19.2px; }\n[data-slot=\"nav.top\"] form:has([data-part=\"search.field\"]) { width: 100%; max-width: 463.3px; margin: 0 auto; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] { height: 42.4px; padding-left: 37.8px; padding-right: 44px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #141414; color: #e8e8e8; font-size: 13.6px; }\n[data-slot=\"nav.top\"] [data-part=\"search.field\"]::placeholder { color: #757575; }\n[data-slot=\"nav.top\"] form:has([data-part=\"search.field\"]) > svg { left: 14.6px; width: 19.2px; height: 19.2px; color: #e8e8e8; opacity: 0.5; }\n/* The ⌘ shortcut hint at the field's right end (the site's search box shows it). */\n[data-slot=\"nav.top\"] form:has([data-part=\"search.field\"])::after {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  right: 14.6px;\n  width: 19.2px;\n  height: 19.2px;\n  margin-top: -9.6px;\n  background: #e8e8e8;\n  opacity: 0.5;\n  pointer-events: none;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M15%206v12a3%203%200%201%200%203-3H6a3%203%200%201%200%203%203V6a3%203%200%201%200-3%203h12a3%203%200%201%200-3-3%27%2F%3E%3C%2Fsvg%3E) center / contain no-repeat;\n  mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M15%206v12a3%203%200%201%200%203-3H6a3%203%200%201%200%203%203V6a3%203%200%201%200-3%203h12a3%203%200%201%200-3-3%27%2F%3E%3C%2Fsvg%3E) center / contain no-repeat;\n}\n\n/* ── Featured card: 480 px, inset 10 px, 8 px corners, the site's three-way #080808 shade. ── */\n[data-slot=\"home.hero\"] { margin: 10px 10px 8px !important; width: auto !important; border-radius: 8px; overflow: hidden; }\n[data-slot=\"home.hero\"][data-variant=\"template\"] { height: 480px !important; }\n[data-part=\"booth.hero\"] { line-height: normal; }\n[data-part=\"booth.hero\"]::after {\n  background: linear-gradient(45deg, #080808 5%, rgba(0, 0, 0, 0) 60%), linear-gradient(0deg, #080808 1%, rgba(0, 0, 0, 0) 60%), linear-gradient(-45deg, #080808 5%, rgba(0, 0, 0, 0) 60%) !important;\n}\n/* Glass: 30% #0E0E0E, a hairline, blur(10px) contrast(1.25). */\n[data-part=\"booth.badge\"], [data-part=\"booth.prev\"], [data-part=\"booth.next\"], [data-part=\"booth.fraction\"],\n[data-part=\"booth.pill\"], [data-part=\"booth.details\"], [data-part=\"booth.watch\"] {\n  background: rgba(14, 14, 14, 0.3) !important;\n  border: 1px solid rgba(245, 245, 245, 0.1);\n  -webkit-backdrop-filter: blur(10px) contrast(1.25);\n  backdrop-filter: blur(10px) contrast(1.25);\n  color: #e8e8e8;\n}\n/* The hero's own rule pads every layer's bottom for its markers; these boxes keep the site's padding. */\n[data-part=\"booth.badge\"] { margin: 16px; padding: 8px 9.6px !important; }\n[data-part=\"booth.countdown\"] { text-transform: uppercase; }\n[data-part=\"booth.pager\"] { margin: 16px; padding: 0 !important; }\n[data-part=\"booth.prev\"], [data-part=\"booth.next\"] { width: 38px; height: 38px; min-height: 38px !important; padding: 0 !important; justify-content: center; }\n[data-part=\"hero.edge\"] { display: none !important; }\n[data-part=\"booth.fraction\"] { min-width: 70px !important; padding: 8px !important; align-items: baseline !important; }\n/* The copy block: half the card, centred text, 16 px from the corner. */\n[data-part=\"booth.info\"] { box-sizing: content-box !important; max-width: 50%; margin: 16px; }\n[data-part=\"booth.pill\"] { padding: 4.8px 9.6px; }\n/* The title fills with the cover's colour fading to white, as on the site. */\n[data-part=\"booth.title\"] {\n  background-image: linear-gradient(45deg, rgb(var(--hero-ambient-rgb, 181 168 255)), #fff);\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n  line-height: normal;\n  text-shadow: none !important;\n}\n[data-part=\"booth.synopsis\"] { line-height: 1.2; }\n[data-part=\"booth.corner\"] { margin: 16px; padding: 0 !important; }\n[data-part=\"booth.details\"], [data-part=\"booth.watch\"] { padding: 12px 13.6px !important; gap: 4px !important; line-height: normal; }\n[data-part=\"booth.details\"] svg { width: 20px; height: 20px; }\n/* Filled info and play discs, as the site's icons. */\n[data-part=\"booth.details\"] svg circle { fill: currentColor; }\n[data-part=\"booth.details\"] svg path { stroke: #080808; }\n[data-part=\"booth.watch\"] svg { width: 18px; height: 18px; padding: 4.5px 3.5px 4.5px 5px; border-radius: 50%; background: #e8e8e8; color: #080808; }\n\n/* Phone card: 374 × 416, 8 px inset; facts and title centred over two equal pills along the bottom. */\n[data-part=\"booth.mbottom\"] { inset-inline-end: 0; margin: 16px; padding: 0 !important; }\n[data-part=\"booth.mactions\"] > [data-part=\"booth.details\"], [data-part=\"booth.mactions\"] > [data-part=\"booth.watch\"] { flex: 1 1 0; justify-content: center; padding: 2.4px 4px !important; }\n[data-part=\"booth.mactions\"] [data-part=\"booth.watch\"] svg { width: 20px; height: 20px; padding: 5px 4px 5px 6px; }\n/* ── Genre chip rail: 12 px 36 px around a masked scroller of #141414 chips. ── */\n[data-slot=\"block.genre-chips\"] { margin-bottom: 8px !important; padding: 12px 46px !important; }\n[data-slot=\"block.genre-chips\"] :has(> [data-part=\"chip\"]) {\n  flex-wrap: nowrap;\n  gap: 8px;\n  overflow-x: auto;\n  overflow-y: hidden;\n  scrollbar-width: none;\n  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0), #000 10%, #000 90%, rgba(0, 0, 0, 0));\n  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0), #000 10%, #000 90%, rgba(0, 0, 0, 0));\n}\n[data-slot=\"block.genre-chips\"] [data-part=\"chip\"] { height: auto; padding: 8px 28px; border: 0; border-radius: 8px; background: #141414; color: #e8e8e8; font-size: 12.8px; font-weight: 500; line-height: normal; white-space: nowrap; flex-shrink: 0; }\n\n/* ── Main column + aside: 10 px page inset, 24 px gutter, 384 px aside. ── */\n[data-slot=\"home.aside\"] { padding-right: 10px; }\n[data-slot=\"home.main\"] [data-slot=\"row\"] { margin-bottom: 16px !important; }\n[data-slot=\"home.main\"] [data-slot=\"row\"] [data-part=\"row.header\"],\n[data-slot=\"home.main\"] [data-slot=\"row\"] [data-part=\"row.track\"] { padding-left: 10px !important; padding-right: 10px !important; }\n\n/* NEWEST / POPULAR / TOP RATED in a hairline strip, the ‹ 1 › pager at its right, 32 px poster grid. */\n[data-slot=\"block.tabbed-grid\"] { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 8px; padding: 0 0 0 10px !important; }\n[data-slot=\"block.tabbed-grid\"] > * { grid-column: 1 / -1; }\n[data-slot=\"block.tabbed-grid\"] > div:has(> [data-part=\"tabs\"]) { grid-column: 1; grid-row: 1; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"block.grid\"] { gap: 32px !important; margin-top: 16px; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { margin: 0 !important; display: flex; gap: 0; padding: 0; width: fit-content; max-width: 100%; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: transparent; overflow: hidden; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { min-height: 0 !important; height: auto !important; padding: 12px 20px !important; border-radius: 0 !important; background: #141414 !important; color: #e8e8e8 !important; font-size: 12.8px !important; font-weight: 500 !important; line-height: normal !important; box-shadow: none !important; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { background: rgba(181, 168, 255, 0.25) !important; color: #b5a8ff !important; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] > span { display: none; }\n/* The site's compact pager: ‹ [current page] › in one hairline box. */\n[data-slot=\"block.tabbed-grid\"] > [data-part=\"pagination\"] { grid-column: 2; grid-row: 1; flex-wrap: nowrap; gap: 0; margin: 0; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; overflow: hidden; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"], [data-slot=\"block.tabbed-grid\"] [data-part=\"page-number\"] { width: 37.3px; height: 33.3px; min-width: 0; padding: 0; border-radius: 0; background: #141414; color: #e8e8e8; font-size: 13.33px; font-weight: 400; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"]:disabled { opacity: 0.5; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"page-step\"] svg { width: 13.3px; height: 13.3px; }\n[data-slot=\"block.tabbed-grid\"] > [data-part=\"pagination\"] > [data-part=\"page-number\"] { width: 40px; opacity: 0.5; }\n[data-slot=\"block.tabbed-grid\"] > [data-part=\"pagination\"] > [data-part=\"page-number\"]:not([data-active]),\n[data-slot=\"block.tabbed-grid\"] > [data-part=\"pagination\"] > span { display: none; }\n\n/* Poster cards: 174 × 241 art, a status dot before the 13.28 px title, grey 12 px detail chips. */\n[data-part=\"booth.poster\"] { aspect-ratio: 174 / 240.66 !important; background: rgba(85, 85, 85, 0.1); }\n[data-part=\"booth.name\"] { margin-top: 1.6px; padding: 6.4px 4.8px; line-height: normal; }\n[data-part=\"booth.airing\"], [data-part=\"booth.finished\"] { flex: 0 0 8px; width: 8px; height: 8px; border-radius: 50%; }\n[data-part=\"booth.airing\"] { background: #aaff00; }\n[data-part=\"booth.finished\"] { background: #00aaff; }\n[data-part=\"booth.detail\"] { height: 22.4px; padding: 3.2px; background: #141414; line-height: normal; }\n\n/* ── TOP AIRING aside panel: #0E0E0E, hairline, 12 px padding, 96 px #141414 rows. ── */\n[data-slot=\"block.ranked-list\"] { margin-bottom: 16px !important; padding: 12px !important; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #0e0e0e; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.title\"] { display: flex; align-items: center; gap: 4px; margin: 0; padding: 4px 0 16px; font-size: 17.6px; font-weight: 700; line-height: normal; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.title\"]::before {\n  content: \"\";\n  width: 17.6px;\n  height: 17.6px;\n  background: currentColor;\n  -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m9%2018%206-6-6-6%27%2F%3E%3C%2Fsvg%3E) center / contain no-repeat;\n  mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m9%2018%206-6-6-6%27%2F%3E%3C%2Fsvg%3E) center / contain no-repeat;\n}\n[data-slot=\"block.ranked-list\"] ol { display: flex; flex-direction: column; gap: 8px; }\n[data-slot=\"block.ranked-list\"] ol > li { margin: 0 !important; }\n[data-part=\"booth.rk\"] { height: 96px; background: #141414; line-height: normal; transition: background-color 0.2s ease-in-out; }\n[data-part=\"block.item\"]:hover > * > [data-part=\"booth.rk\"] { background: #1c1c1c; }\n/* The banner fills the right 60 % under the site's -70° #141414 fade. */\n[data-part=\"booth.rk-banner\"] { inset: 0 0 0 auto !important; width: 60% !important; }\n[data-part=\"booth.rk-banner\"]::after { content: \"\"; position: absolute; inset: 0; background: linear-gradient(-70deg, rgba(0, 0, 0, 0) -200%, #141414 80%); }\n[data-part=\"booth.rk-cover\"] { flex: 0 0 68px; width: 68px !important; height: 96px; background: rgba(85, 85, 85, 0.1); box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }\n[data-part=\"booth.rk-name\"] span { color: #e8e8e8; }\n[data-part=\"booth.rk-facts\"] { height: 26px; margin-left: 24px; }\n[data-part=\"booth.rk-chip\"] { padding: 1.6px 3.2px; background: rgba(85, 85, 85, 0.1); }\n\n/* Rows. */\n[data-part=\"row.title\"], [data-part=\"block.title\"] { font-weight: 700; color: #e8e8e8; }\n\n/* ── Series page (desktop): a 320 px inset banner fading out, a 224 px poster column with the facts card,\n   the title, cover-tinted chips, an equal-tab strip and a bordered panel beside it. ── */\n[data-slot=\"detail.banner\"][data-variant=\"desktop\"] { height: 320px !important; margin: 10px 10px 0 !important; border-radius: 8px; overflow: hidden; -webkit-mask-image: linear-gradient(#000, rgba(0, 0, 0, 0)); mask-image: linear-gradient(#000, rgba(0, 0, 0, 0)); }\n[data-slot=\"detail.banner\"][data-variant=\"desktop\"] > div:has([data-part=\"hero.slide\"]) { top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; }\n[data-slot=\"detail.banner\"][data-variant=\"desktop\"] [data-part=\"hero.slide\"] { opacity: 1 !important; animation: none !important; }\n[data-slot=\"detail.banner\"][data-variant=\"desktop\"] [data-part=\"hero.scrim\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] > [data-part=\"detail.content\"] { margin-top: -160px !important; padding: 0 9.6px 64px 41.6px !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-slot=\"detail.column\"]) { gap: 16px !important; }\n[data-slot=\"detail.column\"] { gap: 16px !important; }\n[data-slot=\"detail\"] [data-part=\"detail.poster\"] { border-radius: 8px; }\n[data-slot=\"detail.column\"] [data-part=\"detail.poster\"] { aspect-ratio: 224 / 284.4; height: auto; object-fit: cover; background: #0e0e0e; box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }\n/* Facts card: bold label over a light grey value. */\n[data-slot=\"detail.column\"] [data-part=\"detail.facts\"] { display: flex !important; flex-direction: column; align-items: flex-start; gap: 8px; margin: 0; padding: 16px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #0e0e0e; }\n[data-slot=\"detail.column\"] [data-part=\"fact\"] { display: flex !important; flex-direction: column; gap: 8px; width: 100%; padding: 0 !important; border: 0 !important; background: none !important; font-size: 14.4px; line-height: normal; }\n[data-slot=\"detail.column\"] [data-part=\"fact.label\"] { color: #e8e8e8 !important; font-size: 14.4px !important; font-weight: 500 !important; text-transform: none !important; letter-spacing: 0 !important; }\n[data-slot=\"detail.column\"] [data-part=\"fact.value\"] { color: #696969 !important; font-size: 14.4px !important; font-weight: 300 !important; text-align: start !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.alt-title\"] { display: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { margin: 0 0 8px !important; color: #e8e8e8; font-size: 24px !important; font-weight: 700 !important; line-height: 25.6px !important; text-shadow: none !important; }\n[data-slot=\"detail\"] [data-part=\"detail.header\"] { margin-bottom: 16px !important; }\n/* Chips in the cover's colour, their text the same colour at 45% toward black. */\n[data-part=\"booth.tag\"] { padding: 2.4px 6.4px; background-color: rgb(var(--cover-rgb, 181 168 255)); color: color-mix(in srgb, rgb(var(--cover-rgb, 181 168 255)) 45%, #000); line-height: 17.6px; }\n[data-slot=\"detail\"] [data-part=\"detail.meta\"] { display: none; }\n/* Actions: #141414 8 px buttons, 13.6 px bold. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] { gap: 8px !important; margin-bottom: 16px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] > button { min-height: 0 !important; height: 35.6px !important; padding: 8px 12px !important; border: 1px solid rgba(245, 245, 245, 0.1) !important; border-radius: 8px !important; background: #0e0e0e !important; color: #e8e8e8 !important; font-size: 13.6px !important; font-weight: 700 !important; box-shadow: none !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] > [data-action=\"play\"] { width: 180.4px; justify-content: center; border-color: transparent !important; background: #141414 !important; text-transform: uppercase; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] > button svg { width: 13.6px; height: 13.6px; }\n/* Tracker links: no text padding, so the logo badge sits centred in its box. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] > button:not([data-part]) { padding: 0 !important; }\n/* The section tabs: equal buttons in a #0E0E0E hairline strip, the active one lavender-tinted. */\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"bar\"] { gap: 4px !important; margin-bottom: 16px !important; padding: 4px !important; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #0e0e0e !important; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"bar\"] [data-part=\"tab\"] { min-height: 0 !important; height: auto !important; padding: 9.6px 32px !important; border-radius: 8px !important; background: #141414 !important; color: #696969 !important; font-size: 13.33px !important; font-weight: 400 !important; line-height: 16px !important; box-shadow: none !important; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"bar\"] [data-part=\"tab\"][data-active] { background: rgba(181, 168, 255, 0.25) !important; color: #b5a8ff !important; }\n[data-slot=\"detail\"] [data-part=\"detail.synopsis\"] { color: #696969; font-size: 13.6px; line-height: 20.8px; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-variant=\"primary\"] { border-radius: 8px; background: #141414; color: #e8e8e8; font-weight: 700; }\n/* Overview: one #0E0E0E hairline panel, 12 px padding, the synopsis in 13.6 px grey. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-part=\"tabs\"]) > div:has(> [data-part=\"detail.synopsis\"]) { display: flex; flex-direction: column; gap: 12px; max-width: none !important; margin-bottom: 16px; padding: 12px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #0e0e0e; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-part=\"tabs\"]) > div > [data-part=\"detail.synopsis\"] { max-width: none; margin: 0; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] > [data-action=\"play\"] svg { fill: currentColor; }\n/* Related and recommended titles: one row of 192 px posters 8 px apart. */\n[data-slot=\"detail.relations\"], [data-slot=\"detail.recommended\"] { display: flex !important; gap: 8px !important; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }\n[data-slot=\"detail.relations\"] > *, [data-slot=\"detail.recommended\"] > * { flex: 0 0 192px; width: 192px !important; }\n[data-slot=\"detail\"] [data-slot=\"detail.section\"] { margin-top: 16px; }\n[data-slot=\"detail.relations\"] [data-part=\"card\"] { width: 100% !important; }\n/* Section headings: 24 px bold capitals after a chevron, as RECOMMENDATIONS. */\n[data-slot=\"detail\"] [data-part=\"detail.section-title\"] { display: flex; align-items: center; gap: 0; font-size: 24px !important; font-weight: 700 !important; line-height: normal !important; text-transform: uppercase; }\n[data-slot=\"detail\"] [data-part=\"detail.section-title\"]::before { content: \"\"; width: 24px; height: 24px; background: currentColor; -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m9%2018%206-6-6-6%27%2F%3E%3C%2Fsvg%3E) center / contain no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m9%2018%206-6-6-6%27%2F%3E%3C%2Fsvg%3E) center / contain no-repeat; }\n\n/* Watch History (the site's continue row): 377 px 16:9 stills with 8 px corners, \"EP 13\" on a 75% black\n   8 px chip at the bottom left, a 4 px red progress bar along the bottom, the title in 12.8 px below. */\n[data-part=\"booth.cw-ep\"] { margin: 0 0 12px 8px !important; padding: 2px 8px; border-radius: 8px; background: rgba(0, 0, 0, 0.75); }\n[data-part=\"booth.cw-bar\"] { height: 4px !important; background: transparent !important; }\n[data-part=\"booth.cw-bar\"] > * { background: #e11d48 !important; }\n[data-part=\"booth.cw-title\"] { font-size: 12.8px !important; }\n\n/* ── Search: 10 px page inset, #141414 hairline controls 38 px tall in 12.8 px, a 7-column grid 32 px apart. ── */\n[data-slot=\"search\"] { padding: 10px 9.6px 32px !important; }\n[data-slot=\"search\"] [data-part=\"search.filters\"] { gap: 16px !important; margin-bottom: 24px !important; }\n[data-slot=\"search\"] [data-part=\"search.filters\"] > [data-part=\"search.field\"],\n[data-slot=\"search\"] [data-part=\"search.filter\"] { height: 38px !important; border: 1px solid rgba(245, 245, 245, 0.1) !important; border-radius: 8px !important; background: #141414 !important; color: #e8e8e8 !important; font-size: 12.8px !important; font-weight: 400 !important; }\n[data-slot=\"search\"] [data-part=\"search.filter\"] { padding: 0 10px !important; }\n[data-slot=\"search\"] [data-part=\"search.filter\"] * { color: inherit !important; }\n/* Desktop labels each control above it, as the site does (the phone filter row scrolls and would clip them). */\n@media (min-width: 641px) {\n  [data-slot=\"search\"] [data-part=\"search.filters\"] { padding-top: 29px; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-label] { position: relative; overflow: visible !important; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-label]::before { content: attr(data-label); position: absolute; left: 0; bottom: calc(100% + 8px); color: #e8e8e8; font-size: 16px; font-weight: 600; line-height: 21px; white-space: nowrap; pointer-events: none; }\n}\n[data-slot=\"search\"] [data-part=\"search.filters\"] > [data-part=\"search.field\"] { padding: 0 11px !important; }\n[data-slot=\"search\"] [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(7, minmax(0, 1fr)) !important; gap: 32px !important; }\n\n/* ── Phone (≤ 640 px): 8 px page inset, a #0E0E0E 51 px app bar with 40 px squares, 33 px tabs, a\n   3-column grid 12.8 px apart with 11.2 px titles and 10 px chips. ── */\n@media (max-width: 640px) {\n  [data-slot=\"home.header\"] { padding-top: 5.4px !important; padding-bottom: 5.4px !important; border-bottom: 1px solid rgba(245, 245, 245, 0.1); background: #0e0e0e !important; }\n  [data-part=\"home.header.action\"] { width: 40.4px; height: 40.4px; border: 1px solid rgba(245, 245, 245, 0.1); border-radius: 8px; background: #141414; color: #e8e8e8; }\n  [data-part=\"home.header.action\"] svg { width: 19.2px; height: 19.2px; }\n  [data-slot=\"home.hero\"] { margin: 12.8px 8px 8px !important; }\n  [data-slot=\"home.hero\"][data-variant=\"template\"] { height: 416px !important; }\n  [data-slot=\"block.genre-chips\"] { padding: 12px 44px !important; }\n  [data-slot=\"home.main\"] [data-slot=\"row\"] [data-part=\"row.header\"],\n  [data-slot=\"home.main\"] [data-slot=\"row\"] [data-part=\"row.track\"] { padding-left: 8px !important; padding-right: 8px !important; }\n  [data-slot=\"block.tabbed-grid\"] { padding: 0 8px !important; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"] { padding: 8px 16px !important; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"block.grid\"] { gap: 12.8px !important; }\n  [data-part=\"booth.detail\"] { height: 19.4px; }\n  [data-slot=\"search\"] { padding: 8px !important; }\n  [data-slot=\"search\"] [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 12.8px !important; }\n}\n"
+  }
+}
