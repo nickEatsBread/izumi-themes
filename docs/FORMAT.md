@@ -338,8 +338,9 @@ how each renders. The hooks that came with them (`page-step`, `block.grid`, `her
 ## Theme API 6
 
 Declare `"themeApi": 6` to use the keys below; packages that use them render on clients from the
-release that ships it. The validator refuses `tv`, `newBadge`, the `suggested` tab name and the
-player keys below API 6, and an older client refuses the package as described above. Card
+release that ships it. The validator refuses `tv`, `newBadge`, the `suggested` tab name, the
+player keys, `cardPreview: "expand"`, `hero.preview`, `detail.preview` and the `trailer` artwork
+kind below API 6, and an older client refuses the package as described above. Card
 templates that bind `keyart`, `logo` or `posterHd` are not gated: an older client just does not load
 them.
 
@@ -383,6 +384,19 @@ them.
     stylesheet can flatten them (`[data-part="player.transport"], [data-part="player.actions"] {
     display: contents }`) and reorder with `order`, or centre the transport (`position: absolute;
     left: 50%`). The client's docs/THEMES.md lists every player hook.
+- `cardPreview: "expand"` (top level and inside `tv`; `popup` and `none` stay valid from API 3): a
+  hover preview that grows out of the card. After 500 ms on a card the client opens a 16:9 panel 1.5
+  times as wide as the card's artwork: the trailer over the banner, the title logo when the card
+  template binds `logo`, round play, list, favorite and details buttons, the score, the facts and up
+  to three genres. It suits landscape cards. Mouse on a desktop only.
+- `hero.preview` and `detail.preview`: `none` (the default) or `trailer`, a muted trailer over the
+  Home hero (after a 3 s dwell) or over the series page's artwork (1.5 s). It plays once and fades in
+  and out over 500 ms; a rotating hero waits for it and moves on when it ends. Desktop only, never
+  under reduced motion or data saver, and YouTube trailers only: the artwork stays otherwise.
+- Artwork `trailer` (no `when` test: nothing binds a value for it): where a hero template plays its trailer.
+  Place `{ "type": "artwork", "artwork": "trailer", "style": { "anchor": "fill" } }` in the hero's
+  `overlay` right after the backdrop artwork, so the video sits over the art and under the copy.
+  Without it a template hero plays no trailer; in any other template it renders nothing.
 
 Listings keep `platforms` to `desktop` and `phone`, because older clients reject any other value.
 A theme with a TV variant carries a `TV` tag instead.
