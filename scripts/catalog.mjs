@@ -1,4 +1,5 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import assert from 'node:assert/strict'
 import { parsePresentation } from './presentation.ts'
@@ -9,6 +10,20 @@ const root = new URL('../', import.meta.url)
 const localBase = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
 const parse = async path => JSON.parse(await readFile(new URL(path, root), 'utf8'))
 const https = value => { const url = new URL(value); assert.equal(url.protocol, 'https:'); assert(!url.username && !url.password); return url }
+const SCREENS = ['home', 'series', 'search', 'schedule']
+// A listing image hosted here must exist in the repository, or the store shows a broken card.
+const localImage = value => { https(value); if (value.startsWith(localBase)) assert(existsSync(new URL(value.slice(localBase.length), root)), `Missing image: ${value}`) }
+function validateScreenshots(entry) {
+  if (entry.screenshots === undefined) return
+  assert(Array.isArray(entry.screenshots) && entry.screenshots.length <= 12, 'Invalid screenshots')
+  const seen = new Set()
+  for (const shot of entry.screenshots) {
+    assert(SCREENS.includes(shot?.screen) && ['desktop', 'phone'].includes(shot?.platform), `Invalid screenshot: ${JSON.stringify(shot)}`)
+    const key = `${shot.platform}:${shot.screen}`
+    assert(!seen.has(key), `Duplicate screenshot: ${key}`); seen.add(key)
+    localImage(shot.url)
+  }
+}
 const contentKeys = ['tokens', 'radius', 'font', 'fontScale', 'backdrop', 'backdropStrength', 'glassBlur', 'presentation']
 const scalarRanges = { radius: [0, 2], fontScale: [.85, 1.2], backdropStrength: [0, .65], glassBlur: [0, 40] }
 function validatePackage(pkg, entry) {
@@ -59,7 +74,8 @@ for (const filename of (await readdir(new URL('entries/', root))).filter(name =>
   for (const tag of entry.tags) assert(typeof tag === 'string' && tag.length <= 32)
   assert(Number.isSafeInteger(entry.bytes) && entry.bytes > 0 && entry.bytes <= 512000)
   assert(/^[a-f0-9]{64}$/.test(entry.sha256)); https(entry.download)
-  if (entry.preview) https(entry.preview)
+  if (entry.preview) localImage(entry.preview)
+  validateScreenshots(entry)
   if (entry.project) https(entry.project)
   const bytes = await download(entry.download, 512000)
   assert.equal(bytes.length, entry.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256)

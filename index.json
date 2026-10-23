@@ -91,8 +91,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.cobalt/1.0.1.json",
       "sha256": "b87625113345c26ffe975f31f539c8d97a9837e5f13ecbb0eb340fc578ee1930",
-      "bytes": 16576,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.cobalt.png"
+      "bytes": 16576
     },
     {
       "id": "izumi.coral",
@@ -136,8 +135,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.daylight/1.0.0.json",
       "sha256": "9a42aba2ea34add0a79adda2e4492614f4ef6a69d485bd7fb7fc3e04a8812f4d",
-      "bytes": 12350,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight.png"
+      "bytes": 12350
     },
     {
       "id": "izumi.ember",
@@ -154,8 +152,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ember/1.2.1.json",
       "sha256": "13979860abc447f5f27d7935eed8078dd33f11dc9b31a3d72058b7134a0a2613",
-      "bytes": 10060,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ember.png"
+      "bytes": 10060
     },
     {
       "id": "izumi.frost",
@@ -195,8 +192,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.halo/1.2.1.json",
       "sha256": "6eae249d8b07c990a5101e3f894fedfd85ce4249f3f33ee3b496fd75e34a868a",
-      "bytes": 9063,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.halo.png"
+      "bytes": 9063
     },
     {
       "id": "izumi.iris",
@@ -240,8 +236,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.kindling/1.5.0.json",
       "sha256": "cf4e797515aeadeb69bf2d1c556ad69491d9771ff75a3c95ceade30544948cf5",
-      "bytes": 25961,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.kindling.png"
+      "bytes": 25961
     },
     {
       "id": "izumi.lavender",
@@ -281,8 +276,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.ledger/1.3.0.json",
       "sha256": "3e0f7f7e3ceb3e574af9bffada2df430f700eb9b75e5318c7fe899a65c52da78",
-      "bytes": 7888,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.ledger.png"
+      "bytes": 7888
     },
     {
       "id": "izumi.marigold",
@@ -326,8 +320,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.nebula/1.0.0.json",
       "sha256": "5141b5f1bf006ca3f5b1afc42fd7c3491e790d6a9e86c98dcae3dc086e45ec81",
-      "bytes": 14300,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.nebula.png"
+      "bytes": 14300
     },
     {
       "id": "izumi.onyx",
@@ -367,8 +360,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.orchid/1.2.0.json",
       "sha256": "bcfc6009060745f8211558adabbef543564eb27a3480e183cacc05502b8e8093",
-      "bytes": 4846,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.orchid.png"
+      "bytes": 4846
     },
     {
       "id": "izumi.pocket",
@@ -410,8 +402,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.prism/1.0.1.json",
       "sha256": "19b4bc6801786ab938f6f605c04425911989691af51a5b161e503a1f39232ed4",
-      "bytes": 19123,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.prism.png"
+      "bytes": 19123
     },
     {
       "id": "izumi.reel",
@@ -523,8 +514,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tangerine/1.0.1.json",
       "sha256": "e854a3bb71a2cc14bebdc0dc4341151d1790fb5c09d35663a91b77aec83bd0ba",
-      "bytes": 15953,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tangerine.png"
+      "bytes": 15953
     },
     {
       "id": "izumi.tidal",
@@ -541,8 +531,7 @@
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tidal/1.5.3.json",
       "sha256": "4fc43e5ff1f8d6e80de5f10d2188eba8a8afb485e7cfa5138fd8e44483501925",
-      "bytes": 11670,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal.png"
+      "bytes": 11670
     },
     {
       "id": "izumi.volt",

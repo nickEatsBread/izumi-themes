@@ -81,6 +81,38 @@
       "type": "string",
       "pattern": "^https://"
     },
+    "screenshots": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": [
+          "screen",
+          "platform",
+          "url"
+        ],
+        "properties": {
+          "screen": {
+            "enum": [
+              "home",
+              "series",
+              "search",
+              "schedule"
+            ]
+          },
+          "platform": {
+            "enum": [
+              "desktop",
+              "phone"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          }
+        }
+      }
+    },
     "sha256": {
       "type": "string",
       "pattern": "^[a-fA-F0-9]{64}$"

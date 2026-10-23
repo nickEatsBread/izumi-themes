@@ -9,6 +9,9 @@ const listing = { type: 'object', required: ['id', 'name', 'author', 'descriptio
   version: { type: 'string', pattern: '^\\d{1,6}\\.\\d{1,6}\\.\\d{1,6}$' }, themeApi: { enum: [1, 2, 3, 4, 5] },
   platforms: { type: 'array', minItems: 1, maxItems: 2, uniqueItems: true, items: { enum: ['desktop', 'phone'] } },
   tags: { type: 'array', maxItems: 12, items: string(32) }, download: url, preview: url, project: url,
+  // Per-screen store screenshots; `preview` stays for clients that predate them.
+  screenshots: { type: 'array', maxItems: 12, items: { type: 'object', required: ['screen', 'platform', 'url'], properties: {
+    screen: { enum: ['home', 'series', 'search', 'schedule'] }, platform: { enum: ['desktop', 'phone'] }, url } } },
   sha256: { type: 'string', pattern: '^[a-fA-F0-9]{64}$' }, bytes: { type: 'integer', minimum: 1, maximum: 512000 },
 } }
 const envelope = (kind, field, schema) => ({ $schema: 'https://json-schema.org/draft/2020-12/schema', type: 'object', required: ['app', 'kind', 'schemaVersion', field], properties: { app: { const: 'izumi' }, kind: { const: kind }, schemaVersion: { const: 1 }, [field]: schema } })
