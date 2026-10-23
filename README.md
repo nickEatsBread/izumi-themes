@@ -13,9 +13,9 @@ slide marker and tab style while keeping a desktop layout. See `docs/FORMAT.md`.
 Listings say which layouts a theme was designed for (`platforms`). The renderer ships with the
 client; installing a theme changes presentation without installing executable code.
 
-Every preview in `previews/` is a screenshot of the real client with that theme applied,
-rendered by `scripts/preview/`: the replicas over live catalog data (`--live`), the rest over a
-fixture catalogue with generated key art.
+Every listing image is a screenshot of the real client with that theme applied, rendered by
+`scripts/preview/` over live catalog data: one per screen (Home, Series, Search, Schedule; phones
+skip Schedule) for each platform the listing declares, in `previews/<id>/`.
 
 ## Publishing
 
@@ -63,11 +63,10 @@ npm install                      # playwright-core
 npm run previews                 # all listings; --only izumi.kindling,izumi.coral for a subset
 ```
 
-`--keep-shots <dir>` also saves the series page and phone Home for each desktop theme.
-Rendering uses a fixture catalogue of original sample titles and generated artwork, so it works
-offline and ships no licensed images; `--live` renders against the real network instead, opening
-the most-trending series with banner art for the series shots (`--series <id>` picks one;
-`--hero-slide <n>` starts Home on a later featured slide).
+`npm run previews -- --live` writes `previews/<id>/<platform>-<screen>.jpg` and the entry's
+`screenshots` and `preview`; run `npm run build` afterwards. Without `--live` it renders over a
+fixture catalogue (offline smoke tests only; never publish those images). `--series <id>` picks
+the series page; `--hero-slide <n>` starts Home on a later featured slide.
 Set `IZUMI_PREVIEW_CHROMIUM` to use a specific Chromium binary.
 
 ## Scope
