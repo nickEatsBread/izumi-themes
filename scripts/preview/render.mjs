@@ -3,17 +3,15 @@
 //
 //   node scripts/preview/render.mjs [--izumi ../izumi] [--url http://127.0.0.1:1420]
 //                                   [--only izumi.kindling,...] [--out previews] [--live]
-//                                   [--shots home,series,phone] [--keep-shots dir] [--viewport 1280x1400]
-//                                   [--series <anilist id>] [--hero-slide <n>]
+//                                   [--series <anilist id>] [--hero-slide <n>] [--screens schedule,...]
 //
-// The client must be served by `npm run dev` (Vite) from the sibling izumi checkout, so its
-// modules are importable for seeding. Every preview is the actual Home screen with the theme
-// applied — the same renderer, tokens and templates users get — over a fixture catalogue with
-// generated key art. `--live` skips the fixtures and renders against the real network instead.
-// Phone themes (tagged "Phone") are composed from two phone screens: Home and a series page.
+// Shoots every screen a store listing shows (Home, Series, Search, Schedule; phones skip Schedule)
+// for each platform the listing declares, into previews/<id>/<platform>-<screen>.jpg, and writes
+// `screenshots` + `preview` into its entry. The client must be served by `npm run dev` (Vite) from
+// the sibling izumi checkout. `--live` renders against the real network instead of the fixtures.
 import { mkdirSync, readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { createRequire } from 'node:module'
-import { dirname, join, resolve } from 'node:path'
+import { dirname, join, relative, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { tauriShim, storageSeed } from './shim.mjs'
 import { ART_HOST, MEDIA, aniZipMappings, artwork, loadFont } from './fixtures.mjs'
@@ -26,22 +24,28 @@ const baseUrl = (args.url ?? 'http://127.0.0.1:1420').replace(/\/$/, '')
 const outDir = resolve(root, args.out ?? 'previews')
 const only = args.only ? new Set(String(args.only).split(',')) : null
 const live = Boolean(args.live)
-const shots = new Set(String(args.shots ?? 'home,series,phone').split(','))
-// `--viewport 1280x1400` sizes the kept desktop shots (Home stays at the catalog's 1280x800).
-const keptViewport = (() => { const m = /^(\d+)x(\d+)$/.exec(String(args.viewport ?? '')); return m ? { width: Number(m[1]), height: Number(m[2]) } : { width: 1280, height: 800 } })()
-const keepShots = args['keep-shots'] ? resolve(root, String(args['keep-shots'])) : null
 // The series page to shoot: a fixture title offline; live, `--series <id>` or the most-trending series with banner art.
 const trending = live ? await trendingMedia() : []
 const seriesId = args.series ? Number(args.series) : trending[0]?.id ?? MEDIA[0].id
 // Live Home shots can start on a later featured slide (0-based) when the first one makes a poor listing image.
 const heroSlide = args['hero-slide'] ? Number(args['hero-slide']) : 0
+// `--screens` re-shoots only those screens and keeps the entry's other screenshots.
+const screensOnly = args.screens ? new Set(String(args.screens).split(',')) : null
 const localBase = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
+// Per-screen store shots. Phones skip Schedule: its week view is a desktop layout squeezed.
+const SCREENS = { desktop: ['home', 'series', 'search', 'schedule'], phone: ['home', 'series', 'search'] }
+const DEVICES = {
+  desktop: { platform: 'linux', viewport: { width: 1280, height: 800 }, scale: 1 },
+  phone: { platform: 'android', viewport: { width: 390, height: 844 }, scale: 2 },
+}
+// Search shows the trending sort rather than a typed title, so no title is baked into the catalog.
+const PATHS = { home: '/app/home', series: `/app/anime/${seriesId}`, search: '/app/search?sort=TRENDING_DESC', schedule: '/app/schedule' }
+const WAITS = { home: waitForHome, series: waitForSeries, search: waitForPage, schedule: waitForPage }
 
 const { chromium } = await loadPlaywright()
 loadParser(izumiDir)
 loadFont(izumiDir)
 mkdirSync(outDir, { recursive: true })
-if (keepShots) mkdirSync(keepShots, { recursive: true })
 
 const entries = readdirSync(join(root, 'entries')).filter((name) => name.endsWith('.json')).sort()
   .map((name) => JSON.parse(readFileSync(join(root, 'entries', name), 'utf8')))
@@ -55,14 +59,13 @@ const browser = await chromium.launch({
 try {
   for (const entry of entries) {
     const pkg = loadPackage(entry)
-    const phone = entry.tags.some((tag) => /^phone$/i.test(tag))
-    console.log(`→ ${entry.id} ${pkg.version}${phone ? ' (phone)' : ''}`)
+    console.log(`→ ${entry.id} ${pkg.version}`)
     const design = { id: 'preview-theme', name: pkg.name, createdAt: 1, updatedAt: 1, ...pkg.design }
     // A dev-server reload (an edit landing mid-capture) or a slow first compile fails one theme,
     // not the whole batch: retry once, then report and carry on.
     let attempt = 0
     while (true) {
-      try { await renderEntry(entry, pkg, design, phone); break }
+      try { await renderEntry(entry, design); break }
       catch (error) {
         if (++attempt > 1) { failures.push(`${entry.id}: ${error.message.split('\n')[0]}`); console.log(`  failed: ${error.message.split('\n')[0]}`); break }
         console.log(`  retrying after: ${error.message.split('\n')[0]}`)
@@ -74,31 +77,35 @@ try {
   await browser.close()
 }
 
-async function renderEntry(entry, pkg, design, phone) {
-    if (phone) {
-      const home = await capture({ design, platform: 'android', viewport: { width: 390, height: 844 }, scale: 2, path: '/app/home', wait: waitForHome })
-      const series = await capture({ design, platform: 'android', viewport: { width: 390, height: 844 }, scale: 2, path: `/app/anime/${seriesId}`, wait: waitForSeries })
-      const composed = await composePhones(design, [home, series])
-      writeFileSync(join(outDir, `${entry.id}.png`), composed)
-      if (keepShots) { writeFileSync(join(keepShots, `${entry.id}-phone-home.png`), home); writeFileSync(join(keepShots, `${entry.id}-phone-series.png`), series) }
-    } else {
-      if (shots.has('home')) {
-        const home = await capture({ design, platform: 'linux', viewport: { width: 1280, height: 800 }, scale: 1, path: '/app/home', wait: waitForHome })
-        writeFileSync(join(outDir, `${entry.id}.png`), home)
-      }
-      if (keepShots && shots.has('series')) {
-        const series = await capture({ design, platform: 'linux', viewport: keptViewport, scale: 1, path: `/app/anime/${seriesId}`, wait: waitForSeries })
-        writeFileSync(join(keepShots, `${entry.id}-series.png`), series)
-      }
-      if (keepShots && shots.has('phone')) {
-        const home = await capture({ design, platform: 'android', viewport: { width: 390, height: 844 }, scale: 2, path: '/app/home', wait: waitForHome })
-        writeFileSync(join(keepShots, `${entry.id}-phone-home.png`), home)
-      }
+async function renderEntry(entry, design) {
+  const platforms = entry.platforms ?? ['desktop', 'phone']
+  const dir = join(outDir, entry.id)
+  mkdirSync(dir, { recursive: true })
+  const path = join(root, 'entries', `${entry.id}.json`)
+  const saved = JSON.parse(readFileSync(path, 'utf8'))
+  const screenshots = []
+  for (const platform of platforms) {
+    for (const screen of SCREENS[platform]) {
+      const kept = screensOnly && !screensOnly.has(screen) && saved.screenshots?.find((shot) => shot.platform === platform && shot.screen === screen)
+      if (kept) { screenshots.push(kept); continue }
+      const shot = await capture({ design, ...DEVICES[platform], path: PATHS[screen], wait: WAITS[screen] })
+      const file = join(dir, `${platform}-${screen}.jpg`)
+      writeFileSync(file, shot)
+      screenshots.push({ screen, platform, url: localBase + relative(root, file).replaceAll('\\', '/') })
+      console.log(`  wrote ${relative(root, file)}`)
     }
-    console.log(`  wrote ${join(outDir, `${entry.id}.png`)}`)
+  }
+  // Clients that predate `screenshots` read `preview`: the primary layout's Home.
+  const preview = screenshots.find((shot) => shot.platform === platforms[0] && shot.screen === 'home').url
+  writeFileSync(path, JSON.stringify({ ...saved, preview, screenshots }, null, 2) + '\n')
 }
 
-async function capture({ design, platform, viewport, scale, path, wait }) {
+async function waitForPage(page) {
+  await page.waitForSelector('main', { timeout: 60000 })
+  await page.waitForTimeout(3000)
+}
+
+async function capture({ design, platform, viewport, scale, path, wait, attempt = 0 }) {
   const context = await browser.newContext({
     viewport, deviceScaleFactor: scale, colorScheme: 'dark', locale: 'en-US', timezoneId: 'UTC',
     isMobile: platform === 'android', hasTouch: platform === 'android',
@@ -108,6 +115,13 @@ async function capture({ design, platform, viewport, scale, path, wait }) {
   const errors = []
   page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`))
   page.on('console', (message) => { if (message.type() === 'error') errors.push(`console: ${message.text()}`) })
+  // Catalog data and artwork in flight (the dev server's own modules don't count). A reload (the history
+  // seed) drops the old document's requests without settling them, so a navigation starts afresh.
+  const pending = new Set()
+  page.on('request', (request) => { if (!request.url().startsWith(baseUrl)) pending.add(request) })
+  page.on('requestfinished', (request) => pending.delete(request))
+  page.on('requestfailed', (request) => pending.delete(request))
+  page.on('framenavigated', (frame) => { if (frame === page.mainFrame()) pending.clear() })
   if (!live) await page.route('**/*', fixtureRoute)
   await page.addInitScript(tauriShim({ platform }))
   await page.addInitScript(storageSeed({
@@ -127,9 +141,18 @@ async function capture({ design, platform, viewport, scale, path, wait }) {
     const dots = page.locator('[data-part="hero.dot"]')
     if (await dots.count() > heroSlide) { await dots.nth(heroSlide).click(); await page.waitForTimeout(1500) }
   }
+  await waitForQuiet(page, () => pending.size)
   await settleImages(page)
+  // A rate-limited AniList swaps in the fallback catalogue under a warning strip: never ship that shot.
+  if (live && await page.getByText('AniList is unavailable').first().isVisible()) {
+    await context.close()
+    if (attempt >= 4) throw new Error('AniList stayed unavailable')
+    console.log('  AniList unavailable; retrying in a minute')
+    await new Promise((done) => setTimeout(done, 60000))
+    return capture({ design, platform, viewport, scale, path, wait, attempt: attempt + 1 })
+  }
   await page.waitForTimeout(600)
-  const shot = await page.screenshot({ type: 'png', fullPage: false })
+  const shot = await page.screenshot({ type: 'jpeg', quality: 85, fullPage: false })
   if (errors.length && args.verbose) console.log(errors.slice(0, 12).map((line) => `    ${line}`).join('\n'))
   await context.close()
   return shot
@@ -175,6 +198,15 @@ async function waitForSeries(page) {
   await page.waitForTimeout(2500)
 }
 
+// A page's first artwork can show while other rows' catalog queries are still in flight (a slow or
+// rate-limited API): wait until the network has been quiet for a second, capped, so no row is shot loading.
+async function waitForQuiet(page, inflight, cap = 20000) {
+  for (let quiet = 0, waited = 0; quiet < 1000 && waited < cap; waited += 250) {
+    await page.waitForTimeout(250)
+    quiet = inflight() > 0 ? 0 : quiet + 250
+  }
+}
+
 async function settleImages(page) {
   await page.evaluate(() => Promise.all([...document.images].filter((image) => !image.complete).map((image) => new Promise((done) => { image.onload = done; image.onerror = done; setTimeout(done, 4000) }))))
   await page.evaluate(() => document.fonts?.ready)
@@ -201,21 +233,6 @@ async function fixtureRoute(route) {
     if (svg) return route.fulfill({ status: 200, contentType: 'image/svg+xml', headers: { 'cache-control': 'max-age=3600' }, body: svg })
   }
   return route.fulfill({ status: 404, contentType: 'text/plain', body: 'preview: no network' })
-}
-
-/** Two phone screens on the theme's own canvas, framed like a store listing. */
-async function composePhones(design, screens) {
-  const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 })
-  const tokens = design.tokens ?? {}
-  const html = `<!doctype html><html><body style="margin:0;width:1280px;height:800px;background:hsl(${tokens.background ?? '240 10% 4%'});overflow:hidden;position:relative">
-    <div style="position:absolute;inset:0;background:radial-gradient(70% 90% at 20% 0%,hsl(${tokens.theme ?? '346 79% 51%'} / .35),transparent 60%),radial-gradient(60% 70% at 100% 100%,hsl(${tokens.ring ?? tokens.theme ?? '346 79% 51%'} / .25),transparent 65%)"></div>
-    ${screens.map((buffer, index) => `<img src="data:image/png;base64,${buffer.toString('base64')}" style="position:absolute;top:${index ? 120 : 56}px;left:${index ? 700 : 260}px;width:${index ? 300 : 340}px;border-radius:38px;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 8px #0b0b0d,0 0 0 9px rgba(255,255,255,.08);transform:rotate(${index ? 4 : -5}deg)">`).join('')}
-  </body></html>`
-  await page.setContent(html)
-  await page.waitForTimeout(300)
-  const shot = await page.screenshot({ type: 'png' })
-  await page.close()
-  return shot
 }
 
 function loadPackage(entry) {

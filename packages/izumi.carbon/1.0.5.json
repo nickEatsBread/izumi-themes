@@ -1,0 +1,1178 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.carbon",
+  "name": "Carbon",
+  "version": "1.0.5",
+  "author": "Izumi",
+  "description": "Anime Nexus look: zinc in DM Sans, a centred logo, a light Watch now, corner-badged episodes, a popular list.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "240 10% 4%",
+      "foreground": "0 0% 98%",
+      "muted": "240 4% 16%",
+      "mutedForeground": "240 5% 64%",
+      "primary": "240 6% 90%",
+      "primaryForeground": "240 6% 10%",
+      "secondary": "240 4% 16%",
+      "secondaryForeground": "0 0% 98%",
+      "accent": "240 4% 16%",
+      "accentForeground": "0 0% 98%",
+      "border": "240 4% 16%",
+      "input": "240 4% 16%",
+      "ring": "240 5% 84%",
+      "card": "240 6% 10%",
+      "cardForeground": "0 0% 98%",
+      "theme": "240 6% 90%"
+    },
+    "radius": 0.275,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "dm-sans",
+      "heading": "dm-sans",
+      "display": "dm-sans"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "icons",
+          "search": "icon",
+          "menu": "drawer",
+          "brand": "center"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "pill",
+          "height": 60,
+          "iconSize": 22,
+          "background": "#09090B",
+          "activeColor": "#FAFAFA",
+          "inactiveColor": "#A1A1AA",
+          "blur": true,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "height": 60,
+        "mobileHeight": 47,
+        "scale": "wide",
+        "bleed": 248,
+        "rotate": true,
+        "interval": 8,
+        "limit": 5,
+        "art": "banner-cover",
+        "indicator": {
+          "style": "pills",
+          "position": "center",
+          "color": "#E4E4E7"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "carbon.hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "carbon.info",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 0,
+                "width": 100
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "logo",
+                  "part": "carbon.logo",
+                  "when": {
+                    "field": "logo"
+                  },
+                  "style": {
+                    "fit": "contain",
+                    "maxWidth": 488
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "carbon.title",
+                  "when": {
+                    "field": "logo",
+                    "absent": true
+                  },
+                  "style": {
+                    "fontSize": 48,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "color": "#FAFAFA"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "carbon.badge",
+                  "when": {
+                    "field": "startYear"
+                  },
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "radius": 4
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "season",
+                      "part": "carbon.badge-icon",
+                      "style": {
+                        "fontSize": 14,
+                        "color": "#9F9FA9"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "startYear",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 400,
+                        "color": "#FAFAFA"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "carbon.genres",
+                  "when": {
+                    "field": "genre"
+                  },
+                  "style": {
+                    "gap": 6,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "genre",
+                      "part": "carbon.genre",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 500,
+                        "lines": 1,
+                        "color": "#E4E4E7"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "genre2",
+                      "part": "carbon.genre",
+                      "when": {
+                        "field": "genre2"
+                      },
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 500,
+                        "lines": 1,
+                        "color": "#E4E4E7"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "genre3",
+                      "part": "carbon.genre",
+                      "when": {
+                        "field": "genre3"
+                      },
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 500,
+                        "lines": 1,
+                        "color": "#E4E4E7"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "carbon.synopsis",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 400,
+                    "lines": 3,
+                    "color": "#9F9FA9"
+                  }
+                },
+                {
+                  "type": "action",
+                  "action": "play",
+                  "text": "Watch Now",
+                  "part": "carbon.watch",
+                  "style": {
+                    "minHeight": 40,
+                    "radius": 4,
+                    "fontSize": 14,
+                    "fontWeight": 500,
+                    "color": "#18181B",
+                    "background": "#E4E4E7"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "action": "previous",
+              "part": "carbon.prev",
+              "style": {
+                "anchor": "bottom-start",
+                "fontSize": 16,
+                "color": "#FAFAFA"
+              },
+              "icon": "chevron-left"
+            },
+            {
+              "type": "action",
+              "action": "next",
+              "part": "carbon.next",
+              "style": {
+                "anchor": "bottom-start",
+                "fontSize": 16,
+                "color": "#FAFAFA"
+              },
+              "icon": "chevron-right"
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 180,
+          "gap": 16,
+          "titleSize": 20,
+          "heading": {
+            "weight": 600,
+            "viewMore": "hidden"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 168,
+            "gap": 16
+          },
+          "season": {
+            "title": "This Season"
+          },
+          "recent": {
+            "title": "Recently Updated"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "part": "carbon.poster",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "carbon.poster-art",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 4
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "format",
+                  "part": "carbon.format",
+                  "when": {
+                    "field": "format"
+                  },
+                  "style": {
+                    "anchor": "top-end",
+                    "fontSize": 10,
+                    "fontWeight": 500,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "carbon.poster-title",
+              "style": {
+                "fontSize": 14,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FAFAFA"
+              }
+            },
+            {
+              "type": "text",
+              "field": "year",
+              "part": "carbon.poster-meta",
+              "when": {
+                "field": "year"
+              },
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 400,
+                "lines": 1,
+                "color": "#9F9FA9"
+              }
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "carbon.cw",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "carbon.cw-art",
+              "style": {
+                "aspect": "16 / 9",
+                "radius": 4
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "still",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "carbon.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "timeLeft",
+                  "when": {
+                    "field": "timeLeft"
+                  },
+                  "part": "carbon.ep-duration",
+                  "style": {
+                    "anchor": "top-start",
+                    "fontSize": 12,
+                    "fontWeight": 500,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "style": {
+                "gap": 4
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "style": {
+                    "gap": 4
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EPISODE",
+                      "part": "carbon.ep-label",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#9F9FA9"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeNo",
+                      "part": "carbon.ep-label",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#9F9FA9"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "carbon.ep-title",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "color": "#FAFAFA",
+                    "lines": 1
+                  }
+                }
+              ],
+              "part": "carbon.cw-text"
+            }
+          ]
+        },
+        "search": {
+          "type": "stack",
+          "part": "carbon.search",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "carbon.poster-art",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 4
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "format",
+                  "part": "carbon.format",
+                  "when": {
+                    "field": "format"
+                  },
+                  "style": {
+                    "anchor": "top-end",
+                    "fontSize": 10,
+                    "fontWeight": 500,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "field": "title",
+              "part": "carbon.search-title",
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FAFAFA"
+              }
+            },
+            {
+              "type": "text",
+              "field": "year",
+              "part": "carbon.search-meta",
+              "when": {
+                "field": "year"
+              },
+              "style": {
+                "fontSize": 10,
+                "fontWeight": 400,
+                "lines": 1,
+                "color": "#9F9FA9"
+              }
+            }
+          ]
+        },
+        "ranked": {
+          "type": "row",
+          "part": "carbon.rank-card",
+          "style": {
+            "gap": 16,
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "rankPosition",
+              "part": "carbon.rank",
+              "style": {
+                "fontSize": 24,
+                "fontWeight": 700,
+                "color": "#9F9FA9"
+              }
+            },
+            {
+              "type": "artwork",
+              "artwork": "poster",
+              "part": "carbon.rank-art",
+              "style": {
+                "aspect": "2 / 3",
+                "radius": 4,
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "carbon.rank-text",
+              "style": {
+                "gap": 0,
+                "grow": 1
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "carbon.rank-title",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 500,
+                    "lines": 1,
+                    "color": "#FAFAFA"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "carbon.rank-synopsis",
+                  "when": {
+                    "field": "description"
+                  },
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 400,
+                    "lines": 2,
+                    "color": "#9F9FA9"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "carbon.rank-views",
+                  "when": {
+                    "field": "members"
+                  },
+                  "style": {
+                    "gap": 4,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "reviews",
+                      "style": {
+                        "fontSize": 14,
+                        "color": "#9F9FA9"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "members",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 400,
+                        "color": "#9F9FA9"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "column": "poster",
+        "posterWidth": 264,
+        "actionsFirst": true,
+        "tabs": "segmented",
+        "factsStyle": "table",
+        "countdown": "compact",
+        "sections": {
+          "tabs": [
+            "episodes",
+            "relations",
+            "recommended"
+          ],
+          "labels": {
+            "recommended": "recommendations"
+          },
+          "unlisted": "hidden"
+        },
+        "episodes": {
+          "arrangement": "grid",
+          "hover": "none",
+          "card": {
+            "type": "stack",
+            "part": "carbon.ep",
+            "style": {
+              "gap": 0
+            },
+            "children": [
+              {
+                "type": "overlay",
+                "part": "carbon.ep-art",
+                "style": {
+                  "aspect": "16 / 9",
+                  "radius": 4
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "style": {
+                      "anchor": "fill",
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "duration",
+                    "when": {
+                      "field": "duration"
+                    },
+                    "part": "carbon.ep-duration",
+                    "style": {
+                      "anchor": "top-start",
+                      "fontSize": 12,
+                      "fontWeight": 500,
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "style": {
+                  "gap": 4
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "style": {
+                      "gap": 4
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "EPISODE",
+                        "part": "carbon.ep-label",
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 400,
+                          "color": "#9F9FA9"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "episodeNo",
+                        "part": "carbon.ep-label",
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 400,
+                          "color": "#9F9FA9"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "episodeName",
+                    "when": {
+                      "field": "episodeName"
+                    },
+                    "part": "carbon.ep-title",
+                    "style": {
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "color": "#FAFAFA",
+                      "lines": 1
+                    }
+                  }
+                ],
+                "part": "carbon.ep-text"
+              }
+            ]
+          },
+          "order": "flip",
+          "controls": [
+            "sort"
+          ]
+        },
+        "bannerScale": "banner",
+        "art": "keyart",
+        "factsKeys": [
+          "format",
+          "status",
+          "aired",
+          "episodes"
+        ],
+        "factsLabels": {
+          "format": "type",
+          "aired": "release-date"
+        },
+        "factsFormat": {
+          "dates": "long",
+          "status": "plain",
+          "episodes": "aired-of"
+        },
+        "header": {
+          "type": "row",
+          "part": "carbon.head",
+          "style": {
+            "gap": 12,
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "genre",
+              "part": "carbon.chip",
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FAFAFA"
+              }
+            },
+            {
+              "type": "text",
+              "field": "genre2",
+              "part": "carbon.chip",
+              "when": {
+                "field": "genre2"
+              },
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FAFAFA"
+              }
+            },
+            {
+              "type": "text",
+              "field": "genre3",
+              "part": "carbon.chip",
+              "when": {
+                "field": "genre3"
+              },
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 500,
+                "lines": 1,
+                "color": "#FAFAFA"
+              }
+            },
+            {
+              "type": "row",
+              "part": "carbon.score",
+              "when": {
+                "field": "rating"
+              },
+              "style": {
+                "gap": 12,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "star",
+                  "part": "carbon.score-star",
+                  "style": {
+                    "fontSize": 16,
+                    "color": "#FAFAFA"
+                  }
+                },
+                {
+                  "type": "stack",
+                  "style": {
+                    "gap": 0
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "rating",
+                      "part": "carbon.score-value",
+                      "style": {
+                        "fontSize": 24,
+                        "fontWeight": 700,
+                        "color": "#FAFAFA"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "gap": 4,
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "icon",
+                          "icon": "reviews",
+                          "style": {
+                            "fontSize": 12,
+                            "color": "#9F9FA9"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "members",
+                          "when": {
+                            "field": "members"
+                          },
+                          "part": "carbon.score-count",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 500,
+                            "color": "#9F9FA9"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": "Average",
+                          "part": "carbon.score-label",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 400,
+                            "color": "#9F9FA9"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "block": "latest-episodes",
+            "title": "Latest Episodes",
+            "columns": 5,
+            "pageSize": 15,
+            "pagination": "none",
+            "caption": "below"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "Popular Shows",
+            "tabs": [
+              {
+                "label": "Today",
+                "role": "trending"
+              },
+              {
+                "label": "All time",
+                "role": "popular"
+              }
+            ],
+            "limit": 5
+          }
+        ],
+        "asideWidth": 312,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "search",
+            "settings"
+          ]
+        },
+        "asideGap": 0
+      },
+      "mobile": {
+        "hero": {
+          "template": {
+            "type": "overlay",
+            "part": "carbon.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "carbon.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "center",
+                  "gap": 0,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "carbon.logo",
+                    "when": {
+                      "field": "logo"
+                    },
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 358
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "carbon.title",
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    },
+                    "style": {
+                      "fontSize": 30,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FAFAFA"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "carbon.badge",
+                    "when": {
+                      "field": "startYear"
+                    },
+                    "style": {
+                      "gap": 6,
+                      "align": "center",
+                      "radius": 4
+                    },
+                    "children": [
+                      {
+                        "type": "icon",
+                        "icon": "season",
+                        "part": "carbon.badge-icon",
+                        "style": {
+                          "fontSize": 14,
+                          "color": "#9F9FA9"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "startYear",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 400,
+                          "color": "#FAFAFA"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "part": "carbon.genres",
+                    "when": {
+                      "field": "genre"
+                    },
+                    "style": {
+                      "gap": 6,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "genre",
+                        "part": "carbon.genre",
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 500,
+                          "lines": 1,
+                          "color": "#E4E4E7"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "genre2",
+                        "part": "carbon.genre",
+                        "when": {
+                          "field": "genre2"
+                        },
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 500,
+                          "lines": 1,
+                          "color": "#E4E4E7"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "genre3",
+                        "part": "carbon.genre",
+                        "when": {
+                          "field": "genre3"
+                        },
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 500,
+                          "lines": 1,
+                          "color": "#E4E4E7"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "action",
+                    "action": "play",
+                    "text": "Watch Now",
+                    "part": "carbon.watch",
+                    "style": {
+                      "minHeight": 44,
+                      "radius": 4,
+                      "fontSize": 14,
+                      "fontWeight": 500,
+                      "color": "#18181B",
+                      "background": "#E4E4E7"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "action",
+                "action": "previous",
+                "part": "carbon.prev",
+                "style": {
+                  "anchor": "bottom-start",
+                  "fontSize": 16,
+                  "color": "#FAFAFA"
+                },
+                "icon": "chevron-left"
+              },
+              {
+                "type": "action",
+                "action": "next",
+                "part": "carbon.next",
+                "style": {
+                  "anchor": "bottom-start",
+                  "fontSize": 16,
+                  "color": "#FAFAFA"
+                },
+                "icon": "chevron-right"
+              }
+            ]
+          }
+        },
+        "layout": {
+          "home": [
+            {
+              "role": "hero"
+            },
+            {
+              "role": "continue"
+            },
+            {
+              "block": "latest-episodes",
+              "title": "New Episodes",
+              "columns": 2,
+              "pageSize": 12,
+              "pagination": "none",
+              "caption": "below"
+            },
+            {
+              "block": "ranked-list",
+              "phone": true,
+              "title": "Popular Shows",
+              "tabs": [
+                {
+                  "label": "Today",
+                  "role": "trending"
+                },
+                {
+                  "label": "All time",
+                  "role": "popular"
+                }
+              ],
+              "limit": 5
+            },
+            {
+              "role": "season"
+            },
+            {
+              "role": "recent"
+            }
+          ]
+        },
+        "rows": {
+          "defaults": {
+            "width": 140,
+            "gap": 16,
+            "titleSize": 18,
+            "heading": {
+              "weight": 600,
+              "viewMore": "hidden"
+            }
+          },
+          "byId": {
+            "continue": {
+              "width": 200,
+              "gap": 16
+            }
+          }
+        },
+        "rootSize": 16
+      }
+    },
+    "css": "/* Carbon — the Anime Nexus look (docs/theme-references/animenexus.md; measured 2026-10-21 at\n   1440×900 and 390×844, see tmp/parity/carbon/measure.md): shadcn zinc, 4.4 px corners. */\n\n:scope { --theme-top-row: 36px; }\n\n/* ---------- Top bar: 57 px header under 1536 px — menu + search left, logo centred, light Account. */\n[data-slot=\"nav.top\"] { padding-left: 16px !important; padding-right: 16px !important; background: rgba(9, 9, 11, 0.6) !important; backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; }\n/* The destinations live in the menu drawer, as the site keeps them in its sidebar; Search stays. */\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"]:not([data-dest=\"search\"]) { display: none !important; }\n[data-slot=\"nav.top\"] [data-part=\"nav.menu\"] { width: 32px; height: 32px; border-radius: 4.4px; color: #fafafa; }\n[data-slot=\"nav.top\"] [data-part=\"nav.menu\"] svg { width: 16px; height: 16px; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"][data-dest=\"search\"] { width: 36px; height: 36px; margin-left: 4px; border-radius: 4.4px; background: transparent; color: #fafafa; }\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"] svg { width: 16px; height: 16px; }\n[data-slot=\"nav.top\"] > div:last-child { gap: 16px !important; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"] { width: 32px; height: 32px !important; min-height: 0 !important; border-radius: 4.4px; color: #fafafa; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"] svg { width: 16px; height: 16px; }\n/* Signed out, the account button is the site's light \"Account\" button with its label shown. */\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"][data-action=\"account\"]:not(:has(img)) { display: inline-flex !important; width: auto !important; padding: 0 10px; background: #e4e4e7 !important; color: #18181b !important; font-size: 14px; font-weight: 500; line-height: 20px; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"][data-action=\"account\"]:not(:has(img)) > :not([data-part=\"nav.action.label\"]) { display: none; }\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"][data-action=\"account\"]:not(:has(img)) [data-part=\"nav.action.label\"] { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: nowrap; }\n\n[data-slot=\"nav.drawer\"] { background: #09090b !important; border-right: 1px solid rgba(255, 255, 255, 0.1); }\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"] { height: 32px; border-radius: 4.4px; font-size: 14px; font-weight: 400; color: #fafafa; }\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"][data-active] { background: #27272a; font-weight: 500; }\n\n/* ---------- Home hero: 800 px of art under a to-top wash; the rows start 576 px down (hero.bleed). */\n[data-part=\"carbon.hero\"] { position: relative; }\n[data-part=\"carbon.hero\"]::after { background: linear-gradient(to top, #09090b 0%, rgba(9, 9, 11, 0.65) 100%) !important; }\n[data-part=\"carbon.logo\"] { object-fit: contain !important; }\n[data-part=\"carbon.title\"] { line-height: 1 !important; text-transform: uppercase; text-shadow: none !important; }\n[data-part=\"carbon.badge\"] { box-sizing: border-box; height: 30px; margin-bottom: 12px; padding: 4px 10px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 4.4px !important; background: rgba(24, 24, 27, 0.95); line-height: 24px; }\n[data-part=\"carbon.badge-icon\"] { display: inline-flex; }\n[data-part=\"carbon.genres\"] { margin-bottom: 16px; }\n[data-part=\"carbon.genre\"] { padding: 2px 8px; border-radius: 32px; background: rgba(228, 228, 231, 0.15); line-height: 16px; }\n[data-part=\"carbon.synopsis\"] { max-width: 851px; line-height: 26px; }\n[data-part=\"carbon.watch\"] { box-sizing: border-box; height: 40px; margin-top: 32px; padding: 0 24px !important; gap: 8px; border-radius: 4.4px !important; line-height: 20px; }\n/* Slide arrows either side of the markers: ghost 28 px buttons with a chevron. */\n:is([data-part=\"carbon.prev\"], [data-part=\"carbon.next\"]) { position: absolute; justify-content: center; width: 28px; height: 28px; min-height: 0 !important; padding: 0 !important; border-radius: 999px !important; background: transparent !important; color: #fafafa !important; }\n:is([data-part=\"carbon.prev\"], [data-part=\"carbon.next\"]):hover { background: rgba(255, 255, 255, 0.045) !important; }\n/* Markers: 8 px rounded squares 8 px apart, the current one 24 px wide. */\n[data-slot=\"home.hero\"] [data-part=\"hero.indicator\"] { gap: 8px !important; }\n[data-slot=\"home.hero\"] [data-part=\"hero.dot\"] { min-width: 0 !important; margin: 0 !important; padding: 0 !important; }\n[data-part=\"hero.dot.track\"] { width: 8px !important; height: 8px !important; border-radius: 4.4px !important; background: rgba(159, 159, 169, 0.5) !important; }\n[data-part=\"hero.dot\"][data-active] [data-part=\"hero.dot.track\"] { width: 24px !important; background: #e4e4e7 !important; }\n\n@media (min-width: 641px) {\n  [data-slot=\"home\"] [data-slot=\"home.hero\"][data-variant=\"template\"] { height: 800px !important; min-height: 0 !important; max-height: none !important; aspect-ratio: auto !important; }\n  /* The copy sits in the page's 1280 px container (32 px gutters), bottom-anchored 320 px above the art's end. */\n  [data-part=\"carbon.info\"] { box-sizing: border-box; width: calc(max(32px, 50% - 608px) + min(851px, 100% - 64px)) !important; padding: 0 0 320px max(32px, calc(50% - 608px)) !important; }\n  [data-part=\"carbon.logo\"] { width: 488px; height: 260px; max-width: 100%; margin-bottom: 24px; object-position: 50% 100% !important; }\n  [data-part=\"carbon.title\"] { margin-bottom: 24px; font-size: 48px !important; }\n  [data-slot=\"home.hero\"] [data-part=\"hero.indicator\"] { bottom: 306px !important; }\n  [data-part=\"carbon.prev\"] { bottom: 296px !important; left: calc(50% - 84px) !important; }\n  [data-part=\"carbon.next\"] { bottom: 296px !important; left: calc(50% + 56px) !important; }\n}\n\n/* ---------- Home columns: one 1280 px container; Latest Episodes beside Popular Shows, then the season row full width. */\n[data-slot=\"home\"] div:has(> [data-slot=\"home.main\"]) { max-width: 1280px; margin-left: auto; margin-right: auto; }\n@media (min-width: 1100px) {\n  [data-slot=\"home\"] div:has(> [data-slot=\"home.aside\"]) > [data-slot=\"home.main\"]:not([data-variant]) { display: contents; }\n  [data-slot=\"home\"] div:has(> [data-slot=\"home.aside\"]) > [data-slot=\"home.main\"] > * { grid-column: 1; min-width: 0; }\n  [data-slot=\"home\"] div:has(> [data-slot=\"home.aside\"]) > [data-slot=\"home.aside\"] { grid-column: 2; grid-row: 1 / span 2; }\n  [data-slot=\"home\"] div:has(> [data-slot=\"home.aside\"]) > [data-slot=\"home.main\"] > :is([data-slot=\"row\"][data-role=\"season\"], :has(> [data-slot=\"row\"][data-role=\"season\"])) { grid-column: 1 / -1; }\n}\n\n/* Headings: 20 px semibold, -0.5 px tracking. */\n:is([data-part=\"row.title\"], [data-part=\"block.title\"]) { font-size: 20px !important; font-weight: 600 !important; line-height: 28px; letter-spacing: -0.5px; color: #fafafa; }\n[data-slot=\"home\"] [data-part=\"row.header\"] { margin-bottom: 24px; }\n[data-slot=\"block.latest-episodes\"] > [data-part=\"block.title\"] { margin-bottom: 24px; }\n\n/* Row arrows (row.step): the site's 32 px round outline buttons at the end of the heading line. */\n[data-slot=\"home\"] [data-part=\"row.step\"] { top: -54px !important; left: auto !important; width: 32px !important; height: 32px !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; background: rgba(255, 255, 255, 0.045) !important; box-shadow: none !important; backdrop-filter: none !important; color: #fafafa !important; opacity: 1 !important; transform: none !important; }\n[data-slot=\"home\"] [data-part=\"row.step\"]:hover { background: rgba(255, 255, 255, 0.09) !important; }\n[data-slot=\"home\"] [data-part=\"row.step\"] svg { width: 16px; height: 16px; }\n[data-slot=\"home\"] [data-part=\"row.step\"][data-dir=\"next\"] { right: 32px !important; }\n[data-slot=\"home\"] [data-part=\"row.step\"][data-dir=\"previous\"] { right: 72px !important; }\n\n/* Latest Episodes: five 16:9 stills a row, a duration-style badge in the corner, EPISODE N then the title. */\n[data-slot=\"block.latest-episodes\"] > div:has(> [data-part=\"block.item\"]) { gap: 16px !important; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] { display: flex; flex-direction: column; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] > button { border-radius: 4.4px; background: #18181b; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.number\"] { top: 4px; left: 4px; display: inline-flex; align-items: center; box-sizing: border-box; height: 24px; padding: 0 8px; border: 1px solid transparent; border-radius: 4.4px 0; background: rgba(0, 0, 0, 0.5); font-size: 12px; font-weight: 500; line-height: 16px; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.meta\"] { order: 1; overflow: hidden; margin-top: 12px; white-space: nowrap; text-overflow: ellipsis; font-size: 12px; line-height: 16px; text-transform: uppercase; color: #9f9fa9; }\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.title\"] { order: 2; margin-top: 4px; font-size: 14px; font-weight: 400; line-height: 20px; color: #fafafa; }\n\n/* Continue Watching: the same episode card, with the site's inset progress bar. */\n[data-part=\"carbon.cw-art\"] { background: #18181b; }\n[data-part=\"carbon.cw-bar\"] { width: calc(100% - 8px) !important; height: 4px !important; margin: 0 4px 4px; border-radius: 999px; background: rgba(0, 0, 0, 0.45) !important; }\n[data-part=\"carbon.cw-bar\"] > span { background: #e4e4e7 !important; }\n[data-part=\"carbon.ep-duration\"] { margin: 4px !important; box-sizing: border-box; height: 24px; padding: 2px 8px; border: 1px solid transparent; border-radius: 4.4px 0 !important; background: rgba(0, 0, 0, 0.5); line-height: 16px; }\n[data-part=\"carbon.cw-text\"] { padding-top: 12px; }\n[data-part=\"carbon.ep-label\"] { line-height: 16px; text-transform: uppercase; }\n[data-part=\"carbon.ep-title\"] { line-height: 20px; }\n\n/* Poster cards: 2:3 at 4.4 px, the format pill top-right, a 14 px medium title. */\n[data-part=\"carbon.poster-art\"] { background: #18181b; }\n[data-part=\"carbon.format\"] { margin: 8px; padding: 2px 8px; border-radius: 32px; background: rgba(0, 0, 0, 0.7); line-height: 15px; }\n[data-part=\"carbon.poster-title\"] { margin-top: 12px; line-height: 20px; }\n[data-part=\"carbon.poster-meta\"] { margin-top: 4px; line-height: 16px; }\n\n/* Popular Shows: the tabs on the heading line as the site's segmented control, then ranked rows. */\n[data-slot=\"block.ranked-list\"] { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; column-gap: 12px; }\n[data-slot=\"block.ranked-list\"] > [data-part=\"block.title\"] { margin: 0; }\n[data-slot=\"block.ranked-list\"] > :not([data-part=\"block.title\"], :has(> [data-part=\"tabs\"])) { grid-column: 1 / -1; }\n[data-slot=\"block.ranked-list\"] > div:has(> [data-part=\"tabs\"]) { justify-self: end; margin-top: -3px; }\n[data-slot=\"block.ranked-list\"] > ol { margin-top: 33px; padding-right: 8px; }\n[data-slot=\"block.ranked-list\"] > ol > li + li { margin-top: 4px !important; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tabs\"] { gap: 0; margin: 0; padding: 2px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 4.4px; background: rgba(24, 24, 27, 0.95); }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"] { height: 28px; min-height: 0; padding: 0 12px; border-radius: 4.4px; font-size: 12px; font-weight: 500; line-height: 16px; color: #fafafa; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"][data-active] { background: #27272a; color: #fafafa; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"] { padding: 12px; border-radius: 4.4px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"]:hover { background: rgba(255, 255, 255, 0.045); }\n[data-part=\"carbon.rank-card\"] { flex-wrap: nowrap !important; }\n[data-part=\"carbon.rank\"] { flex: none; width: 28px; margin: -2px -4px 0 -16px; line-height: 32px; text-align: center; color: rgba(159, 159, 169, 0.4) !important; }\n[data-slot=\"block.ranked-list\"] li:nth-child(1) [data-part=\"carbon.rank\"] { color: #f0b100 !important; }\n[data-slot=\"block.ranked-list\"] li:nth-child(2) [data-part=\"carbon.rank\"] { color: #9f9fa9 !important; }\n[data-slot=\"block.ranked-list\"] li:nth-child(3) [data-part=\"carbon.rank\"] { color: #e17100 !important; }\n[data-part=\"carbon.rank-art\"] { flex: none; width: 64px !important; background: #18181b; }\n[data-part=\"carbon.rank-text\"] { min-width: 0; padding-top: 5px; }\n[data-part=\"carbon.rank-title\"] { line-height: 20px; }\n[data-part=\"carbon.rank-synopsis\"] { margin-top: 4px; line-height: 19.5px; }\n[data-part=\"carbon.rank-views\"] { margin-top: 8px; line-height: 16px; }\n\n/* ---------- Series page: the key art fixed behind the page under a to-top wash; a 264 px poster column\n   (Watch Trailer, the emerald next-episode card, the facts card) beside the titles, actions, synopsis,\n   the segmented tabs and a six-across episode grid. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] { position: fixed !important; inset: 0 !important; z-index: 0; width: 100% !important; height: 100vh !important; min-height: 0 !important; max-height: none !important; margin: 0 !important; aspect-ratio: auto !important; opacity: 1 !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.slide\"] { inset: 0 !important; height: 100% !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.art\"] { width: 100% !important; height: 100% !important; object-fit: cover !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.scrim\"] { display: none !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"]::after { content: \"\"; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, #09090b 0%, rgba(9, 9, 11, 0.82) 100%); pointer-events: none; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] { padding-left: 24px !important; padding-right: 24px !important; }\n\n[data-slot=\"detail.column\"] { gap: 16px !important; }\n[data-slot=\"detail.column\"] [data-part=\"detail.poster\"] { border-radius: 4.4px !important; box-shadow: none !important; }\n[data-part=\"detail.trailer\"] { box-sizing: border-box; height: 44px; padding: 0 10px !important; gap: 6px !important; border: 1px solid rgba(228, 228, 231, 0.2); border-radius: 4.4px !important; background: rgba(228, 228, 231, 0.1) !important; color: #e4e4e7; font-size: 14px !important; font-weight: 500 !important; line-height: 20px; }\n[data-slot=\"detail.column\"] [data-part=\"detail.countdown\"] { display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; width: 100% !important; height: 54px; padding: 16px; border: 1px solid rgba(128, 221, 189, 0.2); border-radius: 4.4px; background: rgba(128, 221, 189, 0.1); color: #80ddbd !important; font-size: 12px !important; font-weight: 500 !important; line-height: 16px; letter-spacing: 0.6px; text-transform: uppercase; }\n[data-slot=\"detail.column\"] [data-part=\"detail.countdown.time\"] { color: #80ddbd !important; font-size: 14px; font-weight: 700; line-height: 20px; letter-spacing: 0; text-transform: none; }\n[data-slot=\"detail.column\"] [data-part=\"detail.facts\"] { display: block !important; padding: 16px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 4.4px; background: rgba(24, 24, 27, 0.95); }\n[data-slot=\"detail.column\"] [data-part=\"detail.facts\"] [data-part=\"fact\"] { display: grid !important; gap: 6px; margin: 0 0 4px; padding: 8px 0; }\n[data-slot=\"detail.column\"] [data-part=\"detail.facts\"] [data-part=\"fact\"]:first-child { padding-top: 0; }\n[data-slot=\"detail.column\"] [data-part=\"fact.label\"] { font-size: 12px !important; font-weight: 500 !important; line-height: 16px; letter-spacing: 0.6px; text-transform: uppercase; color: #9f9fa9 !important; }\n[data-slot=\"detail.column\"] [data-part=\"fact.value\"] { font-size: 14px !important; font-weight: 500 !important; line-height: 20px; color: #fafafa !important; }\n\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.alt-title\"] { font-size: 18px !important; font-weight: 700; line-height: 28px; color: #fafafa !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { margin: 4px 0 24px !important; font-size: 36px !important; font-weight: 900 !important; line-height: 36px; text-transform: uppercase; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.header\"] { position: relative; margin-bottom: 28px !important; }\n[data-part=\"carbon.chip\"] { padding: 2px 8px; border: 3px solid rgba(228, 228, 231, 0.2); border-radius: 32px; line-height: 16px; }\n/* The score sits at the end of the actions row, as the site's AVERAGE block. */\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"carbon.score\"] { position: absolute !important; top: 44px; right: 0; padding: 10px 16px; }\n[data-part=\"carbon.score-star\"] { display: grid !important; place-items: center; width: 40px; height: 40px; border-radius: 999px; background: rgba(228, 228, 231, 0.1); }\n[data-part=\"carbon.score-star\"] svg { fill: currentColor; }\n[data-part=\"carbon.score-value\"] { line-height: 32px; letter-spacing: -0.6px; }\n[data-part=\"carbon.score-label\"] { line-height: 16px; text-transform: uppercase; }\n\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] { gap: 8px !important; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] :is([data-part=\"button\"], [data-part=\"detail.list-button\"], [data-part=\"detail.action\"]) { box-sizing: border-box; height: 40px; min-height: 0; padding: 0 10px; gap: 8px; border: 1px solid transparent; border-radius: 4.4px !important; background: rgba(39, 39, 42, 0.5) !important; color: #fafafa !important; font-size: 14px !important; font-weight: 500 !important; line-height: 20px; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] [data-part=\"button\"][data-variant=\"icon\"] { width: 40px; padding: 0; color: #9f9fa9 !important; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] svg { width: 16px; height: 16px; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"] { max-width: none !important; margin-top: 50px !important; font-size: 14px !important; line-height: 22.75px !important; color: rgba(250, 250, 250, 0.8) !important; }\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"]::before { content: \"Synopsis\"; display: block; margin-bottom: 12px; font-size: 12px; font-weight: 500; line-height: 16px; letter-spacing: 0.6px; text-transform: uppercase; color: #9f9fa9; }\n\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"segmented\"] { gap: 4px; margin-top: 36px; padding: 6px !important; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 4px !important; background: rgba(24, 24, 27, 0.95) !important; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"segmented\"] [data-part=\"tab\"] { box-sizing: border-box; height: 44px; padding: 8px 16px !important; border: 1px solid transparent; border-radius: 4px !important; background: transparent; font-size: 14px !important; font-weight: 500 !important; line-height: 20px; color: #9f9fa9 !important; }\n[data-slot=\"detail\"] [data-part=\"tabs\"][data-variant=\"segmented\"] [data-part=\"tab\"][data-active] { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.045) !important; color: #fafafa !important; }\n\n/* Episodes: the order toggle at the end of the bar as the site's outline button; six 16:9 cards a row. */\n[data-slot=\"detail.episodes\"] [data-slot=\"episodes.toolbar\"] { justify-content: flex-end; margin-top: 24px; margin-bottom: 24px; }\n[data-slot=\"detail.episodes\"] [data-slot=\"episodes.toolbar\"] > div:has(> [data-part=\"episodes.more\"]) { margin-left: 0 !important; }\n[data-slot=\"detail.episodes\"] :is([data-part=\"episodes.sort\"], [data-part=\"episodes.more\"]) { box-sizing: border-box; height: 32px; min-height: 0; padding: 0 12px; gap: 8px; border: 1px solid rgba(255, 255, 255, 0.15) !important; border-radius: 4.4px !important; background: rgba(255, 255, 255, 0.045) !important; color: #fafafa !important; font-size: 14px !important; font-weight: 500 !important; }\n[data-slot=\"detail.episodes\"] [data-part=\"episodes.more\"] { width: 32px; padding: 0; }\n[data-slot=\"detail.episodes\"] [data-part=\"episodes.grid\"] { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; gap: 20px !important; }\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"] { border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }\n[data-part=\"carbon.ep-art\"] { background: #18181b; }\n[data-part=\"carbon.ep-text\"] { padding-top: 12px; }\n\n/* ---------- Phones (390×844): header with search left and the brand centred, a centred 400 px hero,\n   then sideways rows: New Episodes (200 px stills), Popular Shows (280 px ranked cards), 140 px posters. */\n@media (max-width: 640px) {\n  [data-slot=\"home.header\"] { box-sizing: border-box; height: 57px; padding: 0 16px !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: rgba(9, 9, 11, 0.6); }\n  [data-slot=\"home.header\"] > div { position: relative; height: 100%; justify-content: center !important; }\n  [data-part=\"home.header.actions\"] { position: absolute; inset: 0; justify-content: space-between; pointer-events: none; }\n  [data-part=\"home.header.action\"] { width: 36px; height: 36px; border-radius: 4.4px !important; color: #fafafa; pointer-events: auto; }\n  [data-part=\"home.header.action\"] svg { width: 16px; height: 16px; }\n\n  [data-part=\"carbon.info\"] { box-sizing: border-box; padding: 0 16px 104px !important; }\n  [data-part=\"carbon.logo\"] { width: 240px; max-height: 120px; margin-bottom: 16px; object-position: 50% 100% !important; }\n  [data-part=\"carbon.title\"] { margin-bottom: 16px; text-align: center; }\n  [data-part=\"carbon.genres\"] { justify-content: center; }\n  [data-part=\"carbon.watch\"] { justify-content: center; width: 100%; height: 44px; margin-top: 12px; }\n  [data-slot=\"home.hero\"] { margin-bottom: 25px !important; }\n  [data-slot=\"home.hero\"] [data-part=\"hero.indicator\"] { bottom: 42px !important; }\n  [data-part=\"carbon.prev\"] { bottom: 32px !important; left: calc(50% - 84px) !important; }\n  [data-part=\"carbon.next\"] { bottom: 32px !important; left: calc(50% + 56px) !important; }\n\n  :is([data-part=\"row.title\"], [data-part=\"block.title\"]) { font-size: 18px !important; line-height: 28px; letter-spacing: 0; }\n  [data-slot=\"block.latest-episodes\"] > [data-part=\"block.title\"] { margin-bottom: 24px; font-size: 16px !important; line-height: 24px; }\n  [data-slot=\"home\"] [data-part=\"row.header\"] { margin-bottom: 24px; }\n  [data-slot=\"block.latest-episodes\"] > div:has(> [data-part=\"block.item\"]) { display: flex !important; overflow-x: auto; overflow-y: hidden; margin: 0 -16px; padding: 0 16px; scrollbar-width: none; }\n  [data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] { flex: 0 0 200px; }\n\n  [data-slot=\"block.ranked-list\"] > ol { display: flex; overflow-x: auto; overflow-y: hidden; gap: 4px; margin: 24px -16px 0; padding: 0 16px; scrollbar-width: none; }\n  [data-slot=\"block.ranked-list\"] > ol > li { flex: 0 0 280px; margin: 0 !important; }\n}\n\n/* ---------- Search (the site's /series browse page): an uppercase 30 px heading, a hairline, the\n   filters as the site's outline selects, then an eight-across poster grid 32 px apart on wide windows\n   (narrower ones keep izumi's own grid, three across on phones). */\n[data-part=\"search.title\"]:not([data-variant]) { position: static; width: auto; height: auto; margin: 0 0 16px; overflow: visible; clip: auto; white-space: normal; font-size: 30px; font-weight: 600; line-height: 36px; letter-spacing: -0.75px; text-transform: uppercase; color: #fafafa; }\n[data-slot=\"search\"] [data-part=\"search.filters\"] { padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); }\n[data-slot=\"search\"] :is([data-part=\"search.field\"], [data-part=\"search.filter\"]) { box-sizing: border-box; height: 36px; border: 1px solid rgba(255, 255, 255, 0.05) !important; border-radius: 4.4px !important; background: rgba(255, 255, 255, 0.045) !important; color: #fafafa; font-size: 14px !important; font-weight: 400 !important; }\n[data-slot=\"search\"] [data-part=\"search.filter\"][data-active] { border-color: rgba(255, 255, 255, 0.15) !important; }\n[data-slot=\"search\"] [data-part=\"search.field\"]::placeholder { color: #9f9fa9; }\n[data-slot=\"search\"] [data-part=\"search.grid\"][data-variant=\"grid\"] { margin-top: 24px; }\n@media (min-width: 1100px) {\n  [data-slot=\"search\"] [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(8, minmax(0, 1fr)) !important; gap: 32px !important; }\n}\n[data-part=\"carbon.search-title\"] { margin-top: 12px; line-height: 17.14px; text-transform: uppercase; }\n[data-part=\"carbon.search-meta\"] { margin-top: 4px; line-height: 12.86px; text-transform: uppercase; }\n@media (max-width: 640px) {\n  /* The phone page shows izumi's own genre chips; the header keeps only the score. */\n  [data-slot=\"detail\"] [data-part=\"carbon.chip\"] { display: none; }\n  [data-slot=\"detail\"] [data-part=\"detail.title\"] { text-transform: uppercase; }\n}\n"
+  }
+}

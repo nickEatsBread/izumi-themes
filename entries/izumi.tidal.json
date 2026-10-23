@@ -14,5 +14,42 @@
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.tidal/1.5.3.json",
   "sha256": "4fc43e5ff1f8d6e80de5f10d2188eba8a8afb485e7cfa5138fd8e44483501925",
   "bytes": 11670,
-  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal.png"
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal/desktop-home.jpg",
+  "screenshots": [
+    {
+      "screen": "home",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal/desktop-home.jpg"
+    },
+    {
+      "screen": "series",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal/desktop-series.jpg"
+    },
+    {
+      "screen": "search",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal/desktop-search.jpg"
+    },
+    {
+      "screen": "schedule",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal/desktop-schedule.jpg"
+    },
+    {
+      "screen": "home",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal/phone-home.jpg"
+    },
+    {
+      "screen": "series",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal/phone-series.jpg"
+    },
+    {
+      "screen": "search",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.tidal/phone-search.jpg"
+    }
+  ]
 }

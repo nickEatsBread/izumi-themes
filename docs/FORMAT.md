@@ -156,6 +156,9 @@ phone-first packages whose shared layout still renders on desktop.
 
 An entry contains package metadata plus `tags` (at most 12), `download` (HTTPS package URL),
 `sha256` (64 hex characters), and `bytes`. Optional `preview` and `project` are HTTPS URLs.
+Optional `screenshots` lists up to 12 per-screen images for the store, each
+`{ "screen": "home" | "series" | "search" | "schedule", "platform": "desktop" | "phone", "url": "https://…" }`,
+one per platform and screen. Keep `preview` (the primary layout's Home) for clients that predate it.
 Optional `platforms` lists the layouts the author designed, primary first: `["phone"]`,
 `["desktop"]`, `["phone", "desktop"]` (designed for phones, desktop layout included) or
 `["desktop", "phone"]`. The gallery labels and filters listings by it; an entry without it
