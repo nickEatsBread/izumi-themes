@@ -81,6 +81,10 @@
       "type": "string",
       "pattern": "^https://"
     },
+    "accent": {
+      "type": "string",
+      "pattern": "^-?\\d+(\\.\\d+)?\\s+\\d+(\\.\\d+)?%\\s+\\d+(\\.\\d+)?%$"
+    },
     "screenshots": {
       "type": "array",
       "maxItems": 12,

@@ -76,6 +76,8 @@ for (const filename of (await readdir(new URL('entries/', root))).filter(name =>
   assert(/^[a-f0-9]{64}$/.test(entry.sha256)); https(entry.download)
   if (entry.preview) localImage(entry.preview)
   validateScreenshots(entry)
+  // The theme's accent colour, an HSL token the store tints its spotlight with.
+  if (entry.accent !== undefined) assert(/^\s*(-?\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)%\s+(\d+(?:\.\d+)?)%\s*$/.test(entry.accent), 'Invalid accent')
   if (entry.project) https(entry.project)
   const bytes = await download(entry.download, 512000)
   assert.equal(bytes.length, entry.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256)

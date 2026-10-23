@@ -19,6 +19,7 @@
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.carbon/1.0.5.json",
   "sha256": "290ab075b0c06e6ae50cc87840a1e75ea1abf61f11bb8620053cba648d964e7a",
   "bytes": 59650,
+  "accent": "240 6% 90%",
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.carbon/desktop-home.jpg",
   "screenshots": [
     {

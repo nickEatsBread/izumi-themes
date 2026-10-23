@@ -159,6 +159,8 @@ An entry contains package metadata plus `tags` (at most 12), `download` (HTTPS p
 Optional `screenshots` lists up to 12 per-screen images for the store, each
 `{ "screen": "home" | "series" | "search" | "schedule", "platform": "desktop" | "phone", "url": "https://…" }`,
 one per platform and screen. Keep `preview` (the primary layout's Home) for clients that predate it.
+Optional `accent` is the theme's accent colour as an HSL token (`"249 100% 83%"`, the package's
+`tokens.theme`); the store tints its spotlight with it. The renderer writes it.
 Optional `platforms` lists the layouts the author designed, primary first: `["phone"]`,
 `["desktop"]`, `["phone", "desktop"]` (designed for phones, desktop layout included) or
 `["desktop", "phone"]`. The gallery labels and filters listings by it; an entry without it

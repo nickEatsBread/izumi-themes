@@ -10,6 +10,8 @@ const listing = { type: 'object', required: ['id', 'name', 'author', 'descriptio
   platforms: { type: 'array', minItems: 1, maxItems: 2, uniqueItems: true, items: { enum: ['desktop', 'phone'] } },
   tags: { type: 'array', maxItems: 12, items: string(32) }, download: url, preview: url, project: url,
   // Per-screen store screenshots; `preview` stays for clients that predate them.
+  // The theme's accent colour as an HSL token (`200 88% 59%`), for store artwork.
+  accent: { type: 'string', pattern: '^-?\\d+(\\.\\d+)?\\s+\\d+(\\.\\d+)?%\\s+\\d+(\\.\\d+)?%$' },
   screenshots: { type: 'array', maxItems: 12, items: { type: 'object', required: ['screen', 'platform', 'url'], properties: {
     screen: { enum: ['home', 'series', 'search', 'schedule'] }, platform: { enum: ['desktop', 'phone'] }, url } } },
   sha256: { type: 'string', pattern: '^[a-fA-F0-9]{64}$' }, bytes: { type: 'integer', minimum: 1, maximum: 512000 },

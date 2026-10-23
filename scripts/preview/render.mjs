@@ -97,7 +97,9 @@ async function renderEntry(entry, design) {
   }
   // Clients that predate `screenshots` read `preview`: the primary layout's Home.
   const preview = screenshots.find((shot) => shot.platform === platforms[0] && shot.screen === 'home').url
-  writeFileSync(path, JSON.stringify({ ...saved, preview, screenshots }, null, 2) + '\n')
+  // The store tints its spotlight with the theme's accent colour.
+  const accent = design.tokens?.theme
+  writeFileSync(path, JSON.stringify({ ...saved, ...(accent ? { accent } : {}), preview, screenshots }, null, 2) + '\n')
 }
 
 async function waitForPage(page) {
