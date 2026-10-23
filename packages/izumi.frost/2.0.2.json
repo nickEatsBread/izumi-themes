@@ -1,0 +1,1036 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.frost",
+  "name": "Frost",
+  "version": "2.0.2",
+  "author": "Izumi",
+  "description": "MKissa look: pure black in Inter, a labelled side rail, big poster cards with episode footers, orange ranks.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "0 0% 87%",
+      "muted": "200 9% 10%",
+      "mutedForeground": "0 0% 50%",
+      "primary": "210 46% 36%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "200 9% 10%",
+      "secondaryForeground": "0 0% 87%",
+      "accent": "0 0% 19%",
+      "accentForeground": "0 0% 87%",
+      "border": "210 10% 23%",
+      "input": "210 10% 23%",
+      "ring": "214 55% 68%",
+      "card": "240 6% 12%",
+      "cardForeground": "0 0% 87%",
+      "theme": "214 55% 68%"
+    },
+    "radius": 0.75,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "inter"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "shell": {
+        "nav": "sidebar",
+        "compact": false,
+        "overlay": "fade",
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "pill",
+          "height": 60,
+          "iconSize": 20,
+          "background": "#1E1E21",
+          "activeColor": "#DDDDDD",
+          "inactiveColor": "#DDDDDD",
+          "blur": false,
+          "border": true,
+          "hide": "never"
+        }
+      },
+      "hero": {
+        "hidden": true
+      },
+      "rows": {
+        "defaults": {
+          "width": 216,
+          "gap": 24,
+          "titleSize": 14,
+          "heading": {
+            "weight": 600,
+            "viewMore": "hidden"
+          }
+        },
+        "byId": {
+          "continue": {
+            "width": 241,
+            "gap": 8
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "part": "frost.card",
+          "children": [
+            {
+              "type": "overlay",
+              "part": "frost.poster",
+              "style": {
+                "aspect": "3 / 4",
+                "radius": 12
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "part": "frost.blur",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "part": "frost.sharp",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "contain"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "frost.info",
+              "children": [
+                {
+                  "type": "row",
+                  "part": "frost.title-row",
+                  "style": {
+                    "gap": 8,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": " ",
+                      "part": "frost.dot",
+                      "when": {
+                        "field": "airingIn"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": " ",
+                      "part": "frost.dot-off",
+                      "when": {
+                        "field": "airingIn",
+                        "absent": true
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "title",
+                      "part": "frost.title",
+                      "style": {
+                        "fontSize": 13,
+                        "fontWeight": 500,
+                        "lines": 1,
+                        "shrink": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "frost.subtitle",
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      },
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "·",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      },
+                      "when": {
+                        "field": "year"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "year",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      },
+                      "when": {
+                        "field": "year"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "frost.footer",
+              "when": {
+                "field": "episodesAired"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "frost.footer-top",
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "frost.progress",
+                      "when": {
+                        "field": "episodeCount",
+                        "absent": true
+                      },
+                      "style": {
+                        "gap": 3
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "ep.",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodesAired",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "part": "frost.progress",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodesAired",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": "/",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodeCount",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": "(Sub)",
+                      "part": "frost.kind",
+                      "style": {
+                        "fontSize": 8.8,
+                        "fontWeight": 500
+                      }
+                    },
+                    {
+                      "type": "icon",
+                      "part": "frost.chevron",
+                      "style": {
+                        "fontSize": 14
+                      },
+                      "icon": "chevron-right"
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "frost.footer-sub",
+                  "when": {
+                    "field": "airingIn"
+                  },
+                  "style": {
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Next in",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "airingIn",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "part": "frost.footer-sub",
+                  "field": "status",
+                  "when": {
+                    "field": "airingIn",
+                    "absent": true
+                  },
+                  "style": {
+                    "fontSize": 11,
+                    "fontWeight": 400,
+                    "lines": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "search": {
+          "type": "stack",
+          "part": "frost.card",
+          "children": [
+            {
+              "type": "overlay",
+              "part": "frost.poster",
+              "style": {
+                "aspect": "3 / 4",
+                "radius": 12
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "part": "frost.blur",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "part": "frost.sharp",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "contain"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "frost.score",
+                  "when": {
+                    "field": "rating"
+                  },
+                  "style": {
+                    "anchor": "top-start",
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "part": "frost.star",
+                      "style": {
+                        "fontSize": 10
+                      },
+                      "icon": "star"
+                    },
+                    {
+                      "type": "text",
+                      "field": "rating",
+                      "style": {
+                        "fontSize": 9,
+                        "fontWeight": 500
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "frost.info",
+              "children": [
+                {
+                  "type": "row",
+                  "part": "frost.title-row",
+                  "style": {
+                    "gap": 8,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": " ",
+                      "part": "frost.dot",
+                      "when": {
+                        "field": "airingIn"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": " ",
+                      "part": "frost.dot-off",
+                      "when": {
+                        "field": "airingIn",
+                        "absent": true
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "title",
+                      "part": "frost.title",
+                      "style": {
+                        "fontSize": 13,
+                        "fontWeight": 500,
+                        "lines": 1,
+                        "shrink": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "frost.subtitle",
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      },
+                      "when": {
+                        "field": "format"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "·",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      },
+                      "when": {
+                        "field": "year"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "year",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      },
+                      "when": {
+                        "field": "year"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "frost.footer",
+              "when": {
+                "field": "episodesAired"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "frost.footer-top",
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "frost.progress",
+                      "when": {
+                        "field": "episodeCount",
+                        "absent": true
+                      },
+                      "style": {
+                        "gap": 3
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "ep.",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodesAired",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "part": "frost.progress",
+                      "when": {
+                        "field": "episodeCount"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodesAired",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": "/",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodeCount",
+                          "style": {
+                            "fontSize": 12,
+                            "fontWeight": 700
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": "(Sub)",
+                      "part": "frost.kind",
+                      "style": {
+                        "fontSize": 8.8,
+                        "fontWeight": 500
+                      }
+                    },
+                    {
+                      "type": "icon",
+                      "part": "frost.chevron",
+                      "style": {
+                        "fontSize": 14
+                      },
+                      "icon": "chevron-right"
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "frost.footer-sub",
+                  "when": {
+                    "field": "airingIn"
+                  },
+                  "style": {
+                    "gap": 3
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Next in",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "airingIn",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "part": "frost.footer-sub",
+                  "field": "status",
+                  "when": {
+                    "field": "airingIn",
+                    "absent": true
+                  },
+                  "style": {
+                    "fontSize": 11,
+                    "fontWeight": 400,
+                    "lines": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "row",
+          "part": "frost.cw",
+          "style": {
+            "gap": 8,
+            "align": "stretch",
+            "wrap": "nowrap"
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "frost.cw-art",
+              "style": {
+                "aspect": "3 / 4",
+                "radius": 8
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                },
+                {
+                  "type": "meter",
+                  "field": "progress",
+                  "part": "frost.cw-bar",
+                  "style": {
+                    "anchor": "bottom-start"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "frost.cw-info",
+              "style": {
+                "gap": 2,
+                "justify": "center",
+                "shrink": 1
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "frost.cw-title",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "lines": 1
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "frost.cw-meta",
+                  "style": {
+                    "gap": 4,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "row",
+                      "part": "frost.pill",
+                      "style": {
+                        "gap": 3
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "ep.",
+                          "style": {
+                            "fontSize": 10.88,
+                            "fontWeight": 600
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "episodeNo",
+                          "style": {
+                            "fontSize": 10.88,
+                            "fontWeight": 600
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "field": "timeLeft",
+                      "part": "frost.pill",
+                      "when": {
+                        "field": "timeLeft"
+                      },
+                      "style": {
+                        "fontSize": 10.88,
+                        "fontWeight": 600
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "ranked": {
+          "type": "row",
+          "part": "frost.pop",
+          "style": {
+            "gap": 8,
+            "align": "stretch",
+            "wrap": "nowrap"
+          },
+          "children": [
+            {
+              "type": "text",
+              "field": "rankPosition",
+              "part": "frost.rank",
+              "style": {
+                "fontSize": 12,
+                "fontWeight": 700,
+                "position": "absolute"
+              }
+            },
+            {
+              "type": "overlay",
+              "part": "frost.pop-art",
+              "style": {
+                "aspect": "3 / 4",
+                "radius": 8
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "poster",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "frost.pop-info",
+              "style": {
+                "gap": 2,
+                "justify": "center",
+                "shrink": 1
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "frost.pop-title",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "lines": 1
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "members",
+                  "part": "frost.pill",
+                  "when": {
+                    "field": "members"
+                  },
+                  "style": {
+                    "fontSize": 10.88,
+                    "fontWeight": 600
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "frost.pill-alt",
+                  "when": {
+                    "field": "members",
+                    "absent": true
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "score",
+                      "part": "frost.pill",
+                      "when": {
+                        "field": "score"
+                      },
+                      "style": {
+                        "fontSize": 10.88,
+                        "fontWeight": 600
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "tabs": "segmented",
+        "factsStyle": "cards",
+        "factsKeys": [
+          "format",
+          "duration",
+          "status",
+          "season",
+          "score"
+        ],
+        "factsLabels": {
+          "format": "type",
+          "score": "score"
+        },
+        "factsFormat": {
+          "duration": "long",
+          "score": "percent"
+        },
+        "posterWidth": 300,
+        "countdown": "words",
+        "countdownAt": "episodes",
+        "episodes": {
+          "order": "flip",
+          "search": "field",
+          "controls": [
+            "search",
+            "sort",
+            "download"
+          ]
+        }
+      },
+      "player": {
+        "layout": "docked",
+        "dock": {
+          "episodes": "right",
+          "width": 72,
+          "align": "start"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "continue"
+          },
+          {
+            "block": "tabbed-grid",
+            "tabs": [
+              {
+                "label": "Latest Updates",
+                "role": "recent"
+              },
+              {
+                "label": "New Series",
+                "role": "newest"
+              }
+            ],
+            "columns": 4,
+            "pageSize": 8,
+            "pagination": "more"
+          },
+          {
+            "block": "tabbed-grid",
+            "tabs": [
+              {
+                "label": "Trending",
+                "role": "trending"
+              },
+              {
+                "label": "Most saved",
+                "role": "popular"
+              },
+              {
+                "label": "Top movies",
+                "role": "movies"
+              },
+              {
+                "label": "Top rated",
+                "role": "rated"
+              },
+              {
+                "label": "This season",
+                "role": "season"
+              }
+            ],
+            "columns": 4,
+            "pageSize": 8,
+            "pagination": "more"
+          },
+          {
+            "block": "ranked-list",
+            "area": "aside",
+            "title": "Popular",
+            "tabs": [
+              {
+                "label": "Daily",
+                "role": "trending"
+              },
+              {
+                "label": "All time",
+                "role": "popular"
+              }
+            ],
+            "limit": 20
+          }
+        ],
+        "asideWidth": 288,
+        "asideGap": 24,
+        "asideStart": 1,
+        "nav": {
+          "bottom": [
+            "search",
+            "schedule",
+            "library"
+          ],
+          "top": [
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "layout": {
+          "home": [
+            {
+              "role": "continue"
+            },
+            {
+              "block": "ranked-list",
+              "phone": true,
+              "title": "Popular",
+              "tabs": [
+                {
+                  "label": "Daily",
+                  "role": "trending"
+                },
+                {
+                  "label": "All time",
+                  "role": "popular"
+                }
+              ],
+              "limit": 10
+            },
+            {
+              "block": "tabbed-grid",
+              "tabs": [
+                {
+                  "label": "Latest Updates",
+                  "role": "recent"
+                },
+                {
+                  "label": "New Series",
+                  "role": "newest"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 8,
+              "pagination": "more"
+            },
+            {
+              "block": "tabbed-grid",
+              "tabs": [
+                {
+                  "label": "Trending",
+                  "role": "trending"
+                },
+                {
+                  "label": "Most saved",
+                  "role": "popular"
+                },
+                {
+                  "label": "Top movies",
+                  "role": "movies"
+                },
+                {
+                  "label": "Top rated",
+                  "role": "rated"
+                },
+                {
+                  "label": "This season",
+                  "role": "season"
+                }
+              ],
+              "columns": 2,
+              "pageSize": 8,
+              "pagination": "more"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Frost — a replica of the MKissa site (docs/theme-references/mkissa.md, tmp/parity/frost/measure.md).\n   Values are the site's own: Inter, page #000, text #ddd, muted rgba(255,255,255,.5), panels\n   rgba(33,33,37,.898) with a 1px #343a40 border, wells #252a2a, primary #83a8da / #325d88. */\n\n/* ── Side rail: the site's 72 px mini sidebar, icon over a 10 px label in 63×64 tiles. ── */\n@media (min-width: 641px) {\n  [data-slot=\"nav.side\"] { width: 72px !important; gap: 0 !important; background: rgba(33, 33, 37, 0.898) !important; border-right: 1px solid #343a40; filter: none !important; box-shadow: none !important; }\n  [data-slot=\"nav.side\"] :is([data-part=\"nav.item\"], [data-part=\"nav.action\"]) { flex-direction: column; justify-content: center; gap: 2px; height: 64px !important; min-height: 64px; width: auto !important; margin: 1px 4px; padding: 8px 4px !important; border-radius: 8px; color: #ddd !important; }\n  [data-slot=\"nav.side\"] :is([data-part=\"nav.item\"], [data-part=\"nav.action\"]) svg { width: 18px; height: 18px; animation: none !important; }\n  [data-slot=\"nav.side\"] :is([data-part=\"nav.item.label\"], [data-part=\"nav.action.label\"]) { opacity: 1 !important; max-width: 40px; overflow: hidden; font-size: 10px !important; font-weight: 500 !important; line-height: 11.5px; text-align: center; white-space: nowrap; text-overflow: ellipsis; }\n  [data-slot=\"nav.side\"] [data-part=\"nav.item\"][data-active], [data-slot=\"nav.side\"] [data-part=\"nav.action\"][data-action=\"settings\"][data-active] { background: rgba(37, 42, 44, 0.65) !important; font-weight: 600; }\n  [data-slot=\"nav.side\"] :is([data-part=\"nav.item\"], [data-part=\"nav.action\"]):hover { background: rgba(37, 42, 44, 0.65); }\n  /* Incognito, Settings and the account button sit under a rule, like the site's Login tile. */\n  [data-slot=\"nav.side\"] [data-part=\"nav.action\"][data-action=\"incognito\"] { position: relative; margin-top: 5px; }\n  [data-slot=\"nav.side\"] [data-part=\"nav.action\"][data-action=\"incognito\"]::before { content: \"\"; position: absolute; left: -4px; right: -4px; top: -5px; height: 1px; background: #343a40; }\n}\n\n/* ── Home: the site's column (grid from x141, aside to x1357), 64 px under the window top. ── */\n@media (min-width: 641px) {\n  [data-slot=\"home\"] { padding: 64px 51px 0 53px; }\n  [data-slot=\"home.main\"] [data-block] { padding-right: 0 !important; }\n}\n[data-slot=\"home\"] [data-part=\"row.title\"] { font-size: 14px !important; font-weight: 600 !important; line-height: 17.5px; color: #ddd; }\n\n/* Latest Updates / New Series: the bordered tab bar with a tinted active tab. */\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tabs\"] { width: auto; gap: 2px !important; margin: 3.4px 0 19.4px !important; padding: 4px !important; border: 1px solid #343a40 !important; border-radius: 12px !important; background: rgba(33, 33, 37, 0.898) !important; }\n[data-part=\"tabs\"] [data-part=\"tab\"] > span { display: none; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"], [data-slot=\"block.ranked-list\"] [data-part=\"tab\"] { height: 32px; padding: 0 8px !important; border-radius: 4px !important; background: transparent !important; box-shadow: none !important; color: rgba(255, 255, 255, 0.5) !important; font-size: 14px !important; font-weight: 500 !important; line-height: 14px; transform: none !important; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"tab\"][data-active] { background: rgba(131, 168, 218, 0.28) !important; color: #d7e4f4 !important; font-weight: 600 !important; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"block.grid\"] { gap: 24px !important; }\n/* \"View all latest updates\": the full-width bordered button under the grid. */\n[data-slot=\"block.tabbed-grid\"] [data-part=\"pagination\"] { margin-top: 16px !important; }\n[data-slot=\"block.tabbed-grid\"] [data-part=\"pagination\"] [data-part=\"button\"] { width: 100%; min-height: 39px !important; padding: 8px 16px !important; border: 1px solid #343a40; border-radius: 8px !important; background: rgba(37, 42, 44, 0.65) !important; color: #ddd; font-size: 14px !important; font-weight: 600 !important; line-height: 21px; }\n[data-slot=\"block.tabbed-grid\"] { margin-bottom: 32px !important; }\n\n/* ── Media cards: 3:4 well with a blurred fill behind the contained poster, a status dot, a grey\n   subtitle and a panel footer with the blue accent bar. ── */\n[data-part=\"frost.poster\"] { margin-bottom: 12px; background: #252a2a; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05); }\n[data-part=\"frost.blur\"] { transform: scale(1.14); }\n[data-part=\"frost.blur\"] > img { filter: blur(8px) saturate(1.3) brightness(0.96); transform: none !important; }\n[data-part=\"frost.sharp\"] > img { transform: none !important; }\n[data-part=\"frost.poster\"]::after { content: \"\"; position: absolute; inset: 0; z-index: 3; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05); pointer-events: none; }\n[data-part=\"frost.info\"] { padding: 0 2px; }\n[data-part=\"frost.title\"] { color: #ddd; line-height: 16.25px !important; }\n[data-part=\"frost.dot\"], [data-part=\"frost.dot-off\"] { flex: 0 0 6px; width: 6px; height: 6px; box-sizing: border-box; border-radius: 9999px; font-size: 0 !important; }\n[data-part=\"frost.dot\"] { background: #16a34a; }\n[data-part=\"frost.dot-off\"] { border: 1.5px solid rgba(255, 255, 255, 0.5); opacity: 0.55; }\n[data-part=\"frost.subtitle\"] { margin-top: 2px; padding-left: 14px; color: rgba(255, 255, 255, 0.5); line-height: 13.75px; }\n[data-part=\"frost.subtitle\"] > * { line-height: 13.75px; }\n[data-part=\"frost.footer\"] { position: relative; gap: 2px; padding: 4px 8px 4px 11px; border-top: 1px solid #343a40; background: rgba(33, 33, 37, 0.898); color: #ddd; }\n[data-part=\"frost.footer\"]::before { content: \"\"; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #325d88; }\n[data-part=\"frost.footer-top\"] { height: 16.2px; }\n[data-part=\"frost.footer-top\"] > * { line-height: 16.2px; }\n[data-part=\"frost.kind\"] { color: rgba(255, 255, 255, 0.5); }\n[data-part=\"frost.chevron\"] { display: grid; margin-left: auto; color: rgba(255, 255, 255, 0.5) !important; }\n[data-part=\"frost.footer-sub\"], [data-part=\"frost.footer-sub\"] > * { color: rgba(255, 255, 255, 0.5); line-height: 15.95px; }\n/* Search cards: the score pill on the poster. */\n[data-part=\"frost.score\"] { top: 8px !important; left: 8px !important; inset-inline-start: 8px !important; height: 20px; padding: 0 6.4px; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 9999px; background: rgba(41, 41, 43, 0.698); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35); backdrop-filter: blur(4px); color: #dedada; }\n[data-part=\"frost.score\"] > * { line-height: 9px; }\n[data-part=\"frost.star\"] { display: grid; color: #fbff00 !important; }\n[data-part=\"frost.star\"] svg { fill: currentColor; }\n\n/* ── Continue Watching: the site's panel card (241×114, 72×96 thumb), progress under the thumb. ── */\n[data-part=\"frost.cw\"] { height: 114px; padding: 8px; border: 1px solid #343a40; border-radius: 12px; background: rgba(33, 33, 37, 0.898); }\n[data-part=\"frost.cw-art\"] { flex: 0 0 72px; width: 72px; height: 96px; background: #252a2a; }\n[data-part=\"frost.cw-bar\"] { height: 3px !important; min-height: 3px !important; background: rgba(0, 0, 0, 0.6) !important; }\n[data-part=\"frost.cw-bar\"] > * { background: #83a8da !important; }\n[data-part=\"frost.cw-info\"] { min-width: 0; padding-top: 4px; }\n[data-part=\"frost.cw-title\"] { color: #ddd; line-height: 18.9px; }\n[data-part=\"frost.pill\"] { display: inline-flex; align-items: center; padding: 1.6px 7.2px; border-radius: 9999px; background: rgba(37, 42, 44, 0.65); color: rgba(255, 255, 255, 0.5); white-space: nowrap; }\n[data-part=\"frost.pill\"], [data-part=\"frost.pill\"] > * { line-height: 13.056px; }\n/* Carousel arrows: the site's 36 px round panel buttons (22 px chevron, 45 % when unusable). */\n[data-part=\"row.step\"] { width: 36px; height: 36px; border: 1px solid #343a40 !important; background: rgba(33, 33, 37, 0.898) !important; box-shadow: none !important; backdrop-filter: none !important; color: rgba(212, 212, 212, 0.97) !important; }\n[data-part=\"row.step\"] svg { width: 22px; height: 22px; }\n\n/* ── Popular: the header box (\"POPULAR\" over the range pill) and the panel cards with rank circles. ── */\n[data-slot=\"block.ranked-list\"] [data-part=\"block.title\"] { margin: 0 !important; padding: 5px 9px 0; border: 1px solid #343a40; border-bottom: 0; border-radius: 12px 12px 0 0; background: rgba(33, 33, 37, 0.898); color: #ddd; font-size: 14px !important; font-weight: 700 !important; line-height: 16.8px; letter-spacing: 0.56px; text-transform: uppercase; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tabs\"] { width: auto !important; gap: 4px !important; margin: 0 0 8px !important; padding: 1px 9px 4px !important; border: 1px solid #343a40 !important; border-top: 0 !important; border-radius: 0 0 12px 12px !important; background: rgba(33, 33, 37, 0.898) !important; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"] { height: 20.4px; padding: 2.4px 8.8px !important; border-radius: 9999px !important; font-size: 12px !important; font-weight: 600 !important; line-height: 15.6px; }\n[data-slot=\"block.ranked-list\"] [data-part=\"tab\"][data-active] { background: rgba(37, 42, 44, 0.65) !important; color: #c8b7ff !important; }\n[data-slot=\"block.ranked-list\"] ol { display: flex; flex-direction: column; gap: 8px; }\n[data-slot=\"block.ranked-list\"] ol > li { margin: 0 !important; }\n[data-slot=\"block.ranked-list\"] [data-part=\"block.item\"] { border-radius: 12px; }\n/* The ranked card template (API 5 cards.ranked): the site's popular-card panel. */\n[data-part=\"frost.pop\"] { position: relative; height: 114px; padding: 8px; border: 1px solid #343a40; border-radius: 12px; background: rgba(33, 33, 37, 0.898); }\n[data-part=\"frost.rank\"] { left: 4px; top: 4px; z-index: 3; width: 28px; height: 28px; display: grid; place-items: center; padding: 0 4px; border-radius: 9999px; background: rgba(48, 48, 48, 0.78); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); color: #ddd; line-height: 18px; }\n[data-slot=\"block.ranked-list\"] li:nth-child(-n + 3) [data-part=\"frost.rank\"] { background: rgba(255, 129, 18, 0.78); color: #f1f8ff; }\n[data-part=\"frost.pop-art\"] { flex: 0 0 72px; width: 72px; height: 96px; background: #252a2a; }\n[data-part=\"frost.pop-info\"] { min-width: 0; padding: 4px 0; }\n[data-part=\"frost.pop-title\"] { color: #ddd; line-height: 18.9px; }\n[data-part=\"frost.pop-info\"] [data-part=\"frost.pill\"], [data-part=\"frost.pill-alt\"] { align-self: flex-start; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }\n@media (min-width: 1100px) {\n  /* The aside sticks under the top edge and its list scrolls inside itself, as the site's does. */\n  [data-slot=\"home.aside\"] { position: sticky; top: 64px; display: flex; flex-direction: column; max-height: calc(100vh - 80px); overflow: hidden; }\n  [data-slot=\"home.aside\"] [data-slot=\"block.ranked-list\"] { display: flex; flex-direction: column; min-height: 0; margin-bottom: 4px !important; }\n  [data-slot=\"home.aside\"] [data-slot=\"block.ranked-list\"] ol { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; scrollbar-gutter: stable; }\n}\n\n/* ── Series page (desktop): one rounded panel holding a 220 px banner, the 300×400 poster beside the\n   facts strip, title, alternative title and synopsis, then the tab bar and the episode list. ── */\n@media (min-width: 641px) {\n  [data-slot=\"detail\"][data-variant=\"desktop\"] { margin: 64px 47px 32px 48px; border: 1px solid #343a40; border-radius: 12px; background: rgba(33, 33, 37, 0.898); }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] { height: 220px !important; margin: 0 !important; opacity: 1 !important; border-radius: 11px 11px 0 0; overflow: hidden; background: #252a2a; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] > div:first-child { top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.scrim\"] { display: none; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.slide\"] { --hero-final-opacity: 0.97 !important; opacity: 0.97; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-slot=\"detail.banner\"] [data-part=\"hero.art\"] { object-position: center top !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] { margin-top: 0 !important; padding: 32px !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] :has(> [data-part=\"detail.poster\"]) { gap: 24px !important; margin-bottom: 24px !important; align-items: flex-start !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.poster\"] { width: 300px !important; height: 400px !important; aspect-ratio: 3 / 4; object-fit: cover !important; border-radius: 8px !important; background: #252a2a; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important; align-self: flex-start !important; }\n  /* The info column runs facts strip, title, alternative title, synopsis, actions, as the site does. */\n  [data-slot=\"detail\"][data-variant=\"desktop\"] :has(> [data-part=\"detail.title\"]) { display: flex; flex-direction: column; padding-top: 0 !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"] { order: -2; margin: 0 0 24px !important; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { order: -1; margin: 0 0 4px !important; color: #ddd; font-size: 30px !important; font-weight: 700 !important; line-height: 37.5px !important; letter-spacing: 0; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.alt-title\"] { margin-bottom: 24px; color: rgba(255, 255, 255, 0.5) !important; font-size: 16px !important; line-height: 24px; }\n  [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"] { max-width: none !important; margin-bottom: 24px !important; display: block !important; -webkit-line-clamp: unset !important; overflow: visible; color: rgba(212, 212, 212, 0.97) !important; font-size: 14px !important; line-height: 24.5px !important; }\n}\n[data-part=\"detail.facts\"][data-variant=\"cards\"] { display: flex !important; flex-wrap: wrap; gap: 16px 32px !important; padding-bottom: 16px; border-bottom: 1px solid #343a40; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact\"] { display: flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; min-width: 72px; padding: 0 !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; text-align: start; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.label\"] { order: -1; margin: 0 0 2px !important; color: rgba(255, 255, 255, 0.5) !important; font-size: 12px !important; font-weight: 500 !important; line-height: 18px; letter-spacing: 0.48px; text-transform: uppercase; }\n[data-part=\"detail.facts\"][data-variant=\"cards\"] [data-part=\"fact.value\"] { margin: 0 !important; color: #ddd !important; font-size: 14px !important; font-weight: 600 !important; line-height: 21px; }\n\n/* Buttons: the site's .btn (44 px, 14/600, radius 8): primary #325d88, secondary panels. */\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] { gap: 8px !important; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > button { min-height: 44px; padding: 9px 18px !important; border: 1px solid #343a40 !important; border-radius: 8px !important; background: rgba(33, 33, 37, 0.898) !important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); color: rgba(212, 212, 212, 0.97) !important; font-size: 14px !important; font-weight: 600 !important; line-height: 1.25; letter-spacing: 0.14px; }\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > button[data-variant=\"icon\"], [data-slot=\"detail\"] [data-part=\"detail.actions\"] > button:not([data-part]), [data-slot=\"detail\"] [data-part=\"detail.actions\"] > [data-part=\"detail.action\"] { width: 44px; height: 44px; padding: 0 !important; }\n[data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"] { border-color: #284d70 !important; background: #325d88 !important; color: #fff !important; }\n\n/* Tab bar: one bordered panel across the page, tinted active tab. */\n[data-slot=\"detail\"] [data-part=\"tabs\"] { width: auto !important; gap: 8px !important; margin: 0 0 16px !important; padding: 8px !important; border: 1px solid #343a40 !important; border-radius: 12px !important; background: rgba(33, 33, 37, 0.898) !important; }\n[data-slot=\"detail\"] [data-part=\"tab\"] { height: 22px; padding: 4px 8px !important; border-radius: 4px !important; background: transparent !important; box-shadow: none !important; color: rgba(255, 255, 255, 0.5) !important; font-size: 14px !important; font-weight: 500 !important; line-height: 14px !important; transform: none !important; }\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { background: rgba(131, 168, 218, 0.28) !important; color: #d7e4f4 !important; font-weight: 600 !important; }\n\n/* Episodes: the toolbar's small panel buttons and filter field, the \"airs in\" line, number tiles. */\n[data-slot=\"episodes.toolbar\"] { gap: 8px !important; }\n[data-slot=\"episodes.toolbar\"] button, [data-slot=\"episodes.toolbar\"] [data-part=\"episodes.sort\"] { min-height: 32px; height: 32px; padding: 5px 12px !important; border: 1px solid #343a40 !important; border-radius: 4px !important; background: rgba(33, 33, 37, 0.898) !important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); color: rgba(212, 212, 212, 0.97) !important; font-size: 12px !important; font-weight: 500 !important; letter-spacing: 0.12px; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"episodes.search\"] { height: 31px; min-height: 31px; border: 1px solid #343a40 !important; border-radius: 4px !important; background: rgba(33, 33, 37, 0.898) !important; }\n[data-slot=\"episodes.toolbar\"] [data-part=\"input\"] { height: 29px !important; min-height: 0 !important; padding: 4px 8px 4px 32px !important; background: transparent !important; color: #ddd; font-size: 14px !important; line-height: 21px; }\n[data-slot=\"detail\"] [data-part=\"detail.countdown\"] { color: rgba(255, 255, 255, 0.5) !important; font-size: 14px !important; font-weight: 400 !important; line-height: 21px; }\n[data-slot=\"detail\"] [data-part=\"detail.countdown\"] * { color: inherit !important; font-weight: 400 !important; }\n[data-part=\"episode\"][data-variant=\"number\"] { min-width: 59.5px; height: 48px; padding: 4px 2px !important; border: 1px solid #343a40 !important; border-radius: 8px !important; background: rgba(33, 33, 37, 0.898) !important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); color: #ddd !important; font-size: 14px !important; font-weight: 700 !important; }\n[data-part=\"episodes.grid\"]:has(> [data-part=\"episode\"][data-variant=\"number\"]) { grid-template-columns: repeat(auto-fill, 59.5px) !important; gap: 8px !important; }\n[data-part=\"episode\"][data-variant=\"number\"]::before { content: \"EP.\"; display: block; margin-bottom: 2px; color: rgba(255, 255, 255, 0.5); font-size: 8.8px; font-weight: 600; line-height: 8.8px; letter-spacing: 0.528px; }\n[data-part=\"episode\"]:not([data-variant=\"number\"]) { border: 1px solid #343a40; border-radius: 8px !important; background: rgba(33, 33, 37, 0.898); overflow: hidden; }\n\n/* ── Search: the pill field with its sort box beside it, panel pickers under it, the page heading,\n   then a grid of 192 px cards 24 px apart. ── */\n@media (min-width: 641px) {\n  [data-slot=\"search\"][data-variant=\"anilist\"] { display: flex; flex-direction: column; padding: 64px 47px 32px 48px !important; }\n  [data-slot=\"search\"][data-variant=\"anilist\"] [data-part=\"search.title\"] { order: 1; position: static !important; width: auto !important; height: auto !important; margin: 24px 0 16px !important; overflow: visible !important; clip: auto !important; white-space: normal !important; color: #ddd; font-size: 24px !important; font-weight: 700 !important; line-height: 28.8px; }\n  [data-slot=\"search\"][data-variant=\"anilist\"] > div:has([data-slot=\"search.results\"]) { order: 2; margin-top: 0 !important; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] { gap: 4px 8px !important; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"] * { color: inherit !important; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-filter=\"advanced\"] { justify-content: flex-start; gap: 8px; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] > [data-part=\"search.field\"] { order: 0; flex: 1 1 calc(100% - 176px) !important; height: 44px !important; margin: 2.3px 0; padding: 8px 16px 8px 40px !important; border: 1px solid #343a40; border-radius: 9999px !important; background: rgba(37, 42, 44, 0.65) url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2718%27%20height%3D%2718%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23808080%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%278%27%2F%3E%3Cpath%20d%3D%27m21%2021-4.3-4.3%27%2F%3E%3C%2Fsvg%3E) no-repeat 16px center !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04); color: #ddd; font-size: 14px !important; line-height: 21px; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] :has(> [data-filter=\"sort\"]) { order: 1; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] > div > :not(:has(> [data-filter=\"sort\"])) { order: 2; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"] { min-width: 168px; height: 48.7px !important; padding: 8px 16px !important; border: 1px solid #343a40 !important; border-radius: 12px !important; background: rgba(33, 33, 37, 0.898) !important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); color: #83a8da !important; font-size: 14px !important; font-weight: 600 !important; line-height: 18.2px; justify-content: space-between; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-filter=\"clear\"] { min-width: 0; color: rgba(212, 212, 212, 0.97) !important; }\n  [data-slot=\"search\"] [data-part=\"search.filters\"] > div > :has(> [data-part=\"search.filter\"]) { width: auto !important; }\n  /* Pickers: the uppercase name over the value and a 26 px chevron circle (the site's sortby boxes). */\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-label] { display: grid !important; grid-template-columns: minmax(0, 1fr) 26px; grid-template-rows: 10.56px 18.2px; column-gap: 8px; row-gap: 2px; align-content: center; align-items: center; text-align: left; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-label]::before { content: attr(data-label); grid-column: 1; grid-row: 1; color: rgba(255, 255, 255, 0.5); font-size: 8.8px; font-weight: 600; line-height: 10.56px; letter-spacing: 0.528px; text-transform: uppercase; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-label] > span { grid-column: 1; grid-row: 2; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height: 18.2px; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-label] > svg { grid-column: 2; grid-row: 1 / span 2; width: 26px; height: 26px; padding: 6px; box-sizing: border-box; border-radius: 9999px; background: rgba(37, 42, 44, 0.65); color: rgba(212, 212, 212, 0.97) !important; }\n  /* An unset multi-pick reads \"All\" under its name, as the site's pickers do. */\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-label]:is([data-filter=\"genres\"], [data-filter=\"format\"], [data-filter=\"status\"]):not([data-active]) > span { font-size: 0 !important; }\n  [data-slot=\"search\"] [data-part=\"search.filter\"][data-label]:is([data-filter=\"genres\"], [data-filter=\"format\"], [data-filter=\"status\"]):not([data-active]) > span::after { content: \"All\"; display: block; font-size: 14px; line-height: 18.2px; }\n  [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(auto-fill, 192px) !important; gap: 24px !important; justify-content: start; margin-top: 0 !important; padding: 0 8.5px; }\n}\n\n/* ── Phones: Popular is a horizontal rail of 96 px cards, the grid two 179 px columns. ── */\n@media (max-width: 640px) {\n  [data-slot=\"home\"] [data-block] { padding-left: 8px !important; padding-right: 8px !important; }\n  [data-slot=\"block.ranked-list\"] > ol { flex-direction: row !important; gap: 8px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }\n  [data-slot=\"block.ranked-list\"] > ol > li { flex: 0 0 96px; width: 96px; min-width: 0; }\n  [data-slot=\"block.ranked-list\"] [data-part=\"tabs\"] { margin-bottom: 16px !important; }\n  /* The app bar is the site's 56 px top bar: a panel with a rule under it. */\n  [data-slot=\"home.header\"] { min-height: 56px; background: rgba(33, 33, 37, 0.898); border-bottom: 1px solid #343a40; }\n  [data-slot=\"home\"] [data-part=\"row.header\"] { margin-top: 12px; padding-left: 8px !important; padding-right: 8px !important; }\n  [data-slot=\"home\"] [data-part=\"row.track\"] { padding-left: 8px !important; padding-right: 8px !important; scroll-padding-inline: 8px; }\n  [data-part=\"frost.pop\"] { height: 188.7px; flex-direction: column; gap: 4px !important; padding: 4px; }\n  [data-part=\"frost.pop-art\"] { flex: 0 0 auto; width: 86px; height: 114.7px; }\n  [data-part=\"frost.pop-info\"] { justify-content: flex-start !important; padding: 0; }\n  [data-part=\"frost.pop-title\"] { display: -webkit-box !important; -webkit-box-orient: vertical; -webkit-line-clamp: 2; white-space: normal !important; }\n  [data-slot=\"block.tabbed-grid\"] [data-part=\"block.grid\"] { gap: 16px !important; }\n}\n"
+  }
+}

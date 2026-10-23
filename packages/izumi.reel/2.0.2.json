@@ -1,0 +1,227 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 5,
+  "id": "izumi.reel",
+  "name": "Reel",
+  "version": "2.0.2",
+  "author": "Izumi",
+  "description": "animepahe look: black and magenta, a text-link header, a latest-releases grid, its player page with the settings bar.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "0 0% 93%",
+      "muted": "0 0% 7%",
+      "mutedForeground": "0 0% 60%",
+      "primary": "334 99% 42%",
+      "primaryForeground": "0 0% 100%",
+      "secondary": "0 0% 13%",
+      "secondaryForeground": "0 0% 93%",
+      "accent": "0 0% 13%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 13%",
+      "input": "0 0% 13%",
+      "ring": "334 99% 42%",
+      "card": "0 0% 7%",
+      "cardForeground": "0 0% 93%",
+      "theme": "334 99% 42%"
+    },
+    "radius": 0,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "sansita"
+    },
+    "presentation": {
+      "density": "compact",
+      "trueBlack": true,
+      "shell": {
+        "nav": "top",
+        "compact": true,
+        "top": {
+          "labels": "text",
+          "search": "field-end",
+          "brand": "start"
+        },
+        "bottomNav": {
+          "style": "bar",
+          "labels": "always",
+          "indicator": "line",
+          "background": "#000000",
+          "activeColor": "#D5015B",
+          "border": true,
+          "blur": false
+        }
+      },
+      "detail": {
+        "layout": "stack",
+        "posterWidth": 220,
+        "bannerHeight": 46,
+        "factsStyle": "table",
+        "tabs": "underline",
+        "factsKeys": [
+          "native",
+          "english",
+          "format",
+          "episodes",
+          "status",
+          "duration",
+          "aired",
+          "season",
+          "studio",
+          "genres"
+        ],
+        "factsLabels": {
+          "format": "type",
+          "studio": "studios"
+        },
+        "factsFormat": {
+          "dates": "long",
+          "duration": "min"
+        },
+        "header": {
+          "type": "text",
+          "field": "rating",
+          "part": "detail.score",
+          "when": {
+            "field": "rating"
+          }
+        },
+        "sections": {
+          "tabs": [
+            "overview",
+            "relations",
+            "recommended",
+            "characters"
+          ],
+          "labels": {
+            "recommended": "recommendations",
+            "overview": "overview",
+            "characters": "characters"
+          },
+          "info": "overview"
+        },
+        "episodes": {
+          "placement": "below",
+          "arrangement": "grid",
+          "toolbar": "header",
+          "order": "flip",
+          "controls": [
+            "sort"
+          ],
+          "paging": "pages",
+          "pageSize": 30,
+          "card": {
+            "type": "overlay",
+            "part": "ep.card",
+            "style": {
+              "aspect": "16 / 9",
+              "background": "#000000"
+            },
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "still",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "text",
+                "field": "duration",
+                "part": "ep.runtime",
+                "when": {
+                  "field": "duration"
+                },
+                "style": {
+                  "anchor": "bottom-start"
+                }
+              },
+              {
+                "type": "text",
+                "field": "episodeNo",
+                "part": "ep.no",
+                "style": {
+                  "anchor": "bottom-end"
+                }
+              },
+              {
+                "type": "meter",
+                "field": "progress",
+                "part": "ep.progress",
+                "when": {
+                  "field": "progress"
+                },
+                "style": {
+                  "anchor": "bottom-start",
+                  "minHeight": 3
+                }
+              }
+            ]
+          }
+        }
+      },
+      "player": {
+        "seekbarColor": "theme",
+        "layout": "docked",
+        "dock": {
+          "episodes": "below",
+          "flow": "page",
+          "width": 100,
+          "maxWidth": 1100,
+          "align": "center",
+          "below": [
+            "toolbar",
+            "info",
+            "comments"
+          ],
+          "toolbar": [
+            "server",
+            "episode",
+            "release",
+            "download"
+          ],
+          "hide": [
+            "back",
+            "title"
+          ]
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "block": "latest-episodes",
+            "title": "Latest Releases",
+            "columns": 3,
+            "pageSize": 12,
+            "pagination": "numbers",
+            "caption": "overlay"
+          }
+        ]
+      },
+      "mobile": {
+        "layout": {
+          "home": [
+            {
+              "block": "latest-episodes",
+              "title": "Latest Releases",
+              "columns": 1,
+              "pageSize": 12,
+              "pagination": "numbers",
+              "caption": "overlay"
+            }
+          ]
+        }
+      }
+    },
+    "css": "/* Reel — the animepahe look. Numbers from docs/theme-references/animepahe.md (computed styles of the\r\n   live site); the per-element table is in the parity draft's measure.md. */\r\n\r\n/* ---------- Header: one 47 px black row, content in the 1100 px container ---------- */\r\n:scope { --theme-top-row: 47px; }\r\n[data-slot=\"nav.top\"] {\r\n  background: #000;\r\n  border-bottom: 0;\r\n  padding-left: max(12px, calc((100vw - 1100px) / 2));\r\n  padding-right: max(12px, calc((100vw - 1100px) / 2));\r\n  gap: 0;\r\n}\r\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"] {\r\n  height: 37px;\r\n  padding: 8px 15px;\r\n  border-radius: 0;\r\n  background: rgba(0, 0, 0, 0.4);\r\n  color: #fff;\r\n  font-size: 14px;\r\n  font-weight: 400;\r\n  line-height: 21px;\r\n  text-transform: lowercase;\r\n}\r\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"][data-active] { color: #fff; background: rgba(0, 0, 0, 0.4); }\r\n[data-slot=\"nav.top\"] [data-part=\"nav.item\"]:hover { color: #d5015b; background: rgba(0, 0, 0, 0.4); }\r\n/* The search field ends the row at the container's right edge, as on the site; izumi's own\r\n   incognito/settings/account buttons sit just before it. */\r\n[data-slot=\"nav.top\"] :has(> [data-part=\"search.field\"]) { order: 99; width: 225px; margin-left: 10px; margin-right: 0; }\r\n[data-slot=\"nav.top\"] [data-part=\"search.field\"] {\r\n  height: 36px;\r\n  padding-left: 32px;\r\n  border: 0;\r\n  border-radius: 0;\r\n  background: #e7edf3;\r\n  color: #667d99;\r\n  font-size: 13px;\r\n}\r\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"] { border-radius: 0; color: #fff; }\r\n[data-slot=\"nav.top\"] [data-part=\"nav.action\"]:hover { color: #d5015b; background: transparent; }\r\n\r\n/* ---------- Home: \"Latest Releases\", 3 × 360×202 cards with 10 px gutters ---------- */\r\n[data-slot=\"home\"] { max-width: 1132px; margin-left: auto; margin-right: auto; padding: 24px 16px 64px; }\r\n[data-slot=\"block.latest-episodes\"] { padding-left: 0; padding-right: 0; }\r\n/* Phones: the Bootstrap container's 15 px gutters, one 360 px-wide card per row at 390 px. */\r\n@media (max-width: 640px) {\r\n  [data-slot=\"home\"] { padding-left: 15px; padding-right: 15px; }\r\n}\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.title\"] {\r\n  font-size: 32px;\r\n  font-weight: 300;\r\n  line-height: 38.4px;\r\n  color: #eee;\r\n  margin: 0 0 13px;\r\n}\r\n[data-slot=\"block.latest-episodes\"] :has(> [data-part=\"block.item\"]) { gap: 10px; }\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] > button { border-radius: 0 !important; background: #000 !important; }\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.still\"] img { transform: none !important; }\r\n/* The site's overlay: clear to 70 %, then to rgba(0,0,0,.75) at the bottom edge. */\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.still\"] + span {\r\n  background-image: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.75)) !important;\r\n}\r\n/* Hover: the magenta play triangle in the middle of the still. */\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] > button::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: 50%;\r\n  top: 50%;\r\n  margin: -24px 0 0 -14px;\r\n  border-left: 36px solid #d5015b;\r\n  border-top: 24px solid transparent;\r\n  border-bottom: 24px solid transparent;\r\n  opacity: 0;\r\n  pointer-events: none;\r\n}\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"block.item\"] > button:hover::after { opacity: 1; }\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"card.title\"] {\r\n  left: 15px !important;\r\n  bottom: 12px !important;\r\n  font-size: 12.8px;\r\n  font-weight: 500;\r\n  line-height: 19.2px;\r\n  color: #fff;\r\n  text-shadow: 0 1px 2px #000;\r\n}\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.number\"] {\r\n  right: 15px !important;\r\n  bottom: 12px !important;\r\n  font-size: 19.2px;\r\n  font-weight: 600;\r\n  line-height: 19.2px;\r\n}\r\n[data-slot=\"block.latest-episodes\"] [data-part=\"episode.number\"] svg { color: #28a745; }\r\n\r\n/* Pager « ‹ n › »: Bootstrap items, only the current page number shows. */\r\n[data-part=\"pagination\"] { gap: 0; margin-top: 16px; }\r\n[data-part=\"pagination\"] > span { display: none; }\r\n[data-part=\"pagination\"] [data-part=\"page-number\"]:not([data-active]) { display: none; }\r\n[data-part=\"pagination\"] button {\r\n  height: 38px;\r\n  min-width: 35px;\r\n  margin-left: -1px;\r\n  padding: 8px 12px;\r\n  border: 1px solid #000;\r\n  border-radius: 0;\r\n  background: #111;\r\n  color: #a20145;\r\n  font-size: 16px;\r\n  font-weight: 400;\r\n  line-height: 20px;\r\n}\r\n[data-part=\"pagination\"] [data-part=\"page-number\"][data-active] { background: #d5015b; color: #fff; }\r\n\r\n/* ---------- Series page (desktop): one grid in the 1100 px container ----------\r\n   poster 220 | title, Japanese line, tabs, score + actions, the tab's content | facts 250;\r\n   the episode grid runs the full width under it. */\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] {\r\n  display: grid;\r\n  grid-template-columns: 220px max-content minmax(0, 1fr) 250px;\r\n  grid-template-rows: auto auto auto auto auto 1fr;\r\n  column-gap: 30px;\r\n  align-items: start;\r\n  max-width: 1132px;\r\n  margin: -182px auto 0 !important;\r\n  padding: 0 16px 64px !important;\r\n}\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] > div:has(> [data-part=\"detail.poster\"]),\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] div:has(> [data-part=\"detail.title\"]) { display: contents; }\r\n/* Everything else in the column (zero specificity, so the placements below win). */\r\n:where([data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"]) > *,\r\n:where([data-slot=\"detail\"][data-variant=\"desktop\"] div:has(> [data-part=\"detail.title\"])) > * { grid-column: 2 / 4; margin: 0; }\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.poster\"] {\r\n  grid-column: 1; grid-row: 1 / 7; width: 220px !important; height: 330px; object-fit: cover; border-radius: 0; box-shadow: none;\r\n}\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] {\r\n  grid-column: 2 / -1; grid-row: 1; padding-top: 82px;\r\n  font-family: var(--font-display); font-size: 32px; font-weight: 500; line-height: 38.4px; color: #fff;\r\n}\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.alt-title\"] {\r\n  grid-column: 2 / -1; grid-row: 2; margin-bottom: 8px;\r\n  font-size: 17.6px; font-weight: 600; line-height: 21.12px; color: #fff;\r\n}\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] > [data-part=\"tabs\"] { grid-column: 2 / -1; grid-row: 3; margin: 0 0 15px; padding: 0; }\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.header\"] { grid-column: 2; grid-row: 4; align-self: center; margin-bottom: 15px; font-size: 16px; font-weight: 700; color: #eee; }\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] { grid-column: 3; grid-row: 4; margin-bottom: 15px; }\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] > [data-part=\"tabs\"] + * { grid-row: 5; max-width: none; }\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.facts\"] { grid-column: 4; grid-row: 4 / 7; }\r\n[data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.content\"] > div:has(> [data-slot=\"detail.episodes\"]) { grid-column: 1 / -1; grid-row: 7; margin-top: 30px; }\r\n\r\n[data-slot=\"detail\"] [data-part=\"detail.synopsis\"] { font-size: 16px; line-height: 24px; color: #eee; }\r\n/* Studio and start date repeat the facts column; the synonyms stay. */\r\n[data-slot=\"detail\"] [data-part=\"detail.synopsis\"] ~ dl [data-key=\"studio\"],\r\n[data-slot=\"detail\"] [data-part=\"detail.synopsis\"] ~ dl [data-key=\"aired\"] { display: none; }\r\n\r\n/* Facts column: \"Label: value\" lines, 12 px, labels bold; genres as tags under a divider. */\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] { display: block; font-size: 12px; line-height: 18px; color: #eee; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact\"] { display: block; margin-bottom: 3px; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"] { display: inline; font-weight: 700; color: #eee; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.label\"]::after { content: \":\"; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-part=\"fact.value\"] { display: inline; margin-left: 4px; color: #eee; white-space: normal; }\r\n[data-part=\"detail.facts\"] [data-part=\"fact.value\"] a { color: #d5015b; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-key=\"genres\"] { margin-top: 12px; padding-top: 12px; border-top: 1px solid #222; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-key=\"genres\"] [data-part=\"fact.label\"] { display: none; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-key=\"genres\"] [data-part=\"fact.value\"] { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; font-size: 0; }\r\n[data-part=\"detail.facts\"][data-variant=\"table\"] [data-key=\"genres\"] a {\r\n  min-width: 76px; height: 22px; padding: 0 10px; background: #222; color: #d5015b;\r\n  font-size: 12px; font-weight: 700; line-height: 22px; text-align: center; text-decoration: none;\r\n}\r\n\r\n[data-slot=\"detail\"] [data-part=\"button\"],\r\n[data-slot=\"detail\"] [data-part=\"detail.list-button\"],\r\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > * { border-radius: 0; }\r\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] { gap: 6px; }\r\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] > * { height: 36px; min-height: 36px; font-size: 14px; }\r\n[data-slot=\"detail\"] [data-part=\"detail.actions\"] [data-part=\"button\"] { padding-left: 14px; padding-right: 14px; }\r\n\r\n/* Tabs: 180 × 50, 16 px / 400 #f1f1f1, the active one underlined magenta. */\r\n[data-slot=\"detail\"] [data-part=\"tabs\"] { gap: 0; }\r\n[data-slot=\"detail\"] [data-part=\"tab\"] {\r\n  width: 180px; height: 50px; justify-content: center; text-align: center;\r\n  font-size: 16px; font-weight: 400; color: #f1f1f1; border-radius: 0;\r\n}\r\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] { color: #fff; }\r\n[data-slot=\"detail\"] [data-part=\"tab\"][data-active] > span { height: 2px; border-radius: 0; background: #d5015b; }\r\n\r\n/* Episodes: a #222 bar \"Episodes (n)\" with the sort toggle at its right, then 3 × 360×202 stills. */\r\n[data-slot=\"episodes.toolbar\"][data-variant=\"header\"] {\r\n  height: 45px; margin-bottom: 10px; padding: 0 0 0 15px; background: #222; border-radius: 0; align-items: center;\r\n}\r\n[data-part=\"episodes.heading\"] { font-size: 16px; font-weight: 400; color: #eee; }\r\n[data-part=\"episodes.count\"] { font-size: 16px; font-weight: 400; color: #eee; }\r\n[data-part=\"episodes.count\"]::before { content: \"(\"; }\r\n[data-part=\"episodes.count\"]::after { content: \")\"; }\r\n/* The order toggle reads \"asc\" / \"desc\" as on the site. */\r\n[data-part=\"episodes.sort\"][data-dir] { font-size: 0 !important; gap: 0 !important; }\r\n[data-part=\"episodes.sort\"][data-dir] svg { display: none; }\r\n[data-part=\"episodes.sort\"][data-dir=\"asc\"]::after { content: \"asc\"; font-size: 14px; }\r\n[data-part=\"episodes.sort\"][data-dir=\"desc\"]::after { content: \"desc\"; font-size: 14px; }\r\n[data-slot=\"episodes.toolbar\"] button { height: 45px; border-radius: 0; background: transparent; color: #eee; font-size: 14px; font-weight: 400; }\r\n[data-slot=\"detail.episodes\"] [data-part=\"episodes.grid\"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 10px !important; }\r\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"],\r\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"] * { border-radius: 0; }\r\n[data-slot=\"detail.episodes\"] [data-part=\"badge\"] { display: none; }\r\n[data-part=\"ep.card\"]::after {\r\n  content: \"\"; position: absolute; inset: 0; pointer-events: none;\r\n  background-image: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.75));\r\n}\r\n[data-part=\"ep.runtime\"] {\r\n  z-index: 1; left: 15px !important; bottom: 12px !important; padding: 2px 6px; border-radius: 3px;\r\n  background: rgba(0, 0, 0, 0.7); color: #fff; font-size: 11px; font-weight: 400; line-height: 16px;\r\n}\r\n[data-part=\"ep.no\"] {\r\n  z-index: 1; right: 15px !important; bottom: 12px !important;\r\n  color: #fff; font-size: 19.2px; font-weight: 700; line-height: 19.2px; text-shadow: 0 1px 2px #000;\r\n}\r\n[data-part=\"ep.progress\"] { z-index: 1; }\r\n[data-slot=\"detail.episodes\"] [data-part=\"episode\"][data-state=\"unaired\"] { opacity: 0.45; }\r\n[data-part=\"episodes.pager\"] [data-part=\"page-number\"] {\r\n  height: 40px; padding: 8px 12px; border: 1px solid #000; border-radius: 0; background: #111; color: #a20145; font-size: 16px;\r\n}\r\n\r\n/* Watch page: animepahe's play page. A 1100px column with the video 25px under the header, then a\r\n   #222 bar of four equal dropdowns (server, episode, fansub · quality, download) opening upward in\r\n   white menus, the poster + \"Title - 12\" info block, and the discussion below as part of the page. */\r\n[data-slot=\"watch.page\"] { padding-top: 25px; }\r\n[data-slot=\"watch.toolbar\"] { margin-top: 15px; background: #222 !important; color: #eee !important; }\r\n[data-slot=\"watch.toolbar\"] > div + div::before {\r\n  content: \"\"; position: absolute; left: 0; top: 12px; bottom: 12px; width: 1px; background: rgba(255, 255, 255, 0.12); z-index: 1;\r\n}\r\n[data-part=\"watch.toolbar.item\"] {\r\n  position: relative; height: 45px !important; padding: 12px 16px !important; font-size: 14px !important; font-weight: 400;\r\n  color: #eee !important; background: transparent !important;\r\n}\r\n[data-part=\"watch.toolbar.item\"] svg { display: none; }\r\n[data-part=\"watch.toolbar.item\"]::after {\r\n  content: \"\"; position: absolute; top: 20px; right: 15px;\r\n  border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 4px solid #eee;\r\n}\r\n[data-part=\"watch.toolbar.menu\"] {\r\n  left: 0 !important; transform: none !important; min-width: 100% !important; margin-bottom: 2px !important;\r\n  padding: 8px 0 !important; border: 1px solid rgba(0, 0, 0, 0.15) !important; border-radius: 0 !important;\r\n  background: #fff !important; color: #212529 !important; box-shadow: none !important;\r\n}\r\n[data-part=\"watch.toolbar.option\"] { padding: 4px 24px !important; font-size: 14px; color: #212529; }\r\n[data-part=\"watch.toolbar.menu\"][data-item=\"episode\"] [data-part=\"watch.toolbar.option\"] { text-align: center !important; }\r\n[data-part=\"watch.toolbar.option\"]:hover { background: #f8f9fa !important; color: #16181b !important; }\r\n[data-part=\"watch.toolbar.option\"][data-state=\"active\"] { background: #d5015b !important; color: #eee !important; }\r\n[data-slot=\"watch.info\"] {\r\n  position: relative; display: block !important; min-height: 143px; margin: 15px 0 16px;\r\n  padding: 15px 0 15px 95px !important; background: transparent !important; color: #999 !important; font-size: 14px !important;\r\n}\r\n[data-part=\"watch.info.poster\"] { position: absolute !important; left: 0; top: 15px; width: 80px !important; border-radius: 0 !important; }\r\n[data-part=\"watch.info.poster\"] img { aspect-ratio: auto !important; height: 113px; }\r\n[data-part=\"watch.info.title\"] { font-size: 16px !important; font-weight: 600 !important; line-height: 21px; color: #fff !important; }\r\n[data-part=\"watch.info.title\"] a:hover { text-decoration: none !important; color: #d5015b; }\r\n[data-part=\"watch.info.meta\"], [data-part=\"watch.info.season\"] { line-height: 21px; }\r\n/* The discussion where the embed sits on the site: tabs with a rounded top corner over the panel. */\r\n[data-part=\"watch.block\"][data-block=\"comments\"] { margin-top: 80px; }\r\n[data-slot=\"watch.comments\"] { background: transparent !important; }\r\n[data-part=\"comments.header\"] { display: none !important; }\r\n[data-part=\"comments.tabs\"] { gap: 0 !important; padding: 0 !important; border: 0 !important; }\r\n[data-part=\"comments.tab\"] {\r\n  height: 45px; padding: 0 20px !important; border-radius: 0 16px 0 0 !important; font-size: 14px !important; font-weight: 600 !important;\r\n  background: #1c1c1c !important; color: #9a9a9a !important;\r\n}\r\n[data-part=\"comments.tab\"][data-active] { background: #323232 !important; color: #f5f5f5 !important; }\r\n"
+  }
+}

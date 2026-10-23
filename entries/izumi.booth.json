@@ -1,10 +1,10 @@
 {
   "id": "izumi.booth",
   "name": "Booth",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Izumi",
   "description": "Miruro look: near-black and lavender in Geist, a card hero with a gradient title, a tabbed grid and a Top Airing aside.",
-  "themeApi": 3,
+  "themeApi": 5,
   "tags": [
     "Dark",
     "Site",
@@ -16,8 +16,8 @@
     "phone"
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
-  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/2.0.1.json",
-  "sha256": "716851907764b9d724f59be122fc87135ff26b9cf00dfabb506fab20b59a7c3f",
-  "bytes": 43689,
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.booth/2.0.2.json",
+  "sha256": "5b29d1f23cfc2ba0820f36b8cc1d04f689b69e1174c222e766775bc26c988d72",
+  "bytes": 73698,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.booth.png"
 }

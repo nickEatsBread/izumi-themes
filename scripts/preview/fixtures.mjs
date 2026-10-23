@@ -155,14 +155,20 @@ export function listMedia(args = {}) {
   return rotated.slice((page - 1) * perPage, page * perPage)
 }
 
+// The latest four aired episodes of every airing show, newest first, paged like AniList: enough
+// releases to fill more than one page of a latest-episodes grid.
+const AIRINGS = MEDIA.filter((media) => media.status === 'RELEASING')
+  .flatMap((media) => [0, 1, 2, 3].map((back) => ({ media, episode: media._airedEpisodes - back, back })))
+  .filter((entry) => entry.episode >= 1)
+  .map((entry, i) => ({ ...entry, hours: 2 + entry.back * 168 + i * 3 }))
+  .sort((a, b) => a.hours - b.hours)
+  .map(({ media, episode, hours }, i) => ({ id: 3000 + i, episode, airingAt: NOW - 3600 * hours, timeUntilAiring: -3600 * hours, media }))
+export const AIRING_COUNT = AIRINGS.length
+
 export function airingSchedules(args = {}) {
-  return MEDIA.filter((media) => media.status === 'RELEASING').slice(0, Number(args.perPage ?? 20)).map((media, i) => ({
-    id: 3000 + i,
-    episode: media._airedEpisodes,
-    airingAt: NOW - 3600 * (2 + i * 9),
-    timeUntilAiring: -3600 * (2 + i * 9),
-    media,
-  }))
+  const perPage = Math.min(Number(args.perPage ?? 20), 50)
+  const page = Math.max(1, Number(args.page ?? 1))
+  return AIRINGS.slice((page - 1) * perPage, page * perPage)
 }
 
 export const GENRES = ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Mecha', 'Mystery', 'Psychological', 'Romance', 'Sci-Fi', 'Slice of Life', 'Sports', 'Supernatural', 'Thriller']

@@ -3,7 +3,7 @@
 // normalised cache always receives a complete document.
 import { createRequire } from 'node:module'
 import { join } from 'node:path'
-import { GENRES, MEDIA, airingSchedules, listMedia, mediaById } from './fixtures.mjs'
+import { AIRING_COUNT, GENRES, MEDIA, airingSchedules, listMedia, mediaById } from './fixtures.mjs'
 
 let parse
 export function loadParser(izumiDir) {
@@ -12,10 +12,12 @@ export function loadParser(izumiDir) {
 }
 
 const ROOT = {
-  Page: () => ({
-    pageInfo: { total: MEDIA.length, currentPage: 1, lastPage: 1, hasNextPage: false, perPage: 20 },
-    media: (args) => listMedia(args),
-    airingSchedules: (args) => airingSchedules(args),
+  // Paged like AniList (the catalogue fills more than one page of a grid), so pagers show in previews.
+  // The page count follows the longer of the two lists a page can hold (titles or airings).
+  Page: ({ page = 1, perPage = 20 } = {}) => ({
+    pageInfo: { total: Math.max(MEDIA.length, AIRING_COUNT), currentPage: page, lastPage: Math.max(1, Math.ceil(Math.max(MEDIA.length, AIRING_COUNT) / perPage)), hasNextPage: page * perPage < Math.max(MEDIA.length, AIRING_COUNT), perPage },
+    media: (args) => listMedia({ ...args, page, perPage }),
+    airingSchedules: (args) => airingSchedules({ ...args, page, perPage }),
     mediaList: () => [],
     characters: () => [],
     staff: () => [],

@@ -5,10 +5,10 @@
   "release": {
     "id": "izumi.lavender",
     "name": "Lavender",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "author": "Izumi",
     "description": "anilili look: black and purple, genre chips over a full-bleed hero, segmented tabs, ★ score badges, pill tabs.",
-    "themeApi": 4,
+    "themeApi": 5,
     "tags": [
       "Phone",
       "Dark",
@@ -20,9 +20,9 @@
       "desktop"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.2.json",
-    "sha256": "33d4dce2d032497980a53751de653a81811f1b7a2606d5b92c8dc1f80b99f2d2",
-    "bytes": 165176,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.3.json",
+    "sha256": "d8a24751918fd284b2936040e8dab63e8d944f1aada908ce6bb4839e383be94f",
+    "bytes": 184627,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
   }
 }
