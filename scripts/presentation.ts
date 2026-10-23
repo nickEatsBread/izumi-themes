@@ -13,6 +13,7 @@ export type DisplayField =
   | 'starring' | 'creators'
   | 'kind'
   | 'airDateLong'
+  | 'newBadge'
 /** Host numbers. `when.atMost` compares these; text nodes render them through `displayText`. */
 export type NumericDisplayField = 'rankPosition' | 'score' | 'duration' | 'episodeNumber' | 'progress' | 'nextEpisode' | 'slide' | 'slides' | 'episodesAired' | 'episodesWatched'
 /** `keyart` (API 3) is 16:9 title artwork: a TVDB background for AniList titles, a TMDB or add-on backdrop otherwise.
@@ -38,11 +39,12 @@ export type EpisodeControl = 'sort' | 'layout' | 'search' | 'download' | 'queue'
  *  Overview's Information block, which becomes a section of its own only when `tabs` lists it. */
 export type DetailSection = 'overview' | 'episodes' | 'relations' | 'characters' | 'recommended' | 'information'
 /** API 3: the fixed tab names a theme picks from — never free text. API 4 adds `information` and
- *  `show-details` (for the `information` section). */
+ *  `show-details` (for the `information` section). API 6 adds `suggested` (for the Recommended section). */
 export type TabLabel =
   | 'overview' | 'info' | 'details' | 'about' | 'home' | 'episodes' | 'watch' | 'relations' | 'related'
   | 'characters' | 'cast' | 'recommended' | 'more-like-this' | 'recommendations'
   | 'information' | 'show-details'
+  | 'suggested'
 /** API 3: which sections get a tab, their names, the tab open on arrival, and where the phone facts sit. */
 export interface DetailSections {
   /** `tabs` (default) draws a tab strip; `stack` renders every section in turn under its own title. */
@@ -207,7 +209,7 @@ export interface RowPresentation {
 /** Theme API 1 is the original contract; API 2 adds the phone block, bottom-bar and slide-marker
  *  chrome, row headings, series tabs and the docked player. A package declares which it uses, so
  *  a client that only knows API 1 refuses an API 2 package cleanly instead of failing mid-parse. */
-export type ThemeApi = 1 | 2 | 3 | 4 | 5
+export type ThemeApi = 1 | 2 | 3 | 4 | 5 | 6
 /** The newest theme API this client renders. API 3 adds stylesheets, fonts, template parts,
  *  airing and slide fields, and the text wordmark. API 4 adds the phone root size, scroll chrome,
  *  the series header buttons, fact keys, names and formats, the Information section, the synopsis
@@ -217,8 +219,11 @@ export type ThemeApi = 1 | 2 | 3 | 4 | 5
  *  portrait header art and its cover fallback, the phone series bar options, per-episode
  *  download buttons, the series progress row, the folding actions row, the studio button, plain
  *  status words and aired episode counts, recommendations among the relations, the hero's artwork
- *  choice, the kind of title and the Continue Watching empty state. */
-export const LATEST_THEME_API: ThemeApi = 5
+ *  choice, the kind of title and the Continue Watching empty state. API 6 adds the TV block (applied on
+ *  Android TV and in Game mode), the freshness badge field, artwork on card templates and the Suggested
+ *  tab name; later API 6 keys add player controls, the expanding preview, trailer backgrounds, anchored
+ *  TV rows and the grid search keyboard. */
+export const LATEST_THEME_API: ThemeApi = 6
 /** Series-page tab strip: an underlined row, pills, an iOS-style segmented control, or a bar of
  *  equal tabs with a tinted pill behind the active one (the two-tab Info/Watch bar of some apps).
  *  API 3 `bottom`: on phones the tabs become a bar fixed to the bottom of the screen in place of the
@@ -474,6 +479,9 @@ export interface ThemePresentation {
   cardPreview?: 'popup' | 'none'
   /** Phone overrides (the Android app and any viewport up to 640px), resolved on top of the rest. */
   mobile?: MobilePresentation
+  /** API 6: the TV variant (Android TV and Game mode), resolved on top of the rest there and dropped
+   *  everywhere else. Unlike `mobile` it may move the navigation (`shell`) and choose the hover preview. */
+  tv?: TvPresentation
   /** API 4, phones only: the root font size in px (14–18; izumi's own is 14.5) that every rem of the
    *  app's phone UI follows, times the design's font scale. The izumi mark keeps its own size. Only
    *  accepted inside `mobile`; the resolved phone presentation carries it here. */
@@ -481,6 +489,9 @@ export interface ThemePresentation {
 }
 /** What a phone variant can change. Navigation is always the bottom bar there, so `shell` stays shared. */
 export type MobilePresentation = Pick<ThemePresentation, 'density' | 'hideCardLabels' | 'trueBlack' | 'hero' | 'rows' | 'detail' | 'player' | 'cards' | 'layout' | 'rootSize'>
+/** What the TV variant can change: the phone set without the phone root size, plus the shell and the
+ *  hover preview choice. */
+export type TvPresentation = Pick<ThemePresentation, 'density' | 'hideCardLabels' | 'trueBlack' | 'hero' | 'rows' | 'detail' | 'player' | 'cards' | 'layout' | 'shell' | 'cardPreview'>
 /** Every host binds the same shapes: numeric fields are numbers, the rest strings. */
 export type DisplayModel = Partial<Record<Exclude<DisplayField, NumericDisplayField> | ArtworkKind, string> & Record<NumericDisplayField, number>>
 export const ROW_CONTEXT = Symbol('theme-row')
@@ -499,6 +510,7 @@ const fields = [
   'starring', 'creators',
   'kind',
   'airDateLong',
+  'newBadge',
 ] as const satisfies readonly DisplayField[]
 const API3_FIELDS: readonly DisplayField[] = ['nextEpisode', 'airingIn', 'airingCountdown', 'slide', 'slides', 'episodesAired', 'genre', 'ageRating', 'audio', 'timeLeft', 'episodeNo', 'episodeCode', 'watched', 'filler', 'rating', 'episodeName']
 /** The release year, the second and third genres, the episodes watched, the long duration, the bare
@@ -508,7 +520,9 @@ const API4_FIELDS: readonly DisplayField[] = ['startYear', 'genre2', 'genre3', '
 /** An older package is held to the fields its clients know, so it renders identically everywhere. */
 /** An episode's air date in words ("16 September 2026") is API 5. */
 const API5_FIELDS: readonly DisplayField[] = ['airDateLong']
-const fieldsFor = (api: ThemeApi): readonly DisplayField[] => fields.filter(field => (api >= 3 || !API3_FIELDS.includes(field)) && (api >= 4 || !API4_FIELDS.includes(field)) && (api >= 5 || !API5_FIELDS.includes(field)))
+/** The freshness badge ("New Episode") is API 6. */
+const API6_FIELDS: readonly DisplayField[] = ['newBadge']
+const fieldsFor = (api: ThemeApi): readonly DisplayField[] => fields.filter(field => (api >= 3 || !API3_FIELDS.includes(field)) && (api >= 4 || !API4_FIELDS.includes(field)) && (api >= 5 || !API5_FIELDS.includes(field)) && (api >= 6 || !API6_FIELDS.includes(field)))
 const numericFields: string[] = ['rankPosition', 'score', 'duration', 'episodeNumber', 'progress', 'nextEpisode', 'slide', 'slides', 'episodesAired', 'episodesWatched'] satisfies NumericDisplayField[]
 const actions: readonly ThemeAction[] = ['play', 'details', 'favorite', 'previous', 'next', 'list', 'trailer', 'share']
 /** The actions the series header (`detail.header`) and facts (`detail.facts`) templates may add from
@@ -526,9 +540,12 @@ const SECTION_LABELS: Record<DetailSection, readonly TabLabel[]> = {
   episodes: ['episodes', 'watch'],
   relations: ['relations', 'related'],
   characters: ['characters', 'cast'],
-  recommended: ['recommended', 'more-like-this', 'recommendations'],
+  recommended: ['recommended', 'more-like-this', 'recommendations', 'suggested'],
   information: ['information', 'details', 'show-details'],
 }
+/** "Suggested" is API 6; older packages keep the names their clients know. */
+const labelsFor = (section: DetailSection, api: ThemeApi): readonly TabLabel[] =>
+  api >= 6 ? SECTION_LABELS[section] : SECTION_LABELS[section].filter((label) => label !== 'suggested')
 /** Every standard fact: izumi's own, in the order its facts list them, then the API 4 additions. */
 export const FACT_KEYS = [
   'format', 'episodes', 'status', 'aired', 'season', 'duration', 'studio', 'source', 'country',
@@ -687,6 +704,7 @@ const api2 = (api: ThemeApi, keys: string[]) => (api >= 2 ? keys : [])
 const api3 = (api: ThemeApi, keys: string[]) => (api >= 3 ? keys : [])
 const api5 = (api: ThemeApi, keys: string[]) => (api >= 5 ? keys : [])
 const api4 = (api: ThemeApi, keys: string[]) => (api >= 4 ? keys : [])
+const api6 = (api: ThemeApi, keys: string[]) => (api >= 6 ? keys : [])
 function parseHeading(value: unknown): RowHeading {
   const raw = record(value); only(raw, ['weight', 'transform', 'accent', 'viewMore'])
   const result: RowHeading = {}
@@ -786,7 +804,7 @@ function parseSections(value: unknown, api: ThemeApi): DetailSections {
     const labels = record(raw.labels); only(labels, [...sections])
     result.labels = {}
     for (const section of sections) {
-      if (labels[section] !== undefined) result.labels[section] = choice(labels[section], SECTION_LABELS[section])
+      if (labels[section] !== undefined) result.labels[section] = choice(labels[section], labelsFor(section, api))
     }
   }
   if (raw.unlisted !== undefined) {
@@ -1012,15 +1030,21 @@ function parseMobile(value: unknown, api: ThemeApi): MobilePresentation {
   if (rootSize !== undefined) result.rootSize = number(rootSize, 14, 18)
   return result
 }
+const TV_KEYS = [...MOBILE_KEYS, 'shell', 'cardPreview']
+function parseTv(value: unknown, api: ThemeApi): TvPresentation {
+  const raw = record(value); only(raw, TV_KEYS)
+  return parsePresentation(raw, api)
+}
 /** Validate a presentation. `api` is the package's declared theme API: API 1 packages get the
  *  original key set (so they behave identically on every client), API 2 the additions. Personal
  *  Theme Studio designs and previews use the newest API. `phone` marks a `mobile` block being
  *  parsed, so its layout cannot carry navigation (phones always use the bottom bar). */
 export function parsePresentation(value: unknown, api: ThemeApi = LATEST_THEME_API, phone = false): ThemePresentation {
   const raw = record(value)
-  only(raw, ['density', 'hideCardLabels', 'trueBlack', 'hero', 'rows', 'detail', 'shell', 'player', 'cards', ...api2(api, ['mobile']), ...api3(api, ['layout', 'cardPreview'])])
+  only(raw, ['density', 'hideCardLabels', 'trueBlack', 'hero', 'rows', 'detail', 'shell', 'player', 'cards', ...api2(api, ['mobile']), ...api3(api, ['layout', 'cardPreview']), ...api6(api, ['tv'])])
   const result: ThemePresentation = {}
   if (raw.mobile !== undefined) result.mobile = parseMobile(raw.mobile, api)
+  if (raw.tv !== undefined) result.tv = parseTv(raw.tv, api)
   if (raw.density !== undefined) result.density = choice(raw.density, ['compact', 'comfortable', 'large'])
   if (raw.hideCardLabels !== undefined) result.hideCardLabels = flag(raw.hideCardLabels)
   if (raw.trueBlack !== undefined) result.trueBlack = flag(raw.trueBlack)
@@ -1060,34 +1084,52 @@ export function parsePresentation(value: unknown, api: ThemeApi = LATEST_THEME_A
   if (raw.cardPreview !== undefined) result.cardPreview = choice(raw.cardPreview, ['popup', 'none'])
   return result
 }
-/** The presentation for one surface: on a phone the `mobile` block is layered over the shared one.
- *  Objects merge one level deep per section (a phone hero keeps the shared interval unless it says
- *  otherwise); a row override in `rows.byId` and a card family replace their shared entry whole. */
-export function resolvePresentation(layout: ThemePresentation | undefined, mobile: boolean): ThemePresentation | undefined {
-  if (!layout?.mobile) return layout
-  const { mobile: phone, ...shared } = layout
-  if (!mobile) return shared
-  const resolved: ThemePresentation = { ...shared, ...phone }
-  if (phone.hero) resolved.hero = { ...shared.hero, ...phone.hero }
-  if (phone.rows) resolved.rows = {
-    ...(shared.rows?.defaults || phone.rows.defaults ? { defaults: { ...shared.rows?.defaults, ...phone.rows.defaults } } : {}),
-    ...(shared.rows?.byId || phone.rows.byId ? { byId: { ...shared.rows?.byId, ...phone.rows.byId } } : {}),
+/** The presentation for one surface: on a phone the `mobile` block is layered over the shared one, on a
+ *  TV surface (Android TV or Game mode, API 6) the `tv` block. Objects merge one level deep per section (a
+ *  phone hero keeps the shared interval unless it says otherwise); a row override in `rows.byId` and a
+ *  card family replace their shared entry whole. The phone block wins on a phone that reports a TV. */
+export function resolvePresentation(layout: ThemePresentation | undefined, mobile: boolean, tv = false): ThemePresentation | undefined {
+  if (!layout?.mobile && !layout?.tv) return layout
+  const { mobile: phone, tv: television, ...shared } = layout
+  const block: (MobilePresentation & TvPresentation) | undefined = mobile ? phone : tv ? television : undefined
+  return block ? layerBlock(shared, block) : shared
+}
+function layerBlock(shared: ThemePresentation, block: MobilePresentation & TvPresentation): ThemePresentation {
+  const resolved: ThemePresentation = { ...shared, ...block }
+  if (block.hero) resolved.hero = { ...shared.hero, ...block.hero }
+  if (block.rows) resolved.rows = {
+    ...(shared.rows?.defaults || block.rows.defaults ? { defaults: { ...shared.rows?.defaults, ...block.rows.defaults } } : {}),
+    ...(shared.rows?.byId || block.rows.byId ? { byId: { ...shared.rows?.byId, ...block.rows.byId } } : {}),
   }
-  if (phone.detail) {
-    resolved.detail = { ...shared.detail, ...phone.detail }
-    if (phone.detail.episodes) resolved.detail.episodes = { ...shared.detail?.episodes, ...phone.detail.episodes }
-    if (phone.detail.sections) resolved.detail.sections = { ...shared.detail?.sections, ...phone.detail.sections }
-    if (phone.detail.factsLabels) resolved.detail.factsLabels = { ...shared.detail?.factsLabels, ...phone.detail.factsLabels }
-    if (phone.detail.factsFormat) resolved.detail.factsFormat = { ...shared.detail?.factsFormat, ...phone.detail.factsFormat }
-    if (phone.detail.synopsis) resolved.detail.synopsis = { ...shared.detail?.synopsis, ...phone.detail.synopsis }
-    if (phone.detail.bar) resolved.detail.bar = { ...shared.detail?.bar, ...phone.detail.bar }
+  if (block.detail) {
+    resolved.detail = { ...shared.detail, ...block.detail }
+    if (block.detail.episodes) resolved.detail.episodes = { ...shared.detail?.episodes, ...block.detail.episodes }
+    if (block.detail.sections) resolved.detail.sections = { ...shared.detail?.sections, ...block.detail.sections }
+    if (block.detail.factsLabels) resolved.detail.factsLabels = { ...shared.detail?.factsLabels, ...block.detail.factsLabels }
+    if (block.detail.factsFormat) resolved.detail.factsFormat = { ...shared.detail?.factsFormat, ...block.detail.factsFormat }
+    if (block.detail.synopsis) resolved.detail.synopsis = { ...shared.detail?.synopsis, ...block.detail.synopsis }
+    if (block.detail.bar) resolved.detail.bar = { ...shared.detail?.bar, ...block.detail.bar }
   }
-  if (phone.player) resolved.player = { ...shared.player, ...phone.player }
-  if (phone.cards) resolved.cards = { ...shared.cards, ...phone.cards }
+  if (block.player) resolved.player = { ...shared.player, ...block.player }
+  if (block.cards) resolved.cards = { ...shared.cards, ...block.cards }
   // The phone block can only carry `home` and the side-column keys (`parseLayout` rejects `nav` there), so
-  // navigation always comes from the shared layout.
-  if (phone.layout) resolved.layout = { ...shared.layout, ...phone.layout }
+  // its navigation always comes from the shared layout; the TV block may carry its own.
+  if (block.layout) resolved.layout = { ...shared.layout, ...block.layout }
+  // Only the TV block carries a shell: one level deep, and the top bar and bottom bar one more.
+  if (block.shell) {
+    resolved.shell = { ...shared.shell, ...block.shell }
+    if (block.shell.top) resolved.shell.top = { ...shared.shell?.top, ...block.shell.top }
+    if (block.shell.bottomNav) resolved.shell.bottomNav = { ...shared.shell?.bottomNav, ...block.shell.bottomNav }
+  }
   return resolved
+}
+/** Where the navigation chrome sits: phones always use the bottom bar; an Android TV the side rail unless
+ *  the theme's TV block asks for the top bar (API 6); desktops and Game mode follow the resolved
+ *  `shell.nav`. `layout` is the unresolved presentation, `resolved` the one for this surface. */
+export function shellNavFor(mobile: boolean, androidTv: boolean, layout: ThemePresentation | undefined, resolved: ThemePresentation | undefined): ThemeNavPlacement {
+  if (mobile) return 'bottom'
+  if (androidTv) return layout?.tv?.shell?.nav === 'top' ? 'top' : 'sidebar'
+  return resolved?.shell?.nav ?? 'sidebar'
 }
 export function visibleNode(node: ThemeNode, model: DisplayModel): boolean {
   if (!node.when) return true
@@ -1286,10 +1328,11 @@ export function themeCoverage(layout?: ThemePresentation): ThemeSurface[] {
   if (!layout) return []
   const surfaces: ThemeSurface[] = []
   const phone = layout.mobile ?? {}
-  if (layout.hero || layout.rows || layout.cards || layout.cardPreview || layout.layout?.home || phone.hero || phone.rows || phone.cards || phone.layout?.home) surfaces.push('Home')
-  if (layout.shell || layout.density || layout.hideCardLabels || layout.trueBlack || layout.layout?.nav || phone.density || phone.hideCardLabels || phone.trueBlack || phone.rootSize !== undefined) surfaces.push('Shell')
-  if (layout.detail || phone.detail) surfaces.push('Details')
-  if (layout.player || phone.player) surfaces.push('Player')
+  const tv = layout.tv ?? {}
+  if (layout.hero || layout.rows || layout.cards || layout.cardPreview || layout.layout?.home || phone.hero || phone.rows || phone.cards || phone.layout?.home || tv.hero || tv.rows || tv.cards || tv.cardPreview || tv.layout?.home) surfaces.push('Home')
+  if (layout.shell || layout.density || layout.hideCardLabels || layout.trueBlack || layout.layout?.nav || phone.density || phone.hideCardLabels || phone.trueBlack || phone.rootSize !== undefined || tv.shell || tv.density || tv.hideCardLabels || tv.trueBlack || tv.layout?.nav) surfaces.push('Shell')
+  if (layout.detail || phone.detail || tv.detail) surfaces.push('Details')
+  if (layout.player || phone.player || tv.player) surfaces.push('Player')
   return surfaces.length === 4 ? ['Full'] : surfaces
 }
 export interface TemplateOutline { type: ThemeNode['type']; label?: string; children?: TemplateOutline[] }

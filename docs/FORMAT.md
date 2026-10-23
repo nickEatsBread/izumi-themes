@@ -3,11 +3,11 @@
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
 
-`themeApi` is `1`, `2`, `3`, `4` or `5`. API 1 is the original key set and every API 1 package stays
+`themeApi` is `1`, `2`, `3`, `4`, `5` or `6`. API 1 is the original key set and every API 1 package stays
 valid on every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions):
 the bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
-layout and the `mobile` block. API 3, API 4 and API 5 add the keys under [Theme API 3](#theme-api-3),
-[Theme API 4](#theme-api-4) and [Theme API 5](#theme-api-5). A client that only knows an older API refuses a newer package with
+layout and the `mobile` block. API 3, API 4, API 5 and API 6 add the keys under [Theme API 3](#theme-api-3),
+[Theme API 4](#theme-api-4), [Theme API 5](#theme-api-5) and [Theme API 6](#theme-api-6). A client that only knows an older API refuses a newer package with
 "requires a different theme API"; the gallery lists it as "Needs a newer izumi" instead of a
 half-rendered layout. Declare the lowest API a package actually uses.
 
@@ -20,7 +20,7 @@ A package is one UTF-8 JSON document, at most 512,000 bytes. Required envelope f
 | `app` | `izumi` |
 | `kind` | `theme-package` |
 | `schemaVersion` | `1` |
-| `themeApi` | `1`, `2`, `3`, `4` or `5` (see above) |
+| `themeApi` | `1`, `2`, `3`, `4`, `5` or `6` (see above) |
 | `id` | Stable lowercase author/theme identity, 2–64 letters, digits, dots or hyphens |
 | `name` | Display name, 1–48 characters |
 | `author` | Attribution, 1–80 characters |
@@ -334,3 +334,23 @@ how each renders. The hooks that came with them (`page-step`, `block.grid`, `her
 - Display field `airDateLong`: an episode's air date in words, in the viewer's locale.
 - `rows.byId.<id>.title` (1–60 characters): the row's own heading text, wherever the row shows. Not in
   `rows.defaults`.
+
+## Theme API 6
+
+Declare `"themeApi": 6` to use the keys below. Packages that use them render on clients from the
+release that ships Theme API 6; an older client refuses the package as described above.
+
+- `tv` block: shaped like `mobile` (`density`, `hideCardLabels`, `trueBlack`, `hero`, `rows`, `detail`,
+  `player`, `cards`, `layout`) plus `shell` and `cardPreview`, without `rootSize`. The client applies
+  it on Android TV and in Game mode and merges it one level deep over the shared settings (the shell's
+  top and bottom bars one level further). Phones keep the `mobile` block. A TV `layout` may carry
+  `nav`. While a theme is active on a TV surface the client sets `data-surface="tv"` on `<html>`, and
+  it does not rescale TV surfaces, so size TV text and spacing directly.
+- Display field `newBadge`: "New Episode", "New Season", "New Series" or "New Movie", for a title
+  with a fresh release.
+- Card templates (poster, search and continue) may bind `keyart` and `logo`. The client loads the
+  artwork lazily, as a card nears the screen.
+- `detail.sections.labels.recommended` may be `suggested`.
+
+Listings keep `platforms` to `desktop` and `phone`, because older clients reject any other value.
+A theme with a TV variant carries a `TV` tag instead.
