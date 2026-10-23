@@ -101,7 +101,7 @@ async function waitForPage(page) {
   await page.waitForTimeout(3000)
 }
 
-async function capture({ design, platform, viewport, scale, path, wait }) {
+async function capture({ design, platform, viewport, scale, path, wait, attempt = 0 }) {
   const context = await browser.newContext({
     viewport, deviceScaleFactor: scale, colorScheme: 'dark', locale: 'en-US', timezoneId: 'UTC',
     isMobile: platform === 'android', hasTouch: platform === 'android',
@@ -111,6 +111,13 @@ async function capture({ design, platform, viewport, scale, path, wait }) {
   const errors = []
   page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`))
   page.on('console', (message) => { if (message.type() === 'error') errors.push(`console: ${message.text()}`) })
+  // Catalog data and artwork in flight (the dev server's own modules don't count). A reload (the history
+  // seed) drops the old document's requests without settling them, so a navigation starts afresh.
+  const pending = new Set()
+  page.on('request', (request) => { if (!request.url().startsWith(baseUrl)) pending.add(request) })
+  page.on('requestfinished', (request) => pending.delete(request))
+  page.on('requestfailed', (request) => pending.delete(request))
+  page.on('framenavigated', (frame) => { if (frame === page.mainFrame()) pending.clear() })
   if (!live) await page.route('**/*', fixtureRoute)
   await page.addInitScript(tauriShim({ platform }))
   await page.addInitScript(storageSeed({
@@ -130,7 +137,16 @@ async function capture({ design, platform, viewport, scale, path, wait }) {
     const dots = page.locator('[data-part="hero.dot"]')
     if (await dots.count() > heroSlide) { await dots.nth(heroSlide).click(); await page.waitForTimeout(1500) }
   }
+  await waitForQuiet(page, () => pending.size)
   await settleImages(page)
+  // A rate-limited AniList swaps in the fallback catalogue under a warning strip: never ship that shot.
+  if (live && await page.getByText('AniList is unavailable').first().isVisible()) {
+    await context.close()
+    if (attempt >= 4) throw new Error('AniList stayed unavailable')
+    console.log('  AniList unavailable; retrying in a minute')
+    await new Promise((done) => setTimeout(done, 60000))
+    return capture({ design, platform, viewport, scale, path, wait, attempt: attempt + 1 })
+  }
   await page.waitForTimeout(600)
   const shot = await page.screenshot({ type: 'jpeg', quality: 85, fullPage: false })
   if (errors.length && args.verbose) console.log(errors.slice(0, 12).map((line) => `    ${line}`).join('\n'))
@@ -176,6 +192,15 @@ async function waitForHome(page, design) {
 async function waitForSeries(page) {
   await page.waitForSelector('h1', { timeout: 60000 })
   await page.waitForTimeout(2500)
+}
+
+// A page's first artwork can show while other rows' catalog queries are still in flight (a slow or
+// rate-limited API): wait until the network has been quiet for a second, capped, so no row is shot loading.
+async function waitForQuiet(page, inflight, cap = 20000) {
+  for (let quiet = 0, waited = 0; quiet < 1000 && waited < cap; waited += 250) {
+    await page.waitForTimeout(250)
+    quiet = inflight() > 0 ? 0 : quiet + 250
+  }
 }
 
 async function settleImages(page) {
