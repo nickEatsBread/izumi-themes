@@ -337,19 +337,31 @@ how each renders. The hooks that came with them (`page-step`, `block.grid`, `her
 
 ## Theme API 6
 
-Declare `"themeApi": 6` to use the keys below. Packages that use them render on clients from the
-release that ships Theme API 6; an older client refuses the package as described above.
+Declare `"themeApi": 6` to use the keys below; packages that use them render on clients from the
+release that ships it. The validator refuses `tv`, `newBadge` and the
+`suggested` tab name below API 6, and an older client refuses the package as described above. Card
+templates that bind `keyart`, `logo` or `posterHd` are not gated: an older client just does not load
+them.
 
 - `tv` block: shaped like `mobile` (`density`, `hideCardLabels`, `trueBlack`, `hero`, `rows`, `detail`,
   `player`, `cards`, `layout`) plus `shell` and `cardPreview`, without `rootSize`. The client applies
   it on Android TV and in Game mode and merges it one level deep over the shared settings (the shell's
   top and bottom bars one level further). Phones keep the `mobile` block. A TV `layout` may carry
-  `nav`. While a theme is active on a TV surface the client sets `data-surface="tv"` on `<html>`, and
-  it does not rescale TV surfaces, so size TV text and spacing directly.
-- Display field `newBadge`: "New Episode", "New Season", "New Series" or "New Movie", for a title
-  with a fresh release.
+  `nav`. While a theme is active on a TV surface the client sets `data-surface="tv"` on `<html>`.
+  - izumi's own TV scaling stays underneath a theme (Android TV uses an 18 px root and follows the UI
+    scale setting; Game mode magnifies the browse UI to 1.25 times that scale), so author TV
+    stylesheets from a canvas such as `--u: calc(100vw / 1920)` rather than from `rem`.
+  - The shared limits still apply inside `tv`: `hero.height` stays 24–75 (percent of the screen
+    height); a taller TV hero uses `hero.scale: "wide"`.
+- Display field `newBadge`, absent unless one of these holds:
+  - "New Movie": a film that started in the last 30 days.
+  - For other titles that started in the last 30 days: "New Season" (a sequel, started in the last
+    21 days) or "New Series" (not a sequel).
+  - "New Episode": a running series whose next episode (number 2 or later) is due within 7 days or is
+    at most 7 days overdue.
 - Card templates (poster, search and continue) may bind `keyart` and `logo`. The client loads the
-  artwork lazily, as a card nears the screen.
+  artwork lazily, as a card nears the screen, so both are absent until the lookup lands: pair them
+  with a `when` test and a fallback. `ranked-list` cards do not load artwork.
 - `detail.sections.labels.recommended` may be `suggested`.
 
 Listings keep `platforms` to `desktop` and `phone`, because older clients reject any other value.
