@@ -338,8 +338,8 @@ how each renders. The hooks that came with them (`page-step`, `block.grid`, `her
 ## Theme API 6
 
 Declare `"themeApi": 6` to use the keys below; packages that use them render on clients from the
-release that ships it. The validator refuses `tv`, `newBadge` and the
-`suggested` tab name below API 6, and an older client refuses the package as described above. Card
+release that ships it. The validator refuses `tv`, `newBadge`, the `suggested` tab name and the
+player keys below API 6, and an older client refuses the package as described above. Card
 templates that bind `keyart`, `logo` or `posterHd` are not gated: an older client just does not load
 them.
 
@@ -367,6 +367,22 @@ them.
   loads the artwork lazily, as a card nears the screen, so each is absent until the lookup lands:
   pair them with a `when` test and a fallback. `ranked-list` cards do not load artwork.
 - `detail.sections.labels.recommended` may be `suggested`.
+- `player` (also inside `mobile` and `tv`; Game mode keeps its own player and ignores these):
+  - `seekButtons: true`: Rewind and Forward beside Play, stepping by the viewer's Seek duration
+    setting. Desktop only: the Android player always has them.
+  - `time`: `default` ("pos / dur" in the button row), `remaining` (the time left at the seek bar's
+    end) or `split` (elapsed before the bar, total after it). Desktop and Android.
+  - `title`: `default` or `episode`, an "E12" line plus the episode's own title (left out for a
+    placeholder title and while the viewer hides spoilers).
+  - `paused`: `none` or `summary`, a "You're watching" summary after five seconds paused without
+    input; any input hides it. Full player only: not docked, not on a portrait phone, not in Game
+    mode, not at the end of a video or under an open menu or prompt. On Android TV the first D-pad
+    or OK press only hides it; Back and the play/pause keys act as usual.
+  - Layout is the stylesheet's: every control carries `data-part="player.control"` (desktop Back and
+    Play are `button` parts) and `data-control`, and the button row's groups are hooks, so a
+    stylesheet can flatten them (`[data-part="player.transport"], [data-part="player.actions"] {
+    display: contents }`) and reorder with `order`, or centre the transport (`position: absolute;
+    left: 50%`). The client's docs/THEMES.md lists every player hook.
 
 Listings keep `platforms` to `desktop` and `phone`, because older clients reject any other value.
 A theme with a TV variant carries a `TV` tag instead.
