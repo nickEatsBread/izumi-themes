@@ -66,7 +66,8 @@ npm run previews                 # all listings; --only izumi.kindling,izumi.cor
 `npm run previews -- --live` writes `previews/<id>/<platform>-<screen>.jpg` and the entry's
 `screenshots` and `preview`; run `npm run build` afterwards. Without `--live` it renders over a
 fixture catalogue (offline smoke tests only; never publish those images). `--series <id>` picks
-the series page; `--hero-slide <n>` starts Home on a later featured slide.
+the series page; `--hero-slide <n>` starts Home on a later featured slide; `--screens schedule,...`
+re-shoots only those screens and keeps the rest.
 Set `IZUMI_PREVIEW_CHROMIUM` to use a specific Chromium binary.
 
 ## Scope

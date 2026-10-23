@@ -3,7 +3,7 @@
 //
 //   node scripts/preview/render.mjs [--izumi ../izumi] [--url http://127.0.0.1:1420]
 //                                   [--only izumi.kindling,...] [--out previews] [--live]
-//                                   [--series <anilist id>] [--hero-slide <n>]
+//                                   [--series <anilist id>] [--hero-slide <n>] [--screens schedule,...]
 //
 // Shoots every screen a store listing shows (Home, Series, Search, Schedule; phones skip Schedule)
 // for each platform the listing declares, into previews/<id>/<platform>-<screen>.jpg, and writes
@@ -29,6 +29,8 @@ const trending = live ? await trendingMedia() : []
 const seriesId = args.series ? Number(args.series) : trending[0]?.id ?? MEDIA[0].id
 // Live Home shots can start on a later featured slide (0-based) when the first one makes a poor listing image.
 const heroSlide = args['hero-slide'] ? Number(args['hero-slide']) : 0
+// `--screens` re-shoots only those screens and keeps the entry's other screenshots.
+const screensOnly = args.screens ? new Set(String(args.screens).split(',')) : null
 const localBase = 'https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/'
 // Per-screen store shots. Phones skip Schedule: its week view is a desktop layout squeezed.
 const SCREENS = { desktop: ['home', 'series', 'search', 'schedule'], phone: ['home', 'series', 'search'] }
@@ -79,9 +81,13 @@ async function renderEntry(entry, design) {
   const platforms = entry.platforms ?? ['desktop', 'phone']
   const dir = join(outDir, entry.id)
   mkdirSync(dir, { recursive: true })
+  const path = join(root, 'entries', `${entry.id}.json`)
+  const saved = JSON.parse(readFileSync(path, 'utf8'))
   const screenshots = []
   for (const platform of platforms) {
     for (const screen of SCREENS[platform]) {
+      const kept = screensOnly && !screensOnly.has(screen) && saved.screenshots?.find((shot) => shot.platform === platform && shot.screen === screen)
+      if (kept) { screenshots.push(kept); continue }
       const shot = await capture({ design, ...DEVICES[platform], path: PATHS[screen], wait: WAITS[screen] })
       const file = join(dir, `${platform}-${screen}.jpg`)
       writeFileSync(file, shot)
@@ -91,8 +97,6 @@ async function renderEntry(entry, design) {
   }
   // Clients that predate `screenshots` read `preview`: the primary layout's Home.
   const preview = screenshots.find((shot) => shot.platform === platforms[0] && shot.screen === 'home').url
-  const path = join(root, 'entries', `${entry.id}.json`)
-  const saved = JSON.parse(readFileSync(path, 'utf8'))
   writeFileSync(path, JSON.stringify({ ...saved, preview, screenshots }, null, 2) + '\n')
 }
 
