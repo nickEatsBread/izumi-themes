@@ -356,12 +356,16 @@ them.
 - Display field `newBadge`, absent unless one of these holds:
   - "New Movie": a film that started in the last 30 days.
   - For other titles that started in the last 30 days: "New Season" (a sequel, started in the last
-    21 days) or "New Series" (not a sequel).
+    21 days) or "New Series" (not a sequel). A sequel that started 22–30 days ago gets no start-date
+    badge; it can still read "New Episode".
   - "New Episode": a running series whose next episode (number 2 or later) is due within 7 days or is
     at most 7 days overdue.
-- Card templates (poster, search and continue) may bind `keyart` and `logo`. The client loads the
-  artwork lazily, as a card nears the screen, so both are absent until the lookup lands: pair them
-  with a `when` test and a fallback. `ranked-list` cards do not load artwork.
+  - A record that lists no relations (cards, search results) is judged a sequel by wording in its
+    title: "Season 2", "2nd Season", "Part 2", "Cour 2" or a standalone II, III or IV. "Season 1" and
+    "Part 1" are not sequels.
+- Card templates (poster, search and continue) may bind `keyart`, `logo` and `posterHd`. The client
+  loads the artwork lazily, as a card nears the screen, so each is absent until the lookup lands:
+  pair them with a `when` test and a fallback. `ranked-list` cards do not load artwork.
 - `detail.sections.labels.recommended` may be `suggested`.
 
 Listings keep `platforms` to `desktop` and `phone`, because older clients reject any other value.
