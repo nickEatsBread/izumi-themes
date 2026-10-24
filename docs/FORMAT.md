@@ -338,8 +338,8 @@ how each renders. The hooks that came with them (`page-step`, `block.grid`, `her
 ## Theme API 6
 
 Declare `"themeApi": 6` to use the keys below; packages that use them render on clients from the
-release that ships it. The validator refuses `tv`, `newBadge`, `upcoming`, the `suggested` tab name, the
-player keys, `cardPreview: "expand"`, `hero.preview`, `detail.preview`, the `trailer` artwork
+release that ships it. The validator refuses `tv`, `newBadge`, `upcoming`, `episodeCountLabel`, the `suggested` tab name,
+the player keys, `cardPreview: "expand"`, `hero.preview`, `detail.preview`, the `trailer` artwork
 kind, the row keys `focus` and `captionTemplate` and `tv.search` below API 6, and an older client
 refuses the package as described above. Card
 templates that bind `keyart`, `logo` or `posterHd` are not gated: an older client just does not load
@@ -369,6 +369,9 @@ them.
   30" (weekday, month and day in the viewer's locale) from its airing time in the catalog's schedule
   or, without one, the episode metadata's air day; "Coming soon" when neither is known or the day has
   passed. Absent for an aired episode, so a `when` test tells the two apart.
+- Display field `episodeCountLabel`, wherever `episodeCount` is bound: "1 Episode" for a single
+  episode, "12 Episodes" otherwise, so a template need not pair `episodeCount` with a literal
+  "Episodes". Absent when the catalog does not know the count (or gives 0).
 - Card templates (poster, search and continue) may bind `keyart`, `logo` and `posterHd`. The client
   loads the artwork lazily, as a card nears the screen, so each is absent until the lookup lands:
   pair them with a `when` test and a fallback. `ranked-list` cards do not load artwork.
