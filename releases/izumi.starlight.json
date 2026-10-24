@@ -1,0 +1,27 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.starlight",
+    "name": "Starlight",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "Disney+ look: a glass top bar, a full-bleed hero with a trailer, poster rows with a white focus ring, a genre band and a tabbed series page; a side-rail TV layout with a grid keyboard.",
+    "themeApi": 6,
+    "tags": [
+      "Dark",
+      "Site",
+      "Top bar",
+      "TV"
+    ],
+    "platforms": [
+      "desktop"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.starlight/1.0.0.json",
+    "sha256": "710e9eb462f16ef51a1c4271e81cfc494969b4ff723285a42fbb1be90fb4f41a",
+    "bytes": 115083,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight.png"
+  }
+}
