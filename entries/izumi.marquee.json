@@ -1,0 +1,44 @@
+{
+  "id": "izumi.marquee",
+  "name": "Marquee",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Netflix look: #141414 and red in Inter, an inset rounded billboard with a muted trailer, 16:9 logo cards that grow into a preview on hover, a ranked row and a centred title panel. On a TV or in Game mode: a pill top bar, tall boxart rows anchored to the first column and a grid search keyboard.",
+  "themeApi": 6,
+  "tags": [
+    "Dark",
+    "Site",
+    "Top bar",
+    "TV"
+  ],
+  "platforms": [
+    "desktop"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marquee/1.0.0.json",
+  "sha256": "61cd15d1c49db262807e3f0f6eb17dbf525ca2a0bf7eae24a5cad657d7e2cf09",
+  "bytes": 126489,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marquee/desktop-home.jpg",
+  "screenshots": [
+    {
+      "screen": "home",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marquee/desktop-home.jpg"
+    },
+    {
+      "screen": "series",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marquee/desktop-series.jpg"
+    },
+    {
+      "screen": "search",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marquee/desktop-search.jpg"
+    },
+    {
+      "screen": "schedule",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marquee/desktop-schedule.jpg"
+    }
+  ]
+}

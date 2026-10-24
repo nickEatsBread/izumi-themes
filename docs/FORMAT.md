@@ -3,11 +3,11 @@
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
 
-`themeApi` is `1`, `2`, `3`, `4` or `5`. API 1 is the original key set and every API 1 package stays
+`themeApi` is `1`, `2`, `3`, `4`, `5` or `6`. API 1 is the original key set and every API 1 package stays
 valid on every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions):
 the bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
-layout and the `mobile` block. API 3, API 4 and API 5 add the keys under [Theme API 3](#theme-api-3),
-[Theme API 4](#theme-api-4) and [Theme API 5](#theme-api-5). A client that only knows an older API refuses a newer package with
+layout and the `mobile` block. API 3, API 4, API 5 and API 6 add the keys under [Theme API 3](#theme-api-3),
+[Theme API 4](#theme-api-4), [Theme API 5](#theme-api-5) and [Theme API 6](#theme-api-6). A client that only knows an older API refuses a newer package with
 "requires a different theme API"; the gallery lists it as "Needs a newer izumi" instead of a
 half-rendered layout. Declare the lowest API a package actually uses.
 
@@ -20,7 +20,7 @@ A package is one UTF-8 JSON document, at most 512,000 bytes. Required envelope f
 | `app` | `izumi` |
 | `kind` | `theme-package` |
 | `schemaVersion` | `1` |
-| `themeApi` | `1`, `2`, `3`, `4` or `5` (see above) |
+| `themeApi` | `1`, `2`, `3`, `4`, `5` or `6` (see above) |
 | `id` | Stable lowercase author/theme identity, 2–64 letters, digits, dots or hyphens |
 | `name` | Display name, 1–48 characters |
 | `author` | Attribution, 1–80 characters |
@@ -334,3 +334,103 @@ how each renders. The hooks that came with them (`page-step`, `block.grid`, `her
 - Display field `airDateLong`: an episode's air date in words, in the viewer's locale.
 - `rows.byId.<id>.title` (1–60 characters): the row's own heading text, wherever the row shows. Not in
   `rows.defaults`.
+
+## Theme API 6
+
+Declare `"themeApi": 6` to use the keys below; packages that use them render on clients from the
+release that ships it. The validator refuses `tv`, `newBadge`, `upcoming`, `episodeCountLabel`, the `suggested` tab name,
+the player keys, `cardPreview: "expand"`, `hero.preview`, `detail.preview`, the `trailer` artwork
+kind, the row keys `focus` and `captionTemplate` and `tv.search` below API 6, and an older client
+refuses the package as described above. Card
+templates that bind `keyart`, `logo` or `posterHd` are not gated: an older client just does not load
+them.
+
+- `tv` block: shaped like `mobile` (`density`, `hideCardLabels`, `trueBlack`, `hero`, `rows`, `detail`,
+  `player`, `cards`, `layout`) plus `shell`, `cardPreview` and `search`, without `rootSize`. The
+  client applies it on Android TV and in Game mode and merges it one level deep over the shared
+  settings (the shell's top and bottom bars one level further). Phones keep the `mobile` block. A TV
+  `layout` may carry `nav`. While a theme is active on a TV surface the client sets `data-surface="tv"` on `<html>`.
+  - izumi's own TV scaling stays underneath a theme (Android TV uses an 18 px root and follows the UI
+    scale setting; Game mode magnifies the browse UI to 1.25 times that scale), so author TV
+    stylesheets from a canvas such as `--u: calc(100vw / 1920)` rather than from `rem`.
+  - The shared limits still apply inside `tv`: `hero.height` stays 24–75 (percent of the screen
+    height); a taller TV hero uses `hero.scale: "wide"`.
+- Display field `newBadge`, absent unless one of these holds:
+  - "New Movie": a film that started in the last 30 days.
+  - For other titles that started in the last 30 days: "New Season" (a sequel, started in the last
+    21 days) or "New Series" (not a sequel). A sequel that started 22–30 days ago gets no start-date
+    badge; it can still read "New Episode".
+  - "New Episode": a running series whose next episode (number 2 or later) is due within 7 days or is
+    at most 7 days overdue.
+  - A record that lists no relations (cards, search results) is judged a sequel by wording in its
+    title: "Season 2", "2nd Season", "Part 2", "Cour 2" or a standalone II, III or IV. "Season 1" and
+    "Part 1" are not sequels.
+- Display field `upcoming` (episode cards), for an episode that has not aired: "Coming Friday, October
+  30" (weekday, month and day in the viewer's locale) from its airing time in the catalog's schedule
+  or, without one, the episode metadata's air day; "Coming soon" when neither is known or the day has
+  passed. Absent for an aired episode, so a `when` test tells the two apart.
+- Display field `episodeCountLabel`, wherever `episodeCount` is bound: "1 Episode" for a single
+  episode, "12 Episodes" otherwise, so a template need not pair `episodeCount` with a literal
+  "Episodes". Absent when the catalog does not know the count (or gives 0).
+- Card templates (poster, search and continue) may bind `keyart`, `logo` and `posterHd`. The client
+  loads the artwork lazily, as a card nears the screen, so each is absent until the lookup lands:
+  pair them with a `when` test and a fallback. `ranked-list` cards do not load artwork.
+- `detail.sections.labels.recommended` may be `suggested`.
+- `player` (also inside `mobile` and `tv`; Game mode keeps its own player and ignores these):
+  - `seekButtons: true`: Rewind and Forward beside Play, stepping by the viewer's Seek duration
+    setting. Desktop only: the Android player always has them.
+  - `time`: `default` ("pos / dur" in the button row), `remaining` (the time left at the seek bar's
+    end) or `split` (elapsed before the bar, total after it). Desktop and Android.
+  - `title`: `default` or `episode`, an "E12" line plus the episode's own title (left out for a
+    placeholder title and while the viewer hides spoilers).
+  - `paused`: `none` or `summary`, a "You're watching" summary after five seconds paused without
+    input; any input hides it. Full player only: not docked, not on a portrait phone, not in Game
+    mode, not at the end of a video or under an open menu or prompt. On Android TV the first D-pad
+    or OK press only hides it; Back and the play/pause keys act as usual.
+  - `buttons`: a list of `restart` and `next`, each once, drawn as `player.control` buttons beside
+    Play. The Android player (phones and Android TV) puts Restart, which seeks to the start, before
+    Rewind and Next, the next episode (disabled when there is none), after Forward. The desktop
+    player shows `restart` only, first in `player.transport`, because it has its own Next.
+  - Layout is the stylesheet's: every control carries `data-part="player.control"` (desktop Back and
+    Play are `button` parts) and `data-control`, and the button row's groups are hooks, so a
+    stylesheet can flatten them (`[data-part="player.transport"], [data-part="player.actions"] {
+    display: contents }`) and reorder with `order`, or centre the transport (`position: absolute;
+    left: 50%`). The client's docs/THEMES.md lists every player hook.
+- `cardPreview: "expand"` (top level and inside `tv`; `popup` and `none` stay valid from API 3): a
+  hover preview that grows out of the card. After 500 ms on a card the client opens a 16:9 panel 1.5
+  times as wide as the card's artwork: the trailer over the banner, the title logo when the card
+  template binds `logo`, round play, list, favorite and details buttons, the score, the facts and up
+  to three genres. It suits landscape cards. Mouse on a desktop only.
+- `hero.preview` and `detail.preview`: `none` (the default) or `trailer`, a muted trailer over the
+  Home hero (after a 3 s dwell) or over the series page's artwork (1.5 s). It plays once and fades in
+  and out over 500 ms; a rotating hero waits for it and moves on when it ends. Desktop only, never
+  under reduced motion or data saver, and YouTube trailers only: the artwork stays otherwise.
+- Artwork `trailer` (no `when` test: nothing binds a value for it): where a hero template plays its trailer.
+  Place `{ "type": "artwork", "artwork": "trailer", "style": { "anchor": "fill" } }` in the hero's
+  `overlay` right after the backdrop artwork, so the video sits over the art and under the copy.
+  Without it a template hero plays no trailer; in any other template it renders nothing.
+- `rows.defaults` and `rows.byId.<id>` (also inside `tv`) take `focus`: `default` or `anchor`.
+  - `anchor` applies to carousels only; a grid ignores it. The row carries `data-row-focus="anchor"`.
+    With arrow or pad navigation, moving along the row slides the track (650 ms) until the focused
+    card's left edge sits where the first card rests, clamped at the track's ends; moving into the
+    row scrolls the page (830 ms) until the row's top sits at its `scroll-margin-top` (16 px under
+    the top bar when it has none). Held keys and reduced motion jump. Put it in `tv`: a desktop
+    keyboard's arrows anchor too.
+  - An expanding focused tile is stylesheet work: `[data-surface="tv"] [data-row-focus="anchor"]
+    [data-part="card"]:focus-within { width: …; }` (`!important` when the row sets `width`), with no
+    `transition` on the width, because the anchor target is measured once when focus moves.
+- `captionTemplate` (same places): a card-style template, without actions, drawn in the focus
+  caption line (`caption: "focus"` with a pad in use) in place of the title and detail line. It
+  binds the focused card's title, with the display fields a poster card sees (`title`,
+  `description`, `genres`, `year`, `format`, `newBadge`...); `keyart`, `ageRating` and `audio` are
+  absent, and a Continue Watching card binds its series, so episode fields are absent. A card that
+  is not a poster, search or Continue Watching card keeps the plain line. Nothing is bound until a
+  card has focus, so a `minHeight` keeps the rows below still.
+- `tv.search.keyboard`: `default` or `grid` (`search` is accepted only inside `tv`). `grid` docks an
+  A–Z and 0–9 keyboard on the left of the Search page on an Android TV or in Game mode: Space and
+  Backspace on the first line, then six columns (`abcdef`, `ghijkl`, `mnopqr`, `stuvwx`, `yz1234`,
+  `567890`). Keys type lowercase into the search field, which then opens no other keyboard.
+  Hooks: `search.layout`, `search.keyboard` and `search.key` (`data-key`).
+
+Listings keep `platforms` to `desktop` and `phone`, because older clients reject any other value.
+A theme with a TV variant carries a `TV` tag instead.

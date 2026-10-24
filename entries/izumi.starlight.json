@@ -1,0 +1,44 @@
+{
+  "id": "izumi.starlight",
+  "name": "Starlight",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Disney+ look: a glass top bar, a full-bleed hero with a trailer, poster rows with a white focus ring, a genre band and a tabbed series page; a side-rail TV layout with a grid keyboard.",
+  "themeApi": 6,
+  "tags": [
+    "Dark",
+    "Site",
+    "Top bar",
+    "TV"
+  ],
+  "platforms": [
+    "desktop"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.starlight/1.0.0.json",
+  "sha256": "3b1e5e5346e08a9e177bb3e8785de83934c54713e6411a837e7b2c1b5e35c0af",
+  "bytes": 120754,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-home.jpg",
+  "screenshots": [
+    {
+      "screen": "home",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-home.jpg"
+    },
+    {
+      "screen": "series",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-series.jpg"
+    },
+    {
+      "screen": "search",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-search.jpg"
+    },
+    {
+      "screen": "schedule",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-schedule.jpg"
+    }
+  ]
+}

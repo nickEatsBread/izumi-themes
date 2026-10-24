@@ -1,0 +1,1996 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 6,
+  "id": "izumi.marquee",
+  "name": "Marquee",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Netflix look: #141414 and red in Inter, an inset rounded billboard with a muted trailer, 16:9 logo cards that grow into a preview on hover, a ranked row and a centred title panel. On a TV or in Game mode: a pill top bar, tall boxart rows anchored to the first column and a grid search keyboard.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 7.8%",
+      "foreground": "0 0% 100%",
+      "muted": "0 0% 18%",
+      "mutedForeground": "0 0% 74%",
+      "primary": "0 0% 100%",
+      "primaryForeground": "0 0% 0%",
+      "secondary": "0 0% 25%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "0 0% 15%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 25%",
+      "input": "0 0% 14%",
+      "ring": "0 0% 100%",
+      "card": "0 0% 9.4%",
+      "cardForeground": "0 0% 100%",
+      "theme": "357 92% 47%"
+    },
+    "radius": 0.375,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "inter"
+    },
+    "css": "/* Marquee — a streaming-service look, copied from measured references of the live site and its TV app.\n   #141414, white, one red, Inter as the stand-in for the service's own sans. Web values are the live site's\n   computed styles at 1600 px; the TV block sizes from a 1920 canvas (--u). */\n\n/* ── Shell: an 80 px bar of pill destinations, a gradient over the page that turns solid black once the\n   page scrolls (.4 s). izumi's 32 px window band stays above the row. ── */\n:scope { --mq-red: #e50914; }\n\n:scope:not([data-surface=\"tv\"]) { --theme-top-row: 80px; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] { gap: 6px !important; padding-left: 60px !important; padding-right: 60px !important; border: 0 !important; background-color: transparent !important; background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)) !important; transition: background-color 0.4s linear; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"][data-scrolled] { background-color: #000 !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { height: 41px; padding: 10px 16px !important; border-radius: 24px !important; background: transparent; color: rgba(255, 255, 255, 0.7) !important; font-size: 16px !important; font-weight: 400 !important; line-height: 21px; transition: background-color 0.2s ease, color 0.2s ease; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:nth-child(1 of [data-part=\"nav.item\"]:not([data-dest=\"search\"])) { margin-left: 18px; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:hover { background: rgba(255, 255, 255, 0.1) !important; color: #fff !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { background: rgba(255, 255, 255, 0.2) !important; color: #fff !important; font-weight: 500 !important; }\n\n/* Text pills; the search destination is the round icon at the right end of the bar. */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:not([data-dest=\"search\"]) [data-part=\"nav.item.icon\"] { display: none; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-dest=\"search\"] { order: 1; width: 40px; height: 40px; padding: 0 !important; justify-content: center; border-radius: 50% !important; background: transparent !important; color: #fff !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-dest=\"search\"] [data-part=\"nav.item.label\"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-dest=\"search\"] [data-part=\"nav.item.icon\"] svg { width: 24px; height: 24px; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.action\"] { order: 2; margin-left: 6px; width: 40px !important; height: 40px !important; border-radius: 50% !important; background: transparent !important; color: #fff !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.action\"]:hover, :scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-dest=\"search\"]:hover { background: rgba(255, 255, 255, 0.1) !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.action\"] svg { width: 24px; height: 24px; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"] > [data-part=\"nav.action\"][data-action=\"account\"] img { width: 32px; height: 32px; border-radius: 4px; }\n\n/* While a video plays in a window the bar sits over it: solid black, the izumi mark alone. */\n:scope:not([data-surface=\"tv\"]):has([data-slot=\"watch\"]) [data-slot=\"nav.top\"] { background: #000 !important; background-image: none !important; }\n\n:scope:not([data-surface=\"tv\"]):has([data-slot=\"watch\"]) [data-slot=\"nav.top\"] > :is([data-part=\"nav.item\"], [data-part=\"nav.action\"], [data-part=\"nav.menu\"]) { display: none !important; }\n\n/* ── Home: the ambient glow of the billboard's art from the very top of the page, under the clear bar\n   (on the page, not on Home, which starts below the bar). ── */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"page\"]:has([data-slot=\"home\"]) { background-image: radial-gradient(130% 900px at 50% -8px, color-mix(in srgb, rgb(var(--hero-ambient-rgb, 20 20 20)) 40%, #141414) 20%, rgba(20, 20, 20, 0) 65%); background-repeat: no-repeat; }\n\n/* Billboard: an inset card 60 px from both edges, 8 px under the bar, radius 24, the art cover with the\n   trailer fading in over it, the copy bottom-left with 40 px padding. */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"][data-variant=\"template\"] { height: calc(100vh - var(--theme-top-bar) - 79px) !important; min-height: 420px; margin: 8px 60px 36px !important; border-radius: 24px; box-shadow: rgba(0, 0, 0, 0.45) 10px 20px 32px; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"][data-variant=\"template\"]::after { content: \"\"; position: absolute; inset: 0; z-index: 3; border: 2px solid rgba(255, 255, 255, 0.04); border-radius: 24px; pointer-events: none; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"][data-state=\"loading\"] { margin: 8px 60px 36px !important; border-radius: 24px; background: transparent !important; box-shadow: none; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"][data-state=\"loading\"]::after { display: none; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"][data-state=\"loading\"] .skeloader { opacity: 0; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.billboard\"]::after { background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 35%, rgba(0, 0, 0, 0) 70%) !important; }\n\n[data-part=\"mq.art\"] img { transform: none !important; }\n\n[data-part=\"hero.video\"] iframe { scale: 1.002; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"hero.mute\"] { display: grid !important; place-items: center; width: 32px !important; height: 32px !important; padding: 0 !important; top: 40px !important; right: 40px !important; border: 0 !important; border-radius: 50% !important; background: rgba(128, 128, 128, 0.4) !important; color: #fff !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"hero.mute\"] svg { width: 16px; height: 16px; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.copy\"] { padding-bottom: 40px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.logo\"] { height: 192px; margin-bottom: 16px; }\n\n:scope:not([data-surface=\"tv\"]) :is([data-part=\"mq.logo\"], [data-part=\"mq.title\"]) { transform-origin: left bottom; transition: transform 1s ease; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"]:has([data-part=\"hero.video\"][data-state=\"playing\"]) :is([data-part=\"mq.logo\"], [data-part=\"mq.title\"]) { transform: scale(0.65); }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.logo\"] img { object-position: left bottom; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.title\"] { max-width: 576px; margin-bottom: 16px; line-height: 1.1; letter-spacing: -0.02em; text-shadow: none !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.attrs\"] { margin-bottom: 12px; color: #fff; line-height: 24px; }\n\n[data-part=\"mq.dot\"] { color: rgba(255, 255, 255, 0.4); }\n\n[data-part=\"mq.dot\"]:first-child { display: none; }\n\n[data-part=\"mq.count\"] { white-space: pre; }\n\n[data-part=\"mq.age\"] { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 5px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 3px; line-height: 1; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.desc\"] { display: grid !important; grid-template-rows: 1fr; margin-bottom: 24px; transition: grid-template-rows 1s ease, margin 1s ease, opacity 1s ease; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"]:has([data-part=\"hero.video\"][data-state=\"playing\"]) [data-part=\"mq.desc\"] { grid-template-rows: 0fr; margin-bottom: 0; opacity: 0; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.synopsis\"] { width: 576px; max-width: 100%; min-height: 0; line-height: 28px; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.play\"], :scope:not([data-surface=\"tv\"]) [data-part=\"mq.info\"] { height: 48px; min-height: 48px !important; gap: 8px !important; padding: 8px 20px !important; border-radius: 9999px !important; font-size: 18px; font-weight: 500 !important; line-height: 24px; transition: background-color 0.25s cubic-bezier(0.4, 0, 0.68, 0.06), border-color 0.25s cubic-bezier(0.4, 0, 0.68, 0.06); }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.play\"] { background: #fff !important; color: #000 !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.play\"]:hover { background: rgba(255, 255, 255, 0.75) !important; filter: none !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.info\"] { background: rgba(128, 128, 128, 0.4) !important; color: #fff !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.info\"]:hover { background: rgba(128, 128, 128, 0.25) !important; filter: none !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.play\"] svg, :scope:not([data-surface=\"tv\"]) [data-part=\"mq.info\"] svg { width: 24px; height: 24px; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.callouts\"] { margin: 0 40px 40px 0; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.callout\"] { padding: 8px; border-radius: 8px; background: rgba(0, 0, 0, 0.5); color: #fff; line-height: 20px; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.callout-icon\"] svg { width: 20px; height: 20px; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"] [data-part=\"hero.edge\"] { display: none !important; }\n\n/* ── Rows: 24/500 headings at x = 60, 10 px over the track; 16:9 cards 237 × 133, radius 12, 8 apart. ── */\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.header\"] { margin-bottom: 0 !important; padding-left: 60px !important; padding-right: 60px !important; padding-bottom: 10px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.title\"] { color: #fff; font-size: 24px !important; font-weight: 500 !important; line-height: 30px; letter-spacing: 0; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.track\"] { padding: 2px 60px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.step\"] { top: 0 !important; bottom: 0 !important; height: auto !important; width: 40px !important; transform: none !important; border: 0 !important; border-radius: 0 !important; background: rgba(20, 20, 20, 0.5) !important; box-shadow: none !important; color: #fff !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.step\"][data-dir=\"next\"] { right: 0 !important; left: auto !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.step\"][data-dir=\"previous\"] { left: 0 !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.step\"] svg { width: 32px; height: 32px; }\n\n/* Boxart card: art cover, the title logo (or the title) bottom-left, a red ribbon centred on the bottom edge. */\n[data-part=\"mq.box\"] { border-radius: 12px; background: #2a2a2a; }\n\n[data-part=\"mq.box-art\"] img { transform: none !important; }\n\n[data-part=\"mq.brand\"] { width: 60%; padding: 0 0 22px 10px; }\n\n[data-part=\"mq.brand-logo\"] { max-height: 52px; }\n\n[data-part=\"mq.brand-logo\"] img { object-position: left bottom; filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6)); }\n\n[data-part=\"mq.brand-title\"] { line-height: 1.1; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85); }\n\n[data-part=\"mq.ribbon\"] { position: absolute !important; left: 50%; bottom: 0; z-index: 3; transform: translateX(-50%); padding: 3px 8px 2px; border-radius: 3px 3px 0 0; background: var(--mq-red); color: #fff; line-height: 13px; white-space: nowrap; }\n\n[data-part=\"mq.runtime\"], [data-part=\"mq.more\"] { display: none !important; }\n\n/* Continue Watching: a 2 px red progress line on #808080 under the art. */\n[data-part=\"mq.cw-bar\"] { min-height: 2px !important; height: 2px !important; margin-top: 6px; border-radius: 0 !important; background: #808080 !important; }\n\n[data-part=\"mq.cw-bar\"] > span { border-radius: 0 !important; background: var(--mq-red) !important; }\n\n/* Ranked row: a 237 × 170 slot (the hover preview grows from the whole slot), the numeral in the left half\n   under the 2:3 poster on the right half. */\n[data-part=\"preview.anchor\"] { height: 170px; }\n\n[data-part=\"mq.rank\"] { flex: 0 0 50%; justify-items: end; align-items: center; overflow: visible !important; }\n\n[data-part=\"mq.rank-line\"], [data-part=\"mq.rank-fill\"] { margin-right: -6px; font-size: 230px !important; line-height: 170px; letter-spacing: -0.12em; white-space: nowrap; transform: scaleX(0.78); transform-origin: right center; }\n\n/* Ten numerals: the row keeps its first ten titles. */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"row\"][data-role=\"trending\"] [data-part=\"row.track\"] > :nth-child(n+11) { display: none; }\n\n[data-part=\"mq.rank-line\"] { -webkit-text-stroke: 6px transparent; background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.1)); -webkit-background-clip: text; background-clip: text; color: transparent; }\n\n[data-part=\"mq.rank-fill\"] { color: #141414; }\n\n[data-part=\"mq.top-poster\"] { flex: 0 0 50%; z-index: 3 !important; border-radius: 4px; background: #2a2a2a; }\n\n[data-part=\"mq.top-art\"] img { transform: none !important; }\n\n/* Placeholders: flat dark tiles in the card's shape (no shimmer). */\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.skeleton\"] { width: 237px !important; aspect-ratio: 16 / 9 !important; height: auto !important; border-radius: 12px !important; background: linear-gradient(#2a2a2a, #141414) !important; animation: none !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"row.skeleton\"]::after, :scope:not([data-surface=\"tv\"]) [data-part=\"row.skeleton\"]::before { display: none !important; }\n\n/* ── Hover mini-modal: 1.5× the card, radius 6, #181818 info, round controls. ── */\n[data-part=\"preview\"][data-variant=\"expand\"] { border-radius: 6px !important; background: #181818 !important; box-shadow: rgba(0, 0, 0, 0.75) 0 3px 10px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"preview.art\"] > button { display: grid !important; place-items: center; top: 12px !important; right: 12px !important; width: 32px; height: 32px; padding: 0 !important; border: 1px solid rgba(255, 255, 255, 0.5) !important; border-radius: 50% !important; background: rgba(42, 42, 42, 0.6) !important; color: #fff !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"preview.art\"] > button svg { width: 16px; height: 16px; }\n\n[data-part=\"preview.body\"] { gap: 0 !important; padding: 16px !important; }\n\n[data-part=\"preview.logo\"] { left: 16px !important; bottom: 16px !important; max-width: 142px !important; max-height: 57px !important; }\n\n[data-part=\"preview.title\"] { left: 16px !important; bottom: 14px !important; font-size: 20px !important; font-weight: 700 !important; }\n\n[data-part=\"preview.actions\"] { height: 46px; gap: 8px !important; margin-bottom: 8px; }\n\n[data-part=\"preview.action\"] { width: 38px !important; height: 38px !important; border: 2px solid rgba(255, 255, 255, 0.5) !important; border-radius: 50% !important; background: rgba(42, 42, 42, 0.6) !important; color: #fff !important; }\n\n[data-part=\"preview.action\"]:hover { border-color: #fff !important; }\n\n[data-part=\"preview.action\"][data-action=\"play\"] { width: 34px !important; height: 34px !important; border: 0 !important; background: #fff !important; color: #000 !important; }\n\n[data-part=\"preview.action\"][data-action=\"play\"]:hover { background: rgba(255, 255, 255, 0.75) !important; }\n\n[data-part=\"preview.action\"] svg { width: 20px; height: 20px; }\n\n[data-part=\"preview.meta\"] { gap: 0 8px !important; margin-bottom: 8px; color: #bcbcbc !important; font-size: 16px !important; line-height: 24px; }\n\n[data-part=\"preview.genres\"] { gap: 0 8px !important; color: #fff !important; font-size: 16px !important; line-height: 24px; }\n\n[data-part=\"preview.genres\"] > [aria-hidden] { color: #646464 !important; }\n\n/* ── Series page: a centred 850 px #181818 panel, radius 6, 32 px under the bar on a black page. ── */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"page\"]:has(> * [data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"]), :scope:not([data-surface=\"tv\"]) [data-slot=\"page\"]:has([data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"]) { background-color: #000; background-image: linear-gradient(90deg, #000 calc(50% - 425px), #181818 calc(50% - 425px), #181818 calc(50% + 425px), #000 calc(50% + 425px)); background-repeat: no-repeat; background-position: 0 calc(var(--theme-top-bar) + 132px); background-size: 100% 100%; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-layout=\"overlay\"][data-variant=\"desktop\"] { width: 850px !important; max-width: calc(100vw - 32px); min-height: 0 !important; margin: 32px auto 0; overflow: hidden; border-radius: 6px 6px 0 0; background: #181818; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.backdrop\"] { bottom: auto !important; height: 479px !important; object-position: center top !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.video\"] { bottom: auto !important; height: 479px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.scrim\"][data-dir=\"bottom\"] { bottom: auto !important; height: 479px !important; background-image: linear-gradient(0deg, #181818 0%, rgba(24, 24, 24, 0) 45%) !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.scrim\"][data-dir=\"left\"] { display: none; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.body\"] { display: grid !important; grid-template-columns: minmax(0, 481fr) minmax(0, 234fr); column-gap: 32px !important; row-gap: 0 !important; align-content: start; min-height: 0 !important; max-width: none !important; padding: 0 48px 32px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.body\"] > * { grid-column: 1; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.alt-title\"],\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.studio\"],\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.meta\"] { display: none !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { grid-column: 1 / -1; grid-row: 1; display: flex; align-items: flex-end; min-height: 362px; margin: 0; font-size: 48px !important; font-weight: 700 !important; line-height: 1.05 !important; letter-spacing: -0.02em; text-shadow: none !important; filter: none !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"] [data-part=\"detail.logo\"] { max-width: 340px !important; max-height: 136px !important; object-fit: contain; object-position: left bottom; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.actions\"] { grid-column: 1 / -1; grid-row: 2; gap: 8px !important; margin: 24px 0 48px; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.header\"], :scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.header\"] > *, :scope:not([data-surface=\"tv\"]) [data-part=\"mq.dh\"] { display: contents !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.dh-meta\"] { grid-column: 1; grid-row: 3; align-self: start; flex-wrap: wrap; margin-bottom: 8px; color: #bcbcbc; line-height: 24px; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"mq.dh-credits\"] { grid-column: 2; grid-row: 3 / span 3; align-self: start; gap: 14px !important; }\n\n[data-part=\"mq.hd\"] { padding: 0 4px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 3px; color: rgba(255, 255, 255, 0.9); font-size: 11.2px !important; line-height: 16px; }\n\n[data-part=\"mq.dh-new\"] { color: #46d369; }\n\n[data-part=\"mq.credit\"] { display: block !important; line-height: 20px; }\n\n[data-part=\"mq.credit\"] > * { display: inline !important; }\n\n[data-part=\"mq.credit-label\"] { color: #777; }\n\n[data-part=\"mq.credit-value\"] { color: #ddd; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.synopsis\"] { grid-column: 1; grid-row: 4; -webkit-line-clamp: 8 !important; max-width: none !important; color: #fff !important; font-size: 16px !important; line-height: 26px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.rating\"] { grid-column: 1; grid-row: 5; }\n\n/* Play: square-cornered, white, 45 px; Save as a 38 px round outline button. */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"] { height: 45px; padding: 0 24px 0 20px !important; gap: 8px !important; border-radius: 4px !important; background: #fff !important; color: #000 !important; font-size: 16px !important; font-weight: 500 !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"]:hover { background: rgba(255, 255, 255, 0.75) !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"] svg { width: 23px; height: 23px; fill: currentColor; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"save\"] { width: 38px !important; height: 38px !important; border: 2px solid rgba(255, 255, 255, 0.5) !important; border-radius: 50% !important; background: rgba(42, 42, 42, 0.6) !important; color: #fff !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"save\"]:hover { border-color: #fff !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"save\"] svg { width: 20px; height: 20px; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"detail.mute\"] { display: grid !important; place-items: center; width: 38px !important; height: 38px !important; padding: 0 !important; top: 389px !important; right: 48px !important; border: 2px solid rgba(255, 255, 255, 0.5) !important; border-radius: 50% !important; background: rgba(42, 42, 42, 0.6) !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"detail.mute\"] svg { width: 20px; height: 20px; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] [data-part=\"detail.title\"] { transform-origin: left bottom; transition: transform 1s ease; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"]:has([data-part=\"detail.video\"][data-state=\"playing\"]) [data-part=\"detail.title\"] { transform: scale(0.65); }\n\n/* The content under the panel's header: episodes and More Like This in the panel's 754 px column. */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail.episodes\"], :scope:not([data-surface=\"tv\"]) [data-slot=\"detail.section\"] { max-width: 754px; margin-left: auto !important; margin-right: auto !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"episodes.heading\"], :scope:not([data-surface=\"tv\"]) [data-slot=\"detail.section\"] [data-part=\"detail.section-title\"] { margin-bottom: 16px; color: #fff; font-size: 24px !important; font-weight: 500 !important; line-height: 30px; text-transform: capitalize; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"episodes.count\"] { display: none !important; }\n\n/* \"Episodes\" left, the season dropdown at the right end of the heading row. */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"episodes.toolbar\"][data-variant=\"header\"] { margin-bottom: 16px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"episodes.toolbar\"][data-variant=\"header\"]:has([data-slot=\"episodes.seasons\"])::before { content: \"Episodes\"; flex: 1 1 auto; color: #fff; font-size: 24px; font-weight: 500; line-height: 30px; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"season.toggle\"] { flex-direction: row-reverse; gap: 12px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"episodes.more\"] { width: 38px !important; height: 38px !important; border: 2px solid rgba(255, 255, 255, 0.5) !important; background: rgba(42, 42, 42, 0.6) !important; color: #fff !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"episodes.grid\"] { gap: 0 !important; padding: 0 !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"season.toggle\"] { height: 44px; padding: 0 16px !important; border: 1.5px solid #4d4d4d !important; border-radius: 3.6px !important; background: #242424 !important; color: #fff !important; font-size: 18px !important; font-weight: 500 !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"episode\"][data-variant=\"template\"] { padding: 16px !important; border: 0 !important; border-bottom: 1px solid #404040 !important; border-radius: 4px !important; background: transparent !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-part=\"episode\"][data-variant=\"template\"][data-next] { background: #333 !important; }\n\n[data-part=\"mq.ep\"] { min-height: 73px; }\n\n[data-part=\"mq.ep-no\"] { flex: 0 0 51px; color: #d2d2d2; line-height: 30px; text-align: center; }\n\n[data-part=\"mq.ep-still\"] { flex: 0 0 130px; width: 130px; margin: 0 16px 0 8px; border-radius: 4px; background: #2a2a2a; }\n\n[data-part=\"mq.ep-body\"] { flex: 1 1 0 !important; min-width: 0; }\n\n[data-part=\"mq.ep-title\"] { flex-shrink: 1 !important; min-width: 0; }\n\n[data-part=\"mq.ep-head\"] { margin-bottom: 6px; color: #fff; line-height: 24px; }\n\n[data-part=\"mq.ep-syn\"] { color: #d2d2d2; line-height: 20px; }\n\n/* More Like This: a 3-column grid of #2F2F2F cards, 16:9 art with the runtime top-right, then the facts and synopsis. */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail.recommended\"] [data-part=\"detail.track\"], :scope:not([data-surface=\"tv\"]) [data-slot=\"detail.section\"][data-section=\"recommended\"] [data-part=\"detail.track\"] { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 16px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail.recommended\"] > * { width: auto !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail.section\"][data-section=\"recommended\"] [data-part=\"card\"] { width: auto !important; border-radius: 4px; overflow: hidden; background: #2f2f2f; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail.section\"][data-section=\"recommended\"] [data-part=\"mq.box\"] { border-radius: 4px 4px 0 0; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail.section\"][data-section=\"recommended\"] [data-part=\"mq.ribbon\"] { display: none; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail.section\"][data-section=\"recommended\"] [data-part=\"mq.runtime\"] { display: block !important; position: absolute !important; top: 8px; right: 10px; color: #fff; text-shadow: 0 0 4px rgba(0, 0, 0, 0.9); }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail.section\"][data-section=\"recommended\"] [data-part=\"mq.more\"] { display: flex !important; min-height: 160px; padding: 16px; }\n\n[data-part=\"mq.more-meta\"] { margin-bottom: 12px; color: #bcbcbc; line-height: 24px; }\n\n[data-part=\"mq.more-syn\"] { color: #d2d2d2; line-height: 20px; }\n\n/* ── Search: a 5-column grid of 16:9 cards, 8 px columns and 20 px rows, inside the 60 px gutters. ── */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"search\"] [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; column-gap: 8px !important; row-gap: 20px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"search\"] { padding-left: 60px !important; padding-right: 60px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"search\"] [data-part=\"search.field\"] { flex: 0 0 400px; width: 400px; height: 56px; padding: 16px 53px 16px 48px !important; border: 1px solid rgba(255, 255, 255, 0.85) !important; border-radius: 4px !important; background: rgba(0, 0, 0, 0.75) url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27white%27%20stroke-width=%272%27%20stroke-linecap=%27round%27%3E%3Ccircle%20cx=%2710.5%27%20cy=%2710.5%27%20r=%276.5%27/%3E%3Cpath%20d=%27m20%2020-4.5-4.5%27/%3E%3C/svg%3E) no-repeat 14px center / 24px 24px !important; color: #fff; font-size: 16px !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"search\"] [data-part=\"search.filter\"] { height: 36px; border: 1px solid rgba(255, 255, 255, 0.5) !important; border-radius: 9999px !important; background: transparent !important; color: #fff !important; font-size: 14px !important; font-weight: 500 !important; }\n\n:scope:not([data-surface=\"tv\"]) [data-slot=\"search\"] [data-part=\"search.filter\"]:hover { border-color: #fff !important; background: rgba(255, 255, 255, 0.1) !important; }\n\n/* ── Player: a 4 px red bar with a 15 px red knob, the time left at its end; 44 px white icons. ── */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.top\"] { padding: 30px 30px 0 !important; background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"button\"][data-control=\"back\"] { width: 44px; height: 44px; padding: 0 !important; justify-content: center; gap: 0 !important; font-size: 0 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"button\"][data-control=\"back\"] svg { width: 36px !important; height: 36px !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.bottom\"] { padding: 0 20px 24px !important; background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) !important; }\n\n/* The title sits centred in the button row: \"Title  E1 Episode name\". */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.heading\"] { position: absolute; left: 50%; bottom: 24px; display: flex; align-items: center; gap: 10px; max-width: calc(100% - 1300px); height: 44px; overflow: hidden; padding: 0 !important; transform: translateX(-50%); white-space: nowrap; text-shadow: none !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.title\"] { flex: 0 1 auto; min-width: 0; color: #fff !important; font-size: 20px !important; font-weight: 500 !important; line-height: 24px; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode\"] { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; color: #fff !important; font-size: 20px !important; font-weight: 400 !important; line-height: 24px; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode.number\"] { margin-right: 6px; font-weight: 500; }\n\n/* The button row: Play, Back 10, Forward 10 and Volume at the left, the rest at the right. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] { gap: 16px !important; margin-top: 10px !important; }\n\n/* Under 1600 px the middle of the button row is too short for a title line (380 px at 1500, 246 at 1366): it goes above the seek bar, at the left. */\n/* Centred in the bar only where both button groups leave it room (izumi's right group is up to ten buttons). */\n@media (max-width: 1919px) { [data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.heading\"] { position: static; max-width: none; height: auto; transform: none; } }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.transport\"], [data-part=\"player.actions\"]) { display: contents !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] > * { order: 20; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"play\"] { order: 1 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"rewind\"] { order: 2 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"forward\"] { order: 3 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"volume\"]) { order: 4 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-control=\"restart\"], [data-control=\"previous\"]) { order: 10 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"]::before { content: \"\"; order: 5; flex: 1 1 auto; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"next\"] { order: 11 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > * { order: 12; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"fullscreen\"] { order: 30 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.control.step\"] { font-size: 9px !important; font-weight: 700; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.fill\"] { background: #f00 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.buffer\"] { background: #d3d3d3 !important; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.knob\"] { width: 15px !important; height: 15px !important; background: #f00 !important; opacity: 1 !important; transition: scale 0.2s; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"]:hover [data-part=\"player.seekbar.knob\"] { scale: 1.3; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.time\"] { color: #fff; font-size: 16px; line-height: 20px; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.control\"], [data-part=\"button\"][data-control]) { width: 44px; height: 44px; color: #fff !important; background: transparent !important; transition: transform 0.15s; }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.control\"], [data-part=\"button\"][data-control]):hover { transform: scale(1.2); }\n\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.control\"], [data-part=\"button\"][data-control]) svg { width: 28px; height: 28px; }\n\n[data-part=\"player.menu\"] { border: 0 !important; border-radius: 3px !important; background: #262626 !important; }\n\n/* Paused: \"You're watching\" at the left, \"Paused\" bottom-right, over a 50% dim. */\n[data-part=\"player.summary\"] { background: rgba(0, 0, 0, 0.5) !important; padding: 0 12% !important; }\n\n[data-part=\"player.summary.kicker\"], [data-part=\"player.summary.state\"], [data-part=\"player.summary.synopsis\"] { color: #ccc !important; font-size: 18px !important; font-weight: 400 !important; }\n\n[data-part=\"player.summary.title\"] { color: #fff !important; font-size: 54px !important; font-weight: 500 !important; }\n\n[data-part=\"player.summary.season\"], [data-part=\"player.summary.episode\"] { color: #fff !important; font-size: 24px !important; font-weight: 500 !important; }\n\n[data-part=\"player.summary.synopsis\"] { max-width: 723px; }\n\n[data-part=\"player.skip\"] { border-radius: 4px !important; }\n\n/* A title without art gets izumi's cover-colour wash, and a loading one a placeholder: both cover only the\n   panel's 479 px art, never the metadata under it (the rest stays #181818). */\n:scope:not([data-surface=\"tv\"]) [data-slot=\"detail\"][data-variant=\"desktop\"] > span[aria-hidden=\"true\"] { bottom: auto !important; height: 479px; }\n\n/* A phone-width window: 16 px gutters instead of 60, the billboard copy kept inside the card. */\n@media (max-width: 640px) {\n  :scope:not([data-surface=\"tv\"]) [data-slot=\"nav.top\"], :scope:not([data-surface=\"tv\"]) [data-part=\"row.header\"], :scope:not([data-surface=\"tv\"]) [data-part=\"row.track\"], :scope:not([data-surface=\"tv\"]) [data-slot=\"search\"] { padding-left: 16px !important; padding-right: 16px !important; }\n  :scope:not([data-surface=\"tv\"]) [data-slot=\"home.hero\"]:is([data-variant=\"template\"], [data-state=\"loading\"]) { margin-left: 16px !important; margin-right: 16px !important; }\n  :scope:not([data-surface=\"tv\"]) [data-part=\"mq.copy\"] { max-width: 100%; padding: 20px !important; }\n  :scope:not([data-surface=\"tv\"]) [data-part=\"mq.callouts\"] { display: none !important; }\n}\n\n/* ════ TV (Android TV, Game mode): sized from a 1920 × 1080 canvas, --u = one canvas pixel. ════ */\n:scope[data-surface=\"tv\"] { --u: calc(100vw / 1920); --theme-top-row: calc(var(--u) * 137); --mq-ease: cubic-bezier(0.2, 0.8, 0.2, 1); }\n\n/* Top bar: no fill over the page tint (black once scrolled); the avatar first at x = 68, then the 60 px\n   pill destinations centred, search a round icon at their head; focused = white pill, black label;\n   selected = white 12 %; idle = white 70 %. */\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] { gap: calc(var(--u) * 8) !important; padding: 0 calc(var(--u) * 68) !important; border: 0 !important; background: transparent !important; transition: background-color 0.4s linear; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"][data-scrolled] { background-color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.spacer\"] { display: none; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.item\"] { order: 1; height: calc(var(--u) * 60); padding: 0 calc(var(--u) * 26) !important; border-radius: calc(var(--u) * 30) !important; background: transparent; color: rgba(255, 255, 255, 0.7) !important; font-size: calc(var(--u) * 24) !important; font-weight: 500 !important; line-height: 1; transition: background-color 0.2s, color 0.2s; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.item\"]:not([data-dest=\"search\"]) [data-part=\"nav.item.icon\"] { display: none; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-active] { background: rgba(255, 255, 255, 0.12) !important; color: #fff !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > :is([data-part=\"nav.item\"], [data-part=\"nav.action\"]):is(:focus, :focus-visible) { outline: none !important; box-shadow: none !important; background: #fff !important; color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-dest=\"search\"] { order: 0; width: calc(var(--u) * 64); height: calc(var(--u) * 64); margin-left: auto; padding: 0 !important; justify-content: center; border-radius: 50% !important; color: #fff !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.item\"][data-dest=\"search\"] [data-part=\"nav.item.label\"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.item\"] [data-part=\"nav.item.icon\"] svg { width: calc(var(--u) * 30); height: calc(var(--u) * 30); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.action\"] { order: 2; width: calc(var(--u) * 60) !important; height: calc(var(--u) * 60) !important; border-radius: 50% !important; background: transparent !important; color: rgba(255, 255, 255, 0.7) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.action\"][data-action=\"incognito\"] { margin-left: auto; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.action\"] svg { width: calc(var(--u) * 30); height: calc(var(--u) * 30); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.action\"][data-action=\"account\"] { order: -1; width: calc(var(--u) * 48) !important; height: calc(var(--u) * 48) !important; margin-right: calc(var(--u) * 24); border-radius: calc(var(--u) * 8) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"nav.top\"] > [data-part=\"nav.action\"][data-action=\"account\"] img { width: calc(var(--u) * 48); height: calc(var(--u) * 48); border-radius: calc(var(--u) * 8); }\n\n/* Home: the page takes a dark tint of the billboard's art and drops to black once focus enters the rows (1 s). */\n:scope[data-surface=\"tv\"] [data-slot=\"page\"]:has([data-slot=\"home\"]) { background-color: color-mix(in srgb, rgb(var(--hero-ambient-rgb, 48 51 68)) 32%, #000); transition: background-color 1s var(--mq-ease); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"page\"]:has([data-slot=\"home\"] [data-slot=\"row\"]:focus-within) { background-color: #000; }\n\n/* Billboard: an inset card 1782 × 764 at x = 69 under the bar, r 22; the copy at x = 98, its buttons 33 px\n   above the card's bottom; the next row's title peeks at y ≈ 953. */\n:scope[data-surface=\"tv\"] [data-slot=\"home.hero\"][data-variant=\"template\"] { height: calc(var(--u) * 764) !important; min-height: 0 !important; margin: 0 calc(var(--u) * 69) calc(var(--u) * 48) !important; border-radius: calc(var(--u) * 22); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"home.hero\"][data-state=\"loading\"] { background: rgba(255, 255, 255, 0.04) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"home.hero\"][data-state=\"loading\"] .skeloader { opacity: 0; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.billboard\"]::after { background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 30%, rgba(0, 0, 0, 0) 45%), linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 40%) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.copy\"] { width: calc(var(--u) * 640); padding: 0 0 calc(var(--u) * 33) calc(var(--u) * 29) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.eyebrow\"] { margin-bottom: calc(var(--u) * 10); font-size: calc(var(--u) * 14) !important; letter-spacing: 0.2em; text-transform: uppercase; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.logo\"] { width: calc(var(--u) * 420) !important; height: calc(var(--u) * 120); margin-bottom: calc(var(--u) * 16); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.logo\"] img { object-position: left bottom; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.title\"] { margin-bottom: calc(var(--u) * 14); font-size: calc(var(--u) * 56) !important; line-height: 1.05; letter-spacing: -0.02em; text-shadow: none !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.attrs\"] { gap: calc(var(--u) * 10) !important; margin-bottom: calc(var(--u) * 10); color: #fff; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.attrs\"] * { font-size: calc(var(--u) * 22) !important; line-height: calc(var(--u) * 30); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.dot\"] { color: #fff; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.attrs\"] [data-part=\"mq.age\"] { height: calc(var(--u) * 28); padding: 0 calc(var(--u) * 6); font-size: calc(var(--u) * 16) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.synopsis\"] { max-width: calc(var(--u) * 560); margin-bottom: calc(var(--u) * 26); color: rgba(255, 255, 255, 0.9) !important; font-size: calc(var(--u) * 24) !important; line-height: calc(var(--u) * 34); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.actions\"] { gap: calc(var(--u) * 12) !important; overflow: visible !important; }\n\n:scope[data-surface=\"tv\"] :is([data-part=\"mq.play\"], [data-part=\"mq.info\"]) { height: calc(var(--u) * 76); min-height: 0 !important; gap: calc(var(--u) * 12) !important; padding: 0 calc(var(--u) * 36) 0 calc(var(--u) * 30) !important; border-radius: 9999px !important; background: rgba(255, 255, 255, 0.2) !important; color: #fff !important; font-size: calc(var(--u) * 26) !important; font-weight: 500 !important; filter: none !important; transition: background-color 0.2s, color 0.2s; }\n\n:scope[data-surface=\"tv\"] :is([data-part=\"mq.play\"], [data-part=\"mq.info\"]) svg { width: calc(var(--u) * 28); height: calc(var(--u) * 28); }\n\n:scope[data-surface=\"tv\"] :is([data-part=\"mq.play\"], [data-part=\"mq.info\"]):is(:focus, :focus-visible) { outline: none !important; box-shadow: none !important; background: #fff !important; color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.callouts\"] { margin: 0 calc(var(--u) * 40) calc(var(--u) * 50) 0; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.callout\"] { display: inline-flex; align-items: center; height: calc(var(--u) * 50); padding: 0 calc(var(--u) * 24); border-radius: 9999px; background: rgba(0, 0, 0, 0.7); color: #fff; font-size: calc(var(--u) * 22) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"home.hero\"] :is([data-part=\"hero.edge\"], [data-part=\"hero.indicator\"]) { display: none !important; }\n\n/* Rows: 32/700 titles at x = 70 (dimmed to #6C6B70 until the row has focus); 312 × 507 boxart 18 apart.\n   The focused tile becomes 905 × 508 key art with a 4 px white stroke, anchored in the first column;\n   the focused row snaps 137 px down, under the bar. */\n:scope[data-surface=\"tv\"] [data-slot=\"row\"] { scroll-margin-top: calc(var(--u) * 130); margin-bottom: calc(var(--u) * 108) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"row.header\"] { margin-bottom: 0 !important; padding: 0 calc(var(--u) * 70) calc(var(--u) * 18) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"row.title\"] { color: #6c6b70; font-size: calc(var(--u) * 32) !important; font-weight: 700 !important; line-height: calc(var(--u) * 40); transition: color 0.25s; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"row\"]:focus-within [data-part=\"row.title\"] { color: #fff; }\n\n:scope[data-surface=\"tv\"] [data-part=\"row.track\"] { gap: calc(var(--u) * 18) !important; padding: 0 calc(100vw - var(--u) * 975) 0 calc(var(--u) * 70) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"row.step\"] { display: none !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"card\"]:has([data-part=\"mq.tile\"]) { width: calc(var(--u) * 312) !important; transition: width 0.65s var(--mq-ease); }\n\n:scope[data-surface=\"tv\"] [data-row-focus=\"anchor\"] [data-part=\"card\"]:has([data-part=\"mq.tile\"]):focus-within { width: calc(var(--u) * 905) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"card\"]:has([data-part=\"mq.tile\"]), :scope[data-surface=\"tv\"] [data-part=\"card\"]:has([data-part=\"mq.tile\"]) a { outline: none !important; box-shadow: none !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile\"] { height: calc(var(--u) * 507); overflow: hidden; border-radius: calc(var(--u) * 12); background: #1f1f1f; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile\"]::after { content: \"\"; grid-area: 1 / 1; z-index: 4; border-radius: inherit; pointer-events: none; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile\"] img { transform: none !important; }\n\n:scope[data-surface=\"tv\"] :is([data-part=\"mq.tile-wide\"], [data-part=\"mq.tile-brand\"], [data-part=\"mq.tile-callout\"]) { opacity: 0; }\n\n:scope[data-surface=\"tv\"] [data-part=\"card\"]:focus-within [data-part=\"mq.tile\"]::after { box-shadow: inset 0 0 0 calc(var(--u) * 4) #fff; }\n\n:scope[data-surface=\"tv\"] [data-row-focus=\"anchor\"] [data-part=\"card\"]:focus-within :is([data-part=\"mq.tile-wide\"], [data-part=\"mq.tile-brand\"], [data-part=\"mq.tile-callout\"]) { opacity: 1; }\n\n:scope[data-surface=\"tv\"] [data-row-focus=\"anchor\"] [data-part=\"card\"]:focus-within [data-part=\"mq.tile-poster\"] { opacity: 0; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile-brand\"] { padding: 0 0 calc(var(--u) * 24) calc(var(--u) * 24); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile-logo\"] { width: calc(var(--u) * 300) !important; height: calc(var(--u) * 100); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile-logo\"] img { object-position: left bottom; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile-title\"] { max-width: calc(var(--u) * 520); font-size: calc(var(--u) * 32) !important; line-height: 1.05; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile-callout\"] { position: absolute !important; right: calc(var(--u) * 24); bottom: calc(var(--u) * 24); display: inline-flex; align-items: center; height: calc(var(--u) * 36); padding: 0 calc(var(--u) * 16); border-radius: 9999px; background: rgba(0, 0, 0, 0.7); color: #fff; font-size: calc(var(--u) * 20) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile-bar\"] { position: absolute !important; left: 0; right: 0; bottom: 0; z-index: 3; min-height: 0 !important; height: calc(var(--u) * 6) !important; border-radius: 0 !important; background: rgba(255, 255, 255, 0.3) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tile-bar\"] > span { border-radius: 0 !important; background: var(--mq-red) !important; }\n\n/* The caption under the expanded tile: 22/700 meta 31 px under it, then a two-line 24/400 synopsis. */\n:scope[data-surface=\"tv\"] [data-part=\"row.caption\"] { width: calc(var(--u) * 905); margin: calc(var(--u) * 28) 0 0 calc(var(--u) * 70) !important; padding: 0 !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"row.caption\"] > * { animation: mq-caption 0.25s ease-out; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.cap-meta\"] { margin-bottom: calc(var(--u) * 10); color: #fff; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.cap-meta\"] * { font-size: calc(var(--u) * 22) !important; line-height: calc(var(--u) * 30); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.cap-item\"] + [data-part=\"mq.cap-item\"]::before { content: \"·\"; margin: 0 0.4em; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.cap-syn\"] { color: #bcbcbc; font-size: calc(var(--u) * 24) !important; line-height: calc(var(--u) * 42); }\n\n:scope[data-surface=\"tv\"] [data-part=\"row.skeleton\"] { width: calc(var(--u) * 312) !important; height: calc(var(--u) * 507) !important; border-radius: calc(var(--u) * 12) !important; background: #1f1f1f !important; animation: none !important; }\n\n/* Series page: full-screen art, a strong left scrim, the left column (x = 80, 750 wide): logo, meta, synopsis,\n   credits, then a vertical action list whose focused row is a white bar; the top bar keeps only the izumi mark. */\n:scope[data-surface=\"tv\"] [data-slot=\"page\"]:has([data-slot=\"detail\"]) { padding-top: 0 !important; background: #000; }\n\n:scope[data-surface=\"tv\"]:has([data-slot=\"detail\"]) [data-slot=\"nav.top\"] > :is([data-part=\"nav.item\"], [data-part=\"nav.action\"], [data-part=\"nav.menu\"]) { display: none !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"][data-layout=\"overlay\"] { min-height: 100vh !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.backdrop\"] { object-position: center top !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.scrim\"][data-dir=\"left\"] { width: 70% !important; background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.7) 45%, rgba(0, 0, 0, 0) 100%) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.scrim\"][data-dir=\"bottom\"] { background-image: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 35%) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.body\"] { justify-content: center !important; gap: 0 !important; width: calc(var(--u) * 830); max-width: none !important; min-height: 100vh !important; padding: calc(var(--u) * 100) 0 calc(var(--u) * 80) calc(var(--u) * 80) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] :is([data-part=\"detail.alt-title\"], [data-part=\"detail.studio\"], [data-part=\"detail.meta\"]) { display: none !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.title\"] { margin-bottom: calc(var(--u) * 24); font-size: calc(var(--u) * 64) !important; font-weight: 700 !important; line-height: 1.05 !important; text-shadow: none !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.logo\"] { max-width: calc(var(--u) * 480) !important; max-height: calc(var(--u) * 150) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.dh-meta\"] { gap: calc(var(--u) * 12) !important; margin-bottom: calc(var(--u) * 16); color: #fff; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.dh-meta\"] * { font-size: calc(var(--u) * 22) !important; line-height: calc(var(--u) * 30); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.dh-meta\"] :is([data-part=\"mq.hd\"], [data-part=\"mq.age\"]) { padding: 0 calc(var(--u) * 8); border: 0; border-radius: calc(var(--u) * 6); background: rgba(255, 255, 255, 0.2); font-size: calc(var(--u) * 16) !important; line-height: calc(var(--u) * 28); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.synopsis\"] { order: 3; max-width: calc(var(--u) * 750) !important; margin-bottom: calc(var(--u) * 16); -webkit-line-clamp: 3 !important; color: #fff !important; font-size: calc(var(--u) * 24) !important; line-height: calc(var(--u) * 36) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.header\"], :scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.header\"] > *, :scope[data-surface=\"tv\"] [data-part=\"mq.dh\"] { display: contents !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.dh-meta\"] { order: 2; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.dh-credits\"] { order: 4; gap: calc(var(--u) * 4) !important; margin-bottom: calc(var(--u) * 32); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.credit\"] > * { color: #a3a3a3 !important; font-size: calc(var(--u) * 20) !important; line-height: calc(var(--u) * 28); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.actions\"] { order: 5; flex-direction: column; align-items: stretch !important; gap: calc(var(--u) * 10) !important; width: calc(var(--u) * 750); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.actions\"] > * { display: flex !important; align-items: center !important; justify-content: flex-start !important; width: 100% !important; height: calc(var(--u) * 60) !important; gap: calc(var(--u) * 20) !important; padding: 0 calc(var(--u) * 24) !important; border: 0 !important; border-radius: calc(var(--u) * 8) !important; background: transparent !important; color: #fff !important; font-size: calc(var(--u) * 26) !important; font-weight: 500 !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.actions\"] > * svg { width: calc(var(--u) * 28) !important; height: calc(var(--u) * 28) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.actions\"] > :is(:focus, :focus-visible) { outline: none !important; box-shadow: none !important; background: #fff !important; color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"save\"]::after { content: \"Save\"; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"save\"][data-state=\"saved\"]::after { content: \"Saved\"; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"detail.rating\"] { order: 6; }\n\n:scope[data-surface=\"tv\"] :is([data-slot=\"detail.episodes\"], [data-slot=\"detail.section\"]) { padding: 0 calc(var(--u) * 80); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"episodes.toolbar\"] { margin-bottom: calc(var(--u) * 20) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"episodes.toolbar\"]:has([data-slot=\"episodes.seasons\"])::before { content: \"Episodes\"; flex: 1 1 auto; color: #fff; font-size: calc(var(--u) * 32); font-weight: 700; }\n\n:scope[data-surface=\"tv\"] :is([data-part=\"episodes.heading\"], [data-part=\"detail.section-title\"]) { color: #fff; font-size: calc(var(--u) * 32) !important; font-weight: 700 !important; text-transform: capitalize; }\n\n:scope[data-surface=\"tv\"] [data-part=\"episodes.count\"] { display: none !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"season.toggle\"] { flex-direction: row-reverse; height: calc(var(--u) * 56); padding: 0 calc(var(--u) * 24) !important; border: 0 !important; border-radius: 9999px !important; background: rgba(255, 255, 255, 0.12) !important; color: #fff !important; font-size: calc(var(--u) * 24) !important; font-weight: 500 !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"season.toggle\"]:is(:focus, :focus-visible) { outline: none !important; box-shadow: none !important; background: #fff !important; color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"episodes.track\"] { gap: calc(var(--u) * 18) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"episodes.track\"] > * { width: calc(var(--u) * 420) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"episode\"][data-variant=\"template\"] { width: calc(var(--u) * 420) !important; padding: 0 !important; border: 0 !important; background: transparent !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tep-still\"] { overflow: hidden; border-radius: calc(var(--u) * 12); background: #1f1f1f; }\n\n:scope[data-surface=\"tv\"] [data-part=\"episode\"]:is(:focus, :focus-visible) { outline: none !important; box-shadow: none !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tep-still\"]::after { content: \"\"; grid-area: 1 / 1; z-index: 4; border-radius: inherit; pointer-events: none; }\n\n:scope[data-surface=\"tv\"] [data-part=\"episode\"]:is(:focus, :focus-within) [data-part=\"mq.tep-still\"]::after { box-shadow: inset 0 0 0 calc(var(--u) * 4) #fff; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tep-head\"] { margin: calc(var(--u) * 14) 0 calc(var(--u) * 6); color: #fff; }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tep-head\"] > * { font-size: calc(var(--u) * 22) !important; line-height: calc(var(--u) * 30); }\n\n:scope[data-surface=\"tv\"] [data-part=\"mq.tep-syn\"] { color: #bcbcbc; font-size: calc(var(--u) * 20) !important; line-height: calc(var(--u) * 28); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail.recommended\"] { display: flex !important; flex-wrap: nowrap !important; gap: calc(var(--u) * 18) !important; overflow-x: auto; overflow-y: hidden; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail.recommended\"] > * { flex: 0 0 auto; width: auto !important; }\n\n/* Search: the grid keyboard in the left column (x 67–460): Space and Backspace, then six columns of 62 px\n   #333 keys 4 px apart, r 4, lowercase 24 px; focused = white with a black glyph. Results: a 4-column grid\n   of 293 × 410 posters, 13 px apart. */\n:scope[data-surface=\"tv\"] [data-slot=\"search.layout\"] { gap: calc(var(--u) * 112) !important; margin: calc(var(--u) * 28) 0 0 calc(var(--u) * 67) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"search\"] [data-part=\"search.filter\"] { height: calc(var(--u) * 52); border: 0 !important; border-radius: calc(var(--u) * 4) !important; background: #333 !important; color: #999 !important; font-size: calc(var(--u) * 22) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"search\"] [data-part=\"search.filter\"]:is(:focus, :focus-visible), :scope[data-surface=\"tv\"] [data-slot=\"search\"] [data-part=\"search.field\"]:focus { outline: none !important; box-shadow: none !important; background: #fff !important; color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"search\"] [data-part=\"search.field\"] { height: calc(var(--u) * 52); border: 0 !important; border-radius: calc(var(--u) * 4) !important; background: #333 !important; color: #fff !important; font-size: calc(var(--u) * 24) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"search.keyboard\"] { flex: 0 0 auto; margin: 0 !important; width: calc(var(--u) * 393) !important; gap: calc(var(--u) * 4) !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"search.key\"] { height: calc(var(--u) * 62) !important; min-height: 0 !important; padding: 0 !important; border: 0 !important; border-radius: calc(var(--u) * 4) !important; background: #333 !important; color: #fff !important; font-size: calc(var(--u) * 24) !important; font-weight: 400 !important; text-transform: lowercase; box-shadow: none !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"search.key\"]:is(:focus, :focus-visible) { outline: none !important; box-shadow: none !important; background: #fff !important; color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"search.key\"][data-key=\"clear\"] { display: none !important; }\n\n:scope[data-surface=\"tv\"] [data-part=\"search.key\"] svg { width: calc(var(--u) * 30); height: calc(var(--u) * 30); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"search.layout\"] [data-slot=\"search\"] { padding: 0 calc(var(--u) * 36) 0 0 !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"search\"] [data-part=\"search.grid\"][data-variant=\"grid\"] { grid-template-columns: repeat(4, calc(var(--u) * 293)) !important; gap: calc(var(--u) * 13) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"search\"] [data-part=\"card\"]:has([data-part=\"mq.tile\"]) { width: auto !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"search\"] [data-part=\"mq.tile\"] { height: auto; aspect-ratio: 293 / 410; }\n\n/* Player (Android TV): an 8 px bar from x = 127 to 1793, red on white 30 %, a 38 px white thumb; the times\n   20 px under it; the Skip pill bottom-left, white 12 %, 28/500, r 32; focused controls turn white. */\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.bottom\"] { left: calc(var(--u) * 127) !important; right: calc(var(--u) * 127) !important; bottom: calc(var(--u) * 60) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.seekbar.track\"] { height: calc(var(--u) * 8) !important; border-radius: calc(var(--u) * 4); background: rgba(255, 255, 255, 0.3) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.seekbar.fill\"] { background: var(--mq-red) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.seekbar.buffer\"] { background: rgba(255, 255, 255, 0.45) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.seekbar.knob\"] { width: calc(var(--u) * 38) !important; height: calc(var(--u) * 38) !important; bottom: calc(var(--u) * -15) !important; background: #fff !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.time\"] { color: #fff; font-size: calc(var(--u) * 20) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.control\"]:not([data-control=\"play\"]) svg { width: calc(var(--u) * 40); height: calc(var(--u) * 40); }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.control\"]:is(:focus, :focus-visible) { outline: none !important; border-radius: 50%; background: #fff !important; color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.control\"][data-control=\"play\"] { width: calc(var(--u) * 72) !important; height: calc(var(--u) * 72) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.skip\"] { left: calc(var(--u) * 126) !important; right: auto !important; bottom: calc(var(--u) * 180) !important; height: calc(var(--u) * 64); padding: 0 calc(var(--u) * 40) !important; border-radius: calc(var(--u) * 32) !important; background: rgba(255, 255, 255, 0.12) !important; color: #fff !important; font-size: calc(var(--u) * 28) !important; font-weight: 500 !important; box-shadow: none !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.skip\"]:is(:focus, :focus-visible) { background: #fff !important; color: #000 !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.title\"] { font-size: calc(var(--u) * 28) !important; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"player.controls\"][data-variant=\"android\"] [data-part=\"player.episode\"] { color: #a3a3a3 !important; font-size: calc(var(--u) * 22) !important; }\n\n@keyframes mq-caption { from { opacity: 0; } }\n\n/* While the bar has focus the page under it dims (the service also blurs it; a blur is left out on TV hardware). */\n:scope[data-surface=\"tv\"] [data-slot=\"home\"] { transition: opacity 0.3s; }\n\n:scope[data-surface=\"tv\"]:has([data-slot=\"nav.top\"]:focus-within) [data-slot=\"home\"] { opacity: 0.55; }\n\n:scope[data-surface=\"tv\"] [data-slot=\"detail\"] [data-part=\"button\"][data-action=\"play\"] svg { fill: currentColor; }\n",
+    "presentation": {
+      "density": "comfortable",
+      "hideCardLabels": true,
+      "cardPreview": "expand",
+      "shell": {
+        "nav": "top",
+        "top": {
+          "labels": "both",
+          "search": "icon",
+          "menu": "none",
+          "brand": "start"
+        }
+      },
+      "hero": {
+        "height": 75,
+        "rotate": true,
+        "interval": 20,
+        "limit": 7,
+        "transition": "fade",
+        "preview": "trailer",
+        "indicator": {
+          "style": "none"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "mq.billboard",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "keyart",
+              "part": "mq.art",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              },
+              "when": {
+                "field": "keyart"
+              }
+            },
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "part": "mq.art",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              },
+              "when": {
+                "field": "keyart",
+                "absent": true
+              }
+            },
+            {
+              "type": "artwork",
+              "artwork": "trailer",
+              "part": "mq.trailer",
+              "style": {
+                "anchor": "fill"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "mq.copy",
+              "style": {
+                "anchor": "bottom-start",
+                "align": "start",
+                "gap": 0,
+                "padding": 40
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "logo",
+                  "part": "mq.logo",
+                  "style": {
+                    "fit": "contain",
+                    "maxWidth": 480
+                  },
+                  "when": {
+                    "field": "logo"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "mq.title",
+                  "style": {
+                    "fontSize": 48,
+                    "fontWeight": 700,
+                    "lines": 2,
+                    "color": "#FFFFFF"
+                  },
+                  "when": {
+                    "field": "logo",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "mq.attrs",
+                  "style": {
+                    "gap": 8,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "kind",
+                      "part": "mq.attr",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "kind"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "•",
+                      "part": "mq.dot",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "genre"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "genre",
+                      "part": "mq.attr",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "genre"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "•",
+                      "part": "mq.dot",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "startYear"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "startYear",
+                      "part": "mq.attr",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "startYear"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "•",
+                      "part": "mq.dot",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "episodeCountLabel"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "mq.attr",
+                      "style": {
+                        "gap": 0
+                      },
+                      "when": {
+                        "field": "episodeCountLabel"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodeCountLabel",
+                          "part": "mq.count",
+                          "style": {
+                            "fontSize": 16,
+                            "fontWeight": 500
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "field": "ageRating",
+                      "part": "mq.age",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "ageRating"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "stack",
+                  "part": "mq.desc",
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "description",
+                      "part": "mq.synopsis",
+                      "style": {
+                        "fontSize": 20,
+                        "fontWeight": 400,
+                        "lines": 3,
+                        "color": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "mq.actions",
+                  "style": {
+                    "gap": 12,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "Play",
+                      "part": "mq.play"
+                    },
+                    {
+                      "type": "action",
+                      "action": "details",
+                      "icon": "info",
+                      "text": "More Info",
+                      "part": "mq.info"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "part": "mq.callouts",
+              "style": {
+                "anchor": "bottom-end",
+                "gap": 8,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "mq.callout",
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "when": {
+                    "field": "newBadge"
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "episodes",
+                      "part": "mq.callout-icon",
+                      "style": {
+                        "fontSize": 20
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "newBadge",
+                      "part": "mq.callout-text",
+                      "style": {
+                        "fontSize": 13,
+                        "fontWeight": 500
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "mq.callout",
+                  "style": {
+                    "gap": 6,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "when": {
+                    "field": "rank"
+                  },
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "score",
+                      "part": "mq.callout-icon",
+                      "style": {
+                        "fontSize": 20
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "rank",
+                      "part": "mq.callout-text",
+                      "style": {
+                        "fontSize": 13,
+                        "fontWeight": 500
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "rows": {
+        "defaults": {
+          "width": 237,
+          "gap": 8,
+          "spacing": 37,
+          "radius": 12,
+          "titleSize": 24,
+          "heading": {
+            "weight": 500,
+            "viewMore": "hidden"
+          }
+        },
+        "byId": {
+          "trending": {
+            "title": "Trending Series Today",
+            "width": 237,
+            "card": {
+              "type": "row",
+              "part": "preview.anchor",
+              "style": {
+                "gap": 0,
+                "wrap": "nowrap",
+                "align": "stretch"
+              },
+              "children": [
+                {
+                  "type": "overlay",
+                  "part": "mq.rank",
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "rankPosition",
+                      "part": "mq.rank-line",
+                      "style": {
+                        "fontSize": 96,
+                        "fontWeight": 900
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "rankPosition",
+                      "part": "mq.rank-fill",
+                      "style": {
+                        "fontSize": 96,
+                        "fontWeight": 900
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "overlay",
+                  "part": "mq.top-poster",
+                  "style": {
+                    "aspect": "2 / 3"
+                  },
+                  "children": [
+                    {
+                      "type": "artwork",
+                      "artwork": "poster",
+                      "part": "mq.top-art",
+                      "style": {
+                        "anchor": "fill",
+                        "fit": "cover"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "newBadge",
+                      "part": "mq.ribbon",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 700
+                      },
+                      "when": {
+                        "field": "newBadge"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "newest": {
+            "title": "New Releases"
+          },
+          "movies": {
+            "title": "Films"
+          }
+        }
+      },
+      "cards": {
+        "poster": {
+          "type": "stack",
+          "part": "mq.card",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "mq.box",
+              "style": {
+                "aspect": "16 / 9"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "keyart",
+                  "part": "mq.box-art",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  },
+                  "when": {
+                    "field": "keyart"
+                  }
+                },
+                {
+                  "type": "artwork",
+                  "artwork": "backdrop",
+                  "part": "mq.box-art",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  },
+                  "when": {
+                    "field": "keyart",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "stack",
+                  "part": "mq.brand",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "align": "start",
+                    "gap": 0
+                  },
+                  "children": [
+                    {
+                      "type": "artwork",
+                      "artwork": "logo",
+                      "part": "mq.brand-logo",
+                      "style": {
+                        "fit": "contain",
+                        "maxWidth": 110
+                      },
+                      "when": {
+                        "field": "logo"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "title",
+                      "part": "mq.brand-title",
+                      "style": {
+                        "fontSize": 15,
+                        "fontWeight": 700,
+                        "lines": 2,
+                        "color": "#FFFFFF"
+                      },
+                      "when": {
+                        "field": "logo",
+                        "absent": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "newBadge",
+                  "part": "mq.ribbon",
+                  "style": {
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  },
+                  "when": {
+                    "field": "newBadge"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "durationLong",
+                  "part": "mq.runtime",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 500
+                  },
+                  "when": {
+                    "field": "durationLong"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "mq.more",
+              "style": {
+                "gap": 0
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "mq.more-meta",
+                  "style": {
+                    "gap": 8,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "ageRating",
+                      "part": "mq.age",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "ageRating"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "HD",
+                      "part": "mq.hd",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 500
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "startYear",
+                      "part": "mq.more-year",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 400
+                      },
+                      "when": {
+                        "field": "startYear"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "mq.more-syn",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lines": 6
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "search": {
+          "type": "stack",
+          "part": "mq.card",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "mq.box",
+              "style": {
+                "aspect": "16 / 9"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "keyart",
+                  "part": "mq.box-art",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  },
+                  "when": {
+                    "field": "keyart"
+                  }
+                },
+                {
+                  "type": "artwork",
+                  "artwork": "backdrop",
+                  "part": "mq.box-art",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  },
+                  "when": {
+                    "field": "keyart",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "stack",
+                  "part": "mq.brand",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "align": "start",
+                    "gap": 0
+                  },
+                  "children": [
+                    {
+                      "type": "artwork",
+                      "artwork": "logo",
+                      "part": "mq.brand-logo",
+                      "style": {
+                        "fit": "contain",
+                        "maxWidth": 110
+                      },
+                      "when": {
+                        "field": "logo"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "title",
+                      "part": "mq.brand-title",
+                      "style": {
+                        "fontSize": 15,
+                        "fontWeight": 700,
+                        "lines": 2,
+                        "color": "#FFFFFF"
+                      },
+                      "when": {
+                        "field": "logo",
+                        "absent": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "newBadge",
+                  "part": "mq.ribbon",
+                  "style": {
+                    "fontSize": 11,
+                    "fontWeight": 700
+                  },
+                  "when": {
+                    "field": "newBadge"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "durationLong",
+                  "part": "mq.runtime",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 500
+                  },
+                  "when": {
+                    "field": "durationLong"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "mq.more",
+              "style": {
+                "gap": 0
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "mq.more-meta",
+                  "style": {
+                    "gap": 8,
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "ageRating",
+                      "part": "mq.age",
+                      "style": {
+                        "fontSize": 12,
+                        "fontWeight": 500
+                      },
+                      "when": {
+                        "field": "ageRating"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "HD",
+                      "part": "mq.hd",
+                      "style": {
+                        "fontSize": 11,
+                        "fontWeight": 500
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "startYear",
+                      "part": "mq.more-year",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 400
+                      },
+                      "when": {
+                        "field": "startYear"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "mq.more-syn",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lines": 6
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "continue": {
+          "type": "stack",
+          "part": "mq.card",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "overlay",
+              "part": "mq.box",
+              "style": {
+                "aspect": "16 / 9"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "keyart",
+                  "part": "mq.box-art",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  },
+                  "when": {
+                    "field": "keyart"
+                  }
+                },
+                {
+                  "type": "artwork",
+                  "artwork": "backdrop",
+                  "part": "mq.box-art",
+                  "style": {
+                    "anchor": "fill",
+                    "fit": "cover"
+                  },
+                  "when": {
+                    "field": "keyart",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "stack",
+                  "part": "mq.brand",
+                  "style": {
+                    "anchor": "bottom-start",
+                    "align": "start",
+                    "gap": 0
+                  },
+                  "children": [
+                    {
+                      "type": "artwork",
+                      "artwork": "logo",
+                      "part": "mq.brand-logo",
+                      "style": {
+                        "fit": "contain",
+                        "maxWidth": 110
+                      },
+                      "when": {
+                        "field": "logo"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "title",
+                      "part": "mq.brand-title",
+                      "style": {
+                        "fontSize": 15,
+                        "fontWeight": 700,
+                        "lines": 2,
+                        "color": "#FFFFFF"
+                      },
+                      "when": {
+                        "field": "logo",
+                        "absent": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "meter",
+              "field": "progress",
+              "part": "mq.cw-bar"
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "overlay",
+        "art": "keyart",
+        "title": "logo",
+        "preview": "trailer",
+        "header": {
+          "type": "stack",
+          "part": "mq.dh",
+          "style": {
+            "gap": 0
+          },
+          "children": [
+            {
+              "type": "row",
+              "part": "mq.dh-meta",
+              "style": {
+                "gap": 8,
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "field": "startYear",
+                  "part": "mq.dh-year",
+                  "style": {
+                    "fontSize": 16,
+                    "fontWeight": 400
+                  },
+                  "when": {
+                    "field": "startYear"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "mq.dh-count",
+                  "style": {
+                    "gap": 0
+                  },
+                  "when": {
+                    "field": "episodeCountLabel"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "episodeCountLabel",
+                      "part": "mq.count",
+                      "style": {
+                        "fontSize": 16,
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": "HD",
+                  "part": "mq.hd",
+                  "style": {
+                    "fontSize": 11,
+                    "fontWeight": 500
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "ageRating",
+                  "part": "mq.age",
+                  "style": {
+                    "fontSize": 12,
+                    "fontWeight": 500
+                  },
+                  "when": {
+                    "field": "ageRating"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "newBadge",
+                  "part": "mq.dh-new",
+                  "style": {
+                    "fontSize": 14,
+                    "fontWeight": 500
+                  },
+                  "when": {
+                    "field": "newBadge"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "stack",
+              "part": "mq.dh-credits",
+              "style": {
+                "gap": 0
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "mq.credit",
+                  "style": {
+                    "gap": 0
+                  },
+                  "when": {
+                    "field": "starring"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Cast: ",
+                      "part": "mq.credit-label",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "starring",
+                      "part": "mq.credit-value",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "mq.credit",
+                  "style": {
+                    "gap": 0
+                  },
+                  "when": {
+                    "field": "genres"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Genres: ",
+                      "part": "mq.credit-label",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "genres",
+                      "part": "mq.credit-value",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "mq.credit",
+                  "style": {
+                    "gap": 0
+                  },
+                  "when": {
+                    "field": "creators"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Studio: ",
+                      "part": "mq.credit-label",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "creators",
+                      "part": "mq.credit-value",
+                      "style": {
+                        "fontSize": 14,
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "sections": {
+          "mode": "stack",
+          "tabs": [
+            "recommended"
+          ],
+          "labels": {
+            "recommended": "more-like-this"
+          },
+          "unlisted": "hidden"
+        },
+        "episodes": {
+          "placement": "below",
+          "arrangement": "list",
+          "hover": "none",
+          "toolbar": "header",
+          "seasons": "dropdown",
+          "order": "none",
+          "controls": [],
+          "card": {
+            "type": "row",
+            "part": "mq.ep",
+            "style": {
+              "gap": 0,
+              "align": "center",
+              "wrap": "nowrap"
+            },
+            "children": [
+              {
+                "type": "text",
+                "field": "episodeNo",
+                "part": "mq.ep-no",
+                "style": {
+                  "fontSize": 24,
+                  "fontWeight": 400
+                }
+              },
+              {
+                "type": "overlay",
+                "part": "mq.ep-still",
+                "style": {
+                  "aspect": "16 / 9"
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "part": "mq.ep-img",
+                    "style": {
+                      "anchor": "fill",
+                      "fit": "cover"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "part": "mq.ep-body",
+                "style": {
+                  "gap": 0,
+                  "grow": 1
+                },
+                "children": [
+                  {
+                    "type": "row",
+                    "part": "mq.ep-head",
+                    "style": {
+                      "gap": 8,
+                      "justify": "space-between",
+                      "align": "start",
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "episodeTitle",
+                        "part": "mq.ep-title",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 500,
+                          "lines": 1
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "upcoming",
+                        "part": "mq.ep-upcoming",
+                        "style": {
+                          "fontSize": 16,
+                          "fontWeight": 400
+                        },
+                        "when": {
+                          "field": "upcoming"
+                        }
+                      },
+                      {
+                        "type": "stack",
+                        "style": {
+                          "gap": 0
+                        },
+                        "when": {
+                          "field": "upcoming",
+                          "absent": true
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "field": "duration",
+                            "part": "mq.ep-dur",
+                            "style": {
+                              "fontSize": 16,
+                              "fontWeight": 400
+                            },
+                            "when": {
+                              "field": "duration"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "description",
+                    "part": "mq.ep-syn",
+                    "style": {
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "lines": 3
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "player": {
+        "layout": "full",
+        "window": "full",
+        "seekbarHeight": 4,
+        "seekbarColor": "#FF0000",
+        "seekButtons": true,
+        "time": "remaining",
+        "title": "episode",
+        "paused": "summary"
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "trending"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "role": "newest"
+          },
+          {
+            "role": "popular"
+          },
+          {
+            "role": "list"
+          },
+          {
+            "role": "recommendations"
+          },
+          {
+            "role": "movies"
+          },
+          {
+            "role": "romance"
+          },
+          {
+            "role": "action"
+          },
+          {
+            "role": "fantasy"
+          }
+        ]
+      },
+      "tv": {
+        "trueBlack": true,
+        "hideCardLabels": true,
+        "shell": {
+          "nav": "top",
+          "top": {
+            "labels": "both",
+            "search": "icon",
+            "menu": "none",
+            "brand": "start"
+          }
+        },
+        "hero": {
+          "height": 71,
+          "template": {
+            "type": "overlay",
+            "part": "mq.billboard",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "keyart",
+                "part": "mq.art",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                },
+                "when": {
+                  "field": "keyart"
+                }
+              },
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "part": "mq.art",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                },
+                "when": {
+                  "field": "keyart",
+                  "absent": true
+                }
+              },
+              {
+                "type": "stack",
+                "part": "mq.copy",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 0
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "field": "kind",
+                    "part": "mq.eyebrow",
+                    "style": {
+                      "fontSize": 14,
+                      "fontWeight": 700
+                    },
+                    "when": {
+                      "field": "kind"
+                    }
+                  },
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "mq.logo",
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 420
+                    },
+                    "when": {
+                      "field": "logo"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "mq.title",
+                    "style": {
+                      "fontSize": 56,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    },
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "mq.attrs",
+                    "style": {
+                      "gap": 8,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "kind",
+                        "part": "mq.attr",
+                        "style": {
+                          "fontSize": 22,
+                          "fontWeight": 500
+                        },
+                        "when": {
+                          "field": "kind"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "·",
+                        "part": "mq.dot",
+                        "style": {
+                          "fontSize": 22,
+                          "fontWeight": 500
+                        },
+                        "when": {
+                          "field": "genre"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "genre",
+                        "part": "mq.attr",
+                        "style": {
+                          "fontSize": 22,
+                          "fontWeight": 500
+                        },
+                        "when": {
+                          "field": "genre"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "·",
+                        "part": "mq.dot",
+                        "style": {
+                          "fontSize": 22,
+                          "fontWeight": 500
+                        },
+                        "when": {
+                          "field": "startYear"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "startYear",
+                        "part": "mq.attr",
+                        "style": {
+                          "fontSize": 22,
+                          "fontWeight": 500
+                        },
+                        "when": {
+                          "field": "startYear"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "·",
+                        "part": "mq.dot",
+                        "style": {
+                          "fontSize": 22,
+                          "fontWeight": 500
+                        },
+                        "when": {
+                          "field": "episodeCountLabel"
+                        }
+                      },
+                      {
+                        "type": "row",
+                        "part": "mq.attr",
+                        "style": {
+                          "gap": 0
+                        },
+                        "when": {
+                          "field": "episodeCountLabel"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "field": "episodeCountLabel",
+                            "part": "mq.count",
+                            "style": {
+                              "fontSize": 22,
+                              "fontWeight": 500
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "field": "ageRating",
+                        "part": "mq.age",
+                        "style": {
+                          "fontSize": 12,
+                          "fontWeight": 500
+                        },
+                        "when": {
+                          "field": "ageRating"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "field": "description",
+                    "part": "mq.synopsis",
+                    "style": {
+                      "fontSize": 24,
+                      "fontWeight": 400,
+                      "lines": 3
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "mq.actions",
+                    "style": {
+                      "gap": 12,
+                      "align": "center",
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "Play",
+                        "part": "mq.play"
+                      },
+                      {
+                        "type": "action",
+                        "action": "details",
+                        "icon": "info",
+                        "text": "More Info",
+                        "part": "mq.info"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "row",
+                "part": "mq.callouts",
+                "style": {
+                  "anchor": "bottom-end",
+                  "gap": 8,
+                  "align": "center"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "field": "newBadge",
+                    "part": "mq.callout",
+                    "style": {
+                      "fontSize": 22,
+                      "fontWeight": 500
+                    },
+                    "when": {
+                      "field": "newBadge"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "rows": {
+          "defaults": {
+            "focus": "anchor",
+            "caption": "focus",
+            "captionTemplate": {
+              "type": "stack",
+              "part": "mq.cap",
+              "style": {
+                "gap": 0,
+                "minHeight": 120
+              },
+              "children": [
+                {
+                  "type": "row",
+                  "part": "mq.cap-meta",
+                  "style": {
+                    "gap": 0,
+                    "align": "center",
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "genre",
+                      "part": "mq.cap-item",
+                      "style": {
+                        "fontSize": 22,
+                        "fontWeight": 700
+                      },
+                      "when": {
+                        "field": "genre"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "startYear",
+                      "part": "mq.cap-item",
+                      "style": {
+                        "fontSize": 22,
+                        "fontWeight": 700
+                      },
+                      "when": {
+                        "field": "startYear"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "mq.cap-item",
+                      "style": {
+                        "gap": 0
+                      },
+                      "when": {
+                        "field": "episodeCountLabel"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "episodeCountLabel",
+                          "part": "mq.count",
+                          "style": {
+                            "fontSize": 22,
+                            "fontWeight": 700
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "field": "format",
+                      "part": "mq.cap-item",
+                      "style": {
+                        "fontSize": 22,
+                        "fontWeight": 700
+                      },
+                      "when": {
+                        "field": "format"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "mq.cap-syn",
+                  "style": {
+                    "fontSize": 24,
+                    "fontWeight": 400,
+                    "lines": 2
+                  }
+                }
+              ]
+            },
+            "gap": 18,
+            "titleSize": 32,
+            "heading": {
+              "weight": 700,
+              "viewMore": "hidden"
+            }
+          },
+          "byId": {
+            "trending": {
+              "title": "Trending Series Today"
+            }
+          }
+        },
+        "cards": {
+          "poster": {
+            "type": "overlay",
+            "part": "mq.tile",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "poster",
+                "part": "mq.tile-poster",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "artwork",
+                "artwork": "keyart",
+                "part": "mq.tile-wide",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                },
+                "when": {
+                  "field": "keyart"
+                }
+              },
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "part": "mq.tile-wide",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                },
+                "when": {
+                  "field": "keyart",
+                  "absent": true
+                }
+              },
+              {
+                "type": "stack",
+                "part": "mq.tile-brand",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 0
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "mq.tile-logo",
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 300
+                    },
+                    "when": {
+                      "field": "logo"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "mq.tile-title",
+                    "style": {
+                      "fontSize": 32,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    },
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "field": "newBadge",
+                "part": "mq.tile-callout",
+                "style": {
+                  "fontSize": 20,
+                  "fontWeight": 500
+                },
+                "when": {
+                  "field": "newBadge"
+                }
+              }
+            ]
+          },
+          "search": {
+            "type": "overlay",
+            "part": "mq.tile",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "poster",
+                "part": "mq.tile-poster",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "artwork",
+                "artwork": "keyart",
+                "part": "mq.tile-wide",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                },
+                "when": {
+                  "field": "keyart"
+                }
+              },
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "part": "mq.tile-wide",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                },
+                "when": {
+                  "field": "keyart",
+                  "absent": true
+                }
+              },
+              {
+                "type": "stack",
+                "part": "mq.tile-brand",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 0
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "mq.tile-logo",
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 300
+                    },
+                    "when": {
+                      "field": "logo"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "mq.tile-title",
+                    "style": {
+                      "fontSize": 32,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    },
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "field": "newBadge",
+                "part": "mq.tile-callout",
+                "style": {
+                  "fontSize": 20,
+                  "fontWeight": 500
+                },
+                "when": {
+                  "field": "newBadge"
+                }
+              }
+            ]
+          },
+          "continue": {
+            "type": "overlay",
+            "part": "mq.tile",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "poster",
+                "part": "mq.tile-poster",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "artwork",
+                "artwork": "keyart",
+                "part": "mq.tile-wide",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                },
+                "when": {
+                  "field": "keyart"
+                }
+              },
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "part": "mq.tile-wide",
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                },
+                "when": {
+                  "field": "keyart",
+                  "absent": true
+                }
+              },
+              {
+                "type": "stack",
+                "part": "mq.tile-brand",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "start",
+                  "gap": 0
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "mq.tile-logo",
+                    "style": {
+                      "fit": "contain",
+                      "maxWidth": 300
+                    },
+                    "when": {
+                      "field": "logo"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "mq.tile-title",
+                    "style": {
+                      "fontSize": 32,
+                      "fontWeight": 700,
+                      "lines": 2,
+                      "color": "#FFFFFF"
+                    },
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "meter",
+                "field": "progress",
+                "part": "mq.tile-bar"
+              }
+            ]
+          }
+        },
+        "detail": {
+          "layout": "overlay",
+          "art": "keyart",
+          "title": "logo",
+          "episodes": {
+            "placement": "below",
+            "arrangement": "carousel",
+            "hover": "none",
+            "toolbar": "header",
+            "seasons": "dropdown",
+            "order": "none",
+            "controls": [],
+            "card": {
+              "type": "stack",
+              "part": "mq.tep",
+              "style": {
+                "gap": 0
+              },
+              "children": [
+                {
+                  "type": "overlay",
+                  "part": "mq.tep-still",
+                  "style": {
+                    "aspect": "16 / 9"
+                  },
+                  "children": [
+                    {
+                      "type": "artwork",
+                      "artwork": "still",
+                      "part": "mq.ep-img",
+                      "style": {
+                        "anchor": "fill",
+                        "fit": "cover"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "part": "mq.tep-head",
+                  "style": {
+                    "gap": 8,
+                    "wrap": "nowrap"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "episodeNo",
+                      "part": "mq.tep-no",
+                      "style": {
+                        "fontSize": 22,
+                        "fontWeight": 700
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "episodeTitle",
+                      "part": "mq.tep-title",
+                      "style": {
+                        "fontSize": 22,
+                        "fontWeight": 700,
+                        "lines": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "mq.tep-syn",
+                  "style": {
+                    "fontSize": 20,
+                    "fontWeight": 400,
+                    "lines": 2
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "player": {
+          "buttons": [
+            "restart",
+            "next"
+          ],
+          "time": "split",
+          "title": "episode",
+          "paused": "none",
+          "seekbarHeight": 8,
+          "seekbarColor": "#E50914"
+        },
+        "search": {
+          "keyboard": "grid"
+        }
+      }
+    }
+  }
+}

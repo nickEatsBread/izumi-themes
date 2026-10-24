@@ -75,8 +75,10 @@ Set `IZUMI_PREVIEW_CHROMIUM` to use a specific Chromium binary.
 Theme API 1 covers color/typography/backdrop settings, Home hero templates and rank badges,
 row spacing and grid/carousel arrangements, ordinary media-card templates, series-page
 composition and episode cards, shell chrome, the player seekbar, and a phone override block.
-Specialized content cards retain their host behavior. Shell replacement, native player skins,
-packaged fonts/images, and TV support require future client capabilities. The current package
+Specialized content cards retain their host behavior. Shell replacement, native player skins and
+packaged fonts/images require future client capabilities. From Theme API 6, themes can restyle the
+Android TV and Game mode browse screens through the `tv` block; native player chrome in Game mode
+and the separate TV companion app are not themeable. The current package
 format is JSON; ZIP archives and arbitrary JavaScript/CSS are not accepted.
 
 Original example designs and tooling are licensed under MIT. Contributors retain ownership
