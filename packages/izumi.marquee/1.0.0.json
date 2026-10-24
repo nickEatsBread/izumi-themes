@@ -214,7 +214,7 @@
                         "fontWeight": 500
                       },
                       "when": {
-                        "field": "episodeCount"
+                        "field": "episodeCountLabel"
                       }
                     },
                     {
@@ -224,21 +224,12 @@
                         "gap": 0
                       },
                       "when": {
-                        "field": "episodeCount"
+                        "field": "episodeCountLabel"
                       },
                       "children": [
                         {
                           "type": "text",
-                          "field": "episodeCount",
-                          "part": "mq.count",
-                          "style": {
-                            "fontSize": 16,
-                            "fontWeight": 500
-                          }
-                        },
-                        {
-                          "type": "text",
-                          "text": " Episodes",
+                          "field": "episodeCountLabel",
                           "part": "mq.count",
                           "style": {
                             "fontSize": 16,
@@ -931,21 +922,12 @@
                     "gap": 0
                   },
                   "when": {
-                    "field": "episodeCount"
+                    "field": "episodeCountLabel"
                   },
                   "children": [
                     {
                       "type": "text",
-                      "field": "episodeCount",
-                      "part": "mq.count",
-                      "style": {
-                        "fontSize": 16,
-                        "fontWeight": 400
-                      }
-                    },
-                    {
-                      "type": "text",
-                      "text": " Episodes",
+                      "field": "episodeCountLabel",
                       "part": "mq.count",
                       "style": {
                         "fontSize": 16,
@@ -1174,15 +1156,39 @@
                       },
                       {
                         "type": "text",
-                        "field": "duration",
-                        "part": "mq.ep-dur",
+                        "field": "upcoming",
+                        "part": "mq.ep-upcoming",
                         "style": {
                           "fontSize": 16,
                           "fontWeight": 400
                         },
                         "when": {
-                          "field": "duration"
+                          "field": "upcoming"
                         }
+                      },
+                      {
+                        "type": "stack",
+                        "style": {
+                          "gap": 0
+                        },
+                        "when": {
+                          "field": "upcoming",
+                          "absent": true
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "field": "duration",
+                            "part": "mq.ep-dur",
+                            "style": {
+                              "fontSize": 16,
+                              "fontWeight": 400
+                            },
+                            "when": {
+                              "field": "duration"
+                            }
+                          }
+                        ]
                       }
                     ]
                   },
@@ -1419,7 +1425,7 @@
                           "fontWeight": 500
                         },
                         "when": {
-                          "field": "episodeCount"
+                          "field": "episodeCountLabel"
                         }
                       },
                       {
@@ -1429,21 +1435,12 @@
                           "gap": 0
                         },
                         "when": {
-                          "field": "episodeCount"
+                          "field": "episodeCountLabel"
                         },
                         "children": [
                           {
                             "type": "text",
-                            "field": "episodeCount",
-                            "part": "mq.count",
-                            "style": {
-                              "fontSize": 22,
-                              "fontWeight": 500
-                            }
-                          },
-                          {
-                            "type": "text",
-                            "text": " Episodes",
+                            "field": "episodeCountLabel",
                             "part": "mq.count",
                             "style": {
                               "fontSize": 22,
@@ -1580,21 +1577,12 @@
                         "gap": 0
                       },
                       "when": {
-                        "field": "episodeCount"
+                        "field": "episodeCountLabel"
                       },
                       "children": [
                         {
                           "type": "text",
-                          "field": "episodeCount",
-                          "part": "mq.count",
-                          "style": {
-                            "fontSize": 22,
-                            "fontWeight": 700
-                          }
-                        },
-                        {
-                          "type": "text",
-                          "text": " Episodes",
+                          "field": "episodeCountLabel",
                           "part": "mq.count",
                           "style": {
                             "fontSize": 22,

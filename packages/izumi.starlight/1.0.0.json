@@ -1057,29 +1057,18 @@
                     "fontWeight": 400
                   },
                   "when": {
-                    "field": "episodeCount"
+                    "field": "episodeCountLabel"
                   }
                 },
                 {
                   "type": "text",
-                  "field": "episodeCount",
+                  "field": "episodeCountLabel",
                   "style": {
                     "fontSize": 12,
                     "fontWeight": 400
                   },
                   "when": {
-                    "field": "episodeCount"
-                  }
-                },
-                {
-                  "type": "text",
-                  "text": " Episodes",
-                  "style": {
-                    "fontSize": 12,
-                    "fontWeight": 400
-                  },
-                  "when": {
-                    "field": "episodeCount"
+                    "field": "episodeCountLabel"
                   }
                 },
                 {
@@ -1537,29 +1526,18 @@
                               "fontWeight": 400
                             },
                             "when": {
-                              "field": "episodeCount"
+                              "field": "episodeCountLabel"
                             }
                           },
                           {
                             "type": "text",
-                            "field": "episodeCount",
+                            "field": "episodeCountLabel",
                             "style": {
                               "fontSize": 20,
                               "fontWeight": 400
                             },
                             "when": {
-                              "field": "episodeCount"
-                            }
-                          },
-                          {
-                            "type": "text",
-                            "text": " Episodes",
-                            "style": {
-                              "fontSize": 20,
-                              "fontWeight": 400
-                            },
-                            "when": {
-                              "field": "episodeCount"
+                              "field": "episodeCountLabel"
                             }
                           },
                           {

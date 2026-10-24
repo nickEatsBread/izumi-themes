@@ -843,8 +843,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marquee/1.0.0.json",
-      "sha256": "e68dd446ebfe357fd97e436e8d3ef6c8866459e13fa149a12e1d24600e749172",
-      "bytes": 126764,
+      "sha256": "8411d856cd326794113827a42e03a6bc3ac10c57e14c2b0e8c84e94543a5e084",
+      "bytes": 126345,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marquee/desktop-home.jpg",
       "screenshots": [
         {
@@ -1402,8 +1402,8 @@
       ],
       "project": "https://github.com/nickEatsBread/izumi-themes",
       "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.starlight/1.0.0.json",
-      "sha256": "fe7f44ab412cd09a876381a3fb0f1355763158c792cf9858c478b97b2e78c2ad",
-      "bytes": 121321,
+      "sha256": "56a8e3a2b1efd49fe948190ad3247d74dc6c75bde2c57f4d3a3d991ba64e39c7",
+      "bytes": 120589,
       "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-home.jpg",
       "screenshots": [
         {
