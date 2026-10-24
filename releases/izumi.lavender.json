@@ -5,7 +5,7 @@
   "release": {
     "id": "izumi.lavender",
     "name": "Lavender",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "author": "Izumi",
     "description": "anilili look: black and purple, genre chips over a full-bleed hero, segmented tabs, ★ score badges, pill tabs.",
     "themeApi": 5,
@@ -20,9 +20,46 @@
       "desktop"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.3.json",
-    "sha256": "d8a24751918fd284b2936040e8dab63e8d944f1aada908ce6bb4839e383be94f",
-    "bytes": 184627,
-    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender.png"
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.lavender/2.0.4.json",
+    "sha256": "ef4800ebf321821e8e1fd01ecf6649fe093b6a12aacaf51578d323bfd76d5204",
+    "bytes": 184847,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/phone-home.jpg",
+    "screenshots": [
+      {
+        "screen": "home",
+        "platform": "phone",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/phone-home.jpg"
+      },
+      {
+        "screen": "series",
+        "platform": "phone",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/phone-series.jpg"
+      },
+      {
+        "screen": "search",
+        "platform": "phone",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/phone-search.jpg"
+      },
+      {
+        "screen": "home",
+        "platform": "desktop",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/desktop-home.jpg"
+      },
+      {
+        "screen": "series",
+        "platform": "desktop",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/desktop-series.jpg"
+      },
+      {
+        "screen": "search",
+        "platform": "desktop",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/desktop-search.jpg"
+      },
+      {
+        "screen": "schedule",
+        "platform": "desktop",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.lavender/desktop-schedule.jpg"
+      }
+    ]
   }
 }

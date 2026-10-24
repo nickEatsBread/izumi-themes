@@ -44,6 +44,8 @@ const entry = {
   sha256: createHash('sha256').update(bytes).digest('hex'),
   bytes: bytes.length,
   preview: options.preview ?? existing.preview ?? `${base}previews/${pkg.id}.png`,
+  // Store shots come from `npm run previews`; a version bump keeps them.
+  ...(existing.screenshots ? { screenshots: existing.screenshots } : {}),
 }
 writeFileSync(entryPath, JSON.stringify(entry, null, 2) + '\n')
 writeFileSync(join(root, 'releases', `${pkg.id}.json`), JSON.stringify({ app: 'izumi', kind: 'theme-release', schemaVersion: 1, release: entry }, null, 2) + '\n')
