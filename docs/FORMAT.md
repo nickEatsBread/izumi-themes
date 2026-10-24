@@ -339,16 +339,17 @@ how each renders. The hooks that came with them (`page-step`, `block.grid`, `her
 
 Declare `"themeApi": 6` to use the keys below; packages that use them render on clients from the
 release that ships it. The validator refuses `tv`, `newBadge`, the `suggested` tab name, the
-player keys, `cardPreview: "expand"`, `hero.preview`, `detail.preview` and the `trailer` artwork
-kind below API 6, and an older client refuses the package as described above. Card
+player keys, `cardPreview: "expand"`, `hero.preview`, `detail.preview`, the `trailer` artwork
+kind, the row keys `focus` and `captionTemplate` and `tv.search` below API 6, and an older client
+refuses the package as described above. Card
 templates that bind `keyart`, `logo` or `posterHd` are not gated: an older client just does not load
 them.
 
 - `tv` block: shaped like `mobile` (`density`, `hideCardLabels`, `trueBlack`, `hero`, `rows`, `detail`,
-  `player`, `cards`, `layout`) plus `shell` and `cardPreview`, without `rootSize`. The client applies
-  it on Android TV and in Game mode and merges it one level deep over the shared settings (the shell's
-  top and bottom bars one level further). Phones keep the `mobile` block. A TV `layout` may carry
-  `nav`. While a theme is active on a TV surface the client sets `data-surface="tv"` on `<html>`.
+  `player`, `cards`, `layout`) plus `shell`, `cardPreview` and `search`, without `rootSize`. The
+  client applies it on Android TV and in Game mode and merges it one level deep over the shared
+  settings (the shell's top and bottom bars one level further). Phones keep the `mobile` block. A TV
+  `layout` may carry `nav`. While a theme is active on a TV surface the client sets `data-surface="tv"` on `<html>`.
   - izumi's own TV scaling stays underneath a theme (Android TV uses an 18 px root and follows the UI
     scale setting; Game mode magnifies the browse UI to 1.25 times that scale), so author TV
     stylesheets from a canvas such as `--u: calc(100vw / 1920)` rather than from `rem`.
@@ -379,6 +380,10 @@ them.
     input; any input hides it. Full player only: not docked, not on a portrait phone, not in Game
     mode, not at the end of a video or under an open menu or prompt. On Android TV the first D-pad
     or OK press only hides it; Back and the play/pause keys act as usual.
+  - `buttons`: a list of `restart` and `next`, each once, drawn as `player.control` buttons beside
+    Play. The Android player (phones and Android TV) puts Restart, which seeks to the start, before
+    Rewind and Next, the next episode (disabled when there is none), after Forward. The desktop
+    player shows `restart` only, first in `player.transport`, because it has its own Next.
   - Layout is the stylesheet's: every control carries `data-part="player.control"` (desktop Back and
     Play are `button` parts) and `data-control`, and the button row's groups are hooks, so a
     stylesheet can flatten them (`[data-part="player.transport"], [data-part="player.actions"] {
@@ -397,6 +402,28 @@ them.
   Place `{ "type": "artwork", "artwork": "trailer", "style": { "anchor": "fill" } }` in the hero's
   `overlay` right after the backdrop artwork, so the video sits over the art and under the copy.
   Without it a template hero plays no trailer; in any other template it renders nothing.
+- `rows.defaults` and `rows.byId.<id>` (also inside `tv`) take `focus`: `default` or `anchor`.
+  - `anchor` applies to carousels only; a grid ignores it. The row carries `data-row-focus="anchor"`.
+    With arrow or pad navigation, moving along the row slides the track (650 ms) until the focused
+    card's left edge sits where the first card rests, clamped at the track's ends; moving into the
+    row scrolls the page (830 ms) until the row's top sits at its `scroll-margin-top` (16 px under
+    the top bar when it has none). Held keys and reduced motion jump. Put it in `tv`: a desktop
+    keyboard's arrows anchor too.
+  - An expanding focused tile is stylesheet work: `[data-surface="tv"] [data-row-focus="anchor"]
+    [data-part="card"]:focus-within { width: …; }` (`!important` when the row sets `width`), with no
+    `transition` on the width, because the anchor target is measured once when focus moves.
+- `captionTemplate` (same places): a card-style template, without actions, drawn in the focus
+  caption line (`caption: "focus"` with a pad in use) in place of the title and detail line. It
+  binds the focused card's title, with the display fields a poster card sees (`title`,
+  `description`, `genres`, `year`, `format`, `newBadge`...); `keyart`, `ageRating` and `audio` are
+  absent, and a Continue Watching card binds its series, so episode fields are absent. A card that
+  is not a poster, search or Continue Watching card keeps the plain line. Nothing is bound until a
+  card has focus, so a `minHeight` keeps the rows below still.
+- `tv.search.keyboard`: `default` or `grid` (`search` is accepted only inside `tv`). `grid` docks an
+  A–Z and 0–9 keyboard on the left of the Search page on an Android TV or in Game mode: Space and
+  Backspace on the first line, then six columns (`abcdef`, `ghijkl`, `mnopqr`, `stuvwx`, `yz1234`,
+  `567890`). Keys type lowercase into the search field, which then opens no other keyboard.
+  Hooks: `search.layout`, `search.keyboard` and `search.key` (`data-key`).
 
 Listings keep `platforms` to `desktop` and `phone`, because older clients reject any other value.
 A theme with a TV variant carries a `TV` tag instead.
