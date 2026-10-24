@@ -338,7 +338,7 @@ how each renders. The hooks that came with them (`page-step`, `block.grid`, `her
 ## Theme API 6
 
 Declare `"themeApi": 6` to use the keys below; packages that use them render on clients from the
-release that ships it. The validator refuses `tv`, `newBadge`, the `suggested` tab name, the
+release that ships it. The validator refuses `tv`, `newBadge`, `upcoming`, the `suggested` tab name, the
 player keys, `cardPreview: "expand"`, `hero.preview`, `detail.preview`, the `trailer` artwork
 kind, the row keys `focus` and `captionTemplate` and `tv.search` below API 6, and an older client
 refuses the package as described above. Card
@@ -365,6 +365,10 @@ them.
   - A record that lists no relations (cards, search results) is judged a sequel by wording in its
     title: "Season 2", "2nd Season", "Part 2", "Cour 2" or a standalone II, III or IV. "Season 1" and
     "Part 1" are not sequels.
+- Display field `upcoming` (episode cards), for an episode that has not aired: "Coming Friday, October
+  30" (weekday, month and day in the viewer's locale) from its airing time in the catalog's schedule
+  or, without one, the episode metadata's air day; "Coming soon" when neither is known or the day has
+  passed. Absent for an aired episode, so a `when` test tells the two apart.
 - Card templates (poster, search and continue) may bind `keyart`, `logo` and `posterHd`. The client
   loads the artwork lazily, as a card nears the screen, so each is absent until the lookup lands:
   pair them with a `when` test and a fallback. `ranked-list` cards do not load artwork.
