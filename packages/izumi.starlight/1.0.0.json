@@ -1276,6 +1276,7 @@
       },
       "player": {
         "layout": "full",
+        "window": "full",
         "seekbarHeight": 4,
         "seekbarColor": "#FFFFFF",
         "seekButtons": true,
