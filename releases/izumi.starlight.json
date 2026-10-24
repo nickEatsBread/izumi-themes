@@ -20,8 +20,30 @@
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
     "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.starlight/1.0.0.json",
-    "sha256": "1fc1dce45e9423ca71e2efa2f331c0f984e71077ee7e018b1647e5ec6eabb41c",
-    "bytes": 116461,
-    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight.png"
+    "sha256": "cfeddfdf63d6c8fae72f66c90bc9d46867ab96cc202b93489782892a82575259",
+    "bytes": 116828,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-home.jpg",
+    "screenshots": [
+      {
+        "screen": "home",
+        "platform": "desktop",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-home.jpg"
+      },
+      {
+        "screen": "series",
+        "platform": "desktop",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-series.jpg"
+      },
+      {
+        "screen": "search",
+        "platform": "desktop",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-search.jpg"
+      },
+      {
+        "screen": "schedule",
+        "platform": "desktop",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-schedule.jpg"
+      }
+    ]
   }
 }
