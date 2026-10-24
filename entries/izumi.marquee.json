@@ -3,7 +3,7 @@
   "name": "Marquee",
   "version": "1.0.0",
   "author": "Izumi",
-  "description": "Netflix look: #141414 and red in Inter, an inset rounded billboard with a muted trailer, 16:9 logo cards that grow into a preview on hover, a Top 10 row and a centred title panel. On a TV or in Game mode: a pill top bar, tall boxart rows anchored to the first column and a grid search keyboard.",
+  "description": "Netflix look: #141414 and red in Inter, an inset rounded billboard with a muted trailer, 16:9 logo cards that grow into a preview on hover, a ranked row and a centred title panel. On a TV or in Game mode: a pill top bar, tall boxart rows anchored to the first column and a grid search keyboard.",
   "themeApi": 6,
   "tags": [
     "Dark",
@@ -16,7 +16,7 @@
   ],
   "project": "https://github.com/nickEatsBread/izumi-themes",
   "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.marquee/1.0.0.json",
-  "sha256": "5c8d36b2037717861b6d596f60ea6e86be1be61f17098584e60323433b0a7510",
-  "bytes": 122197,
+  "sha256": "aeee6a0d4f99579008565af9418170efef79332213d9b241ce7e856d6c3fb2dc",
+  "bytes": 123090,
   "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.marquee.png"
 }
