@@ -1,85 +1,117 @@
-# Izumi themes
+# izumi themes
 
-The public theme catalog for Izumi. In the client, open **Settings → Themes** to browse,
-preview, and install a theme. **Add from link** also accepts unlisted themes.
+The official theme catalog for izumi. izumi shows it in **Settings → Themes** and in the Store as
+*izumi themes*. Nothing here is applied by default: people browse, preview on their own izumi, and
+choose what to install. izumi's own example themes live here too.
 
-This repository contains listings and example themes. Desktop-led: Kindling, Ledger, Tidal,
-Ember, Halo, Orchid, Nebula, Prism, Cobalt, Tangerine and Daylight (the light theme).
-Replicas of streaming sites (theme API 3, each listing names its reference): Reel, Booth,
-Spotlight, Frost, Volt, Slate, Iris, Marigold, Carbon and Saffron, most with a docked watch
-layout (the player in a stage with episodes beside or below it). Replicas of phone apps: Lavender,
-Coral, Onyx and Blossom, each carrying a `presentation.mobile` block with its own bottom bar,
-slide marker and tab style while keeping a desktop layout. See `docs/FORMAT.md`.
-Listings say which layouts a theme was designed for (`platforms`). The renderer ships with the
-client; installing a theme changes presentation without installing executable code.
+A theme is a JSON package that changes how izumi looks and lays out its screens: colours, type,
+the Home banner and rows, cards, the series page, the player bar, phone and TV layouts. It carries no
+executable code, so installing one never runs anything.
 
-Every listing image is a screenshot of the real client with that theme applied, rendered by
-`scripts/preview/` over live catalog data: one per screen (Home, Series, Search, Schedule; phones
-skip Schedule) for each platform the listing declares, in `previews/<id>/`.
+- **Building a theme:** [docs/building-a-theme.md](docs/building-a-theme.md)
+- **Format reference:** [docs/FORMAT.md](docs/FORMAT.md)
+- **Store screenshots:** [docs/previews.md](docs/previews.md)
+- **Plugins and packs** have their own marketplace: [izumi-plugins](https://github.com/nickEatsBread/izumi-plugins).
 
-## Publishing
+## What gets accepted
 
-1. Copy an example from `packages/` and give it a unique ID and a `major.minor.patch` version.
-2. Follow the format in `docs/FORMAT.md`. A package is a UTF-8 JSON file under 512 KB.
-3. Host the file at a public HTTPS URL. A versioned GitHub file or release asset works.
-4. Add an entry under `entries/` with a preview image, package URL, exact byte size, and SHA-256.
-   For a package in this repository, `npm run listing -- packages/<id>/<version>.json --tags "Dark,Top nav"`
-   writes the entry and release descriptor with the checksum computed from the file.
-5. Run `npm run build`, then `npm test`, and submit a pull request.
+A listing has to meet all of these. Reviewers can ask for changes, and can delist a theme that stops
+meeting them later.
 
-The catalog's `index.json` is generated from the entries. An update must receive a new
-version and matching checksum. Authors can host packages in their own repositories.
+1. **You made it, or have permission.** A theme may echo another app's layout, but it ships no
+   logos, artwork or fonts you don't have the rights to.
+2. **Presentation only.** No account details, source or addon settings, scripts, tracking
+   parameters or links that phone home. Packages load without credentials and work offline once
+   installed.
+3. **It validates.** `npm test` passes: the package matches its listing and validates against the
+   theme API it declares (declare the lowest one it uses), and its stylesheet stays within the CSS
+   rules in [docs/FORMAT.md](docs/FORMAT.md).
+4. **The izumi logo stays as it is.** Themes don't recolour, restyle, hide or replace it.
+5. **Honest screenshots.** Store images are screenshots of the real client with the theme applied
+   ([docs/previews.md](docs/previews.md)), for each platform the listing claims.
+6. **An honest listing.** The description says what changes; `tags` and `platforms` match what the
+   theme was designed for.
+7. **Your licence.** Say which licence your theme uses in its project repository. Listing a theme
+   here doesn't transfer ownership.
 
-Retired listings move to `delisted/`: they leave `index.json`, while their packages and release
-descriptors stay so existing installs and shared links keep working.
+## Submitting a theme
 
-Users can also paste a direct package link or a release-descriptor link. A release descriptor
-allows checking for updates from the same location. Packages and personal edits stay on the
-user's device, including while offline.
+1. **Build it.** Start from an example in `packages/` and follow the
+   [format reference](docs/FORMAT.md); [building a theme](docs/building-a-theme.md) walks through
+   it. izumi's Theme Studio is handy for trying colours and layouts live.
+2. **Try it in izumi.** **Settings → Themes → Add theme** takes a file, a folder or a link. Check
+   it in a desktop window and at phone width, and in the TV layout if your theme styles it.
+3. **Host the package.** Put it in `packages/<id>/<version>.json` in your fork of this repository,
+   or at any public HTTPS address you control (a versioned file in your own repository works).
+4. **Write the listing.** For a package in this repository:
+
+   ```sh
+   npm install
+   npm run listing -- packages/<id>/<version>.json --tags "Dark,Top nav" --platforms desktop,phone
+   ```
+
+   That writes `entries/<id>.json` and `releases/<id>.json` with the size and SHA-256 taken from
+   the file. For a package hosted elsewhere, write the entry by hand with its `download`, `bytes`
+   and `sha256` ([Listings and direct links](docs/FORMAT.md#listings-and-direct-links)).
+5. **Add screenshots**, rendered from the real client ([docs/previews.md](docs/previews.md)).
+6. **Build, test, and open a pull request:**
+
+   ```sh
+   npm run build   # regenerates index.json from entries/
+   npm test
+   ```
+
+## Review
+
+A maintainer checks the rules above, the theme's compatibility, and that the screenshots match what
+the theme really does, then installs it and looks at the actual layout on desktop and phone (and TV
+when it styles TV). Reviews are done by volunteers; questions and requested changes go in the pull request.
+
+## Updates
+
+- An update is a new version: bump `version`, publish the new package next to the old one, and
+  rerun `npm run listing` (which keeps your screenshots), `npm run build` and `npm test`. Never
+  replace the bytes of a published version.
+- izumi offers the update to people who installed the theme. Their own edits survive it, and the
+  previous version stays available under **Restore previous**.
+- Keep the same `id` forever. A theme with a new id is a new theme.
+- Retired themes move to `delisted/`: they leave `index.json`, but their packages and release
+  descriptors stay, so existing installs and shared links keep working.
+
+Themes can also be shared without a listing: a direct package link or a release-descriptor link
+(`releases/<id>.json`) pasted into **Add theme**. A release descriptor lets izumi check that link for
+updates.
+
+## Repository layout
+
+```
+index.json                  the catalog izumi reads (generated by npm run build)
+entries/<id>.json           one listing per theme
+packages/<id>/<version>.json  theme packages hosted here
+releases/<id>.json          release descriptors for direct links
+previews/<id>/              store screenshots
+delisted/                   retired listings
+docs/                       format reference and how-tos
+schemas/                    JSON schemas for editors
+scripts/                    validation, listing and screenshot tools
+```
 
 ## Development
 
-Node.js 22.16 or newer is required.
+Node.js 22.16 or newer.
 
 ```sh
 npm install
-npm run build
-npm test
+npm run build   # regenerate index.json
+npm test        # validate every listing and package
 ```
 
-`scripts/presentation.ts` mirrors Izumi's theme API 1 validator. Changes to the presentation
-contract must be coordinated with the client and verified against these examples. The schemas
-are editor aids; the validator is the compatibility gate.
+`scripts/presentation.ts`, `scripts/block-schema.ts`, `scripts/css-policy.ts` and
+`scripts/font-ids.ts` are copies of izumi's theme validator (`src/lib/themes/` in the
+[izumi repository](https://github.com/nickEatsBread/izumi)). Changes to the theme API are made in
+the client first and copied here. The schemas are editor aids; the validator is the gate.
 
-### Rendering previews
+## Licence
 
-Previews are captured from the real client, so a change to a package or to the client's
-renderer is reflected by re-rendering. It needs the sibling `../izumi` checkout served by its
-dev server, Playwright, and Chromium:
-
-```sh
-npm install                      # playwright-core
-(cd ../izumi && npm install && npm run dev)
-npm run previews                 # all listings; --only izumi.kindling,izumi.coral for a subset
-```
-
-`npm run previews -- --live` writes `previews/<id>/<platform>-<screen>.jpg` and the entry's
-`screenshots` and `preview`; run `npm run build` afterwards. Without `--live` it renders over a
-fixture catalogue (offline smoke tests only; never publish those images). `--series <id>` picks
-the series page; `--hero-slide <n>` starts Home on a later featured slide; `--screens schedule,...`
-re-shoots only those screens and keeps the rest.
-Set `IZUMI_PREVIEW_CHROMIUM` to use a specific Chromium binary.
-
-## Scope
-
-Theme API 1 covers color/typography/backdrop settings, Home hero templates and rank badges,
-row spacing and grid/carousel arrangements, ordinary media-card templates, series-page
-composition and episode cards, shell chrome, the player seekbar, and a phone override block.
-Specialized content cards retain their host behavior. Shell replacement, native player skins and
-packaged fonts/images require future client capabilities. From Theme API 6, themes can restyle the
-Android TV and Game mode browse screens through the `tv` block; native player chrome in Game mode
-and the separate TV companion app are not themeable. The current package
-format is JSON; ZIP archives and arbitrary JavaScript/CSS are not accepted.
-
-Original example designs and tooling are licensed under MIT. Contributors retain ownership
-of their themes and specify their own license in their project repository.
+The example themes and tooling are [MIT](LICENSE). Contributors keep ownership of their themes and
+set their own licence in their project repository.
