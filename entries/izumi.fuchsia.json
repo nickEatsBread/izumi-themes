@@ -1,0 +1,60 @@
+{
+  "id": "izumi.fuchsia",
+  "name": "Fuchsia",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Nuvio look with a pink accent: true black, a full-bleed hero with rating pills and a View Details pill, a floating bar with a pink active tab.",
+  "themeApi": 5,
+  "tags": [
+    "Phone",
+    "Dark",
+    "App",
+    "Pink"
+  ],
+  "platforms": [
+    "phone",
+    "desktop"
+  ],
+  "project": "https://github.com/nickEatsBread/izumi-themes",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.fuchsia/1.0.0.json",
+  "sha256": "f6acf5d4aeb6ce11e617c55b2c533ea8932d5cb97bad86fe36c59ea5e4b000ab",
+  "bytes": 131589,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/phone-home.jpg",
+  "screenshots": [
+    {
+      "screen": "home",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/phone-home.jpg"
+    },
+    {
+      "screen": "series",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/phone-series.jpg"
+    },
+    {
+      "screen": "search",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/phone-search.jpg"
+    },
+    {
+      "screen": "home",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/desktop-home.jpg"
+    },
+    {
+      "screen": "series",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/desktop-series.jpg"
+    },
+    {
+      "screen": "search",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/desktop-search.jpg"
+    },
+    {
+      "screen": "schedule",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/desktop-schedule.jpg"
+    }
+  ]
+}
