@@ -1,0 +1,350 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 4,
+  "id": "izumi.stratus",
+  "name": "Stratus",
+  "author": "Izumi",
+  "version": "1.0.0",
+  "description": "CloudStream look on phones: pure black, a full-bleed hero with the title logo, tags and Play between My List and Info, badged posters, a Material icon bar.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 0%",
+      "foreground": "0 0% 100%",
+      "muted": "0 0% 9%",
+      "mutedForeground": "210 5% 63%",
+      "primary": "210 9% 92%",
+      "primaryForeground": "120 4% 7%",
+      "secondary": "220 21% 8%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "220 21% 8%",
+      "accentForeground": "216 100% 83%",
+      "border": "0 0% 16%",
+      "input": "0 0% 12%",
+      "ring": "216 100% 83%",
+      "card": "0 0% 7%",
+      "cardForeground": "0 0% 100%",
+      "theme": "216 100% 83%"
+    },
+    "radius": 0.75,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "dm-sans",
+      "heading": "dm-sans",
+      "display": "dm-sans"
+    },
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": true,
+      "shell": {
+        "nav": "sidebar",
+        "bottomNav": {
+          "style": "bar",
+          "labels": "none",
+          "indicator": "pill",
+          "height": 80,
+          "iconSize": 24,
+          "background": "#000000",
+          "activeColor": "#A6C9FF",
+          "inactiveColor": "#FFFFFF",
+          "blur": false,
+          "border": false,
+          "hide": "never"
+        }
+      },
+      "layout": {
+        "home": [
+          {
+            "role": "hero"
+          },
+          {
+            "role": "continue"
+          },
+          {
+            "role": "trending"
+          },
+          {
+            "role": "popular"
+          },
+          {
+            "role": "season"
+          },
+          {
+            "role": "movies"
+          },
+          {
+            "role": "rated"
+          }
+        ],
+        "nav": {
+          "bottom": [
+            "search",
+            "library",
+            "downloads",
+            "settings"
+          ],
+          "top": [
+            "search",
+            "settings"
+          ]
+        }
+      },
+      "mobile": {
+        "rootSize": 16,
+        "hero": {
+          "mobileHeight": 57,
+          "rotate": true,
+          "interval": 8,
+          "limit": 8,
+          "transition": "fade",
+          "indicator": {
+            "style": "none"
+          },
+          "template": {
+            "type": "overlay",
+            "part": "stratus.hero",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "keyart",
+                "part": "stratus.art",
+                "when": {
+                  "field": "keyart"
+                },
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "artwork",
+                "artwork": "posterHd",
+                "part": "stratus.art",
+                "when": {
+                  "field": "keyart",
+                  "absent": true
+                },
+                "style": {
+                  "anchor": "fill",
+                  "fit": "cover"
+                }
+              },
+              {
+                "type": "stack",
+                "part": "stratus.info",
+                "style": {
+                  "anchor": "bottom-start",
+                  "align": "center",
+                  "gap": 0,
+                  "width": 100
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "stratus.logo",
+                    "when": {
+                      "field": "logo"
+                    },
+                    "style": {
+                      "fit": "contain"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "stratus.title",
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    },
+                    "style": {
+                      "lines": 2,
+                      "textAlign": "center"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "stratus.tags",
+                    "style": {
+                      "justify": "center",
+                      "align": "center",
+                      "gap": 0
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "genre",
+                        "part": "stratus.tag",
+                        "when": {
+                          "field": "genre"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "•",
+                        "part": "stratus.tag",
+                        "when": {
+                          "field": "genre"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "genre2",
+                        "part": "stratus.tag",
+                        "when": {
+                          "field": "genre2"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "•",
+                        "part": "stratus.tag",
+                        "when": {
+                          "field": "genre2"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "genre3",
+                        "part": "stratus.tag",
+                        "when": {
+                          "field": "genre3"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "•",
+                        "part": "stratus.tag",
+                        "when": {
+                          "field": "genre3"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "studio",
+                        "part": "stratus.tag",
+                        "when": {
+                          "field": "studio"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "•",
+                        "part": "stratus.tag",
+                        "when": {
+                          "field": "studio"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "row",
+                    "part": "stratus.actions",
+                    "style": {
+                      "align": "center",
+                      "justify": "center",
+                      "gap": 0,
+                      "wrap": "nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "action",
+                        "action": "list",
+                        "icon": "plus",
+                        "text": "My List",
+                        "part": "stratus.list"
+                      },
+                      {
+                        "type": "action",
+                        "action": "play",
+                        "text": "Play",
+                        "part": "stratus.play"
+                      },
+                      {
+                        "type": "action",
+                        "action": "details",
+                        "icon": "info",
+                        "text": "Info",
+                        "part": "stratus.more"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "rows": {
+          "defaults": {
+            "width": 125,
+            "gap": 4,
+            "spacing": 16,
+            "titleSize": 19,
+            "heading": {
+              "weight": 700,
+              "viewMore": "arrow"
+            }
+          }
+        },
+        "cards": {
+          "poster": {
+            "type": "stack",
+            "part": "stratus.card",
+            "style": {
+              "gap": 6
+            },
+            "children": [
+              {
+                "type": "overlay",
+                "part": "stratus.poster",
+                "style": {
+                  "radius": 12
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "poster",
+                    "part": "stratus.poster-art",
+                    "style": {
+                      "aspect": "2 / 3",
+                      "radius": 12,
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "format",
+                    "part": "stratus.badge",
+                    "when": {
+                      "field": "format"
+                    },
+                    "style": {
+                      "anchor": "top-start"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "field": "title",
+                "part": "stratus.card-title",
+                "style": {
+                  "lines": 2,
+                  "textAlign": "center"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "css": "/* Stratus — the CloudStream look on phones: pure black, a full-bleed hero with the title logo, a line of\n   tags and three actions, posters with a corner badge and a Material 3 bottom bar. Measured from a\n   384 dp wide phone, so 1 px here is 1 dp there (mobile.rootSize 16). Desktop keeps izumi's layout. */\n@media (max-width: 640px) {\n  /* Header over the hero: search at the start, the profile button at the end; the izumi logo stays as it is. */\n  [data-slot=\"home.header\"] { position: absolute; inset: 0 0 auto; z-index: 5; padding: calc(env(safe-area-inset-top, 0px) + 6px) 4px 0 !important; background: none; }\n  [data-slot=\"home.header\"] [data-part=\"home.header.actions\"] { display: contents; }\n  [data-part=\"home.header.action\"]:is([data-dest=\"search\"], [data-dest=\"settings\"]) { width: 40px; height: 40px; border-radius: 999px; color: #fff; background-color: currentColor; }\n  [data-part=\"home.header.action\"]:is([data-dest=\"search\"], [data-dest=\"settings\"]) svg { visibility: hidden; }\n  [data-part=\"home.header.action\"][data-dest=\"search\"] { order: -1; -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272.4%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%278%27%2F%3E%3Cpath%20d%3D%27m21%2021-4.34-4.34%27%2F%3E%3C%2Fsvg%3E) center / 18.5px 18.5px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272.4%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%278%27%2F%3E%3Cpath%20d%3D%27m21%2021-4.34-4.34%27%2F%3E%3C%2Fsvg%3E) center / 18.5px 18.5px no-repeat; }\n  [data-part=\"home.header.action\"][data-dest=\"settings\"] { margin-left: auto; -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm0%204c1.93%200%203.5%201.57%203.5%203.5S13.93%2013%2012%2013s-3.5-1.57-3.5-3.5S10.07%206%2012%206zm0%2014c-2.03%200-4.43-.82-6.14-2.88C7.55%2015.8%209.68%2015%2012%2015s4.45.8%206.14%202.12C16.43%2019.18%2014.03%2020%2012%2020z%27%2F%3E%3C%2Fsvg%3E) center / 28px 28px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm0%204c1.93%200%203.5%201.57%203.5%203.5S13.93%2013%2012%2013s-3.5-1.57-3.5-3.5S10.07%206%2012%206zm0%2014c-2.03%200-4.43-.82-6.14-2.88C7.55%2015.8%209.68%2015%2012%2015s4.45.8%206.14%202.12C16.43%2019.18%2014.03%2020%2012%2020z%27%2F%3E%3C%2Fsvg%3E) center / 28px 28px no-repeat; }\n\n  /* Hero: full bleed under the status bar, 57 % of the screen, darkened at the top and faded to black at the bottom. */\n  [data-slot=\"home.hero\"] { margin-top: calc(-1 * env(safe-area-inset-top, 0px)) !important; border-radius: 0 !important; }\n  [data-slot=\"home.hero\"][data-variant=\"template\"] { height: clamp(380px, 57svh, 640px) !important; min-height: 0 !important; max-height: none !important; margin-bottom: 18px !important; }\n  [data-part=\"stratus.hero\"]::before { content: \"\"; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0) 110px), linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.62) 72%, rgba(0, 0, 0, 0.9) 90%, #000 98%); }\n  [data-part=\"stratus.hero\"] > [data-part=\"stratus.info\"] { z-index: 2; padding: 0 16px 14px !important; gap: 0 !important; }\n  [data-part=\"stratus.logo\"] { width: 56%; max-width: none !important; aspect-ratio: 2.6; }\n  [data-part=\"stratus.logo\"] img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }\n  [data-part=\"stratus.title\"] { font-family: var(--font-display); font-size: 32px !important; line-height: 38px; font-weight: 700 !important; color: #fff !important; text-shadow: none !important; }\n  [data-part=\"stratus.tags\"] { flex-wrap: wrap !important; margin-top: 26px; padding: 0 8px; column-gap: 5px !important; row-gap: 0 !important; }\n  [data-part=\"stratus.tags\"] > * { font-family: var(--ui-font); font-size: 16px !important; line-height: 20px !important; font-weight: 400 !important; color: #fff !important; white-space: nowrap; }\n  [data-part=\"stratus.actions\"] { display: grid !important; grid-template-columns: repeat(3, 109px); justify-content: center; justify-items: center; margin-top: 32px; width: 100%; }\n  [data-part=\"stratus.list\"], [data-part=\"stratus.more\"] { display: flex; flex-direction: column; align-items: center; gap: 2px !important; min-height: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; color: #fff !important; font-family: var(--ui-font); font-size: 16px !important; line-height: 20px; font-weight: 400 !important; }\n  [data-part=\"stratus.list\"] svg, [data-part=\"stratus.more\"] svg { width: 24px; height: 24px; stroke-width: 2; }\n  [data-part=\"stratus.play\"] { height: 39px; min-height: 0 !important; gap: 10px !important; padding: 0 9px 0 14px !important; border: 0 !important; border-radius: 4px !important; background: #e7e9eb !important; color: #111311 !important; font-family: var(--ui-font); font-size: 17px !important; line-height: 20px; font-weight: 600 !important; letter-spacing: 0.06em; }\n  [data-part=\"stratus.play\"] svg { width: 14px; height: 14px; }\n\n  /* Rows: bold titles with a plain arrow, posters 4 px apart. */\n  [data-slot=\"row\"] [data-part=\"row.header\"] { height: 28px; min-height: 0; margin: 0 0 12px !important; padding: 0 12px 0 14px !important; align-items: center; }\n  [data-part=\"row.title\"] { font-family: var(--font-heading); font-size: 19px !important; line-height: 24px !important; font-weight: 700 !important; letter-spacing: 0 !important; text-transform: none !important; color: #fff !important; }\n  [data-part=\"row.more\"] { flex: none; display: inline-flex; width: 24px; height: 24px; margin: 0 0 0 auto !important; padding: 0 !important; font-size: 0 !important; color: #fff !important; background-color: currentColor; -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%204l-1.41%201.41L16.17%2011H4v2h12.17l-5.58%205.59L12%2020l8-8z%27%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%204l-1.41%201.41L16.17%2011H4v2h12.17l-5.58%205.59L12%2020l8-8z%27%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat; }\n  [data-part=\"row.more\"] svg { visibility: hidden; }\n  [data-part=\"row.track\"] { padding: 0 7px !important; scroll-padding-inline: 7px; overflow-y: hidden; scrollbar-width: none; }\n  [data-part=\"stratus.poster\"] { overflow: hidden; border-radius: 12px; }\n  [data-part=\"stratus.poster-art\"] { aspect-ratio: 125 / 196 !important; }\n  [data-part=\"stratus.badge\"] { display: flex; align-items: center; height: 23px; padding: 0 13px; border-radius: 12px; background: #000; color: #fff !important; font-family: var(--ui-font); font-size: 12px !important; line-height: 14px; font-weight: 700 !important; }\n  [data-part=\"stratus.card-title\"] { font-family: var(--ui-font); font-size: 13px !important; line-height: 16px !important; font-weight: 400 !important; color: #fff !important; }\n\n  /* Bottom bar: the Material 3 navigation bar, icons only, the active one in a 64 x 32 pill. */\n  [data-slot=\"nav.bottom\"] { background: #000 !important; border: 0 !important; box-shadow: none !important; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item\"] { justify-content: flex-start; padding-top: 12px !important; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item.icon\"] { box-sizing: border-box; width: 64px; height: 32px; padding: 4px 20px !important; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item.indicator\"][data-variant=\"pill\"] { background: #11141a !important; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item\"]:is([data-dest=\"home\"], [data-dest=\"search\"], [data-dest=\"library\"], [data-dest=\"downloads\"]) [data-part=\"nav.item.icon\"] svg { visibility: hidden; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item\"]:is([data-dest=\"home\"], [data-dest=\"search\"], [data-dest=\"library\"], [data-dest=\"downloads\"]) [data-part=\"nav.item.icon\"]::after { content: \"\"; position: absolute; inset: 4px 20px; background-color: currentColor; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-dest=\"home\"] [data-part=\"nav.item.icon\"]::after { -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%20-960%20960%20960%27%3E%3Cpath%20d%3D%27M160-120v-480l320-240%20320%20240v480H560v-280H400v280H160Z%27%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%20-960%20960%20960%27%3E%3Cpath%20d%3D%27M160-120v-480l320-240%20320%20240v480H560v-280H400v280H160Z%27%2F%3E%3C%2Fsvg%3E) center / 24px 24px no-repeat; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-dest=\"search\"] [data-part=\"nav.item.icon\"]::after { -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272.4%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%278%27%2F%3E%3Cpath%20d%3D%27m21%2021-4.34-4.34%27%2F%3E%3C%2Fsvg%3E) center / 18.5px 18.5px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272.4%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%278%27%2F%3E%3Cpath%20d%3D%27m21%2021-4.34-4.34%27%2F%3E%3C%2Fsvg%3E) center / 18.5px 18.5px no-repeat; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-dest=\"library\"] [data-part=\"nav.item.icon\"]::after { -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m6%2014%201.5-2.9A2%202%200%200%201%209.24%2010H20a2%202%200%200%201%201.94%202.5l-1.54%206a2%202%200%200%201-1.95%201.5H4a2%202%200%200%201-2-2V5a2%202%200%200%201%202-2h3.9a2%202%200%200%201%201.69.9l.81%201.2a2%202%200%200%200%201.67.9H18a2%202%200%200%201%202%202v2%27%2F%3E%3C%2Fsvg%3E) center / 25px 20px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m6%2014%201.5-2.9A2%202%200%200%201%209.24%2010H20a2%202%200%200%201%201.94%202.5l-1.54%206a2%202%200%200%201-1.95%201.5H4a2%202%200%200%201-2-2V5a2%202%200%200%201%202-2h3.9a2%202%200%200%201%201.69.9l.81%201.2a2%202%200%200%200%201.67.9H18a2%202%200%200%201%202%202v2%27%2F%3E%3C%2Fsvg%3E) center / 25px 20px no-repeat; }\n  [data-slot=\"nav.bottom\"] [data-part=\"nav.item\"][data-dest=\"downloads\"] [data-part=\"nav.item.icon\"]::after { -webkit-mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.75%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M12%2017V3%27%2F%3E%3Cpath%20d%3D%27m6%2011%206%206%206-6%27%2F%3E%3Cpath%20d%3D%27M19%2021H5%27%2F%3E%3C%2Fsvg%3E) center / 18.5px 18.5px no-repeat; mask: url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.75%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M12%2017V3%27%2F%3E%3Cpath%20d%3D%27m6%2011%206%206%206-6%27%2F%3E%3Cpath%20d%3D%27M19%2021H5%27%2F%3E%3C%2Fsvg%3E) center / 18.5px 18.5px no-repeat; }\n}\n"
+  }
+}
