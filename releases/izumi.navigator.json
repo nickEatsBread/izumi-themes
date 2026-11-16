@@ -5,10 +5,10 @@
   "release": {
     "id": "izumi.navigator",
     "name": "Navigator",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "Izumi",
-    "description": "Navigator look: a neutral near-black palette and its player, with the framing button, the end time and only the controls it shows.",
-    "themeApi": 7,
+    "description": "Navigator look: a neutral near-black palette, its player and its loading screens, with the framing button, the end time and only the controls it shows.",
+    "themeApi": 8,
     "tags": [
       "Dark",
       "Player",
@@ -18,9 +18,9 @@
       "desktop"
     ],
     "project": "https://github.com/nickEatsBread/izumi-themes",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.navigator/1.0.0.json",
-    "sha256": "09756f0513cd859e4142822ac5d15cf9bf681092be35deca0d20859898b2703e",
-    "bytes": 9800,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.navigator/1.1.0.json",
+    "sha256": "ba48c0c4f581e4804e9bb16453a8e0fa0975adcf5e9aff3517ae9b3468a42b10",
+    "bytes": 19239,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.navigator.png"
   }
 }
