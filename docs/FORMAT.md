@@ -437,8 +437,10 @@ A theme with a TV variant carries a `TV` tag instead.
 
 ## Theme API 7
 
-Declare `"themeApi": 7` to use the keys below; the validator refuses them below API 7. They give a
-player look the two pieces a stylesheet cannot draw:
+Declare `"themeApi": 7` to use the keys below; the validator refuses them below API 7. API 7 also
+carries the client's drawer navigation (`shell.nav: "drawer"`, a `browse` destination), the words
+Audio and Subtitles (`player.trackButtons: "text"`) and the age rating card (`player.rating: "intro"`);
+see the client's `docs/THEMES.md`. For a player look, these two keys draw what a stylesheet cannot:
 
 - `player.buttons` takes `fit`: a desktop button in `player.actions`, before the options button
   (`player.control` with `data-control="fit"`), that cycles the video framing: Best fit, Fill and
