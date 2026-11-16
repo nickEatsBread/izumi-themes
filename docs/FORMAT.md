@@ -3,11 +3,11 @@
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
 
-`themeApi` is `1`, `2`, `3`, `4`, `5` or `6`. API 1 is the original key set and every API 1 package stays
+`themeApi` is `1`, `2`, `3`, `4`, `5`, `6` or `7`. API 1 is the original key set and every API 1 package stays
 valid on every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions):
 the bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
-layout and the `mobile` block. API 3, API 4, API 5 and API 6 add the keys under [Theme API 3](#theme-api-3),
-[Theme API 4](#theme-api-4), [Theme API 5](#theme-api-5) and [Theme API 6](#theme-api-6). A client that only knows an older API refuses a newer package with
+layout and the `mobile` block. API 3, API 4, API 5, API 6 and API 7 add the keys under [Theme API 3](#theme-api-3),
+[Theme API 4](#theme-api-4), [Theme API 5](#theme-api-5), [Theme API 6](#theme-api-6) and [Theme API 7](#theme-api-7). A client that only knows an older API refuses a newer package with
 "requires a different theme API"; the gallery lists it as "Needs a newer izumi" instead of a
 half-rendered layout. Declare the lowest API a package actually uses.
 
@@ -434,3 +434,19 @@ them.
 
 Listings keep `platforms` to `desktop` and `phone`, because older clients reject any other value.
 A theme with a TV variant carries a `TV` tag instead.
+
+## Theme API 7
+
+Declare `"themeApi": 7` to use the keys below; the validator refuses them below API 7. API 7 also
+carries the client's drawer navigation (`shell.nav: "drawer"`, a `browse` destination), the words
+Audio and Subtitles (`player.trackButtons: "text"`) and the age rating card (`player.rating: "intro"`);
+see the client's `docs/THEMES.md`. For a player look, these two keys draw what a stylesheet cannot:
+
+- `player.buttons` takes `fit`: a desktop button in `player.actions`, before the options button
+  (`player.control` with `data-control="fit"`), that cycles the video framing: Best fit, Fill and
+  Stretch. It writes the viewer's own Video framing setting. The Android player and Game mode ignore it.
+- `player.endTime: true`: "Ends at 9:41 PM" (`player.endtime`) at the right of the desktop title line,
+  now plus the time left at normal speed, on a 12-hour clock in the viewer's locale.
+
+Order, sizes, colours and fonts stay with `design.css` and the player hooks. `izumi.navigator` uses both
+keys.
