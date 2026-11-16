@@ -303,65 +303,6 @@
       ]
     },
     {
-      "id": "izumi.daylight",
-      "name": "Daylight",
-      "version": "1.0.0",
-      "author": "Izumi",
-      "description": "The catalog’s light theme. A warm paper canvas, serif type and a coral accent. Top navigation, a featured backdrop with a paper caption card and an ink-dark Watch button, generously rounded poster rows with titles and years, and a split series page with a right-hand episode rail.",
-      "themeApi": 2,
-      "tags": [
-        "Light",
-        "Serif",
-        "Top nav"
-      ],
-      "platforms": [
-        "desktop",
-        "phone"
-      ],
-      "project": "https://github.com/nickEatsBread/izumi-themes",
-      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.daylight/1.0.0.json",
-      "sha256": "9a42aba2ea34add0a79adda2e4492614f4ef6a69d485bd7fb7fc3e04a8812f4d",
-      "bytes": 12350,
-      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight/desktop-home.jpg",
-      "screenshots": [
-        {
-          "screen": "home",
-          "platform": "desktop",
-          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight/desktop-home.jpg"
-        },
-        {
-          "screen": "series",
-          "platform": "desktop",
-          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight/desktop-series.jpg"
-        },
-        {
-          "screen": "search",
-          "platform": "desktop",
-          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight/desktop-search.jpg"
-        },
-        {
-          "screen": "schedule",
-          "platform": "desktop",
-          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight/desktop-schedule.jpg"
-        },
-        {
-          "screen": "home",
-          "platform": "phone",
-          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight/phone-home.jpg"
-        },
-        {
-          "screen": "series",
-          "platform": "phone",
-          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight/phone-series.jpg"
-        },
-        {
-          "screen": "search",
-          "platform": "phone",
-          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.daylight/phone-search.jpg"
-        }
-      ]
-    },
-    {
       "id": "izumi.ember",
       "name": "Ember",
       "version": "1.2.1",
@@ -473,6 +414,66 @@
           "screen": "search",
           "platform": "phone",
           "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.frost/phone-search.jpg"
+        }
+      ]
+    },
+    {
+      "id": "izumi.fuchsia",
+      "name": "Fuchsia",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "Nuvio look with a pink accent: true black, a full-bleed hero with rating pills and a View Details pill, a floating bar with a pink active tab.",
+      "themeApi": 5,
+      "tags": [
+        "Phone",
+        "Dark",
+        "App",
+        "Pink"
+      ],
+      "platforms": [
+        "phone",
+        "desktop"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.fuchsia/1.0.0.json",
+      "sha256": "f6acf5d4aeb6ce11e617c55b2c533ea8932d5cb97bad86fe36c59ea5e4b000ab",
+      "bytes": 131589,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/phone-home.jpg",
+      "screenshots": [
+        {
+          "screen": "home",
+          "platform": "phone",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/phone-home.jpg"
+        },
+        {
+          "screen": "series",
+          "platform": "phone",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/phone-series.jpg"
+        },
+        {
+          "screen": "search",
+          "platform": "phone",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/phone-search.jpg"
+        },
+        {
+          "screen": "home",
+          "platform": "desktop",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/desktop-home.jpg"
+        },
+        {
+          "screen": "series",
+          "platform": "desktop",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/desktop-series.jpg"
+        },
+        {
+          "screen": "search",
+          "platform": "desktop",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/desktop-search.jpg"
+        },
+        {
+          "screen": "schedule",
+          "platform": "desktop",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.fuchsia/desktop-schedule.jpg"
         }
       ]
     },
@@ -1446,6 +1447,45 @@
           "screen": "schedule",
           "platform": "desktop",
           "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.starlight/desktop-schedule.jpg"
+        }
+      ]
+    },
+    {
+      "id": "izumi.stratus",
+      "name": "Stratus",
+      "version": "1.0.0",
+      "author": "Izumi",
+      "description": "CloudStream look on phones: pure black, a full-bleed hero with the title logo, tags and Play between My List and Info, badged posters, a Material icon bar.",
+      "themeApi": 4,
+      "tags": [
+        "Phone",
+        "Dark",
+        "App",
+        "Material"
+      ],
+      "platforms": [
+        "phone"
+      ],
+      "project": "https://github.com/nickEatsBread/izumi-themes",
+      "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.stratus/1.0.0.json",
+      "sha256": "6bb7a2e961a5e39f2a5e9f82c4895ef8f7a77c5c5ebd2ecb2674a5186a6ad322",
+      "bytes": 22859,
+      "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.stratus/phone-home.jpg",
+      "screenshots": [
+        {
+          "screen": "home",
+          "platform": "phone",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.stratus/phone-home.jpg"
+        },
+        {
+          "screen": "series",
+          "platform": "phone",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.stratus/phone-series.jpg"
+        },
+        {
+          "screen": "search",
+          "platform": "phone",
+          "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.stratus/phone-search.jpg"
         }
       ]
     },

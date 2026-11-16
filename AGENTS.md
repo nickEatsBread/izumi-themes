@@ -10,3 +10,31 @@
   `scripts/block-schema.ts`, `scripts/css-policy.ts` and `scripts/font-ids.ts` are copies of the
   same files in `src/lib/themes/` there and must stay identical (`scripts/ts-resolve.mjs` lets
   their extensionless imports run under Node).
+- Plugins (sources) and packs are not listed here: they go to
+  https://github.com/nickEatsBread/izumi-plugins.
+
+# Which guide to follow
+
+- Helping someone **build a theme**: `docs/building-a-theme.md`, with `docs/FORMAT.md` as the
+  reference. Start from a package in `packages/`.
+- Helping someone **submit a theme**: "Submitting a theme" in `README.md`.
+- **Store screenshots**: `docs/previews.md`. They are renders of the real client, never mock-ups.
+
+# Rules
+
+- Never edit `index.json` by hand: `npm run build` generates it from `entries/`.
+- Never change the bytes of a published `packages/<id>/<version>.json`. A change is a new version.
+- Write entries with `npm run listing`, so `bytes` and `sha256` come from the file itself.
+- Declare the lowest `themeApi` a package uses.
+- Themes never recolour, restyle, hide or replace the izumi logo.
+- Never relax the validator copies in `scripts/` to get a package through; change the theme.
+
+# Commands
+
+```sh
+npm install
+npm run listing -- packages/<id>/<version>.json --tags "Dark" --platforms desktop,phone
+npm run build   # regenerate index.json
+npm test        # validate every listing and package
+npm run previews -- --live --only <id>   # needs ../izumi served by npm run dev
+```

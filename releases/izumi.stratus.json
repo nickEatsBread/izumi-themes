@@ -1,0 +1,44 @@
+{
+  "app": "izumi",
+  "kind": "theme-release",
+  "schemaVersion": 1,
+  "release": {
+    "id": "izumi.stratus",
+    "name": "Stratus",
+    "version": "1.0.0",
+    "author": "Izumi",
+    "description": "CloudStream look on phones: pure black, a full-bleed hero with the title logo, tags and Play between My List and Info, badged posters, a Material icon bar.",
+    "themeApi": 4,
+    "tags": [
+      "Phone",
+      "Dark",
+      "App",
+      "Material"
+    ],
+    "platforms": [
+      "phone"
+    ],
+    "project": "https://github.com/nickEatsBread/izumi-themes",
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/izumi.stratus/1.0.0.json",
+    "sha256": "6bb7a2e961a5e39f2a5e9f82c4895ef8f7a77c5c5ebd2ecb2674a5186a6ad322",
+    "bytes": 22859,
+    "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.stratus/phone-home.jpg",
+    "screenshots": [
+      {
+        "screen": "home",
+        "platform": "phone",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.stratus/phone-home.jpg"
+      },
+      {
+        "screen": "series",
+        "platform": "phone",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.stratus/phone-series.jpg"
+      },
+      {
+        "screen": "search",
+        "platform": "phone",
+        "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/izumi.stratus/phone-search.jpg"
+      }
+    ]
+  }
+}
