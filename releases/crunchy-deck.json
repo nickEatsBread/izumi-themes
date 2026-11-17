@@ -5,10 +5,10 @@
   "release": {
     "id": "crunchy-deck",
     "name": "Crunchy Deck",
-    "version": "2.0.19",
+    "version": "2.0.20",
     "author": "nickEatsBread",
     "description": "Inspired by Crunchy Deck's look: Crunchyroll orange on near-black, a slide-in menu instead of a top bar or rail, a tall featured banner with the title logo, Sub | Dub and the age rating, cards with their titles on the artwork, and season pills over an episode grid.",
-    "themeApi": 7,
+    "themeApi": 9,
     "tags": [
       "Dark",
       "Drawer"
@@ -18,9 +18,9 @@
       "phone"
     ],
     "project": "https://github.com/nickEatsBread/crunchydeck-for-izumi",
-    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/crunchy-deck/2.0.19.json",
-    "sha256": "f8f5b09eada6620672700e171a983c9c9b6496d7c12fd7f56ef9d25792ad568c",
-    "bytes": 61987,
+    "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/crunchy-deck/2.0.20.json",
+    "sha256": "94446d09ef68568ea71c5cf1844d85091e3572056e1002c624ff5ceeb370e242",
+    "bytes": 62543,
     "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/desktop-home.jpg",
     "screenshots": [
       {
