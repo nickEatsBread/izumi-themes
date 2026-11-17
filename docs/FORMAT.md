@@ -510,9 +510,19 @@ It is a client setting, not a package key: while that theme dresses the player, 
 
 ## Theme API 9
 
-Declare `"themeApi": 9` to use `design.settings`; the validator refuses it below API 9, and an older
-client refuses the package as described above. The client's `docs/THEMES.md` ("Theme API 9") has the
-full reference.
+Declare `"themeApi": 9` to use `player.menu` or `design.settings`; the validator refuses them below
+API 9, and an older client refuses the package as described above. The client's `docs/THEMES.md`
+("Theme API 9") has the full reference.
+
+- `player.menu`: the desktop player's popups (options, audio and subtitles, right-click; the
+  `player.menu` hook with `data-variant` `options`, `tracks` and `context`, options as
+  `player.menu.item`). `rowHeight` (px, 28–96) and `rowPadding` (px, 0–32) size every option and reach
+  the page as `--theme-player-menu-row-height` and `--theme-player-menu-row-padding`;
+  `closeOnSelect` (`true`/`false`, default `false`) closes a popup once an option is chosen.
+
+  ```json
+  "player": { "menu": { "rowHeight": 40, "rowPadding": 16, "closeOnSelect": true } }
+  ```
 
 - `settings` (up to 16): choices the viewer makes about the theme, shown on the theme's page and in
   Settings → Appearance. Each has a `key` (lowercase letters, digits and hyphens, starting with a
