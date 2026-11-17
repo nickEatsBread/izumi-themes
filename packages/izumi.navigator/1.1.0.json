@@ -1,0 +1,195 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 8,
+  "id": "izumi.navigator",
+  "name": "Navigator",
+  "version": "1.1.0",
+  "author": "Izumi",
+  "description": "Navigator look: a neutral near-black palette, its player and its loading screens, with the framing button, the end time and only the controls it shows.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 7.8%",
+      "foreground": "0 0% 94.9%",
+      "muted": "0 0% 9.8%",
+      "mutedForeground": "0 0% 54.9%",
+      "primary": "0 0% 89.8%",
+      "primaryForeground": "0 0% 3.9%",
+      "secondary": "0 0% 14.1%",
+      "secondaryForeground": "0 0% 94.9%",
+      "accent": "0 0% 14.1%",
+      "accentForeground": "0 0% 94.9%",
+      "border": "0 0% 16.9%",
+      "input": "0 0% 16.9%",
+      "ring": "0 0% 54.9%",
+      "card": "0 0% 9.8%",
+      "cardForeground": "0 0% 94.9%",
+      "theme": "0 0% 89.8%"
+    },
+    "radius": 0.75,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "inter"
+    },
+    "presentation": {
+      "player": {
+        "seekButtons": true,
+        "buttons": [
+          "fit"
+        ],
+        "endTime": true,
+        "time": "default"
+      },
+      "loading": {
+        "title": {
+          "template": {
+            "type": "stack",
+            "part": "nl-page",
+            "children": [
+              {
+                "type": "stack",
+                "part": "nl-hero",
+                "children": []
+              },
+              {
+                "type": "row",
+                "part": "nl-content",
+                "style": {
+                  "align": "start"
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "poster",
+                    "part": "nl-poster",
+                    "style": {
+                      "aspect": "2 / 3"
+                    }
+                  },
+                  {
+                    "type": "stack",
+                    "part": "nl-lines",
+                    "children": [
+                      {
+                        "type": "stack",
+                        "part": "nl-bar-title",
+                        "children": []
+                      },
+                      {
+                        "type": "stack",
+                        "part": "nl-bar-badges",
+                        "children": []
+                      },
+                      {
+                        "type": "stack",
+                        "part": "nl-bar-a",
+                        "children": []
+                      },
+                      {
+                        "type": "stack",
+                        "part": "nl-bar-b",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "exit": 300
+        },
+        "episode": {
+          "template": {
+            "type": "overlay",
+            "part": "nv-root",
+            "children": [
+              {
+                "type": "artwork",
+                "artwork": "backdrop",
+                "part": "nv-art"
+              },
+              {
+                "type": "stack",
+                "part": "nv-scrim",
+                "children": []
+              },
+              {
+                "type": "stack",
+                "part": "nv-mark",
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "logo",
+                    "part": "nv-logo",
+                    "when": {
+                      "field": "logo"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "nv-mark-text",
+                    "when": {
+                      "field": "logo",
+                      "absent": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "stack",
+                "part": "nv-copy",
+                "children": [
+                  {
+                    "type": "text",
+                    "field": "title",
+                    "part": "nv-title"
+                  },
+                  {
+                    "type": "text",
+                    "field": "episodeCode",
+                    "part": "nv-series",
+                    "when": {
+                      "field": "episodeCode"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "part": "nv-meta",
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "durationLong",
+                        "part": "nv-meta-item",
+                        "when": {
+                          "field": "durationLong"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "field": "startYear",
+                        "part": "nv-meta-item",
+                        "when": {
+                          "field": "startYear"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "css": "/* Navigator look: the desktop player copied from Navigator's media player (components/ui/media-player.tsx,\n   global-media-player.tsx, player-mobile.css, arc/foundation.css). Values are Navigator's own. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] {\n  --nav-ease-out: cubic-bezier(.23, 1, .32, 1);\n  --nav-ghost-hover: oklch(26% 0 0);\n  --nav-primary: oklch(0.922 0 0);\n}\n/* Navigator draws no shade at the top: only its Back circle. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.top\"] {\n  background: none;\n}\n/* Controls: px-6 pb-4 with a from-black/80 to-transparent shade behind them. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.bottom\"] {\n  padding: 48px 24px 16px;\n  background: linear-gradient(to top, rgb(0 0 0 / .8), transparent);\n}\n/* Title: text-3xl, semibold, line-height 1.3, tracking -.01em, no text shadow. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.heading\"] {\n  padding-top: 0;\n  text-shadow: none;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.title\"] {\n  font-family: var(--font-heading);\n  font-size: 30px;\n  font-weight: 600;\n  line-height: 1.3;\n  letter-spacing: -.01em;\n  color: #fff;\n}\n/* Meta line: text-sm white/60, 6px under the title (gap-1.5). */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode\"] {\n  margin-top: 6px;\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.4;\n  color: rgb(255 255 255 / .6);\n}\n/* \"Ends at 9:41 PM\": text-sm white/70 (drawn with player.endTime). */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.endtime\"] {\n  font-size: 14px;\n  color: rgb(255 255 255 / .7);\n}\n/* Seek bar: a 9px pill clipped to 6px (inset 1.5px) that opens to the full 9px while dragging, over\n   100ms ease-out. Track white/20, buffered white/30, played white, hover white/20. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"] > div > div:has(> [data-part=\"player.seekbar.track\"]) {\n  height: 9px;\n  border-radius: 9999px;\n  clip-path: inset(1.5px 0 1.5px 0 round 9999px);\n  transition: clip-path 100ms var(--nav-ease-out);\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"]:has([data-scrubbing]) > div > div:has(> [data-part=\"player.seekbar.track\"]) {\n  clip-path: inset(0 0 0 0 round 9999px);\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"] > div > div > div {\n  height: 100%;\n  transition: none;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.track\"] { background: rgb(255 255 255 / .2); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.buffer\"] { background: rgb(255 255 255 / .3); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.buffer\"] + div:not([data-part]) { background: rgb(255 255 255 / .2); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.fill\"] { background: #fff; }\n/* Toolbar: one row, 8px gaps; transport and actions flattened so every control can be ordered. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] {\n  margin-top: 0;\n  gap: 8px;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.transport\"], [data-part=\"player.actions\"]) {\n  display: contents;\n}\n/* Left: Play, Next episode, back 10 s, forward 10 s, volume, time. Right: audio and subtitles,\n   framing, settings, picture-in-picture, full screen. Navigator has none of the rest. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"play\"] { order: 1; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"next\"] { order: 2; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"rewind\"] { order: 3; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"forward\"] { order: 4; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"volume\"]) { order: 5; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.time\"][data-variant=\"default\"] { order: 6; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"tracks\"]) { order: 10; margin-left: auto; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"fit\"] { order: 11; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"options\"]) { order: 12; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"pip\"] { order: 13; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"fullscreen\"] { order: 14; }\n/* Ghost icon buttons: 36px, radius 12px, 16px icons, hover --surface-muted, 200ms ease-in-out.\n   :where() keeps these at the specificity of the per-button rules below, which then win. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] :where([data-part=\"player.control\"], [data-part=\"button\"][data-control]) {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 36px;\n  height: 36px;\n  border-radius: 12px;\n  color: #fff;\n  background: transparent;\n  transition: color 200ms ease-in-out, background-color 200ms ease-in-out;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] :where([data-part=\"player.control\"], [data-part=\"button\"][data-control]):hover {\n  background: var(--nav-ghost-hover);\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] :where([data-part=\"player.control\"], [data-part=\"button\"][data-control]) svg {\n  width: 16px;\n  height: 16px;\n}\n/* Play and the volume trigger are 32px (size-8). */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] :is([data-control=\"play\"], [data-control=\"volume\"]) {\n  width: 32px;\n  height: 32px;\n}\n/* Next episode: a small text button (h-8, px-3, gap-2, text-sm medium) with an outline skip icon. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] [data-control=\"next\"] {\n  width: auto;\n  height: 32px;\n  gap: 8px;\n  padding: 0 12px;\n  white-space: nowrap;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"next\"] svg { fill: none; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"next\"]::after {\n  content: \"Next episode\";\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.4;\n  letter-spacing: -.01em;\n}\n/* Time: text-sm, white/80, tabular figures in the UI font. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.time\"][data-variant=\"default\"] {\n  margin-left: 0;\n  font-family: var(--ui-font);\n  font-size: 14px;\n  color: rgb(255 255 255 / .8);\n  font-variant-numeric: tabular-nums;\n}\n/* Volume: the slider opens to 64px beside the trigger, in the primary colour. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"volume\"]):is(:hover, :focus-within) [data-part=\"player.volume\"] {\n  width: 64px;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.volume\"] {\n  accent-color: var(--nav-primary);\n}\n/* Last, so the button rules above cannot show them again. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-control=\"previous\"], [data-control=\"restart\"], [data-control=\"comments\"], [data-control=\"screenshot\"], [data-control=\"bookmark\"], [data-control=\"episodes\"]),\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"cast\"]),\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control^=\"subtitle-\"]),\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] > span:not([data-part]),\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.control.step\"] {\n  display: none;\n}\n/* Loading screens (Theme API 8), copied from Navigator. Values are Navigator's own; motion is plain CSS. */\n/* Title page loading (Navigator components/media-page/loading.tsx): hidden for 180 ms so a quick load never\n   flashes it, then a transparent 19rem hero (min(62vh, 40rem) from 48rem), the content pulled up 6rem\n   (13.5rem), a 2/3 poster clamp(12rem, 56vw, 15rem) on muted/30 and pulsing accent bars. izumi already has the\n   card's poster, so it shows with Navigator's 300 ms artwork reveal. */\n[data-slot=\"loading.title\"] { animation: nl-wait 180ms step-end; transition: opacity 300ms cubic-bezier(.23, 1, .32, 1); }\n[data-slot=\"loading.title\"][data-state=\"done\"] { opacity: 0; }\n@keyframes nl-wait { from { visibility: hidden; } }\n[data-part=\"nl-page\"] { overflow: hidden; }\n[data-part=\"nl-hero\"] { height: 19rem; flex: none; }\n[data-part=\"nl-content\"] { margin-top: -6rem; padding: 1.5rem 1rem 0; gap: 2rem; align-items: start; flex-wrap: wrap; }\n[data-part=\"nl-poster\"] { width: clamp(12rem, 56vw, 15rem) !important; flex: none; border-radius: .5rem; background: hsl(var(--muted) / .3); }\n[data-part=\"nl-poster\"] img { animation: nl-reveal 300ms cubic-bezier(.23, 1, .32, 1) backwards; }\n@keyframes nl-reveal { from { opacity: 0; } }\n[data-part=\"nl-lines\"] { flex: 1; min-width: 16rem; gap: .75rem; }\n[data-part^=\"nl-bar\"] { background: hsl(var(--accent)); border-radius: .375rem; animation: nl-pulse 2s cubic-bezier(.4, 0, .6, 1) infinite; animation-delay: var(--loading-elapsed); }\n[data-part=\"nl-bar-title\"] { height: 3rem; width: 75%; }\n[data-part=\"nl-bar-badges\"] { height: 1.5rem; width: 10rem; }\n[data-part=\"nl-bar-a\"] { height: 6rem; }\n[data-part=\"nl-bar-b\"] { height: 7rem; }\n@keyframes nl-pulse { 50% { opacity: .5; } }\n@media (min-width: 48rem) {\n  [data-part=\"nl-hero\"] { height: min(62vh, 40rem); }\n  [data-part=\"nl-content\"] { margin-top: -13.5rem; padding-top: 2rem; padding-inline: 2rem; }\n}\n\n/* Episode loading (Navigator global-media-player.tsx + player-loading-wordmark.module.css): black, the\n   backdrop at brightness .75, a gradient from the bottom, the logo breathing in the middle, the title,\n   the episode and a runtime and year line bottom left, and a 16 px ring under them. */\n[data-slot=\"loading.episode\"] { background: #000; }\n[data-part=\"nv-root\"] { height: 100%; }\n[data-part=\"nv-art\"] img { object-fit: cover; filter: brightness(.75); }\n[data-part=\"nv-scrim\"] { background: linear-gradient(to top, rgb(0 0 0 / .8), rgb(0 0 0 / .2) 50%, transparent); }\n[data-part=\"nv-mark\"] { display: flex; align-items: center; justify-content: center; padding: 0 2rem; z-index: 2;\n  animation: nv-appear 240ms cubic-bezier(.23, 1, .32, 1) both; animation-delay: var(--loading-elapsed); }\n[data-part=\"nv-logo\"] { width: min(66vw, 48rem); height: 18vh; opacity: .85;\n  animation: nv-breathe 2880ms cubic-bezier(.65, 0, .35, 1) infinite; animation-delay: var(--loading-elapsed); }\n[data-part=\"nv-logo\"] img { object-fit: contain; filter: drop-shadow(0 10px 28px rgb(0 0 0 / .85)); }\n[data-part=\"nv-mark-text\"] { color: #fff; font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 600; text-align: center; text-wrap: balance; }\n[data-part=\"nv-copy\"] { align-self: end; gap: .375rem; padding: 0 max(1.5rem, env(safe-area-inset-right)) calc(1.75rem + 1.25rem + .375rem) max(1.5rem, env(safe-area-inset-left)); color: #fff; min-width: 0; }\n[data-part=\"nv-title\"] { font-size: 1.875rem; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n[data-part=\"nv-series\"] { font-size: .875rem; color: rgb(255 255 255 / .75); }\n[data-part=\"nv-meta\"] { gap: .75rem; font-size: .875rem; color: rgb(255 255 255 / .6); }\n@keyframes nv-appear { from { opacity: 0; scale: .97; } }\n@keyframes nv-breathe { 0%, 100% { opacity: .72; scale: .985; } 50% { opacity: .95; scale: 1.015; } }\n@media (min-width: 48rem) { [data-part=\"nv-logo\"] { width: min(52vw, 48rem); height: 22vh; } }\n@media (max-width: 40rem) { [data-part=\"nv-title\"] { font-size: 1.5rem; line-height: 1.4; white-space: normal; text-wrap: balance; } }\n/* The ring and the slow-source line follow the screen in the markup: a 16 px ring bottom left, white/70. */\n[data-slot=\"loading.episode\"][data-state=\"loading\"] ~ * [data-part=\"spinner\"][data-variant=\"player\"] {\n  --theme-player-spinner-size: 16px; --theme-player-spinner-stroke: 1.5px;\n  position: absolute; left: max(1.5rem, env(safe-area-inset-left)); bottom: calc(1.75rem + 2px); border-top-color: rgb(255 255 255 / .7) !important; }\n[data-slot=\"loading.episode\"] ~ [data-part=\"play.loader.detail\"] { top: auto; bottom: 1.75rem; left: calc(max(1.5rem, env(safe-area-inset-left)) + 24px); right: auto; margin: 0; padding: 0; text-align: start; font-size: .875rem; font-weight: 500; color: rgb(255 255 255 / .7); }\n/* Back: a 36 px ghost circle 16 px from the corner. */\n[data-slot=\"loading.episode\"] ~ [data-part=\"play.connecting.back\"] { left: 1rem; top: 1rem; width: 36px; height: 36px; background: transparent; color: #fff; }\n[data-slot=\"loading.episode\"] ~ [data-part=\"play.connecting.back\"]:hover { background: rgb(255 255 255 / .1); }\n"
+  }
+}

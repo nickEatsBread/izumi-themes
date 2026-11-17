@@ -32,7 +32,7 @@ Copy the package in `packages/` closest to what you want and change its envelope
 - `themeApi` is the lowest API whose keys you use. A client that only knows an older API lists the
   theme as "Needs a newer izumi" instead of rendering half of it. Each API's additions are listed in
   FORMAT.md, from [Theme API 2 additions](FORMAT.md#theme-api-2-additions) to
-  [Theme API 6](FORMAT.md#theme-api-6).
+  [Theme API 8](FORMAT.md#theme-api-8).
 
 ## 2. Design
 

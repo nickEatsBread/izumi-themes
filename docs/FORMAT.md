@@ -3,11 +3,12 @@
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
 
-`themeApi` is `1`, `2`, `3`, `4`, `5`, `6` or `7`. API 1 is the original key set and every API 1 package stays
+`themeApi` is `1`, `2`, `3`, `4`, `5`, `6`, `7` or `8`. API 1 is the original key set and every API 1 package stays
 valid on every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions):
 the bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
-layout and the `mobile` block. API 3, API 4, API 5, API 6 and API 7 add the keys under [Theme API 3](#theme-api-3),
-[Theme API 4](#theme-api-4), [Theme API 5](#theme-api-5), [Theme API 6](#theme-api-6) and [Theme API 7](#theme-api-7). A client that only knows an older API refuses a newer package with
+layout and the `mobile` block. API 3 to API 8 add the keys under [Theme API 3](#theme-api-3),
+[Theme API 4](#theme-api-4), [Theme API 5](#theme-api-5), [Theme API 6](#theme-api-6), [Theme API 7](#theme-api-7)
+and [Theme API 8](#theme-api-8). A client that only knows an older API refuses a newer package with
 "requires a different theme API"; the gallery lists it as "Needs a newer izumi" instead of a
 half-rendered layout. Declare the lowest API a package actually uses.
 
@@ -20,7 +21,7 @@ A package is one UTF-8 JSON document, at most 512,000 bytes. Required envelope f
 | `app` | `izumi` |
 | `kind` | `theme-package` |
 | `schemaVersion` | `1` |
-| `themeApi` | `1`, `2`, `3`, `4`, `5` or `6` (see above) |
+| `themeApi` | `1` to `8` (see above) |
 | `id` | Stable lowercase author/theme identity, 2–64 letters, digits, dots or hyphens |
 | `name` | Display name, 1–48 characters |
 | `author` | Attribution, 1–80 characters |
@@ -450,3 +451,59 @@ see the client's `docs/THEMES.md`. For a player look, these two keys draw what a
 
 Order, sizes, colours and fonts stay with `design.css` and the player hooks. `izumi.navigator` uses both
 keys.
+
+## Theme API 8
+
+Declare `"themeApi": 8` to use the keys below; the validator refuses them below API 8, and an older
+client refuses the package as described above. The client's `docs/THEMES.md` ("Theme API 8") lists
+every hook. API 8 also brings a per-device player theme (Settings → Appearance → Theme → Player theme).
+It is a client setting, not a package key: while that theme dresses the player, `<html>` carries
+`data-theme-role="player"`.
+
+- `loading`: two display-only templates (card-template nodes, fields and artwork; no actions) for the
+  two waits a viewer sees most. Each takes `template` and `exit`.
+  - `loading.title` covers a series page or a catalog title page while it loads its record (the
+    `loading.title` slot, `data-variant` `series` or `catalog`). It binds what the tapped card knew:
+    `title`, `poster`, `posterHd`, `backdrop`, `logo`, `format`, `year`, `startYear`, `genres`, `kind`,
+    `score` and the other title fields. A page already in memory opens without it.
+  - `loading.episode` shows from the press to the first frame (the `loading.episode` slot,
+    `data-variant` `opening`, then `player` when the player's cover takes over). It binds the title
+    fields plus `episodeNumber`, `episodeNo` and `episodeCode`. The ring (`play.loader`), Back and the
+    slow-source line stay on top, where a stylesheet moves them; the ring's size is
+    `--theme-player-spinner-size` and `--theme-player-spinner-stroke`. The Android phone app keeps its
+    own watch page and draws none.
+  - `exit` (whole ms, 0–1000, default 0): once the page or the first frame is in, the screen stays
+    that long with `data-state="done"` and no pointer events, so a stylesheet can fade it out with a
+    plain transition. 0 removes it at once.
+  - `--loading-elapsed` on the slot is minus the time since the wait began. Write
+    `animation-delay: var(--loading-elapsed)` (with `animation-fill-mode: both`) so a loop keeps in
+    step and an entrance does not replay when the episode screen changes element mid-load. The client
+    never animates a loading screen itself.
+  - `loading` may also sit in `mobile` and `tv`; each screen there replaces the shared one whole.
+- `schedule.item`: a display-only template for one airing entry, wherever the schedule lists airings
+  (the week agenda, the day view, Game mode's day view and the Release calendar). The entry stays a
+  link to the title. It binds the title fields, `episodeNumber`, `episodeNo`, `airingIn` and
+  `airingCountdown` (absent once the episode has aired) and four API 8 display fields:
+  - `airTime`: the local airing time ("9:30 PM"), absent when the calendar gives only a date.
+  - `airingLabel`: the entry's own line ("Episode 5", "S2 E5", "Movie premiere" or the calendar's event).
+  - `listStatus`: Watching, Planning or Watched, on the viewer's own shows only.
+  - `delay`: the delay notice when the schedule reports the episode late.
+
+  `schedule` may also sit in `mobile` and `tv`. The rest of the page has hooks (`schedule.header`,
+  `schedule.tab`, `schedule.daytab`, `schedule.item.*`, `schedule.nextup` and more).
+- `layout.screens`: at most **4** screens of the theme's own; a package with more is refused, and the
+  client never shows more than four. Each is `{ "id", "title", "icon", "home" }`.
+  - `id` is 1–24 lowercase letters, digits or dashes, unique in the theme. The page is
+    `/app/screen/<id>`.
+  - `title` is 1–24 characters.
+  - `icon` is one of `star`, `heart`, `flame`, `sparkles`, `trophy`, `compass`, `clock`, `calendar`, `tv`,
+    `film`, `grid` (the default) or `list`.
+  - `home` takes 1–30 entries under the rules of `layout.home`: catalog rows by role and Home blocks,
+    with the hero at most once.
+
+  Screens join the navigation (`nav.item` with `data-dest="screen"` and `data-screen`); on phones they
+  are icons in the Home header. They follow the theme's layout switch. `screens` sits in the shared
+  layout or the `tv` block's, not in `mobile`. A theme only arranges what izumi already draws: new
+  behaviour belongs to plugins.
+
+`izumi.navigator` 1.1.0 uses `loading`.
