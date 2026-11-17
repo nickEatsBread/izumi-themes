@@ -3,12 +3,12 @@
 This API requires a theme-enabled Izumi build. The theme catalog is independent of client
 release scheduling; older builds without Settings → Themes cannot install these packages.
 
-`themeApi` is `1`, `2`, `3`, `4`, `5`, `6`, `7` or `8`. API 1 is the original key set and every API 1 package stays
+`themeApi` is `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8` or `9`. API 1 is the original key set and every API 1 package stays
 valid on every client. API 2 adds the keys under [Theme API 2 additions](#theme-api-2-additions):
 the bottom bar, the featured slide marker, section headings, series-page tabs, the docked watch
-layout and the `mobile` block. API 3 to API 8 add the keys under [Theme API 3](#theme-api-3),
-[Theme API 4](#theme-api-4), [Theme API 5](#theme-api-5), [Theme API 6](#theme-api-6), [Theme API 7](#theme-api-7)
-and [Theme API 8](#theme-api-8). A client that only knows an older API refuses a newer package with
+layout and the `mobile` block. API 3 to API 9 add the keys under [Theme API 3](#theme-api-3),
+[Theme API 4](#theme-api-4), [Theme API 5](#theme-api-5), [Theme API 6](#theme-api-6), [Theme API 7](#theme-api-7),
+[Theme API 8](#theme-api-8) and [Theme API 9](#theme-api-9). A client that only knows an older API refuses a newer package with
 "requires a different theme API"; the gallery lists it as "Needs a newer izumi" instead of a
 half-rendered layout. Declare the lowest API a package actually uses.
 
@@ -507,3 +507,26 @@ It is a client setting, not a package key: while that theme dresses the player, 
   behaviour belongs to plugins.
 
 `izumi.navigator` 1.1.0 uses `loading`.
+
+## Theme API 9
+
+Declare `"themeApi": 9` to use `design.settings`; the validator refuses it below API 9, and an older
+client refuses the package as described above. The client's `docs/THEMES.md` ("Theme API 9") has the
+full reference.
+
+- `settings` (up to 16): choices the viewer makes about the theme, shown on the theme's page and in
+  Settings → Appearance. Each has a `key` (lowercase letters, digits and hyphens, starting with a
+  letter, up to 32), a `label` (up to 48 characters), an optional `description` (up to 160) and a
+  `type`:
+  - `toggle`, with `default` `true` or `false`;
+  - `choice`, with 2 to 8 `options` (`{ "value", "label" }`, values like keys) and a `default` that is
+    one of them;
+  - `color`, with `default` `#rrggbb`.
+
+  While the theme paints the window, `<html>` carries them for the stylesheet:
+  `data-theme-setting-<key>="on"`/`"off"` for a toggle, `data-theme-setting-<key>="<value>"` for a
+  choice, and the custom property `--theme-setting-<key>` for a colour. Read them with
+  `:scope[data-theme-setting-<key>="…"] …` and `var(--theme-setting-<key>)`. They don't change
+  presentation keys, tokens or the layout.
+
+`scripts/theme-settings.ts` is a copy of the client's `src/lib/themes/theme-settings.ts`.

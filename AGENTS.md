@@ -7,7 +7,7 @@
 
 - This repository is the public theme catalog. The client, its renderer and the presentation
   validator live in the sibling `../izumi` checkout; `scripts/presentation.ts`,
-  `scripts/block-schema.ts`, `scripts/css-policy.ts` and `scripts/font-ids.ts` are copies of the
+  `scripts/block-schema.ts`, `scripts/css-policy.ts`, `scripts/font-ids.ts` and `scripts/theme-settings.ts` are copies of the
   same files in `src/lib/themes/` there and must stay identical (`scripts/ts-resolve.mjs` lets
   their extensionless imports run under Node).
 - Plugins (sources) and packs are not listed here: they go to
