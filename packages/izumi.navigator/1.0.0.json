@@ -1,0 +1,54 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 7,
+  "id": "izumi.navigator",
+  "name": "Navigator",
+  "version": "1.0.0",
+  "author": "Izumi",
+  "description": "Navigator look: a neutral near-black palette and its player, with the framing button, the end time and only the controls it shows.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 7.8%",
+      "foreground": "0 0% 94.9%",
+      "muted": "0 0% 9.8%",
+      "mutedForeground": "0 0% 54.9%",
+      "primary": "0 0% 89.8%",
+      "primaryForeground": "0 0% 3.9%",
+      "secondary": "0 0% 14.1%",
+      "secondaryForeground": "0 0% 94.9%",
+      "accent": "0 0% 14.1%",
+      "accentForeground": "0 0% 94.9%",
+      "border": "0 0% 16.9%",
+      "input": "0 0% 16.9%",
+      "ring": "0 0% 54.9%",
+      "card": "0 0% 9.8%",
+      "cardForeground": "0 0% 94.9%",
+      "theme": "0 0% 89.8%"
+    },
+    "radius": 0.75,
+    "font": "system",
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "fonts": {
+      "ui": "inter",
+      "heading": "inter",
+      "display": "inter"
+    },
+    "presentation": {
+      "player": {
+        "seekButtons": true,
+        "buttons": [
+          "fit"
+        ],
+        "endTime": true,
+        "time": "default"
+      }
+    },
+    "css": "/* Navigator look: the desktop player copied from Navigator's media player (components/ui/media-player.tsx,\n   global-media-player.tsx, player-mobile.css, arc/foundation.css). Values are Navigator's own. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] {\n  --nav-ease-out: cubic-bezier(.23, 1, .32, 1);\n  --nav-ghost-hover: oklch(26% 0 0);\n  --nav-primary: oklch(0.922 0 0);\n}\n/* Navigator draws no shade at the top: only its Back circle. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.top\"] {\n  background: none;\n}\n/* Controls: px-6 pb-4 with a from-black/80 to-transparent shade behind them. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.bottom\"] {\n  padding: 48px 24px 16px;\n  background: linear-gradient(to top, rgb(0 0 0 / .8), transparent);\n}\n/* Title: text-3xl, semibold, line-height 1.3, tracking -.01em, no text shadow. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.heading\"] {\n  padding-top: 0;\n  text-shadow: none;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.title\"] {\n  font-family: var(--font-heading);\n  font-size: 30px;\n  font-weight: 600;\n  line-height: 1.3;\n  letter-spacing: -.01em;\n  color: #fff;\n}\n/* Meta line: text-sm white/60, 6px under the title (gap-1.5). */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode\"] {\n  margin-top: 6px;\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.4;\n  color: rgb(255 255 255 / .6);\n}\n/* \"Ends at 9:41 PM\": text-sm white/70 (drawn with player.endTime). */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.endtime\"] {\n  font-size: 14px;\n  color: rgb(255 255 255 / .7);\n}\n/* Seek bar: a 9px pill clipped to 6px (inset 1.5px) that opens to the full 9px while dragging, over\n   100ms ease-out. Track white/20, buffered white/30, played white, hover white/20. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"] > div > div:has(> [data-part=\"player.seekbar.track\"]) {\n  height: 9px;\n  border-radius: 9999px;\n  clip-path: inset(1.5px 0 1.5px 0 round 9999px);\n  transition: clip-path 100ms var(--nav-ease-out);\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"]:has([data-scrubbing]) > div > div:has(> [data-part=\"player.seekbar.track\"]) {\n  clip-path: inset(0 0 0 0 round 9999px);\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"] > div > div > div {\n  height: 100%;\n  transition: none;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.track\"] { background: rgb(255 255 255 / .2); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.buffer\"] { background: rgb(255 255 255 / .3); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.buffer\"] + div:not([data-part]) { background: rgb(255 255 255 / .2); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.fill\"] { background: #fff; }\n/* Toolbar: one row, 8px gaps; transport and actions flattened so every control can be ordered. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] {\n  margin-top: 0;\n  gap: 8px;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.transport\"], [data-part=\"player.actions\"]) {\n  display: contents;\n}\n/* Left: Play, Next episode, back 10 s, forward 10 s, volume, time. Right: audio and subtitles,\n   framing, settings, picture-in-picture, full screen. Navigator has none of the rest. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"play\"] { order: 1; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"next\"] { order: 2; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"rewind\"] { order: 3; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"forward\"] { order: 4; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"volume\"]) { order: 5; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.time\"][data-variant=\"default\"] { order: 6; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"tracks\"]) { order: 10; margin-left: auto; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"fit\"] { order: 11; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"options\"]) { order: 12; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"pip\"] { order: 13; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"fullscreen\"] { order: 14; }\n/* Ghost icon buttons: 36px, radius 12px, 16px icons, hover --surface-muted, 200ms ease-in-out.\n   :where() keeps these at the specificity of the per-button rules below, which then win. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] :where([data-part=\"player.control\"], [data-part=\"button\"][data-control]) {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 36px;\n  height: 36px;\n  border-radius: 12px;\n  color: #fff;\n  background: transparent;\n  transition: color 200ms ease-in-out, background-color 200ms ease-in-out;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] :where([data-part=\"player.control\"], [data-part=\"button\"][data-control]):hover {\n  background: var(--nav-ghost-hover);\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] :where([data-part=\"player.control\"], [data-part=\"button\"][data-control]) svg {\n  width: 16px;\n  height: 16px;\n}\n/* Play and the volume trigger are 32px (size-8). */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] :is([data-control=\"play\"], [data-control=\"volume\"]) {\n  width: 32px;\n  height: 32px;\n}\n/* Next episode: a small text button (h-8, px-3, gap-2, text-sm medium) with an outline skip icon. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] [data-control=\"next\"] {\n  width: auto;\n  height: 32px;\n  gap: 8px;\n  padding: 0 12px;\n  white-space: nowrap;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"next\"] svg { fill: none; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"next\"]::after {\n  content: \"Next episode\";\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.4;\n  letter-spacing: -.01em;\n}\n/* Time: text-sm, white/80, tabular figures in the UI font. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.time\"][data-variant=\"default\"] {\n  margin-left: 0;\n  font-family: var(--ui-font);\n  font-size: 14px;\n  color: rgb(255 255 255 / .8);\n  font-variant-numeric: tabular-nums;\n}\n/* Volume: the slider opens to 64px beside the trigger, in the primary colour. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"volume\"]):is(:hover, :focus-within) [data-part=\"player.volume\"] {\n  width: 64px;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.volume\"] {\n  accent-color: var(--nav-primary);\n}\n/* Last, so the button rules above cannot show them again. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-control=\"previous\"], [data-control=\"restart\"], [data-control=\"comments\"], [data-control=\"screenshot\"], [data-control=\"bookmark\"], [data-control=\"episodes\"]),\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control=\"cast\"]),\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.actions\"] > :has(> [data-control^=\"subtitle-\"]),\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] > span:not([data-part]),\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.control.step\"] {\n  display: none;\n}\n"
+  }
+}
