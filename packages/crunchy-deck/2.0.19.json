@@ -1,0 +1,371 @@
+{
+  "app": "izumi",
+  "kind": "theme-package",
+  "schemaVersion": 1,
+  "themeApi": 7,
+  "id": "crunchy-deck",
+  "name": "Crunchy Deck",
+  "version": "2.0.19",
+  "author": "nickEatsBread",
+  "description": "Inspired by Crunchy Deck's look: Crunchyroll orange on near-black, a slide-in menu instead of a top bar or rail, a tall featured banner with the title logo, Sub | Dub and the age rating, cards with their titles on the artwork, and season pills over an episode grid.",
+  "design": {
+    "tokens": {
+      "scheme": "dark",
+      "background": "0 0% 4%",
+      "foreground": "0 0% 100%",
+      "muted": "0 0% 12%",
+      "mutedForeground": "0 0% 55%",
+      "primary": "24 91% 54%",
+      "primaryForeground": "0 0% 0%",
+      "secondary": "0 0% 12%",
+      "secondaryForeground": "0 0% 100%",
+      "accent": "0 0% 16%",
+      "accentForeground": "0 0% 100%",
+      "border": "0 0% 16%",
+      "input": "0 0% 12%",
+      "ring": "24 91% 54%",
+      "card": "0 0% 8%",
+      "cardForeground": "0 0% 100%",
+      "theme": "24 91% 54%"
+    },
+    "radius": 0.75,
+    "font": "nunito",
+    "fonts": {
+      "ui": "nunito",
+      "heading": "nunito",
+      "display": "nunito"
+    },
+    "fontScale": 1,
+    "backdrop": "solid",
+    "backdropStrength": 0,
+    "glassBlur": 0,
+    "presentation": {
+      "density": "comfortable",
+      "trueBlack": false,
+      "hideCardLabels": false,
+      "cardPreview": "none",
+      "shell": {
+        "nav": "drawer",
+        "compact": false,
+        "overlay": "none",
+        "press": "none"
+      },
+      "hero": {
+        "height": 66,
+        "rotate": true,
+        "interval": 7,
+        "rankHidden": true,
+        "limit": 7,
+        "transition": "fade",
+        "indicator": {
+          "style": "bars",
+          "position": "end",
+          "color": "#F47521",
+          "past": "empty"
+        },
+        "template": {
+          "type": "overlay",
+          "part": "cd-hero",
+          "children": [
+            {
+              "type": "artwork",
+              "artwork": "backdrop",
+              "part": "cd-hero-art",
+              "style": {
+                "anchor": "fill",
+                "fit": "cover"
+              }
+            },
+            {
+              "type": "stack",
+              "part": "cd-hero-body",
+              "style": {
+                "anchor": "bottom-start"
+              },
+              "children": [
+                {
+                  "type": "artwork",
+                  "artwork": "logo",
+                  "part": "cd-hero-logo",
+                  "when": {
+                    "field": "logo"
+                  },
+                  "style": {
+                    "fit": "contain"
+                  }
+                },
+                {
+                  "type": "text",
+                  "field": "title",
+                  "part": "cd-hero-title",
+                  "when": {
+                    "field": "logo",
+                    "absent": true
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "cd-hero-meta",
+                  "children": [
+                    {
+                      "type": "text",
+                      "field": "ageRating",
+                      "part": "cd-rating",
+                      "when": {
+                        "field": "ageRating"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "◆",
+                      "part": "cd-sep",
+                      "when": {
+                        "field": "audio"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "field": "audio",
+                      "part": "cd-meta-text",
+                      "when": {
+                        "field": "audio"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": "◆",
+                      "part": "cd-sep",
+                      "when": {
+                        "field": "genre"
+                      }
+                    },
+                    {
+                      "type": "row",
+                      "part": "cd-genres",
+                      "when": {
+                        "field": "genre"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "field": "genre",
+                          "part": "cd-meta-text"
+                        },
+                        {
+                          "type": "text",
+                          "text": ",",
+                          "part": "cd-comma",
+                          "when": {
+                            "field": "genre2"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "genre2",
+                          "part": "cd-meta-text",
+                          "when": {
+                            "field": "genre2"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": ",",
+                          "part": "cd-comma",
+                          "when": {
+                            "field": "genre3"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "field": "genre3",
+                          "part": "cd-meta-text",
+                          "when": {
+                            "field": "genre3"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "field": "description",
+                  "part": "cd-hero-synopsis",
+                  "when": {
+                    "field": "description"
+                  }
+                },
+                {
+                  "type": "row",
+                  "part": "cd-hero-actions",
+                  "children": [
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "Continue",
+                      "part": "cd-play",
+                      "when": {
+                        "field": "progress"
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "play",
+                      "text": "Play",
+                      "part": "cd-play",
+                      "when": {
+                        "field": "progress",
+                        "absent": true
+                      }
+                    },
+                    {
+                      "type": "action",
+                      "action": "details",
+                      "text": "Details",
+                      "part": "cd-details"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "detail": {
+        "layout": "overlay",
+        "title": "text",
+        "sections": {
+          "mode": "stack",
+          "tabs": [
+            "episodes"
+          ],
+          "unlisted": "hidden"
+        },
+        "episodes": {
+          "seasons": "chips",
+          "arrangement": "grid",
+          "toolbar": "header",
+          "card": {
+            "type": "stack",
+            "part": "cd-ep",
+            "children": [
+              {
+                "type": "overlay",
+                "part": "cd-ep-art",
+                "style": {
+                  "aspect": "16 / 9"
+                },
+                "children": [
+                  {
+                    "type": "artwork",
+                    "artwork": "still",
+                    "part": "cd-ep-still",
+                    "style": {
+                      "anchor": "fill",
+                      "fit": "cover"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "field": "watched",
+                    "part": "cd-ep-badge",
+                    "when": {
+                      "field": "watched"
+                    }
+                  },
+                  {
+                    "type": "stack",
+                    "part": "cd-ep-unwatched",
+                    "when": {
+                      "field": "watched",
+                      "absent": true
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "field": "duration",
+                        "part": "cd-ep-badge",
+                        "when": {
+                          "field": "duration"
+                        }
+                      },
+                      {
+                        "type": "meter",
+                        "field": "progress",
+                        "part": "cd-ep-progress",
+                        "when": {
+                          "field": "progress",
+                          "atMost": 99
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "stack",
+                    "part": "cd-ep-hover",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "▶",
+                        "part": "cd-ep-play",
+                        "when": {
+                          "field": "watched",
+                          "absent": true
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": "↻",
+                        "part": "cd-ep-replay",
+                        "when": {
+                          "field": "watched"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "row",
+                "part": "cd-ep-number",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Episode",
+                    "part": "cd-ep-number-text"
+                  },
+                  {
+                    "type": "text",
+                    "field": "episodeNo",
+                    "part": "cd-ep-number-text"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "field": "episodeTitle",
+                "part": "cd-ep-title"
+              },
+              {
+                "type": "text",
+                "field": "description",
+                "part": "cd-ep-synopsis",
+                "when": {
+                  "field": "description"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "player": {
+        "seekButtons": true,
+        "time": "split",
+        "title": "episode",
+        "trackButtons": "text",
+        "rating": "intro"
+      }
+    },
+    "css": "/* Crunchy Deck for izumi. Sizes are Crunchy Deck's own CSS px times --cd: Crunchy Deck runs at a\n   1.5x page zoom on the Steam Deck and izumi's Game mode at 1.25x, so Game mode scales them by 1.2. */\n:scope {\n  --cd: 1px;\n  --cd-brand: #f47521;\n  --cd-surface: #0a0a0a;\n  --cd-s1: #141414;\n  --cd-s2: #1e1e1e;\n  --cd-s3: #2a2a2a;\n}\n:scope.gamemode { --cd: 1.2px; }\n/* Crisp play and replay icons: the ▶ and ↻ characters fall back to a soft font on the Deck. */\n:scope {\n  --cd-play-icon: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20fill%3D%27white%27%20d%3D%27M8%205.14v13.72a1%201%200%200%200%201.52.85l11.07-6.86a1%201%200%200%200%200-1.7L9.52%204.29A1%201%200%200%200%208%205.14z%27%2F%3E%3C%2Fsvg%3E\");\n  --cd-replay-icon: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27white%27%20stroke-width%3D%272.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M3%2012a9%209%200%201%200%209-9%209.75%209.75%200%200%200-6.74%202.74L3%208%27%2F%3E%3Cpath%20d%3D%27M3%203v5h5%27%2F%3E%3C%2Fsvg%3E\");\n}\n:scope { background: var(--cd-surface); }\n\n/* ---- Drawer navigation -------------------------------------------------------------------- */\n[data-slot=\"nav.drawer\"] {\n  width: calc(288 * var(--cd));\n  gap: calc(2 * var(--cd));\n  padding: calc(24 * var(--cd)) calc(12 * var(--cd)) 0;\n  border: 0;\n  background: var(--cd-s1);\n  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);\n}\n[data-part=\"nav.drawer.head\"] {\n  margin: 0;\n  padding: 0 calc(8 * var(--cd)) calc(16 * var(--cd));\n  gap: calc(12 * var(--cd));\n  color: #fff;\n}\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"] {\n  position: relative;\n  height: auto;\n  min-height: 0;\n  flex-shrink: 0;\n  gap: calc(12 * var(--cd));\n  padding: calc(10 * var(--cd)) calc(12 * var(--cd));\n  border-radius: calc(12 * var(--cd));\n  background: transparent;\n  color: rgb(255 255 255 / 0.55);\n  font-size: calc(15 * var(--cd));\n  font-weight: 700;\n  transition: transform 150ms, background-color 150ms, box-shadow 150ms, color 150ms;\n}\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"][data-active] { background: transparent; color: #fff; }\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"][data-active]::after {\n  content: '';\n  margin-left: auto;\n  width: calc(6 * var(--cd));\n  height: calc(6 * var(--cd));\n  border-radius: 9999px;\n  background: var(--cd-brand);\n}\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item.icon\"] { width: auto; color: rgb(255 255 255 / 0.45); transition: color 150ms; }\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item.icon\"] svg { width: calc(20 * var(--cd)); height: calc(20 * var(--cd)); }\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"][data-active] [data-part=\"nav.item.icon\"] { color: var(--cd-brand); }\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"]:is(:focus-visible), :scope:not(.gamemode) [data-slot=\"nav.drawer\"] [data-part=\"nav.item\"]:hover {\n  transform: scale(1.02);\n  outline: none;\n  background: rgb(244 117 33 / 0.15);\n  color: #fff;\n  box-shadow: inset 0 0 0 1.5px var(--cd-brand);\n}\n[data-slot=\"nav.drawer\"] [data-part=\"nav.item\"]:is(:focus-visible) [data-part=\"nav.item.icon\"], :scope:not(.gamemode) [data-slot=\"nav.drawer\"] [data-part=\"nav.item\"]:hover [data-part=\"nav.item.icon\"] { color: var(--cd-brand); }\n[data-part=\"nav.drawer.heading\"] {\n  margin: 0;\n  padding: calc(16 * var(--cd)) calc(12 * var(--cd)) calc(4 * var(--cd));\n  color: rgb(255 255 255 / 0.3);\n  font-size: calc(10 * var(--cd));\n  font-weight: 800;\n  letter-spacing: 0.14em;\n}\n[data-part=\"nav.drawer.foot\"] {\n  margin: auto calc(-12 * var(--cd)) 0;\n  padding: calc(12 * var(--cd));\n  gap: calc(8 * var(--cd));\n  border-top: 1px solid rgb(255 255 255 / 0.1);\n}\n[data-part=\"nav.drawer.foot\"] [data-part=\"nav.action\"] {\n  border-radius: calc(12 * var(--cd));\n  color: rgb(255 255 255 / 0.55);\n  transition: background-color 150ms, box-shadow 150ms, color 150ms;\n}\n[data-part=\"nav.drawer.foot\"] [data-action=\"account\"] { padding: calc(8 * var(--cd)); gap: calc(12 * var(--cd)); color: #fff; font-size: calc(14 * var(--cd)); font-weight: 700; }\n[data-part=\"nav.drawer.foot\"] [data-action=\"account\"] [data-part=\"nav.action.icon\"] { width: calc(36 * var(--cd)); height: calc(36 * var(--cd)); }\n[data-part=\"nav.drawer.foot\"] [data-action=\"account\"] img { width: 100%; height: 100%; border-radius: calc(8 * var(--cd)); box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1); }\n[data-part=\"nav.drawer.foot\"] :is([data-action=\"settings\"], [data-action=\"incognito\"]) { width: calc(44 * var(--cd)); height: calc(44 * var(--cd)); }\n[data-part=\"nav.drawer.foot\"] [data-action=\"settings\"][data-active] { color: var(--cd-brand); }\n[data-part=\"nav.drawer.foot\"] [data-part=\"nav.action\"]:is(:focus-visible), :scope:not(.gamemode) [data-part=\"nav.drawer.foot\"] [data-part=\"nav.action\"]:hover {\n  outline: none;\n  background: rgb(244 117 33 / 0.15);\n  color: var(--cd-brand);\n  box-shadow: inset 0 0 0 1.5px var(--cd-brand);\n}\n[data-part=\"nav.drawer.foot\"] [data-action=\"account\"]:is(:focus-visible), :scope:not(.gamemode) [data-part=\"nav.drawer.foot\"] [data-action=\"account\"]:hover { background: rgb(255 255 255 / 0.05); color: #fff; }\n[data-part=\"nav.menu\"] { border-radius: 9999px; background: rgb(0 0 0 / 0.5); color: #fff; }\n\n/* ---- Featured banner ---------------------------------------------------------------------- */\n[data-slot=\"home.hero\"] { background: var(--cd-surface); }\n[data-part=\"cd-hero\"] { height: 100%; }\n[data-part=\"cd-hero-art\"]::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  background-image:\n    linear-gradient(to top, rgb(10 10 10 / 0.9), transparent 50%, transparent),\n    linear-gradient(to right, #0a0a0a, rgb(10 10 10 / 0.6) 50%, transparent);\n}\n[data-part=\"cd-hero-art\"] img { transition: opacity 700ms; }\n[data-part=\"cd-hero-body\"] {\n  left: calc(40 * var(--cd)) !important;\n  bottom: calc(40 * var(--cd)) !important;\n  width: 48%;\n  max-width: 48%;\n  gap: 0;\n  padding: 0 !important;\n}\n[data-part=\"cd-hero-logo\"] { width: 70% !important; height: calc(96 * var(--cd)); margin-bottom: calc(16 * var(--cd)); overflow: visible; filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1)); }\n[data-part=\"cd-hero-logo\"] img { object-fit: contain; object-position: left bottom; }\n[data-part=\"cd-hero-title\"] { margin-bottom: calc(12 * var(--cd)); font-size: calc(36 * var(--cd)); font-weight: 900; line-height: 1.1; text-shadow: 0 2px 8px rgb(0 0 0 / 0.5); }\n[data-part=\"cd-hero-meta\"] {\n  min-height: calc(28 * var(--cd));\n  margin-bottom: calc(12 * var(--cd));\n  align-items: center;\n  gap: calc(4 * var(--cd)) calc(8 * var(--cd));\n  font-size: calc(14 * var(--cd));\n  line-height: 1.43;\n}\n[data-part=\"cd-genres\"] { gap: 0; align-items: center; }\n[data-part=\"cd-comma\"] { margin-right: 0.3em; color: rgb(255 255 255 / 0.75); }\n[data-part=\"cd-rating\"] {\n  padding: calc(2 * var(--cd)) calc(6 * var(--cd));\n  border: 1px solid rgb(255 255 255 / 0.45);\n  border-radius: calc(4 * var(--cd));\n  color: #fff;\n  font-size: calc(12 * var(--cd));\n  font-weight: 700;\n  line-height: 1.33;\n}\n[data-part=\"cd-sep\"] { color: rgb(255 255 255 / 0.4); font-size: calc(9.6 * var(--cd)); line-height: 1; user-select: none; }\n[data-part=\"cd-meta-text\"] { color: rgb(255 255 255 / 0.75); }\n[data-part=\"cd-hero-synopsis\"] {\n  display: -webkit-box;\n  max-width: calc(576 * var(--cd));\n  margin-bottom: calc(20 * var(--cd));\n  overflow: hidden;\n  color: rgb(255 255 255 / 0.8);\n  font-size: calc(14 * var(--cd));\n  line-height: 1.43;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n}\n[data-part=\"cd-hero-actions\"] { gap: calc(12 * var(--cd)); align-items: center; }\n[data-part=\"cd-play\"], [data-part=\"cd-details\"] {\n  min-height: 0 !important;\n  gap: calc(8 * var(--cd)) !important;\n  border-radius: calc(8 * var(--cd)) !important;\n  font-size: calc(16 * var(--cd)) !important;\n  line-height: 1.5;\n  transition: box-shadow 150ms, background-color 150ms;\n}\n[data-part=\"cd-play\"] { line-height: calc(28 * var(--cd)) !important; padding: calc(12 * var(--cd)) calc(28 * var(--cd)) !important; background: var(--cd-brand) !important; color: #000 !important; font-weight: 700 !important; }\n[data-part=\"cd-play\"] svg { width: calc(18 * var(--cd)); height: calc(18 * var(--cd)); }\n[data-part=\"cd-details\"] { line-height: calc(24 * var(--cd)) !important; padding: calc(12 * var(--cd)) calc(20 * var(--cd)) !important; background: rgb(255 255 255 / 0.15) !important; color: #fff !important; font-weight: 600 !important; }\n[data-part=\"cd-play\"]:is(:focus, :focus-visible), :scope:not(.gamemode) [data-part=\"cd-play\"]:hover { outline: none !important; filter: none !important; box-shadow: 0 0 0 calc(4 * var(--cd)) rgb(255 255 255 / 0.4); }\n[data-part=\"cd-details\"]:is(:focus, :focus-visible), :scope:not(.gamemode) [data-part=\"cd-details\"]:hover { outline: none !important; filter: none !important; background: rgb(255 255 255 / 0.3) !important; box-shadow: 0 0 0 calc(4 * var(--cd)) rgb(255 255 255 / 0.3); }\n[data-slot=\"home.hero\"] [data-part=\"hero.indicator\"] {\n  position: absolute;\n  inset: auto calc(24 * var(--cd)) calc(16 * var(--cd)) auto;\n  display: flex;\n  gap: calc(8 * var(--cd));\n  padding: 0;\n}\n[data-slot=\"home.hero\"] [data-part=\"hero.dot\"] { padding: 0; }\n[data-slot=\"home.hero\"] [data-part=\"hero.dot.track\"] {\n  width: calc(8 * var(--cd));\n  height: calc(8 * var(--cd));\n  border-radius: 9999px;\n  background: rgb(255 255 255 / 0.4);\n  transition: width 300ms, background-color 300ms;\n}\n[data-slot=\"home.hero\"] [data-part=\"hero.dot\"][data-active] [data-part=\"hero.dot.track\"] { width: calc(40 * var(--cd)); background: rgb(255 255 255 / 0.3); }\n/* The arrows only show while the pointer is over the banner, as in Crunchy Deck. */\n[data-slot=\"home.hero\"] [data-part=\"hero.edge\"] {\n  width: calc(48 * var(--cd));\n  height: calc(48 * var(--cd));\n  border-radius: 9999px;\n  background: rgb(0 0 0 / 0.5);\n  color: #fff;\n  opacity: 0 !important;\n  transition: opacity 200ms;\n}\n:scope:not(.gamemode) [data-slot=\"home.hero\"]:hover [data-part=\"hero.edge\"] { opacity: 1 !important; }\n\n/* ---- Rows and cards ----------------------------------------------------------------------- */\n[data-slot=\"home\"] [data-slot=\"row\"] { margin-bottom: calc(20 * var(--cd)); }\n[data-slot=\"row\"] [data-part=\"row.header\"] { margin-bottom: calc(6 * var(--cd)); padding-inline: calc(40 * var(--cd)); }\n[data-slot=\"row\"] [data-part=\"row.title\"] { color: rgb(255 255 255 / 0.8); font-size: calc(18 * var(--cd)); font-weight: 700; line-height: 1.55; }\n[data-slot=\"row\"] [data-part=\"row.track\"] {\n  gap: calc(16 * var(--cd)) !important;\n  padding: calc(8 * var(--cd)) calc(40 * var(--cd)) calc(32 * var(--cd));\n  scroll-padding-inline: calc(40 * var(--cd));\n}\n[data-part=\"card\"] { width: calc(195 * var(--cd)) !important; }\n[data-part=\"card\"][data-shape=\"episode\"] { width: calc(266 * var(--cd)) !important; }\n[data-part=\"card\"] > a {\n  position: relative;\n  display: block;\n  width: 100% !important;\n  overflow: hidden;\n  border-radius: calc(12 * var(--cd));\n  background: var(--cd-s2);\n  transition: transform 150ms ease-out, box-shadow 150ms ease-out, opacity 150ms ease;\n}\n[data-part=\"card\"] [data-part=\"card.art\"] { height: calc(290 * var(--cd)); aspect-ratio: auto !important; border-radius: 0; background: var(--cd-s2); }\n[data-part=\"card\"][data-shape=\"episode\"] [data-part=\"card.art\"] { height: calc(150 * var(--cd)); }\n[data-part=\"card\"] [data-part=\"card.art\"] { z-index: auto !important; transform: none !important; box-shadow: none !important; outline: none !important; }\n[data-part=\"card\"] [data-part=\"card.art\"] img { transform: none !important; }\n[data-part=\"card\"] a > div:has(> [data-part=\"card.title\"]) {\n  position: absolute;\n  inset: auto 0 0 0;\n  display: flex;\n  flex-direction: column-reverse;\n  min-height: 0;\n  padding: calc(24 * var(--cd)) calc(8 * var(--cd)) calc(8 * var(--cd));\n  z-index: 2;\n  pointer-events: none;\n  background-image: linear-gradient(to top, rgb(0 0 0 / 0.9), transparent);\n}\n[data-part=\"card.title\"] { margin: 0; color: #fff; font-size: calc(12 * var(--cd)); font-weight: 700; line-height: 1.25; text-align: left; }\n[data-part=\"card.title\"] > span:first-child:empty { display: none; }\n[data-part=\"card.meta\"] { margin: 0 0 calc(2 * var(--cd)); color: rgb(255 255 255 / 0.8); font-size: calc(11 * var(--cd)); font-weight: 600; }\n[data-part=\"card\"]:not([data-shape=\"episode\"]) [data-part=\"card.meta\"] { display: none; }\n[data-part=\"card.score\"], [data-part=\"card.badge\"] { display: none; }\n[data-part=\"card.progress\"] { z-index: 5; height: calc(4 * var(--cd)); background: rgb(255 255 255 / 0.25); }\n/* Hover counts outside Game mode only: there the cursor rests wherever it was left. */\n[data-part=\"card\"] > a:is(:focus, :focus-visible),\n:scope:not(.gamemode) [data-part=\"card\"] > a:hover {\n  outline: none !important;\n  transform: scale(1.05);\n  box-shadow: 0 0 0 3px var(--cd-brand), 0 14px 34px rgb(0 0 0 / 0.65) !important;\n}\n[data-slot=\"row\"]:focus-within [data-part=\"card\"] > a:not(:focus) { opacity: 0.82; }\n[data-part=\"card.progress\"] { z-index: 3; }\n/* The play affordance over the focused card. */\n[data-part=\"card\"] > a [data-part=\"card.art\"]::after {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: calc(48 * var(--cd));\n  height: calc(48 * var(--cd));\n  border-radius: 9999px;\n  background: rgb(0 0 0 / 0.6) var(--cd-play-icon) center / calc(22 * var(--cd)) no-repeat;\n  opacity: 0;\n  transform: translate(-50%, -50%);\n  transition: opacity 150ms;\n  pointer-events: none;\n}\n[data-part=\"card\"] > a:is(:focus, :focus-visible) [data-part=\"card.art\"]::after,\n:scope:not(.gamemode) [data-part=\"card\"] > a:hover [data-part=\"card.art\"]::after { opacity: 1; }\n\n/* ---- Title page --------------------------------------------------------------------------- */\n[data-slot=\"detail.banner\"] { height: 58vh; min-height: 58vh !important; }\n/* Crunchy Deck's title page has no Back button: B goes back. Pointer windows keep izumi's. */\n:scope.gamemode [data-slot=\"detail.banner\"] > button[aria-label=\"Back\"] { display: none; }\n[data-part=\"detail.backdrop\"] { transition: opacity 500ms; }\n[data-part=\"detail.scrim\"][data-dir=\"left\"] { background-image: linear-gradient(to right, #0a0a0a, rgb(10 10 10 / 0.6) 50%, transparent); }\n[data-part=\"detail.scrim\"][data-dir=\"bottom\"] { background-image: linear-gradient(to top, #0a0a0a, transparent 50%, transparent); }\n[data-slot=\"detail.banner\"] > div:has(> [data-part=\"detail.body\"]) { min-height: 58vh; max-width: none; padding: 0 0 calc(32 * var(--cd)) calc(40 * var(--cd)); }\n[data-part=\"detail.body\"] { max-width: 55%; flex: none; }\n[data-part=\"detail.title\"] {\n  width: auto !important;\n  height: auto !important;\n  margin-bottom: calc(12 * var(--cd));\n  font-size: calc(36 * var(--cd));\n  font-weight: 900;\n  line-height: 1.1;\n  text-shadow: 0 2px 8px rgb(0 0 0 / 0.5);\n}\n/* A long name at full size took three lines up to the top of the screen. */\n[data-part=\"detail.title\"][data-length=\"long\"] {\n  display: -webkit-box;\n  overflow: hidden;\n  font-size: calc(26 * var(--cd));\n  line-height: 1.15;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n}\n[data-part=\"detail.logo\"] { display: none; }\n[data-part=\"detail.title\"][aria-label]::after { content: attr(aria-label); }\n[data-part=\"detail.meta\"], [data-part=\"detail.genres\"] { display: none; }\n[data-part=\"detail.body\"] > div:has(> [data-part=\"ratings\"]), [data-part=\"detail.body\"] > .mt-3:not([data-part]) { display: none; }\n[data-part=\"detail.synopsis\"] {\n  max-width: none;\n  margin: 0 0 calc(20 * var(--cd));\n  color: rgb(255 255 255 / 0.75);\n  font-size: calc(14 * var(--cd));\n  line-height: 1.43;\n  -webkit-line-clamp: 3;\n}\n[data-part=\"detail.actions\"] { margin-top: 0; gap: calc(12 * var(--cd)); }\n[data-part=\"detail.actions\"] > :not([data-action=\"play\"]):not([data-action=\"watchlist\"]):not([data-action=\"more\"]) { display: none; }\n[data-part=\"detail.actions\"] > [data-action=\"more\"] { order: 9; }\n[data-part=\"detail.actions\"] > [data-action] {\n  gap: calc(8 * var(--cd));\n  border-radius: calc(8 * var(--cd));\n  padding: calc(12 * var(--cd)) calc(20 * var(--cd));\n  font-size: calc(16 * var(--cd));\n  font-weight: 700;\n  line-height: 1.5;\n  transition: box-shadow 150ms;\n}\n[data-part=\"detail.actions\"] > [data-action=\"play\"] { padding-inline: calc(28 * var(--cd)); background: var(--cd-brand); color: #000; }\n[data-part=\"detail.actions\"] > :is([data-action=\"watchlist\"], [data-action=\"more\"]) { background: rgb(30 30 30 / 0.9); color: #fff; }\n[data-part=\"detail.actions\"] > [data-action=\"more\"] { width: calc(48 * var(--cd)); height: calc(48 * var(--cd)); padding: 0; }\n[data-part=\"detail.actions\"] > [data-action=\"watchlist\"] svg { color: inherit; }\n/* As tall as Continue: izumi gives the button a fixed height, Crunchy Deck pads both alike. */\n[data-part=\"detail.actions\"] > [data-action=\"watchlist\"] { height: auto; }\n[data-part=\"detail.actions\"] > [data-action=\"play\"]:is(:focus-visible), :scope:not(.gamemode) [data-part=\"detail.actions\"] > [data-action=\"play\"]:hover { outline: none; box-shadow: 0 0 0 calc(4 * var(--cd)) rgb(255 255 255 / 0.4); }\n[data-part=\"detail.actions\"] > :is([data-action=\"watchlist\"], [data-action=\"more\"]):is(:focus-visible), :scope:not(.gamemode) [data-part=\"detail.actions\"] > :is([data-action=\"watchlist\"], [data-action=\"more\"]):hover { outline: none; box-shadow: 0 0 0 calc(4 * var(--cd)) rgb(255 255 255 / 0.3); }\n\n[data-slot=\"detail.section\"][data-section=\"episodes\"] { margin-top: 0; }\n/* Crunchy Deck's series page has no details section; with genres hidden it showed only its heading. */\n[data-slot=\"detail.section\"][data-section=\"overview\"] { display: none; }\n[data-slot=\"detail.section\"][data-section=\"episodes\"] > [data-part=\"detail.section-title\"] { display: none; }\n[data-slot=\"detail.episodes\"] { margin-top: 0; padding: calc(12 * var(--cd)) calc(40 * var(--cd)) calc(64 * var(--cd)); }\n[data-slot=\"episodes.toolbar\"] { gap: calc(8 * var(--cd)); margin-bottom: calc(24 * var(--cd)); }\n[data-part=\"episodes.heading\"] { display: none; }\n[data-slot=\"episodes.seasons\"] { gap: calc(8 * var(--cd)); margin: 0; padding: 0; flex-wrap: wrap; overflow: visible; }\n/* Controls under the season pills sit like a second line of pills (Crunchy Deck's flex-wrap gap-2). */\n[data-slot=\"episodes.seasons\"] + [data-slot=\"episodes.toolbar\"] { margin-top: calc(8 * var(--cd)); }\n/* Crunchy Deck's pill: its season pills, and its sort pills (Browse page, the same classes), which\n   Oldest | Newest copies; the round search and download buttons are pills of the same height. */\n:is([data-part=\"season\"], [data-part=\"episodes.sort\"] > button, [data-slot=\"episodes.toolbar\"] button:is([data-part=\"episodes.search\"], [data-part=\"episodes.download\"])) {\n  padding: calc(6 * var(--cd)) calc(16 * var(--cd));\n  border: 0;\n  border-radius: 9999px;\n  background: var(--cd-s2);\n  color: rgb(255 255 255 / 0.8);\n  font-size: calc(14 * var(--cd));\n  font-weight: 600;\n  line-height: calc(20 * var(--cd));\n  transition: box-shadow 150ms;\n}\n:is([data-part=\"season\"], [data-part=\"episodes.sort\"] > button, [data-slot=\"episodes.toolbar\"] button[data-part=\"episodes.search\"])[data-active] { background: var(--cd-brand); color: #000; }\n[data-part=\"season.label\"] { font-size: inherit; font-weight: inherit; line-height: inherit; }\n[data-part=\"season.year\"] { display: none; }\n:is([data-part=\"season\"], [data-part=\"episodes.sort\"] > button, [data-slot=\"episodes.toolbar\"] button:is([data-part=\"episodes.search\"], [data-part=\"episodes.download\"])):is(:focus-visible),\n:scope:not(.gamemode) :is([data-part=\"season\"], [data-part=\"episodes.sort\"] > button, [data-slot=\"episodes.toolbar\"] button:is([data-part=\"episodes.search\"], [data-part=\"episodes.download\"])):hover { outline: none; box-shadow: 0 0 0 2px var(--cd-brand); }\n[data-part=\"episodes.sort\"][data-variant=\"tabs\"] { height: auto; gap: calc(8 * var(--cd)); padding: 0; border-radius: 0; background: transparent; }\n[data-slot=\"episodes.toolbar\"] button:is([data-part=\"episodes.search\"], [data-part=\"episodes.download\"]) { width: calc(32 * var(--cd)); height: calc(32 * var(--cd)); padding: 0; }\n[data-slot=\"episodes.toolbar\"] button:is([data-part=\"episodes.search\"], [data-part=\"episodes.download\"]) svg { width: calc(16 * var(--cd)); height: calc(16 * var(--cd)); }\n/* Crunchy Deck's grid-cols-2 md:grid-cols-3 xl:grid-cols-4: three across on the Deck, four on a wide window. */\n[data-slot=\"detail.episodes\"] [data-part=\"episodes.grid\"] {\n  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;\n  gap: calc(28 * var(--cd)) calc(20 * var(--cd)) !important;\n}\n@media (min-width: 1280px) {\n  :scope:not(.gamemode) [data-slot=\"detail.episodes\"] [data-part=\"episodes.grid\"] { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }\n}\n[data-part=\"episode\"][data-variant=\"template\"] { overflow: visible; border-radius: 0; background: transparent; outline: none; }\n/* Crunchy Deck rings the artwork alone, never the whole card: no controller ring on the card itself. */\n[data-part=\"episode\"][data-variant=\"template\"]:is(:focus, :focus-visible) { outline: none !important; box-shadow: none !important; }\n[data-part=\"cd-ep-art\"] { overflow: hidden; border-radius: calc(12 * var(--cd)); background: var(--cd-s2); transition: box-shadow 150ms; }\n[data-part=\"cd-ep-still\"] img { transition: transform 150ms, opacity 150ms; }\n[data-part=\"episode\"]:is(:focus-visible) [data-part=\"cd-ep-art\"], :scope:not(.gamemode) [data-part=\"episode\"]:hover [data-part=\"cd-ep-art\"] { box-shadow: 0 0 0 2px var(--cd-brand); }\n[data-part=\"episode\"]:is(:focus-visible) [data-part=\"cd-ep-still\"] img, :scope:not(.gamemode) [data-part=\"episode\"]:hover [data-part=\"cd-ep-still\"] img { transform: scale(1.05); }\n[data-part=\"cd-ep-art\"]:has(> [data-part=\"cd-ep-badge\"]) [data-part=\"cd-ep-still\"] img { opacity: 0.5; }\n[data-part=\"cd-ep-badge\"] {\n  position: absolute;\n  right: calc(6 * var(--cd));\n  bottom: calc(6 * var(--cd));\n  justify-self: end;\n  align-self: end;\n  padding: calc(2 * var(--cd)) calc(6 * var(--cd));\n  border-radius: calc(4 * var(--cd));\n  background: rgb(0 0 0 / 0.75);\n  color: #fff;\n  font-size: calc(10 * var(--cd));\n  font-weight: 600;\n}\n[data-part=\"cd-ep-unwatched\"] { position: absolute; inset: 0; }\n[data-part=\"cd-ep-progress\"] {\n  position: absolute;\n  inset: auto 0 0 0;\n  min-height: 0 !important;\n  height: calc(4 * var(--cd));\n  border-radius: 0;\n  background: rgb(255 255 255 / 0.25);\n}\n[data-part=\"cd-ep-progress\"] > span { background: var(--cd-brand); }\n/* Crunchy Deck's selected episode: a dark veil with a round play (or replay) button. */\n/* A template stack is laid out inline as a flex column filling the artwork: centre it both ways. */\n[data-part=\"cd-ep-hover\"] { justify-content: center !important; align-items: center !important; background: rgb(0 0 0 / 0.35); opacity: 0; transition: opacity 150ms; }\n[data-part=\"episode\"]:is(:focus-visible) [data-part=\"cd-ep-hover\"], :scope:not(.gamemode) [data-part=\"episode\"]:hover [data-part=\"cd-ep-hover\"] { opacity: 1; }\n/* A finished episode's art is dimmed, as in Crunchy Deck. */\n[data-part=\"episode\"][data-watched] [data-part=\"cd-ep-still\"] { opacity: 0.5; }\n[data-part=\"cd-ep-play\"], [data-part=\"cd-ep-replay\"] { display: block; width: calc(48 * var(--cd)); height: calc(48 * var(--cd)); overflow: hidden; border-radius: 9999px; background: rgb(0 0 0 / 0.6) var(--cd-play-icon) center / calc(22 * var(--cd)) no-repeat; color: transparent; font-size: 0; }\n[data-part=\"cd-ep-replay\"] { background-image: var(--cd-replay-icon); }\n/* Downloads: the status over the artwork's corner, progress along its bottom like the watch bar. */\n[data-part=\"episode\"][data-variant=\"template\"] [data-part=\"episode.saved\"] { border-radius: calc(12 * var(--cd)); }\n[data-part=\"episode.saved.icon\"] { top: calc(8 * var(--cd)); left: calc(8 * var(--cd)); width: calc(28 * var(--cd)); height: calc(28 * var(--cd)); background: rgb(0 0 0 / 0.75); color: #fff; }\n[data-part=\"episode.saved\"][data-state=\"done\"] [data-part=\"episode.saved.icon\"] { color: var(--cd-brand); }\n[data-part=\"episode.saved.progress\"] { height: calc(4 * var(--cd)); background: rgb(255 255 255 / 0.25); }\n[data-part=\"episode.saved.progress\"] > span { background: #fff; }\n[data-part=\"cd-ep-number\"] { margin-top: calc(8 * var(--cd)); gap: 0.25em; color: rgb(255 255 255 / 0.5); font-size: calc(12 * var(--cd)); font-weight: 700; }\n[data-part=\"cd-ep-title\"] { display: -webkit-box; overflow: hidden; font-size: calc(14 * var(--cd)); font-weight: 700; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }\n[data-part=\"cd-ep-synopsis\"] { display: -webkit-box; overflow: hidden; color: rgb(255 255 255 / 0.45); font-size: calc(12 * var(--cd)); -webkit-box-orient: vertical; -webkit-line-clamp: 2; }\n\n/* ---- Search (Crunchy Deck's: one field, no filters, results as a poster grid) ------------------ */\n[data-slot=\"search\"][data-variant=\"catalog\"] { padding: calc(32 * var(--cd)) calc(40 * var(--cd)) !important; }\n[data-slot=\"search\"] [data-part=\"search.filter\"] { display: none !important; }\n[data-slot=\"search\"] [data-part=\"search.filters\"] { margin-bottom: calc(16 * var(--cd)); }\n/* The episode search field, once opened, is Crunchy Deck's search field too. */\n:is([data-slot=\"search\"] [data-part=\"search.field\"], [data-part=\"episodes.search\"] > [data-part=\"input\"]) {\n  max-width: calc(576 * var(--cd));\n  height: auto;\n  padding-top: calc(12 * var(--cd));\n  padding-bottom: calc(12 * var(--cd));\n  border: 0;\n  border-radius: calc(12 * var(--cd));\n  background: var(--cd-s2);\n  font-size: calc(18 * var(--cd));\n  outline: none;\n  box-shadow: 0 0 0 2px transparent;\n}\n:is([data-slot=\"search\"] [data-part=\"search.field\"], [data-part=\"episodes.search\"] > [data-part=\"input\"]):is(:focus, :focus-visible),\n:scope:not(.gamemode) :is([data-slot=\"search\"] [data-part=\"search.field\"], [data-part=\"episodes.search\"] > [data-part=\"input\"]):hover { box-shadow: 0 0 0 2px var(--cd-brand); }\n/* Crunchy Deck's poster grid: three across on the Deck, five and six on wide windows, each poster\n   filling its column (the fixed row-card width overlapped the narrower columns). */\n:is([data-slot=\"search\"] [data-part=\"search.grid\"], [data-slot=\"browse\"] [data-part=\"browse.grid\"], [data-slot=\"listing\"] [data-part=\"listing.grid\"]) { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: calc(28 * var(--cd)) calc(20 * var(--cd)) !important; }\n@media (min-width: 1280px) { :scope:not(.gamemode) :is([data-slot=\"search\"] [data-part=\"search.grid\"], [data-slot=\"browse\"] [data-part=\"browse.grid\"], [data-slot=\"listing\"] [data-part=\"listing.grid\"]) { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; } }\n@media (min-width: 1536px) { :scope:not(.gamemode) :is([data-slot=\"search\"] [data-part=\"search.grid\"], [data-slot=\"browse\"] [data-part=\"browse.grid\"], [data-slot=\"listing\"] [data-part=\"listing.grid\"]) { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; } }\n:is([data-slot=\"search\"] [data-part=\"search.grid\"], [data-slot=\"browse\"] [data-part=\"browse.grid\"], [data-slot=\"listing\"] [data-part=\"listing.grid\"]) [data-part=\"card\"] { width: 100% !important; }\n:is([data-slot=\"search\"] [data-part=\"search.grid\"], [data-slot=\"browse\"] [data-part=\"browse.grid\"], [data-slot=\"listing\"] [data-part=\"listing.grid\"]) [data-part=\"card\"] [data-part=\"card.art\"] { height: auto; aspect-ratio: 195 / 290 !important; }\n/* Browse's categories down the side: Crunchy Deck's menu rows (orange-tinted and ringed in orange when\n   focused, the chosen one in orange) instead of izumi's white focus ring. */\n[data-slot=\"browse\"] [data-part=\"browse.category\"] { border-radius: calc(10 * var(--cd)); }\n[data-slot=\"browse\"] [data-part=\"browse.category\"][data-state=\"active\"] { background: transparent; color: var(--cd-brand); }\n[data-slot=\"browse\"] [data-part=\"browse.category\"]:is(:focus, :focus-visible), :scope:not(.gamemode) [data-slot=\"browse\"] [data-part=\"browse.category\"]:hover {\n  outline: none !important;\n  background: rgb(244 117 33 / 0.15);\n  color: #fff;\n  box-shadow: inset 0 0 0 1.5px var(--cd-brand) !important;\n}\n[data-slot=\"browse\"] [data-part=\"browse.category\"][data-state=\"active\"]:is(:focus, :focus-visible) { color: var(--cd-brand); }\n/* A title the source flags as new: Crunchy Deck's orange \"NEW\" tag in the poster's top-left corner. */\n[data-part=\"card.badge\"][data-variant=\"new\"] {\n  top: calc(8 * var(--cd)); bottom: auto; left: calc(8 * var(--cd));\n  padding: calc(2 * var(--cd)) calc(6 * var(--cd));\n  border-radius: calc(4 * var(--cd));\n  background: var(--cd-brand); color: #000; box-shadow: none; backdrop-filter: none;\n  font-size: calc(10 * var(--cd)); font-weight: 900; letter-spacing: 0.05em;\n}\n/* Categories: Crunchy Deck's chip wall; the focused chip turns orange. */\n:is([data-slot=\"categories\"] [data-part=\"categories.title\"], [data-slot=\"listing\"] [data-part=\"listing.title\"]) { font-size: calc(24 * var(--cd)); }\n:is([data-slot=\"categories\"] [data-part=\"categories.chip\"], [data-slot=\"listing\"] [data-part=\"listing.chip\"]) { background: rgb(30 30 30 / 0.9); color: rgb(255 255 255 / 0.85); padding: calc(10 * var(--cd)) calc(20 * var(--cd)); font-size: calc(14 * var(--cd)); }\n:is([data-slot=\"categories\"] [data-part=\"categories.chip\"], [data-slot=\"listing\"] [data-part=\"listing.chip\"]):is(:focus, :focus-visible), :scope:not(.gamemode) :is([data-slot=\"categories\"] [data-part=\"categories.chip\"], [data-slot=\"listing\"] [data-part=\"listing.chip\"]):hover {\n  outline: none !important;\n  background: var(--cd-brand);\n  color: #000;\n  box-shadow: 0 0 0 2px var(--cd-brand) !important;\n}\n[data-part=\"search.empty\"] { padding: 0; border-radius: 0; background: transparent; color: rgb(255 255 255 / 0.4); font-size: calc(14 * var(--cd)); text-align: left; }\n[data-part=\"search.empty\"][data-state=\"none\"] { color: rgb(255 255 255 / 0.5); }\n\n/* ---- Home while it loads (Crunchy Deck's: an inset rounded banner over poster rows) ----------- */\n[data-slot=\"home.hero\"][data-state=\"loading\"] {\n  height: 42vh !important;\n  min-height: 0 !important;\n  max-height: none !important;\n  aspect-ratio: auto !important;\n  margin: calc(40 * var(--cd)) calc(40 * var(--cd)) calc(32 * var(--cd));\n  border-radius: calc(12 * var(--cd));\n}\n[data-part=\"row.pending\"] { padding-inline: calc(40 * var(--cd)) !important; }\n[data-part=\"row.pending\"][data-state=\"loading\"] { margin-bottom: calc(32 * var(--cd)); }\n[data-part=\"row.pending\"] [data-part=\"row.skeleton\"] { width: calc(195 * var(--cd)) !important; border-radius: calc(12 * var(--cd)); }\n\n/* ---- Title page while it loads (Crunchy Deck's series skeleton) ------------------------------- */\n[data-part=\"detail.skeleton.banner\"] { height: 58vh !important; }\n[data-part=\"detail.skeleton.copy\"] { bottom: calc(32 * var(--cd)) !important; left: calc(40 * var(--cd)) !important; max-width: 55% !important; }\n[data-part=\"detail.skeleton.title\"] { width: calc(320 * var(--cd)) !important; height: calc(40 * var(--cd)) !important; margin-bottom: calc(12 * var(--cd)) !important; }\n[data-part=\"detail.skeleton.title\"][data-state=\"known\"] { width: auto !important; height: auto !important; font-size: calc(36 * var(--cd)) !important; line-height: 1.1 !important; }\n[data-part=\"detail.skeleton.line\"] { height: calc(14 * var(--cd)) !important; margin-bottom: calc(8 * var(--cd)) !important; }\n[data-part=\"detail.skeleton.button\"] { width: calc(176 * var(--cd)) !important; height: calc(48 * var(--cd)) !important; margin-top: calc(20 * var(--cd)) !important; border-radius: calc(8 * var(--cd)) !important; }\n[data-part=\"detail.skeleton.episodes\"] { gap: calc(28 * var(--cd)) calc(20 * var(--cd)) !important; padding: calc(12 * var(--cd)) calc(40 * var(--cd)) calc(64 * var(--cd)) !important; }\n[data-part=\"detail.skeleton.episode\"] { border-radius: calc(8 * var(--cd)) !important; }\n\n/* ---- Title options menu (☰ on a series page) --------------------------------------------------- */\n[data-part=\"options.panel\"] { width: calc(400 * var(--cd)); border-left: 0; background: #141519; }\n[data-part=\"options.title\"] { padding: calc(32 * var(--cd)) calc(24 * var(--cd)) calc(12 * var(--cd)); font-size: calc(20 * var(--cd)); font-weight: 700; }\n[data-part=\"options.list\"] { padding: 0 calc(12 * var(--cd)) calc(12 * var(--cd)); }\n[data-part=\"options.heading\"] { padding: calc(16 * var(--cd)) calc(12 * var(--cd)) calc(4 * var(--cd)); color: rgb(255 255 255 / 0.5); font-size: calc(12 * var(--cd)); letter-spacing: 0.08em; }\n[data-part=\"options.item\"] { min-height: calc(52 * var(--cd)); gap: calc(16 * var(--cd)); border-radius: calc(8 * var(--cd)); padding-inline: calc(12 * var(--cd)); font-size: calc(16 * var(--cd)); font-weight: 700; }\n[data-part=\"options.item\"]:focus-visible { background: rgb(255 255 255 / 0.1); color: #fff; box-shadow: inset calc(4 * var(--cd)) 0 0 var(--cd-brand); }\n[data-part=\"options.item\"]:focus-visible [data-part=\"options.item.icon\"] { color: var(--cd-brand); }\n[data-part=\"options.item.detail\"] { font-size: calc(12 * var(--cd)); }\n[data-part=\"options.hints\"] { padding: calc(14 * var(--cd)) calc(24 * var(--cd)); font-size: calc(14 * var(--cd)); }\n\n/* ---- Game mode ----------------------------------------------------------------------------- */\n/* The Deck's WebKitGTK drops a transition's compositor layer when it ends and can paint a frame\n   without it: a visible blink. In Game mode the theme's own parts change state at once instead. */\n:scope.gamemode :is([data-slot=\"nav.drawer\"] [data-part=\"nav.item\"], [data-slot=\"nav.drawer\"] [data-part=\"nav.item.icon\"],\n  [data-part=\"nav.drawer.foot\"] [data-part=\"nav.action\"], [data-part=\"cd-hero-art\"] img, [data-part=\"cd-play\"], [data-part=\"cd-details\"],\n  [data-slot=\"home.hero\"] [data-part=\"hero.dot.track\"], [data-slot=\"home.hero\"] [data-part=\"hero.edge\"], [data-part=\"card\"] > a,\n  [data-part=\"season\"], [data-part=\"episodes.sort\"] > button, [data-slot=\"episodes.toolbar\"] button:is([data-part=\"episodes.search\"], [data-part=\"episodes.download\"]),\n  [data-part=\"cd-ep-art\"], [data-part=\"cd-ep-still\"] img, [data-part=\"cd-ep-hover\"],\n  [data-part=\"detail.actions\"] > [data-action], [data-part=\"detail.backdrop\"]) { transition: none !important; }\n/* :is() cannot hold a pseudo-element, so the card's play icon needs its own rule. */\n:scope.gamemode [data-part=\"card\"] > a [data-part=\"card.art\"]::after { transition: none !important; }\n/* ...but focus still eases in, as Crunchy Deck's does: izumi writes --izumi-focus (0 to 1 over 150 ms) on the\n   focused card from script, with no transition and no compositor layer to drop. */\n:scope.gamemode [data-part=\"card\"] > a {\n  transform: scale(calc(1 + 0.05 * var(--izumi-focus, 0)));\n  box-shadow: 0 0 0 3px rgb(244 117 33 / var(--izumi-focus, 0)), 0 14px 34px rgb(0 0 0 / calc(0.65 * var(--izumi-focus, 0))) !important;\n}\n:scope.gamemode [data-part=\"card\"] > a [data-part=\"card.art\"]::after { opacity: var(--izumi-focus, 0); }\n:scope.gamemode [data-part=\"episode\"] [data-part=\"cd-ep-art\"] { box-shadow: 0 0 0 2px rgb(244 117 33 / var(--izumi-focus, 0)); }\n:scope.gamemode [data-part=\"episode\"] [data-part=\"cd-ep-still\"] img { transform: scale(calc(1 + 0.05 * var(--izumi-focus, 0))); }\n:scope.gamemode [data-part=\"episode\"] [data-part=\"cd-ep-hover\"] { opacity: var(--izumi-focus, 0); }\n\n/* ---- Player ------------------------------------------------------------------------------- */\n/* Crunchy Deck's watch screen on izumi's desktop player. Game mode keeps izumi's own player: mpv draws\n   its seek bar, knob, spinner and focus fill in the theme's orange primary, and the stylesheet stops at\n   its controls, Skip button, Up Next card and media menu (data-theme-unthemed), so nothing below\n   reaches Game mode. The controls rules name the desktop variant: the Android player's hooks share\n   these names with a different layout. */\n/* Crunchy Deck's big, calm loading ring from the press to the picture: 84 screen px with a 4.5 px stroke\n   (a 56 px ring with a 3 px border at its 1.5 zoom). Game mode's native ring follows the same two. */\n:scope {\n  --theme-player-spinner-size: 84px;\n  --theme-player-spinner-stroke: 4.5px;\n}\n:scope {\n  --cd-skip-icon: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m6%2017%205-5-5-5%27%2F%3E%3Cpath%20d%3D%27m13%2017%205-5-5-5%27%2F%3E%3C%2Fsvg%3E\");\n}\n/* Top bar: a deeper shade and Crunchy Deck's round 44px Back (the label hides; aria-label keeps the name). */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.top\"] { padding-bottom: calc(48 * var(--cd)); background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.8), transparent); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"back\"] {\n  width: calc(44 * var(--cd));\n  height: calc(44 * var(--cd));\n  justify-content: center;\n  gap: 0;\n  padding: 0;\n  border-radius: 9999px;\n  background: rgb(0 0 0 / 0.4);\n  font-size: 0;\n}\n/* Bottom bar: Crunchy Deck's px-8 pb-6 pt-16 over a black/90 to black/60 shade. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.bottom\"] {\n  padding: calc(64 * var(--cd)) calc(32 * var(--cd)) calc(24 * var(--cd));\n  background-image: linear-gradient(to top, rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.6), transparent);\n}\n/* Title block: the series in 20px black, the episode line in 14px white/70. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.title\"] { font-size: calc(20 * var(--cd)); font-weight: 900; line-height: calc(28 * var(--cd)); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode\"] { font-size: calc(14 * var(--cd)); line-height: calc(20 * var(--cd)); color: rgb(255 255 255 / 0.7); }\n/* With player.title \"episode\": Crunchy Deck's \"S1 E3 · Name\", the numbers in orange. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode.number\"],\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode\"][data-season]:has(> [data-part=\"player.episode.number\"])::before { color: var(--cd-brand); font-weight: 600; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode\"][data-season]:has(> [data-part=\"player.episode.number\"])::before { content: \"S\" attr(data-season) \" E\" attr(data-season-episode); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode\"][data-season] [data-part=\"player.episode.number\"] { display: none; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.episode.name\"]::before { content: \"·\"; margin: 0 calc(6 * var(--cd)) 0 calc(2 * var(--cd)); color: rgb(255 255 255 / 0.4); }\n/* Seek bar: a 32px hit area, a 6px round track (10px under the pointer or focus), the buffer in\n   white/30 and the played part and a 16px knob in orange. The track's box clips its layers, so it\n   grows and every layer (the unhooked hover preview too) fills it. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"] { min-height: calc(32 * var(--cd)); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"] div:has(> [data-part=\"player.seekbar.track\"]) { height: calc(6 * var(--cd)); border-radius: 9999px; transition: height 150ms; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"]:is(:hover, :focus) div:has(> [data-part=\"player.seekbar.track\"]) { height: calc(10 * var(--cd)); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"] div:has(> [data-part=\"player.seekbar.track\"]) > * { height: 100%; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.track\"] { background: rgb(255 255 255 / 0.2); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.buffer\"] { background: rgb(255 255 255 / 0.3); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.fill\"] { background: var(--cd-brand); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.knob\"] {\n  width: calc(16 * var(--cd));\n  height: calc(16 * var(--cd));\n  background: var(--cd-brand);\n  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);\n  transition: opacity 150ms;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar\"]:is(:hover, :focus) [data-part=\"player.seekbar.knob\"],\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.seekbar.knob\"][data-scrubbing] { opacity: 1; }\n/* Times: 12px mono, the elapsed time in white/80 and the total (or time left) in white/60. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.time\"] { font-size: calc(12 * var(--cd)); color: rgb(255 255 255 / 0.8); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.time\"]:is([data-variant=\"total\"], [data-variant=\"remaining\"]) { color: rgb(255 255 255 / 0.6); }\n/* Button row: 12px under the bar, 8px apart, Play first, 44px round buttons and a 48px Play. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.row\"] { margin-top: calc(12 * var(--cd)); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.row\"], [data-part=\"player.transport\"], [data-part=\"player.actions\"]) { gap: calc(8 * var(--cd)); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.transport\"] > [data-control=\"play\"] { order: -1; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.control\"] {\n  width: calc(44 * var(--cd));\n  height: calc(44 * var(--cd));\n  border-radius: 9999px;\n  color: rgb(255 255 255 / 0.9);\n  transition: background-color 150ms, color 150ms;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"play\"] { width: calc(48 * var(--cd)); height: calc(48 * var(--cd)); color: #fff; transition: background-color 150ms, color 150ms; }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-control=\"play\"] svg { width: calc(24 * var(--cd)); height: calc(24 * var(--cd)); }\n/* Audio and Subtitles as words (player.trackButtons \"text\") are Crunchy Deck's text buttons, sized to\n   the word: 12px across, 8px down, 14px semibold, 6px corners. The 44px circle cut \"Subtitles\" off. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.control\"]:is([data-control=\"audio\"], [data-control=\"subtitles\"]) {\n  width: auto;\n  height: auto;\n  padding: calc(8 * var(--cd)) calc(12 * var(--cd));\n  border-radius: calc(6 * var(--cd));\n  font-size: calc(14 * var(--cd));\n  line-height: calc(20 * var(--cd));\n  font-weight: 600;\n  white-space: nowrap;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.control\"]:hover { background: rgb(255 255 255 / 0.2); }\n/* Focus (keyboard, or a controller outside Game mode) fills any button orange with a black glyph, as\n   Crunchy Deck's Play and Back and Game mode's own buttons do; Play and Back fill on hover too. */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.control\"], [data-part=\"button\"][data-control]):focus-visible,\n:scope.controller-mode [data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-part=\"player.control\"], [data-part=\"button\"][data-control]):focus,\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] :is([data-control=\"play\"], [data-control=\"back\"]):hover {\n  outline: none;\n  transform: none;\n  background: var(--cd-brand);\n  color: #000;\n  box-shadow: none;\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.volume\"] { accent-color: var(--cd-brand); }\n/* Options and audio/subtitles menus: Crunchy Deck's 256px panel in surface-1/95 with a white/10 ring;\n   rows lift to white/15, and the focused row gets the house orange edge (options.item). */\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.menu\"] {\n  width: calc(256 * var(--cd));\n  border: 0;\n  border-radius: calc(12 * var(--cd));\n  background: rgb(20 20 20 / 0.95);\n  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1), 0 25px 50px -12px rgb(0 0 0 / 0.25);\n}\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.menu\"] button { color: rgb(255 255 255 / 0.85); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.menu\"] button:hover { background: rgb(255 255 255 / 0.15); }\n[data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.menu\"] button:focus-visible,\n:scope.controller-mode [data-slot=\"player.controls\"][data-variant=\"desktop\"] [data-part=\"player.menu\"] button:focus {\n  outline: none;\n  transform: none;\n  background: rgb(255 255 255 / 0.15);\n  color: #fff;\n  box-shadow: inset calc(4 * var(--cd)) 0 0 var(--cd-brand);\n}\n/* Skip: Crunchy Deck's white pill with a double chevron, orange with a white/40 ring when chosen. */\nbutton[data-part=\"player.skip\"] {\n  border: 0;\n  border-radius: calc(6 * var(--cd));\n  padding: calc(10 * var(--cd)) calc(20 * var(--cd));\n  background: rgb(255 255 255 / 0.9);\n  color: #000;\n  font-size: calc(14 * var(--cd));\n  font-weight: 900;\n  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n}\nbutton[data-part=\"player.skip\"]::after {\n  content: '';\n  display: inline-block;\n  width: 1em;\n  height: 1em;\n  margin-left: 0.3em;\n  vertical-align: -0.15em;\n  background: var(--cd-skip-icon) center / contain no-repeat;\n}\nbutton[data-part=\"player.skip\"]:is(:hover, :focus-visible), :scope.controller-mode button[data-part=\"player.skip\"]:focus {\n  outline: none;\n  transform: none;\n  background: var(--cd-brand);\n  box-shadow: 0 0 0 calc(4 * var(--cd)) rgb(255 255 255 / 0.4), 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n}\n/* Up Next: Crunchy Deck's next-episode card, an 80x48 still beside the text, docked over the bottom\n   right corner without the dim (phone widths keep izumi's bottom placement). */\n@media (min-width: 640px) {\n  [role=\"dialog\"]:has(> [data-part=\"player.upnext\"]) {\n    align-items: flex-end;\n    justify-content: flex-end;\n    padding: 0 calc(32 * var(--cd)) calc(112 * var(--cd));\n    background: transparent;\n  }\n}\n[data-part=\"player.upnext\"] {\n  display: flex;\n  align-items: center;\n  gap: calc(12 * var(--cd));\n  width: auto;\n  padding: calc(12 * var(--cd)) calc(20 * var(--cd)) calc(12 * var(--cd)) calc(12 * var(--cd));\n  border: 0;\n  border-radius: calc(8 * var(--cd));\n  background: rgb(20 20 20 / 0.95);\n  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1), 0 25px 50px -12px rgb(0 0 0 / 0.25);\n}\n[data-part=\"player.upnext.art\"] { flex: none; width: calc(80 * var(--cd)); height: calc(48 * var(--cd)); border-radius: calc(4 * var(--cd)); }\n[data-part=\"player.upnext.art\"] > :not(img) { display: none; }\n[data-part=\"player.upnext\"] > :has(> [data-part=\"player.upnext.kicker\"]) { min-width: 0; padding: 0; }\n[data-part=\"player.upnext.kicker\"] { color: rgb(255 255 255 / 0.5); font-size: calc(12 * var(--cd)); font-weight: 600; letter-spacing: 0.025em; }\n[data-part=\"player.upnext.title\"] {\n  display: -webkit-box;\n  margin-top: 0;\n  overflow: hidden;\n  font-size: calc(14 * var(--cd));\n  font-weight: 700;\n  line-height: calc(20 * var(--cd));\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 1;\n}\n[data-part=\"player.upnext.countdown\"] { margin-top: 0; color: rgb(255 255 255 / 0.5); font-size: calc(12 * var(--cd)); }\n/* Its buttons: Crunchy Deck's small text buttons, Play now in orange. */\n[data-part=\"player.upnext\"] :has(> [data-control=\"upnext-play\"]) { flex-direction: row; justify-content: flex-start; gap: calc(8 * var(--cd)); margin-top: calc(12 * var(--cd)); }\n[data-part=\"player.upnext\"] [data-part=\"player.control\"] {\n  height: auto;\n  padding: calc(8 * var(--cd)) calc(12 * var(--cd));\n  border-radius: calc(6 * var(--cd));\n  font-size: calc(14 * var(--cd));\n  font-weight: 600;\n  transition: background-color 150ms, color 150ms, box-shadow 150ms;\n}\n[data-part=\"player.upnext\"] [data-control=\"upnext-stay\"] { color: rgb(255 255 255 / 0.9); }\n[data-part=\"player.upnext\"] [data-control=\"upnext-stay\"]:hover { background: rgb(255 255 255 / 0.2); }\n[data-part=\"player.upnext\"] [data-control=\"upnext-play\"] { background: var(--cd-brand); color: #000; font-weight: 700; }\n[data-part=\"player.upnext\"] [data-control=\"upnext-stay\"]:focus-visible, :scope.controller-mode [data-part=\"player.upnext\"] [data-control=\"upnext-stay\"]:focus { outline: none; background: var(--cd-brand); color: #000; box-shadow: none; }\n[data-part=\"player.upnext\"] [data-control=\"upnext-play\"]:is(:hover, :focus-visible), :scope.controller-mode [data-part=\"player.upnext\"] [data-control=\"upnext-play\"]:focus { outline: none; box-shadow: 0 0 0 calc(4 * var(--cd)) rgb(255 255 255 / 0.4); }\n"
+  }
+}

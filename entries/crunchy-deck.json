@@ -1,0 +1,58 @@
+{
+  "id": "crunchy-deck",
+  "name": "Crunchy Deck",
+  "version": "2.0.19",
+  "author": "nickEatsBread",
+  "description": "Inspired by Crunchy Deck's look: Crunchyroll orange on near-black, a slide-in menu instead of a top bar or rail, a tall featured banner with the title logo, Sub | Dub and the age rating, cards with their titles on the artwork, and season pills over an episode grid.",
+  "themeApi": 7,
+  "tags": [
+    "Dark",
+    "Drawer"
+  ],
+  "platforms": [
+    "desktop",
+    "phone"
+  ],
+  "project": "https://github.com/nickEatsBread/crunchydeck-for-izumi",
+  "download": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/packages/crunchy-deck/2.0.19.json",
+  "sha256": "f8f5b09eada6620672700e171a983c9c9b6496d7c12fd7f56ef9d25792ad568c",
+  "bytes": 61987,
+  "preview": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/desktop-home.jpg",
+  "screenshots": [
+    {
+      "screen": "home",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/desktop-home.jpg"
+    },
+    {
+      "screen": "series",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/desktop-series.jpg"
+    },
+    {
+      "screen": "search",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/desktop-search.jpg"
+    },
+    {
+      "screen": "schedule",
+      "platform": "desktop",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/desktop-schedule.jpg"
+    },
+    {
+      "screen": "home",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/phone-home.jpg"
+    },
+    {
+      "screen": "series",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/phone-series.jpg"
+    },
+    {
+      "screen": "search",
+      "platform": "phone",
+      "url": "https://raw.githubusercontent.com/nickEatsBread/izumi-themes/main/previews/crunchy-deck/phone-search.jpg"
+    }
+  ]
+}
